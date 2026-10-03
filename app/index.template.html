@@ -86,7 +86,7 @@ svg.i{width:18px;height:18px;flex:none;stroke:currentColor;fill:none;stroke-widt
 .card h3{margin:0 0 4px;font-size:15px;font-weight:600;display:flex;align-items:center;gap:8px}
 .card .sub{color:var(--ink-2);font-size:12.5px;margin:0 0 14px}
 .grid{display:grid;gap:16px}
-.grid>*,.layout>*,.content>section>*{min-width:0}
+.grid>*,.layout>*,.content>section>*,.pf-roadwrap>*,.lib>*,.pf-grid>*{min-width:0}
 .g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}.g5{grid-template-columns:repeat(5,minmax(0,1fr))}
 @media (max-width:1180px){.g5{grid-template-columns:repeat(3,minmax(0,1fr))}.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:1fr}}
 @media (max-width:760px){.g2,.g5,.g4{grid-template-columns:1fr 1fr}}
@@ -407,6 +407,138 @@ footer{color:var(--ink-3);font-size:12px;padding:20px 28px 40px;border-top:1px s
   .kpi .val{font-size:26px}
   .insight{flex-wrap:wrap}.insight>div{flex:1 1 220px}.insight .ask{margin-left:44px}
 }
+
+/* portfolio */
+.pf-kpi{border-top:3px solid var(--k)}
+.pf-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.pf-head h3{margin:0}
+.pf-road{margin-top:16px;background:radial-gradient(700px 200px at 0% 0%,color-mix(in srgb,var(--brand-2) 8%,transparent),transparent 70%),var(--card)}
+.pf-roadwrap{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:16px;align-items:center}
+@media (max-width:1100px){.pf-roadwrap{grid-template-columns:1fr}}
+.rm{width:100%;height:auto;display:block}
+.rm-y{font:600 12px var(--font);fill:var(--ink-2)}.rm-t{font:600 11px var(--font);fill:#fff}
+.rm-dot{cursor:pointer}.rm-dot circle{transition:r .15s}.rm-dot:hover circle{r:10}
+.pf-pend{border:1px dashed var(--line);border-radius:12px;padding:10px 12px;background:repeating-linear-gradient(135deg,transparent 0 8px,color-mix(in srgb,var(--pending) 6%,transparent) 8px 10px)}
+.pf-pend-h{display:flex;align-items:center;gap:8px;margin-bottom:6px;font-size:13px}
+.pf-pi{display:flex;justify-content:space-between;gap:10px;font-size:12px;padding:5px 2px;border-top:1px solid var(--line-2);cursor:pointer}
+.pf-pi span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.pf-pi:hover{color:var(--brand-2)}
+.pf-next{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
+@media (max-width:900px){.pf-next{grid-template-columns:1fr}}
+.pf-nx{display:flex;gap:12px;align-items:center;padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--card);cursor:pointer;transition:transform .15s,border-color .15s}
+.pf-nx:hover{transform:translateY(-2px);border-color:var(--nye)}
+.pf-cd{min-width:62px;height:62px;border-radius:14px;display:grid;place-content:center;text-align:center;color:#fff;background:linear-gradient(135deg,var(--nye),#7B5CF0)}
+.pf-cd b{font-size:20px;line-height:1}.pf-cd span{font-size:10.5px;opacity:.85}
+.pf-nt{font-weight:600;font-size:13px;line-height:1.35}.pf-nm{font-size:12px;color:var(--ink-2);margin-top:2px}
+.pf-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:16px;margin-top:16px;align-items:start}
+@media (max-width:1100px){.pf-grid{grid-template-columns:1fr}}
+.pf-heat{display:grid;gap:5px;align-items:center}
+.pf-ch{text-align:center;color:var(--brand-2);padding-bottom:4px}
+.pf-city{font-size:12.5px;font-weight:500;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:8px}
+.pf-city .av{width:9px;height:9px;border-radius:3px;background:var(--c)}
+.pf-city:hover{color:var(--brand-2)}
+.pf-cell{position:relative;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;gap:1px;font-weight:600;font-size:12.5px;font-variant-numeric:tabular-nums;
+ background:color-mix(in srgb,var(--applies) calc(var(--f)*72%),var(--soft));color:var(--ink);transition:transform .12s}
+.pf-cell:hover{transform:scale(1.06)}
+.pf-cell small{font-size:9.5px;opacity:.7}
+.pf-u{position:absolute;top:5px;right:5px;width:7px;height:7px;border-radius:50%;background:var(--unknown)}
+.pf-scale{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--ink-3)}
+.pf-scale i{width:90px;height:8px;border-radius:4px;background:linear-gradient(90deg,var(--soft),color-mix(in srgb,var(--applies) 72%,var(--soft)))}
+.pf-side .hbar{grid-template-columns:110px 1fr 34px}
+
+/* rule library */
+.lib{display:grid;grid-template-columns:270px minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:980px){.lib{grid-template-columns:1fr}}
+.lf{position:sticky;top:76px;padding:14px;max-height:calc(100vh - 96px);overflow:auto}
+@media (max-width:980px){.lf{position:static;max-height:none}}
+.lf-g{margin-top:14px}.lf-h{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}
+.lf-i{display:flex;align-items:center;gap:8px;width:100%;border:none;background:none;padding:6px 8px;border-radius:8px;cursor:pointer;text-align:left;font-size:12.5px;color:var(--ink)}
+.lf-i em{font-style:normal;flex:1;text-transform:capitalize;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lf-i span{font-size:11px;color:var(--ink-3);font-variant-numeric:tabular-nums;background:var(--soft);padding:0 7px;border-radius:999px}
+.lf-i:hover{background:var(--soft)}.lf-i[aria-pressed=true]{background:var(--brand-soft);color:var(--brand)}
+.lf-i:disabled{opacity:.4;cursor:default}.lf-i svg{color:var(--brand-2);width:16px;height:16px}
+.lf-i .dot{width:9px;height:9px;border-radius:3px;display:inline-block;flex:none}
+.lbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.lbar-r{display:flex;gap:10px;align-items:center}
+.lbar select{font:inherit;font-size:12.5px;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:9px;padding:6px 8px;margin-left:6px}
+.rcs{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(310px,100%),1fr));gap:14px}
+.rc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;box-shadow:var(--shadow);cursor:pointer;display:flex;flex-direction:column;gap:8px;transition:transform .15s,box-shadow .15s,border-color .15s;position:relative;overflow:hidden}
+.rc:before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,var(--brand-2),#7B5CF0)}
+.rc:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(20,33,58,.12);border-color:var(--brand-2)}
+.rc-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.rc-ic{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:var(--brand-soft);color:var(--brand-2)}
+.rc-id{font-weight:600;font-size:12px;color:var(--ink-2)}
+.rc h4{margin:0;font-size:14px;line-height:1.35}
+.rc-req{margin:0;font-size:12.5px;color:var(--ink-2);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.rc blockquote{font-size:12px;margin:0;padding:8px 10px}
+.rc-meta{display:flex;flex-wrap:wrap;gap:5px}.rc-meta .tag{font-weight:500}
+.rc-reach{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center;font-size:11.5px;color:var(--ink-2);margin-top:auto}
+.rc-reach .trk{height:6px;background:var(--soft);border-radius:3px;overflow:hidden}.rc-reach .trk i{display:block;height:100%;background:linear-gradient(90deg,var(--brand-2),#7B5CF0);border-radius:3px}
+.rc-reach b{color:var(--ink);font-variant-numeric:tabular-nums}
+/* sources & audit */
+.chain{margin-bottom:16px;background:radial-gradient(700px 220px at 100% 0%,color-mix(in srgb,#7B5CF0 10%,transparent),transparent 70%),var(--card)}
+.chain-row{display:flex;align-items:stretch;gap:8px;overflow-x:auto;padding-bottom:4px}
+.cn{flex:1;min-width:150px;border:1px solid var(--line);border-radius:14px;padding:14px;background:var(--card);display:flex;flex-direction:column;gap:2px}
+.cn-ic{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--brand-2),#7B5CF0);margin-bottom:6px}
+.cn-v{font-size:26px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.cn-l{font-size:12.5px;font-weight:600}.cn-s{font-size:11px;color:var(--ink-3);min-height:30px}
+.cn-bar{height:5px;border-radius:3px;background:var(--soft);overflow:hidden;margin-top:6px}.cn-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--brand-2),var(--applies))}
+.cn-ar{display:grid;place-items:center;color:var(--ink-3);font-size:18px}
+@media (max-width:760px){.cn-ar{display:none}}
+.cks{display:grid;gap:8px}
+.ck{display:flex;gap:10px;align-items:flex-start;padding:9px 10px;border-radius:10px;background:var(--soft);font-size:12.5px}
+.ck b{}.ck div div{color:var(--ink-2);font-size:12px;overflow-wrap:anywhere}
+.ck-i{width:24px;height:24px;border-radius:8px;display:grid;place-items:center;flex:none;color:#fff;background:var(--applies)}
+.ck.bad .ck-i{background:#C2413A}
+.docs{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(250px,100%),1fr));gap:12px}
+.doc-c{display:flex;flex-direction:column;gap:6px;padding:14px;border-radius:var(--r);border:1px solid var(--line);background:var(--card);box-shadow:var(--shadow);text-decoration:none;color:var(--ink);transition:transform .15s,border-color .15s}
+.doc-c:hover{transform:translateY(-2px);border-color:var(--brand-2)}
+.dc-top{display:flex;justify-content:space-between;gap:8px;align-items:center}
+.dc-j{font-weight:600;font-size:13.5px}.dc-h{font-size:12px;color:var(--brand-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dc-m{display:flex;justify-content:space-between;gap:8px;font-size:11.5px;color:var(--ink-3)}.dc-m span{display:inline-flex;gap:4px;align-items:center}.dc-m svg{width:13px;height:13px}
+/* portfolio fixes */
+.rm{max-height:230px}
+.pf-cell{white-space:nowrap}
+
+/* ---------- scale, default dark, motion ---------- */
+.shell{zoom:.92}
+.side{height:calc(100vh / .92)}
+.topbar{top:0}
+@media (max-width:980px){.shell{zoom:1}.side{height:auto}}
+@media (prefers-reduced-motion:no-preference){
+ .page .card,.page .rc,.page .doc-c,.page .pick,.page .cn,.page .step{animation:cardin .55s cubic-bezier(.2,.7,.2,1) both}
+ .page .grid>*:nth-child(2),.page .rcs>*:nth-child(2),.page .docs>*:nth-child(2),.page .chain-row>*:nth-child(3),.page .pipe>*:nth-child(2){animation-delay:.05s}
+ .page .grid>*:nth-child(3),.page .rcs>*:nth-child(3),.page .docs>*:nth-child(3),.page .chain-row>*:nth-child(5),.page .pipe>*:nth-child(3){animation-delay:.1s}
+ .page .grid>*:nth-child(4),.page .rcs>*:nth-child(4),.page .docs>*:nth-child(4),.page .chain-row>*:nth-child(7),.page .pipe>*:nth-child(4){animation-delay:.15s}
+ .page .grid>*:nth-child(5),.page .rcs>*:nth-child(5),.page .docs>*:nth-child(5),.page .chain-row>*:nth-child(9),.page .pipe>*:nth-child(5){animation-delay:.2s}
+ .page .rcs>*:nth-child(n+6),.page .docs>*:nth-child(n+6),.page .chain-row>*:nth-child(11){animation-delay:.25s}
+ @keyframes cardin{from{transform:translateY(14px) scale(.985)}to{transform:none}}
+ .hbar .trk i,.rc-reach .trk i,.cn-bar i,.minibar .trk i,.meter i{transform-origin:left;animation:grow .9s .15s cubic-bezier(.2,.7,.2,1) both}
+ @keyframes grow{from{transform:scaleX(0)}to{transform:none}}
+ .donut svg{animation:spinin .9s cubic-bezier(.2,.7,.2,1) both;transform-origin:center}
+ @keyframes spinin{from{transform:rotate(-70deg) scale(.86)}to{transform:none}}
+ .rm-dot circle{transform-box:fill-box;transform-origin:center;animation:pop .5s cubic-bezier(.2,1.6,.4,1) both}
+ .rm-dot:nth-child(3n) circle{animation-delay:.12s}.rm-dot:nth-child(3n+1) circle{animation-delay:.24s}
+ @keyframes pop{from{transform:scale(0)}to{transform:none}}
+ .pf-cell{animation:pop .45s cubic-bezier(.2,1.4,.4,1) both}
+ .pf-heat>.pf-cell:nth-child(odd){animation-delay:.08s}
+ .ev,.pf-pi,.ck,.lf-i{animation:slidein .45s cubic-bezier(.2,.7,.2,1) both}
+ .ck:nth-child(2n){animation-delay:.05s}.ck:nth-child(3n){animation-delay:.1s}
+ @keyframes slidein{from{transform:translateX(-10px)}to{transform:none}}
+ .ai-chip{background-size:200% 100%;background-image:linear-gradient(92deg,#3B5BC2,#7B5CF0,#3B5BC2);animation:sheen 4s linear infinite}
+ @keyframes sheen{to{background-position:-200% 0}}
+ .fab:after{content:"";position:absolute;inset:-4px;border-radius:999px;border:2px solid rgba(123,92,240,.55);animation:ring 2.4s ease-out infinite;pointer-events:none}
+ @keyframes ring{0%{transform:scale(.95);opacity:.9}80%,100%{transform:scale(1.18);opacity:0}}
+ .nav a[aria-current=page]{animation:navin .35s ease both}
+ @keyframes navin{from{transform:translateX(-6px)}to{transform:none}}
+ .kpi:after{animation:float 6s ease-in-out infinite alternate}
+ @keyframes float{to{transform:translate(-14px,10px) scale(1.15)}}
+ .hero:before{content:"";position:absolute;inset:-40%;background:conic-gradient(from 0deg,transparent,color-mix(in srgb,var(--brand-2) 10%,transparent),transparent 30%);animation:sweep 14s linear infinite;pointer-events:none}
+ @keyframes sweep{to{transform:rotate(360deg)}}
+ .layer{transition:transform .25s}.layer:hover{transform:translateX(6px)}
+ .msg{animation:cardin .35s cubic-bezier(.2,.7,.2,1) both}
+}
+.hero{position:relative;overflow:hidden}.hero>*{position:relative}
+.fab{position:fixed}
 </style>
 </head>
 <body>
@@ -600,7 +732,7 @@ $("#b-addr").textContent=props.length;$("#b-rules").textContent=DATA.rules.lengt
 
 /* ---------- theme ---------- */
 function setTheme(t){document.documentElement.dataset.theme=t;$("#theme").innerHTML=ico(t==="dark"?"i-sun":"i-moon");try{localStorage.setItem("strata-theme",t)}catch(e){}}
-try{const t=localStorage.getItem("strata-theme");if(t)setTheme(t)}catch(e){}
+{let t=null;try{t=localStorage.getItem("strata-theme")}catch(e){}setTheme(t||"dark")}
 $("#theme").onclick=()=>{const cur=document.documentElement.dataset.theme||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");setTheme(cur==="dark"?"light":"dark")};
 
 /* ---------- routing: #/page?addr=A0016&asof=2026-10-01&lang=es ---------- */
@@ -760,47 +892,88 @@ function renderChanges(){const el=$("#changes");const tests=Object.fromEntries((
   <p style="font-size:12.5px;color:var(--ink-2);margin:10px 0 0">${esc(c.notes)}</p>${t.expected_behavior?`<p style="font-size:12.5px;color:var(--ink-2);margin:6px 0 0"><b style="color:var(--ink)">${lang==="es"?"Esperado":"Expected"}:</b> ${esc(t.expected_behavior)}</p>`:""}</div>`}).join("")}</div></div>`}
 
 /* ---------- portfolio ---------- */
-function renderPortfolio(){const el=$("#portfolio");const R=DATA.rules;const latest=DATA.dates[DATA.dates.length-1];const reach=reachMap(latest);
+function renderPortfolio(){const el=$("#portfolio");const R=DATA.rules;const latest=DATA.dates[DATA.dates.length-1];const reach=reachMap(latest);const es=lang==="es";
  const norm=e=>e.length===4?e+"-01-01":e.length===7?e+"-01":e;
- const evs=R.filter(r=>r.effective_date).map(r=>({r,d:norm(r.effective_date)})).filter(x=>x.d>="2024-01-01").sort((a,b)=>b.d.localeCompare(a.d));
+ const evs=R.filter(r=>r.effective_date&&r.status!=="pending"&&r.status!=="failed").map(r=>({r,d:norm(r.effective_date)})).sort((a,b)=>a.d.localeCompare(b.d));
  const pend=R.filter(r=>r.status==="pending");
- const cell=(j,c)=>{const ps=props.filter(p=>p.jurisdiction===j);let a=0,u=0;ps.forEach(p=>{const es=entriesOf(p.address_id).filter(e=>rules[e.team_rule_id].category===c);if(es.some(e=>e.result==="applies"))a++;else if(es.some(e=>e.result==="unknown"))u++});return {a,u,n:ps.length}};
- const upcoming=evs.filter(x=>x.d>asof);const affectedUp=new Set(upcoming.flatMap(x=>[...(reach[x.r.team_rule_id]||[])]));
- const unk=props.filter(p=>entriesOf(p.address_id).some(e=>e.result==="unknown")).length;
- el.innerHTML=`<div class="page"><div class="grid g4">
-  ${[["i-building",cities.length,lang==="es"?"ciudades en la cartera":"cities in this portfolio"],["i-cal",affectedUp.size,lang==="es"?"edificios con cambios próximos":"buildings with an upcoming change"],["i-clock",pend.length,lang==="es"?"medidas pendientes a vigilar":"pending measures to watch"],["i-flag",unk,lang==="es"?"edificios donde falta un dato":"buildings where a missing fact matters"]]
-   .map(([ic,v,l])=>`<div class="card kpi"><div class="lab">${ico(ic)} ${l}</div><div class="val" data-to="${v}">0</div></div>`).join("")}</div>
- <div class="grid g2" style="margin-top:16px;align-items:start"><div class="card"><h3>${ico("i-layers")} ${lang==="es"?"Cobertura por ciudad y categoría":"Coverage by city × category"} · ${asof}</h3>
-  <p class="sub">${lang==="es"?"Edificios donde al menos una regla aplica (desconocido entre paréntesis). Toque una ciudad.":"Buildings where at least one rule applies (unknown in brackets). Click a city to open it."}</p>
-  <div class="wrap" style="box-shadow:none"><table class="mx"><thead><tr><th></th>${CATS.map(c=>`<th title="${esc(catName(c))}">${ico(CICON[c])}</th>`).join("")}</tr></thead><tbody>${cities.map(j=>`<tr><td><a href="#" data-city="${esc(j)}">${esc(j.replace(/, [A-Z]{2}$/,""))}</a></td>${CATS.map(c=>{const x=cell(j,c);const f=x.n?x.a/x.n:0;
-   return `<td><span class="heat" style="background:color-mix(in srgb,var(--applies) ${Math.round(6+f*40)}%,transparent)" data-tip="${esc(j)} · ${esc(catName(c))}: ${x.a}/${x.n} apply${x.u?`, ${x.u} unknown`:""}">${x.a}${x.u?` <small style="color:var(--warn)">(${x.u})</small>`:""}</span></td>`}).join("")}</tr>`).join("")}</tbody></table></div></div>
- <div class="card"><h3>${ico("i-cal")} ${lang==="es"?"Calendario de vigencia":"Effective-date timeline"}</h3><p class="sub">${lang==="es"?"Pendientes arriba; luego por fecha, la más reciente primero.":"Pending measures first, then by date, newest first. Buildings = how many it reaches."}</p>
-  <div class="tl">${pend.map(r=>`<div class="ev" style="--c:var(--pending)"><div class="d">${pill("pending")}</div><div class="tt">${esc(r.title)}</div><div class="mm">${esc(r.citation)} · ${(reach[r.team_rule_id]||new Set()).size} ${lang==="es"?"edificios si se aprueba":"buildings if enacted"}</div></div>`).join("")}
-  ${evs.slice(0,16).map(x=>`<div class="ev" style="--c:${x.d>asof?"var(--nye)":"var(--applies)"}"><div class="d">${esc(x.r.effective_date)} ${x.d>asof?`<span class="tag">${lang==="es"?"próximo":"upcoming"}</span>`:""}${x.r.conflict_flag?`<span class="pill" style="--c:var(--warn)">⚑</span>`:""}</div><div class="tt">${esc(x.r.title)}</div><div class="mm">${esc(x.r.jurisdiction)} · ${esc(x.r.citation)} · ${(reach[x.r.team_rule_id]||new Set()).size} ${lang==="es"?"edificios":"buildings"}</div></div>`).join("")}</div></div></div></div>`;
+ const up=evs.filter(x=>x.d>asof);const affectedUp=new Set(up.flatMap(x=>[...(reach[x.r.team_rule_id]||[])]));
+ const unkP=props.filter(p=>entriesOf(p.address_id).some(e=>e.result==="unknown"));
+ // roadmap geometry
+ const t0=new Date("2024-01-01"),t1=new Date("2028-01-01"),W=1000,H=200,X=d=>40+(W-80)*(new Date(d)-t0)/(t1-t0);
+ const shown=evs.filter(x=>x.d>="2024-01-01"&&x.d<"2028-01-01");const lanes=[];const lane=x=>{for(let i=0;i<5;i++){if(!lanes[i]||X(x.d)-lanes[i]>18){lanes[i]=X(x.d);return i}}return 4};
+ const dots=shown.map(x=>{const L=lane(x),fut=x.d>asof,n=(reach[x.r.team_rule_id]||new Set()).size;const cx=X(x.d),cy=128-L*22;
+  return `<g class="rm-dot" data-rid="${esc(x.r.team_rule_id)}" data-tip="${esc(x.r.effective_date)} · ${esc(x.r.title)} · ${n} buildings"><line x1="${cx}" x2="${cx}" y1="${cy}" y2="150" stroke="var(--line)" stroke-width="1"/><circle cx="${cx}" cy="${cy}" r="${5+Math.min(5,n/60)}" fill="${fut?"var(--nye)":"var(--applies)"}" stroke="var(--card)" stroke-width="2"${x.r.conflict_flag?' style="stroke:var(--warn);stroke-width:3"':""}/></g>`}).join("");
+ const years=[2024,2025,2026,2027].map(y=>`<text x="${X(y+"-01-01")+4}" y="176" class="rm-y">${y}</text><line x1="${X(y+"-01-01")}" x2="${X(y+"-01-01")}" y1="150" y2="160" stroke="var(--ink-3)"/>`).join("");
+ const today=`<line x1="${X(asof)}" x2="${X(asof)}" y1="18" y2="160" stroke="var(--brand-2)" stroke-width="2" stroke-dasharray="4 4"/><rect x="${X(asof)-34}" y="4" width="68" height="20" rx="10" fill="var(--brand-2)"/><text x="${X(asof)}" y="18" text-anchor="middle" class="rm-t">${es?"consulta":"as of"}</text>`;
+ const daysTo=d=>Math.round((new Date(d)-new Date(asof))/864e5);
+ const next=up.slice(0,3);const nextPend=pend.slice().sort((a,b)=>(reach[b.team_rule_id]?.size||0)-(reach[a.team_rule_id]?.size||0)).slice(0,Math.max(0,3-next.length));
+ // heatmap
+ const cell=(j,c)=>{const ps=props.filter(p=>p.jurisdiction===j);let a=0,u=0;ps.forEach(p=>{const e=entriesOf(p.address_id).filter(e=>rules[e.team_rule_id].category===c);if(e.some(x=>x.result==="applies"))a++;else if(e.some(x=>x.result==="unknown"))u++});return {a,u,n:ps.length}};
+ const missing={};unkP.forEach(p=>missing[p.jurisdiction]=(missing[p.jurisdiction]||0)+1);
+ el.innerHTML=`<div class="page">
+ <div class="grid g4 pf-kpis">${[["i-building",cities.length,es?"ciudades en la cartera":"cities in this portfolio","var(--brand-2)"],["i-cal",affectedUp.size,es?"edificios con cambios próximos":"buildings with an upcoming change","var(--nye)"],["i-clock",pend.length,es?"medidas pendientes a vigilar":"pending measures to watch","var(--pending)"],["i-flag",unkP.length,es?"edificios donde falta un dato":"buildings where a missing fact matters","var(--warn)"]]
+   .map(([ic,v,l,c])=>`<div class="card kpi pf-kpi" style="--k:${c}"><div class="lab">${ico(ic)} ${l}</div><div class="val" data-to="${v}">0</div></div>`).join("")}</div>
+ <div class="card pf-road"><div class="pf-head"><h3>${ico("i-cal")} ${es?"Hoja de ruta legal de la cartera":"Portfolio law roadmap"}</h3><div class="keys"><span><i style="--c:var(--applies)"></i>${es?"en vigor":"in force"}</span><span><i style="--c:var(--nye)"></i>${es?"próximo":"upcoming"}</span><span><i style="--c:var(--card);border:2px solid var(--warn)"></i>⚑ ${es?"revisión":"review"}</span><span style="color:var(--ink-3)">${es?"tamaño = edificios alcanzados":"size = buildings reached"}</span></div></div>
+  <div class="pf-roadwrap"><svg viewBox="0 -4 ${W} ${H-12}" class="rm" role="img" aria-label="Effective-date roadmap"><line x1="40" x2="${W-40}" y1="150" y2="150" stroke="var(--line)" stroke-width="2"/>${years}${today}${dots}</svg>
+   <div class="pf-pend"><div class="pf-pend-h">${pill("pending")} <b>${pend.length}</b><span style="margin-left:auto;font-size:11px;color:var(--ink-3)">${es?"edificios si se aprueba":"buildings if enacted"}</span></div>${pend.slice(0,4).map(r=>`<div class="pf-pi" data-rid="${esc(r.team_rule_id)}" data-tip="${esc(r.citation)}"><span>${esc(r.title)}</span><b>${(reach[r.team_rule_id]||new Set()).size}</b></div>`).join("")}</div></div>
+  <div class="pf-next">${next.map(x=>{const n=(reach[x.r.team_rule_id]||new Set()).size;const dd=daysTo(x.d);return `<div class="pf-nx" data-rid="${esc(x.r.team_rule_id)}"><div class="pf-cd"><b>${dd}</b><span>${es?"días":"days"}</span></div><div><div class="pf-nt">${esc(x.r.title)}</div><div class="pf-nm">${esc(x.r.jurisdiction)} · ${esc(x.r.effective_date)} · <b>${n}</b> ${es?"edificios":"buildings"}${x.r.conflict_flag?` · <span style="color:var(--warn)">⚑ ${T("review")}</span>`:""}</div></div></div>`}).join("")}${nextPend.map(r=>`<div class="pf-nx" data-rid="${esc(r.team_rule_id)}"><div class="pf-cd" style="background:repeating-linear-gradient(135deg,#7A8291 0 6px,#8a92a1 6px 9px)"><b>?</b><span>${es?"pendiente":"pending"}</span></div><div><div class="pf-nt">${esc(r.title)}</div><div class="pf-nm">${esc(r.citation)} · <b>${(reach[r.team_rule_id]||new Set()).size}</b> ${es?"edificios si se aprueba":"buildings if enacted"}</div></div></div>`).join("")}</div>
+ </div>
+ <div class="pf-grid">
+  <div class="card"><div class="pf-head"><h3>${ico("i-layers")} ${es?"Cobertura por ciudad y categoría":"Coverage by city × category"}</h3><span class="pf-scale"><span>0%</span><i></i><span>100%</span></span></div>
+   <p class="sub">${es?"% de edificios donde una regla aplica · ámbar = desconocido · toque una ciudad":"% of buildings where a rule applies · amber dot = some unknown · click a city to open it"}</p>
+   <div class="pf-heat" style="grid-template-columns:118px repeat(${CATS.length},1fr)"><span></span>${CATS.map(c=>`<span class="pf-ch" data-tip="${esc(catName(c))}">${ico(CICON[c])}</span>`).join("")}
+   ${cities.map(j=>`<a href="#" class="pf-city" data-city="${esc(j)}"><span class="av" style="--c:${cityColor(j)}"></span>${esc(j.replace(/, [A-Z]{2}$/,""))}</a>${CATS.map(c=>{const x=cell(j,c);const f=x.n?x.a/x.n:0;
+    return `<span class="pf-cell" style="--f:${f}" data-tip="${esc(j)} · ${esc(catName(c))}: ${x.a}/${x.n} apply${x.u?`, ${x.u} unknown`:""}">${Math.round(100*f)}<small>%</small>${x.u?`<i class="pf-u"></i>`:""}</span>`}).join("")}`).join("")}</div></div>
+  <div class="card pf-side"><h3>${ico("i-flag")} ${es?"Dónde falta un dato":"Where a missing fact matters"}</h3><p class="sub">${es?"Edificios con al menos una respuesta desconocida":"Buildings with at least one unknown answer, by city"}</p>
+   ${Object.entries(missing).sort((a,b)=>b[1]-a[1]).map(([j,n])=>{const tot=props.filter(p=>p.jurisdiction===j).length;return `<div class="hbar"><span class="lbl">${esc(j.replace(/, [A-Z]{2}$/,""))}</span><span class="trk"><i style="width:${100*n/tot}%;background:var(--unknown)" data-tip="${n}/${tot}"></i></span><span class="v">${n}</span></div>`}).join("")}
+   <div class="insight" style="margin:14px 0 0"><span class="spark">${ico("i-spark")}</span><div><span class="ai-chip">${T("insight")}</span><div style="margin-top:6px;font-size:13px">${es?"La mayoría de los desconocidos vienen de años de construcción ausentes (San Diego, Berkeley) o del año de corte; el registro público no tiene la fecha del certificado.":"Most unknowns come from missing year built (San Diego, Berkeley) or a cutoff-year building; the public record lacks the certificate date, so Strata does not guess."}</div></div></div></div>
+ </div></div>`;
  el.querySelectorAll(".val").forEach(countUp);
+ el.querySelectorAll("[data-rid]").forEach(x=>x.onclick=()=>openDrawer(x.dataset.rid));
  el.querySelectorAll("a[data-city]").forEach(a=>a.onclick=ev=>{ev.preventDefault();cityFilter=a.dataset.city;listPage=0;renderChips();go("lookup",props.find(p=>p.jurisdiction===cityFilter)?.address_id)})}
 
 /* ---------- rule library ---------- */
-function renderLibrary(){const el=$("#library");const R=DATA.rules;
- const f=R.filter(r=>(!lib.j||r.jurisdiction===lib.j)&&(!lib.c||r.category===lib.c)&&(!lib.s||r.status===lib.s)&&(!lib.q||`${r.team_rule_id} ${r.title} ${r.citation} ${r.requirement}`.toLowerCase().includes(lib.q.toLowerCase())));
- const pages=Math.max(1,Math.ceil(f.length/LIB_SIZE));lib.p=Math.min(lib.p,pages-1);const reach=reachMap(asof);
- const J=[...new Set(R.map(r=>r.jurisdiction))];
- el.innerHTML=`<div class="page"><div class="filters">
-  <div class="search"><svg class="i"><use href="#i-search"/></svg><input id="lq" type="search" value="${esc(lib.q)}" placeholder="${lang==="es"?"Buscar regla, cita o ID":"Search rule, citation or ID"}"></div>
-  <select id="lj"><option value="">${lang==="es"?"Todas las jurisdicciones":"All jurisdictions"}</option>${J.map(j=>`<option ${lib.j===j?"selected":""}>${esc(j)}</option>`).join("")}</select>
-  <select id="lc"><option value="">${lang==="es"?"Todas las categorías":"All categories"}</option>${CATS.map(c=>`<option value="${c}" ${lib.c===c?"selected":""}>${esc(catName(c))}</option>`).join("")}</select>
-  <select id="ls"><option value="">${lang==="es"?"Todos los estados":"All statuses"}</option>${["in_force","not_yet_effective","pending","failed"].map(s=>`<option ${lib.s===s?"selected":""}>${s}</option>`).join("")}</select>
-  <span class="count">${f.length} ${lang==="es"?"reglas":"rules"}</span></div>
- <div class="wrap"><table><thead><tr><th>ID</th><th>${lang==="es"?"Regla":"Rule"}</th><th>${lang==="es"?"Jurisdicción":"Jurisdiction"}</th><th>${lang==="es"?"Estado":"Status"} · ${asof}</th><th>${T("eff")}</th><th>${T("cite")}</th><th style="text-align:right">${lang==="es"?"Edificios":"Buildings"}</th></tr></thead><tbody>
- ${f.slice(lib.p*LIB_SIZE,(lib.p+1)*LIB_SIZE).map(r=>`<tr class="clk" data-rid="${esc(r.team_rule_id)}"><td class="mono"><b>${esc(r.team_rule_id)}</b></td><td><div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--brand-2);margin-top:2px">${ico(CICON[r.category])}</span><span><b>${esc(r.title)}</b><div style="font-size:12px;color:var(--ink-2)">${esc(catName(r.category))}</div></span></div></td><td>${esc(r.jurisdiction)}</td><td>${pill(STATUS_RES[r.status]||"pending").replace(/>[^<]*<\/span>$/,`>${esc(r.status.replaceAll("_"," "))}</span>`)}${r.conflict_flag?` <span style="color:var(--warn)" data-tip="${esc(r.conflict_note||"")}">⚑</span>`:""}</td><td class="mono">${esc(r.effective_date||"—")}</td><td style="font-size:12.5px">${esc(r.citation)}</td><td style="text-align:right;font-variant-numeric:tabular-nums">${(reach[r.team_rule_id]||new Set()).size}</td></tr>`).join("")||`<tr><td colspan="7" style="color:var(--ink-2)">—</td></tr>`}
- </tbody></table><div class="pager"><span>${f.length?lib.p*LIB_SIZE+1:0}–${Math.min(f.length,(lib.p+1)*LIB_SIZE)} ${T("of")} ${f.length}</span><span class="pg"><button ${lib.p===0?"disabled":""} data-p="${lib.p-1}">‹</button>${[...Array(pages).keys()].map(i=>`<button data-p="${i}" aria-current="${i===lib.p}">${i+1}</button>`).join("")}<button ${lib.p>=pages-1?"disabled":""} data-p="${lib.p+1}">›</button></span></div></div>
- <div class="sec-title"><h2>${lang==="es"?"Sin regla en este nivel":"No rule at this level"}</h2><p>${lang==="es"?"Hallazgos negativos, cada uno citado":"Negative findings, each one cited"}</p></div>
- <div class="grid g2">${(DATA.no_rule_findings||[]).map(x=>`<div class="card"><div class="tid">${ico("i-x")} ${esc(x.jurisdiction)} · ${esc(catName(x.category))}</div><p style="margin:6px 0 0">${esc(x.finding)}</p><blockquote>“${esc(x.quoted_span)}”</blockquote><div style="font-size:12px;color:var(--ink-2)">${T("source")}: <a href="${esc(x.source_url)}" target="_blank" rel="noopener">${esc(x.source_doc_id)}</a></div></div>`).join("")}</div></div>`;
+function renderLibrary(){const el=$("#library");const R=DATA.rules;const es=lang==="es";const reach=reachMap(asof);
+ lib.view=lib.view||"cards";lib.sort=lib.sort||"id";
+ const match=(r,skip)=>(skip==="j"||!lib.j||r.jurisdiction===lib.j)&&(skip==="c"||!lib.c||r.category===lib.c)&&(skip==="s"||!lib.s||r.status===lib.s)&&(!lib.q||`${r.team_rule_id} ${r.title} ${r.citation} ${r.requirement} ${r.quoted_span}`.toLowerCase().includes(lib.q.toLowerCase()));
+ let f=R.filter(r=>match(r));
+ const sorters={id:(a,b)=>0,reach:(a,b)=>(reach[b.team_rule_id]?.size||0)-(reach[a.team_rule_id]?.size||0),eff:(a,b)=>String(b.effective_date||"").localeCompare(String(a.effective_date||"")),conf:(a,b)=>b.confidence-a.confidence};
+ f=[...f].sort(sorters[lib.sort]);
+ const per=lib.view==="cards"?12:15;const pages=Math.max(1,Math.ceil(f.length/per));lib.p=Math.min(lib.p,pages-1);
+ const facet=(key,vals,label,fmt)=>`<div class="lf-g"><div class="lf-h">${label}</div>${vals.map(v=>{const n=R.filter(r=>match(r,key)&&(key==="j"?r.jurisdiction===v:key==="c"?r.category===v:r.status===v)).length;
+   return `<button class="lf-i" data-k="${key}" data-v="${esc(v)}" aria-pressed="${lib[key]===v}" ${n?"":"disabled"}>${fmt(v)}<span>${n}</span></button>`}).join("")}</div>`;
+ const J=[...new Set(R.map(r=>r.jurisdiction))];const maxReach=Math.max(1,...R.map(r=>reach[r.team_rule_id]?.size||0));
+ const statusPill=r=>pill(STATUS_RES[r.status]||"pending").replace(/>[^<]*<\/span>$/,`>${esc(r.status.replaceAll("_"," "))}</span>`);
+ const card=r=>{const n=reach[r.team_rule_id]?.size||0;return `<article class="rc" data-rid="${esc(r.team_rule_id)}" tabindex="0">
+   <div class="rc-top"><span class="rc-ic">${ico(CICON[r.category])}</span><span class="mono rc-id">${esc(r.team_rule_id)}</span>${statusPill(r)}${r.conflict_flag?`<span class="pill" style="--c:var(--warn)" data-tip="${esc(r.conflict_note||"")}">⚑</span>`:""}</div>
+   <h4>${esc(r.title)}</h4><p class="rc-req">${esc(es&&r.requirement_es?r.requirement_es:r.requirement)}</p>
+   <blockquote>“${esc(r.quoted_span.length>150?r.quoted_span.slice(0,150)+"…":r.quoted_span)}”</blockquote>
+   <div class="rc-meta"><span class="tag">${esc(r.jurisdiction)}</span><span class="tag">${esc(r.citation)}</span>${r.effective_date?`<span class="tag">${ico("i-cal")} ${esc(r.effective_date)}</span>`:""}</div>
+   <div class="rc-reach"><span>${es?"Edificios":"Buildings"} · ${asof}</span><span class="trk"><i style="width:${100*n/maxReach}%"></i></span><b>${n}</b></div></article>`};
+ el.innerHTML=`<div class="page"><div class="lib">
+  <aside class="lf card"><div class="search"><svg class="i"><use href="#i-search"/></svg><input id="lq" type="search" value="${esc(lib.q)}" placeholder="${es?"Buscar regla, cita, texto":"Search rule, citation, text"}"></div>
+   ${facet("c",CATS,es?"Categoría":"Category",v=>`${ico(CICON[v])}<em>${esc(catName(v))}</em>`)}
+   ${facet("s",["in_force","not_yet_effective","pending","failed"],es?"Estado":"Status",v=>`<i class="dot" style="background:${COLOR[STATUS_RES[v]]}"></i><em>${esc(v.replaceAll("_"," "))}</em>`)}
+   ${facet("j",J,es?"Jurisdicción":"Jurisdiction",v=>`<i class="dot" style="background:${v.length===2?"var(--brand-2)":cityColor(v)}"></i><em>${esc(v)}</em>`)}
+   ${lib.j||lib.c||lib.s||lib.q?`<button class="btn" id="lclear" style="width:100%;justify-content:center;margin-top:8px">${ico("i-x")} ${es?"Limpiar filtros":"Clear filters"}</button>`:""}
+  </aside>
+  <section><div class="lbar"><span class="count"><b>${f.length}</b> ${es?"reglas":"rules"}${lib.j||lib.c||lib.s||lib.q?` ${es?"de":"of"} ${R.length}`:""}</span>
+    <div class="lbar-r"><label class="count">${es?"Ordenar":"Sort"} <select id="lsort">${[["id","ID"],["reach",es?"Más edificios":"Most buildings"],["eff",es?"Vigencia reciente":"Newest effective date"],["conf",es?"Confianza":"Confidence"]].map(([k,l])=>`<option value="${k}" ${lib.sort===k?"selected":""}>${l}</option>`).join("")}</select></label>
+    <div class="seg"><button id="vcards" aria-pressed="${lib.view==="cards"}">${es?"Tarjetas":"Cards"}</button><button id="vtable" aria-pressed="${lib.view==="table"}">${es?"Tabla":"Table"}</button></div></div></div>
+   ${lib.view==="cards"?`<div class="rcs">${f.slice(lib.p*per,(lib.p+1)*per).map(card).join("")||`<div class="card">—</div>`}</div>`:
+   `<div class="wrap"><table><thead><tr><th>ID</th><th>${es?"Regla":"Rule"}</th><th>${es?"Jurisdicción":"Jurisdiction"}</th><th>${es?"Estado":"Status"}</th><th>${T("eff")}</th><th>${T("cite")}</th><th style="text-align:right">${es?"Edificios":"Buildings"}</th></tr></thead><tbody>
+   ${f.slice(lib.p*per,(lib.p+1)*per).map(r=>`<tr class="clk" data-rid="${esc(r.team_rule_id)}"><td class="mono"><b>${esc(r.team_rule_id)}</b></td><td><b>${esc(r.title)}</b><div style="font-size:12px;color:var(--ink-2)">${esc(catName(r.category))}</div></td><td>${esc(r.jurisdiction)}</td><td>${statusPill(r)}${r.conflict_flag?" ⚑":""}</td><td class="mono">${esc(r.effective_date||"—")}</td><td style="font-size:12.5px">${esc(r.citation)}</td><td style="text-align:right">${reach[r.team_rule_id]?.size||0}</td></tr>`).join("")}</tbody></table></div>`}
+   <div class="pager card" style="margin-top:14px;padding:10px 14px"><span>${f.length?lib.p*per+1:0}–${Math.min(f.length,(lib.p+1)*per)} ${T("of")} ${f.length}</span><span class="pg"><button ${lib.p===0?"disabled":""} data-p="${lib.p-1}">‹</button>${[...Array(pages).keys()].map(i=>`<button data-p="${i}" aria-current="${i===lib.p}">${i+1}</button>`).join("")}<button ${lib.p>=pages-1?"disabled":""} data-p="${lib.p+1}">›</button></span></div>
+  </section></div>
+ <div class="sec-title"><h2>${ico("i-x")} ${es?"Sin regla en este nivel":"No rule at this level"}</h2><p>${es?"Hallazgos negativos, cada uno citado":"Negative findings, each one cited"}</p></div>
+ <div class="grid g3">${[...new Map((DATA.no_rule_findings||[]).map(x=>[x.jurisdiction+x.quoted_span,x])).values()].map(x=>`<div class="card"><div class="tid">${esc(x.jurisdiction)} · ${esc(catName(x.category))}</div><p style="margin:6px 0 0;font-size:13.5px">${esc(x.finding)}</p><blockquote>“${esc(x.quoted_span)}”</blockquote><div style="font-size:12px;color:var(--ink-2)">${T("source")}: <a href="${esc(x.source_url)}" target="_blank" rel="noopener">${esc(x.source_doc_id)}</a></div></div>`).join("")}</div></div>`;
  const rer=()=>{lib.p=0;renderLibrary()};
  $("#lq").oninput=e=>{lib.q=e.target.value;clearTimeout(renderLibrary._t);renderLibrary._t=setTimeout(()=>{rer();const i=$("#lq");i.focus();i.setSelectionRange(i.value.length,i.value.length)},180)};
- $("#lj").onchange=e=>{lib.j=e.target.value;rer()};$("#lc").onchange=e=>{lib.c=e.target.value;rer()};$("#ls").onchange=e=>{lib.s=e.target.value;rer()};
- el.querySelectorAll(".pager button[data-p]").forEach(b=>b.onclick=()=>{lib.p=+b.dataset.p;renderLibrary()});
- el.querySelectorAll("tr[data-rid]").forEach(tr=>tr.onclick=()=>openDrawer(tr.dataset.rid))}
+ el.querySelectorAll(".lf-i").forEach(b=>b.onclick=()=>{const k=b.dataset.k;lib[k]=lib[k]===b.dataset.v?"":b.dataset.v;rer()});
+ $("#lclear")&&($("#lclear").onclick=()=>{lib.j=lib.c=lib.s=lib.q="";rer()});
+ $("#lsort").onchange=e=>{lib.sort=e.target.value;rer()};$("#vcards").onclick=()=>{lib.view="cards";rer()};$("#vtable").onclick=()=>{lib.view="table";rer()};
+ el.querySelectorAll(".pager button[data-p]").forEach(b=>b.onclick=()=>{lib.p=+b.dataset.p;renderLibrary();el.scrollIntoView({behavior:reduce?"auto":"smooth"})});
+ el.querySelectorAll("[data-rid]").forEach(x=>{x.onclick=()=>openDrawer(x.dataset.rid);x.onkeydown=e=>{if(e.key==="Enter")openDrawer(x.dataset.rid)}})}
 function openDrawer(rid){const r=rules[rid];const reach=reachMap(asof)[rid]||new Set();const c=r.coverage_conditions||{};const req=lang==="es"&&r.requirement_es?r.requirement_es:r.requirement;
  const dr=$("#drawer");dr.innerHTML=`<div class="dh"><div style="flex:1"><div class="tid">${ico(CICON[r.category])} ${esc(r.team_rule_id)} · ${esc(catName(r.category))}</div><h3>${esc(r.title)}</h3><div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">${pill(STATUS_RES[r.status]||"pending")}<span class="tag">${esc(r.jurisdiction)}</span><span class="tag">${esc(r.level)}</span>${r.conflict_flag?`<span class="pill" style="--c:var(--warn)">⚑ ${T("review")}</span>`:""}</div></div><button class="iconbtn" id="dclose" aria-label="Close">${ico("i-x")}</button></div>
  <div class="db"><p style="margin:0">${esc(req)}${r.key_value?` <b>${esc(r.key_value)}</b>`:""}</p><blockquote>“${esc(r.quoted_span)}”</blockquote>
@@ -821,21 +994,44 @@ function closeDrawer(){$("#drawer").classList.remove("on");$("#drawer").setAttri
 $("#scrim").onclick=closeDrawer;
 
 /* ---------- sources & audit ---------- */
-function renderSources(){const el=$("#sources");const S=DATA.sources||[];const used={};DATA.rules.forEach(r=>(r.supporting_docs||[r.source_doc_id]).forEach(d=>used[d]=(used[d]||0)+1));
- const lines=DATA.selfcheck?.lines||[];
- el.innerHTML=`<div class="page"><div class="grid g4">
-  ${[["i-db",S.length,lang==="es"?"documentos leídos":"documents read"],["i-book",Object.keys(used).length,lang==="es"?"documentos que respaldan reglas":"documents backing a rule"],["i-x",(DATA.link_only_sources||[]).length,lang==="es"?"enlaces no leídos (no usados)":"link-only, unread (never cited)"],["i-check",lines.filter(l=>l.startsWith("PASS")).length,lang==="es"?"verificaciones aprobadas":"self-checks passing"]]
-   .map(([ic,v,l])=>`<div class="card kpi"><div class="lab">${ico(ic)} ${l}</div><div class="val" data-to="${v}">0</div></div>`).join("")}</div>
- <div class="grid g2" style="margin-top:16px;align-items:start">
-  <div class="card"><h3>${ico("i-shield")} ${lang==="es"?"Autoverificación de esta versión":"Self-check of this build"}</h3><p class="sub">python run.py check</p>
-   <pre class="term">${lines.map(l=>l.startsWith("PASS")?`<span class="p">PASS</span>${esc(l.slice(4))}`:`<span class="f">FAIL</span>${esc(l.slice(4))}`).join("\n")||"run `python run.py check`"}</pre></div>
-  <div class="card"><h3>${ico("i-x")} ${lang==="es"?"Fuentes que no pudimos leer":"Sources we could not read"}</h3><p class="sub">${lang==="es"?"Listadas por transparencia; nunca citadas.":"Listed for transparency; never cited."}</p>
-   <div style="display:flex;flex-wrap:wrap;gap:6px">${(DATA.link_only_sources||[]).map(s=>`<span class="tag" data-tip="${esc(s.url||"")}">${esc(s.doc_id)} · ${esc(s.jurisdictions)}</span>`).join("")}</div></div></div>
- <div class="sec-title"><h2>${lang==="es"?"Documentos fuente":"Source documents"}</h2><p>${lang==="es"?"Cada uno con URL y fecha de obtención":"Each with URL and retrieval date"}</p></div>
- <div class="wrap" style="max-height:560px"><table><thead><tr><th>Doc</th><th>${lang==="es"?"Jurisdicción":"Jurisdiction"}</th><th>${lang==="es"?"Tipo":"Type"}</th><th>${T("retrieved")}</th><th style="text-align:right">${lang==="es"?"Caracteres":"Chars"}</th><th style="text-align:right">${lang==="es"?"Reglas":"Rules"}</th><th>URL</th></tr></thead><tbody>
- ${S.map(s=>`<tr><td class="mono"><b>${esc(s.doc_id)}</b></td><td>${esc(s.jurisdictions)}</td><td><span class="tag">${esc(s.source_type)}</span></td><td class="mono">${esc(s.retrieved)}</td><td style="text-align:right" class="mono">${(s.chars||0).toLocaleString()}</td><td style="text-align:right"><b>${used[s.doc_id]||0}</b></td><td style="max-width:320px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url)}</a></td></tr>`).join("")}</tbody></table></div></div>`;
- el.querySelectorAll(".val").forEach(countUp)}
-
+let src={q:"",t:"",p:0};
+function renderSources(){const el=$("#sources");const S=DATA.sources||[];const es=lang==="es";const A=DATA.audit||{stages:{},quote_checks:{}};
+ const used={};DATA.rules.forEach(r=>(r.supporting_docs||[r.source_doc_id]).forEach(d=>used[d]=(used[d]||0)+1));
+ const lines=DATA.selfcheck?.lines||[];const answers=props.reduce((a,p)=>a+entriesOf(p.address_id).length,0);
+ const applies=props.reduce((a,p)=>a+entriesOf(p.address_id).filter(e=>e.result==="applies").length,0);
+ const chain=[[ico("i-db"),S.length,es?"documentos leídos":"documents read",es?"con URL y fecha de obtención":"each with URL + retrieval date"],
+  [ico("i-spark"),(A.stages.extract||0)+(A.stages.rejected||0),es?"propuestas del modelo":"rules proposed by the model",es?"una llamada por documento":"one tool call per document"],
+  [ico("i-quote"),(A.quote_checks.exact||0)+(A.quote_checks.normalized||0),es?"citas encontradas":"quotes found in source",`${A.quote_checks.exact||0} exact · ${A.quote_checks.normalized||0} normalized · ${A.stages.rejected||0} rejected`],
+  [ico("i-layers"),DATA.rules.length,es?"reglas publicadas":"rules published",`${A.merged_records||0} ${es?"registros fusionados en":"records merged in"} ${A.stages.merge||0} ${es?"grupos":"groups"}`],
+  [ico("i-pin"),answers,es?"respuestas regla × dirección":"rule × address answers",`500 ${es?"direcciones":"addresses"} · ${asof}`],
+  [ico("i-check"),applies,es?"“aplica” con cita verificada":"“applies”, each with a verified quote","100%"]];
+ const mx=Math.max(...chain.map(c=>c[1]));
+ const types=[...new Set(S.map(s=>s.source_type.startsWith("fetched")?"fetched":s.source_type))];
+ const fs=S.filter(s=>(!src.t||(src.t==="fetched"?s.source_type.startsWith("fetched"):s.source_type===src.t))&&(!src.q||`${s.doc_id} ${s.jurisdictions} ${s.url}`.toLowerCase().includes(src.q.toLowerCase())));
+ const per=12,pages=Math.max(1,Math.ceil(fs.length/per));src.p=Math.min(src.p,pages-1);const maxc=Math.max(...S.map(s=>s.chars||0));
+ const checks=lines.map(l=>{const ok=l.startsWith("PASS");const body=l.slice(4).trim().replace(/\(?Counter\(\{([^}]*)\}\)\)?/g,(m,x)=>"("+x.replace(/'/g,"").replace(/_/g," ")+")");let h,rest;
+  if(body.includes(":")){[h,...rest]=body.split(":")}else{const w=body.split(" ");h=w.slice(0,2).join(" ");rest=[w.slice(2).join(" ")]}return `<div class="ck ${ok?"ok":"bad"}"><span class="ck-i">${ico(ok?"i-check":"i-x")}</span><div><b>${esc(h)}</b><div>${esc(rest.join(":").trim())}</div></div></div>`}).join("");
+ el.innerHTML=`<div class="page">
+ <div class="card chain"><div class="pf-head"><h3>${ico("i-shield")} ${es?"Cadena de evidencia":"Evidence chain"}</h3><span class="ai-chip">${es?"auditable de punta a punta":"auditable end to end"}</span></div>
+  <p class="sub">${es?"Cómo un documento público se convierte en una respuesta citada. Cada paso queda en out/audit_log.jsonl y cache/llm/.":"How a public document becomes a cited answer. Every step is recorded in out/audit_log.jsonl and cache/llm/."}</p>
+  <div class="chain-row">${chain.map(([ic,v,l,sub],i)=>`<div class="cn"><div class="cn-ic">${ic}</div><div class="cn-v" data-to="${v}">0</div><div class="cn-l">${l}</div><div class="cn-s">${esc(sub)}</div><div class="cn-bar"><i style="width:${Math.max(6,100*Math.log10(v+1)/Math.log10(mx+1))}%"></i></div></div>${i<chain.length-1?`<div class="cn-ar">→</div>`:""}`).join("")}</div></div>
+ <div class="pf-grid">
+  <div class="card"><div class="pf-head"><h3>${ico("i-check")} ${es?"Autoverificación de esta versión":"Self-check of this build"}</h3><span class="ok">${ico("i-check")} ${lines.filter(l=>l.startsWith("PASS")).length}/${lines.length} pass</span></div><p class="sub mono">python run.py check</p><div class="cks">${checks||"run `python run.py check`"}</div></div>
+  <div class="card"><h3>${ico("i-x")} ${es?"Fuentes que no pudimos leer":"Sources we could not read"}</h3><p class="sub">${es?"Listadas por transparencia; nunca citadas.":"Listed for transparency, never cited. Code publishers that refused, or pages with no law text."}</p>
+   <div style="display:flex;flex-wrap:wrap;gap:6px">${(DATA.link_only_sources||[]).filter(s=>!S.some(x=>x.doc_id===s.doc_id)).map(s=>`<a class="tag" href="${esc(s.url||"#")}" target="_blank" rel="noopener" data-tip="${esc(s.url||"")}">${esc(s.doc_id)} · ${esc(s.jurisdictions)}</a>`).join("")}</div></div></div>
+ <div class="sec-title"><h2>${ico("i-db")} ${es?"Documentos fuente":"Source documents"}</h2>
+  <div class="filters" style="margin:0"><div class="search" style="min-width:240px"><svg class="i"><use href="#i-search"/></svg><input id="sq" type="search" value="${esc(src.q)}" placeholder="${es?"Buscar documento o URL":"Search document or URL"}"></div>
+   <div class="chips" style="margin:0"><button data-t="" aria-pressed="${!src.t}">${T("all")} ${S.length}</button>${types.map(t=>`<button data-t="${esc(t)}" aria-pressed="${src.t===t}">${esc(t)} ${S.filter(s=>t==="fetched"?s.source_type.startsWith("fetched"):s.source_type===t).length}</button>`).join("")}</div></div></div>
+ <div class="docs">${fs.slice(src.p*per,(src.p+1)*per).map(s=>{const fetched=s.source_type.startsWith("fetched");let host="";try{host=new URL(s.url).hostname.replace(/^www\./,"")}catch(e){}
+  return `<a class="doc-c" href="${esc(s.url)}" target="_blank" rel="noopener"><div class="dc-top"><span class="mono"><b>${esc(s.doc_id)}</b></span><span class="tag" style="${fetched?"background:color-mix(in srgb,#7B5CF0 14%,transparent)":""}">${esc(fetched?"fetched page":s.source_type)}</span></div>
+   <div class="dc-j">${esc(s.jurisdictions)}</div><div class="dc-h">${esc(host)}</div>
+   <div class="dc-m"><span>${ico("i-cal")} ${esc(s.retrieved)}</span><span>${(s.chars||0).toLocaleString()} chars</span></div>
+   <div class="rc-reach"><span>${es?"Reglas respaldadas":"Rules backed"}</span><span class="trk"><i style="width:${Math.min(100,12*(used[s.doc_id]||0))}%"></i></span><b>${used[s.doc_id]||0}</b></div></a>`}).join("")}</div>
+ <div class="pager card" style="margin-top:14px;padding:10px 14px"><span>${fs.length?src.p*per+1:0}–${Math.min(fs.length,(src.p+1)*per)} ${T("of")} ${fs.length}</span><span class="pg"><button ${src.p===0?"disabled":""} data-p="${src.p-1}">‹</button>${[...Array(pages).keys()].map(i=>`<button data-p="${i}" aria-current="${i===src.p}">${i+1}</button>`).join("")}<button ${src.p>=pages-1?"disabled":""} data-p="${src.p+1}">›</button></span></div></div>`;
+ el.querySelectorAll(".cn-v").forEach(countUp);
+ $("#sq").oninput=e=>{src.q=e.target.value;src.p=0;clearTimeout(renderSources._t);renderSources._t=setTimeout(()=>{renderSources();const i=$("#sq");i.focus();i.setSelectionRange(i.value.length,i.value.length)},180)};
+ el.querySelectorAll(".chips button[data-t]").forEach(b=>b.onclick=()=>{src.t=b.dataset.t;src.p=0;renderSources()});
+ el.querySelectorAll(".pager button[data-p]").forEach(b=>b.onclick=()=>{src.p=+b.dataset.p;renderSources()})}
 /* ---------- method ---------- */
 function renderMethod(){const el=$("#method");const R=DATA.rules;const st={};R.forEach(r=>st[r.status]=(st[r.status]||0)+1);const J=[...new Set(R.map(r=>r.jurisdiction))];
  const steps=[["A","i-book","Extract","Claude reads each document through one schema-typed tool call and returns rules with machine-readable coverage. Raw outputs are cached: the audit trail."],
