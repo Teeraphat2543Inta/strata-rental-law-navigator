@@ -18,6 +18,7 @@ CACHE = ROOT / "cache"
 LLM_CACHE = CACHE / "llm"
 GEO_CACHE = CACHE / "geocode" / "census_places.json"
 OUT = ROOT / "out"
+DOCS = ROOT / "docs"                     # GitHub Pages copy of the app (tests point this elsewhere)
 AUDIT_LOG = OUT / "audit_log.jsonl"
 
 QUERY_DATE = os.environ.get("QUERY_DATE", "2026-10-01")

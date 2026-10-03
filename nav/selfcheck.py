@@ -105,6 +105,16 @@ def run():
     say(not t.get("affected_address_ids") and not ma_caps,
         f"T5 MA ballot question: affected={len(t.get('affected_address_ids', []))}, MA rent caps reported={len(ma_caps)} (expect 0, 0)")
 
+    # the published app must carry this build's data (guards against a stale or fixture bundle in docs/)
+    import re as _re
+    app = config.DOCS / "index.html"
+    if app.exists():
+        m = _re.search(r"const DATA = (\{.*?\});\n", app.read_text(), _re.S)
+        bundle = json.loads(m.group(1).replace("<\\/", "</")) if m else {}
+        same = len(bundle.get("rules", [])) == len(rules) and len(bundle.get("properties", [])) == len(props)
+        geo = sum(1 for p in bundle.get("properties", []) if p.get("lat"))
+        say(same and geo == sum(1 for p in props if p.get("lat")), f"published app (docs/index.html) carries this build: {len(bundle.get('rules', []))} rules, "
+                              f"{len(bundle.get('properties', []))} addresses, {geo} with coordinates")
     # temporal engine: the sweep-line timeline must reproduce the engine at every precomputed date
     from .engine import evaluate
     from .temporal import address_timeline

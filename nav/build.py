@@ -83,8 +83,8 @@ def render_app(bundle):
     tpl = (config.ROOT / "app" / "index.template.html").read_text()
     html = tpl.replace("/*__DATA__*/null", json.dumps(bundle, ensure_ascii=False).replace("</", "<\\/"))
     (config.OUT / "index.html").write_text(html)
-    (config.ROOT / "docs").mkdir(exist_ok=True)
-    (config.ROOT / "docs" / "index.html").write_text(html)      # GitHub Pages serves /docs
+    config.DOCS.mkdir(parents=True, exist_ok=True)
+    (config.DOCS / "index.html").write_text(html)      # GitHub Pages serves /docs
     print("  wrote out/index.html + docs/index.html (self-contained demo app)")
 
 
