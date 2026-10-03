@@ -3,7 +3,7 @@
 Runs the built app in headless Chromium and compares ENG.evaluate(...) with out/lookups for every
 address at every precomputed date, including explanations and conflict flags.
 Needs `pip install playwright && python -m playwright install chromium`; skipped otherwise.
-    python tests/test_engine_parity.py
+    python tests/e2e_engine_parity.py
 """
 import pathlib
 import sys

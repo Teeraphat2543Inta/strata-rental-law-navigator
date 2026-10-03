@@ -1,7 +1,7 @@
 PY ?= python3
 STARTER_PACK ?= $(HOME)/Downloads/pack_v5/participant-final-no-hour16
 
-.PHONY: setup geocode fetch extract build check score test all serve clean-out
+.PHONY: setup geocode fetch extract build check score test e2e all serve
 
 setup:            ## link the organizers' starter pack (not redistributed)
 	@[ -e starter_pack ] || ln -s "$(STARTER_PACK)" starter_pack
@@ -27,6 +27,11 @@ score:            ## self-score per auto-scored component
 
 test:             ## unit tests (no key, no network)
 	$(PY) -m unittest discover -s tests -p "test_units.py" -v
+
+e2e:              ## end-to-end pipeline with recorded model outputs + JS/Python engine parity
+	$(PY) tests/e2e_pipeline.py
+	$(PY) run.py build && $(PY) run.py check
+	$(PY) tests/e2e_engine_parity.py
 
 all: geocode extract build check score
 

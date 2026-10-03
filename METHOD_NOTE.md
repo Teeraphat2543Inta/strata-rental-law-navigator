@@ -17,7 +17,8 @@ trail.
 **Deterministic post-processing.** (1) Every quote is located in the source (exact → normalized with an index map →
 fuzzy ≥ 0.85) and replaced by the source's own characters; rules without a locatable quote are rejected and logged.
 (2) Records describing the same provision across sources are clustered (citation key, refined by an LLM grouping
-call) and merged; the most official source leads; disagreeing effective dates raise a conflict flag. (3) Conflicts
+call) and merged; the most official source leads; disagreeing effective dates raise a conflict flag, and a date stated only by a
+corroborating source is kept as a caveat. (3) Conflicts
 are typed (`effective_date`, `preemption`, `litigation`); other limitations become caveats. (4) A building cutoff
 stated on one page of an ordinance is inherited by rules from the same city, category and code chapter.
 (5) An official or code-publisher capture is always the primary source; a provision known only from law-firm
@@ -32,13 +33,13 @@ missing unit count or an owner-dependent exemption yields `unknown`. Where a cov
 rule that yields becomes `superseded`; where the local coverage is itself unknown, the state rule is `unknown`.
 
 **C · Change tracking.** For T1–T5 the engine is evaluated before and after each test's dates (or at its as-of date)
-and affected addresses are those whose result changes or that the measure reaches; possible preemption flags are
-raised only where both the state rule and a local rule of the same category reach the address (T3 → Jersey City and
-Hoboken only). Any document added with `run.py add-doc` is extracted unaided and reported as T6, T7…, comparing
+and affected addresses are those whose result changes or that the measure reaches; possible-preemption flags are
+raised where both the state rule and a local rule of the same category reach the address (T3 → Jersey City and
+Hoboken only), and answers from a rule with a typed conflict carry its flag. Any document added with `run.py add-doc` is extracted unaided and reported as T6, T7…, comparing
 results with and without it, now and once effective.
 
 **Validation.** `run.py check` (incl. a sweep-line timeline that matches direct evaluation at 2,000 address × date points): schema 95/95, quotes 95/95 verbatim, 7,535/7,535 `applies` answers backed by a
-verified quote, 500/500 addresses resolved, T1–T5 all pass. 24 unit tests and a 2,000-case parity test of the in-browser engine cover the quote verifier, coverage edge
+verified quote, 500/500 addresses resolved, T1–T5 all pass. 26 unit tests and a 2,000-case parity test of the in-browser engine cover the quote verifier, coverage edge
 cases (cutoff year, rolling exemption, precedence, city boundaries), time logic and record parsing. Spot checks:
 SF 1926 → SF ordinance applies, CA §1947.12 superseded; LA 1978 → unknown; Boston/Cambridge → no rent cap (cited);
 FAIR Act not yet effective on 2026-10-01, applies 2027-07-02, flagged only in Jersey City and Hoboken; nothing local

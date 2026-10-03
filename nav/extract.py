@@ -216,6 +216,8 @@ def status_on(rule: dict, as_of: str) -> str:
     eff = _date_key(rule.get("effective_date"))
     if eff and eff > as_of:
         return "not_yet_effective"
+    if raw == "not_yet_effective" and not eff:
+        return "not_yet_effective"   # enacted, effective date not stated: never assume it is already law
     return "in_force"
 
 
@@ -253,9 +255,15 @@ BUILDING_CUTOFFS = ("covered_if_built_on_or_before", "covered_if_built_after", "
 
 
 def _ordinance_key(citation):
-    """'L.A.M.C. § 151.00' -> '151', 'B.M.C. § 13.76.110' -> '13', 'S.F. Admin. Code ch. 37' -> '37'."""
-    m = re.search(r"(?:§|ch\.|chapter|sec\.)\s*(\d+)", citation or "", re.I)
-    return m.group(1) if m else None
+    """The code chapter a citation belongs to.
+    'ch. 37' -> '37', '§ 37.3' -> '37', '§ 151.00' -> '151', 'ch. 13.76' -> '13.76', '§ 13.76.110' -> '13.76'."""
+    m = re.search(r"(§|ch\.|chapter|sec\.)\s*(\d+)(?:\.(\d+))?(?:\.(\d+))?", citation or "", re.I)
+    if not m:
+        return None
+    kind, a, b, c = m.groups()
+    if c or (b and kind.lower().startswith("ch")):
+        return f"{a}.{b}"            # title.chapter(.section) and "ch. 13.76" name a chapter
+    return a
 
 
 def inherit_ordinance_coverage(rules):
@@ -270,6 +278,7 @@ def inherit_ordinance_coverage(rules):
         key = _ordinance_key(r["citation"])
         donors = [d for d in rules if d is not r and d["jurisdiction"] == r["jurisdiction"]
                   and d["category"] == r["category"] and key and _ordinance_key(d["citation"]) == key
+                  and (d.get("status_raw") or d.get("status")) not in ("pending", "failed")
                   and any(d["coverage_conditions"].get(k) for k in BUILDING_CUTOFFS)]
         if donors:
             d = donors[0]
@@ -372,6 +381,11 @@ def postprocess(raw_rules, raw_findings, docs_by_id, audit):
         notes = [r["conflict_note"] for r in recs
                  if r.get("conflict_note") and r.get("conflict_type", "none") != "none"]
         caveats = [r["caveat"] for r in recs if r.get("caveat")]
+        if dates and not best.get("effective_date"):
+            # the lead source is undated but a corroborating source states a date; keep it visible, don't adopt it
+            caveats.append("A corroborating source gives an effective date of " + ", ".join(
+                f"{_date_key(r.get('effective_date'))} ({r['_doc']})" for r in recs if r.get("effective_date"))
+                + "; the lead source does not state one.")
         if len(dates) > 1:
             notes.append("Sources give different effective dates: " + ", ".join(
                 f"{_date_key(r.get('effective_date'))} ({r['_doc']})" for r in recs if r.get("effective_date")))

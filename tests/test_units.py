@@ -77,6 +77,15 @@ class CoverageEngine(unittest.TestCase):
                                                                    "2026-10-01")}
         self.assertEqual(res, {"SF-RENT-01": "unknown", "CA-RENT-01": "unknown"})
 
+    def test_state_rules_reach_addresses_outside_covered_cities(self):
+        cap = rule("CA-RENT-01", "CA", "state")
+        oakland = prop(city=None, jurisdiction=None)
+        self.assertEqual([e["result"] for e in evaluate(oakland, [cap], "2026-10-01")], ["applies"])
+
+    def test_enacted_rule_without_date_is_not_assumed_in_force(self):
+        self.assertEqual(status_on({"status_raw": "not_yet_effective", "effective_date": None}, "2030-01-01"),
+                         "not_yet_effective")
+
     def test_city_rule_never_leaks_to_another_city(self):
         hob = rule("HOB-ALG-01", "Hoboken, NJ", cat="algorithmic_rent_setting")
         newark = prop(state="NJ", city="Newark", jurisdiction="Newark, NJ")
@@ -115,7 +124,9 @@ class BuildingFacts(unittest.TestCase):
 class OrdinanceCoverageInheritance(unittest.TestCase):
     def test_keys(self):
         self.assertEqual(_ordinance_key("L.A.M.C. § 151.00"), "151")
-        self.assertEqual(_ordinance_key("B.M.C. § 13.76.110"), "13")
+        self.assertEqual(_ordinance_key("B.M.C. § 13.76.110"), "13.76")
+        self.assertEqual(_ordinance_key("B.M.C. ch. 13.76"), "13.76")
+        self.assertEqual(_ordinance_key("S.F. Admin. Code § 37.3"), "37")
         self.assertEqual(_ordinance_key("S.F. Admin. Code ch. 37"), "37")
 
     def test_cutoff_is_inherited_within_one_ordinance_only(self):

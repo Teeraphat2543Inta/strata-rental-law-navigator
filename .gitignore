@@ -10,4 +10,4 @@ video_build/
 CLAUDE.md
 extra_docs/*.txt
 !tests/fixtures/extra/*.txt
-out/_rules_cache.json
+

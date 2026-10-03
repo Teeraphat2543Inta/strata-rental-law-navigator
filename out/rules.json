@@ -2085,7 +2085,7 @@
    "conflict_note": null,
    "status_raw": "in_force",
    "requirement_es": "En unidades con estabilización de rentas, el propietario solo puede aumentar la renta una vez cada 12 meses, según el porcentaje permitido por la ciudad. Desde el 2 de febrero de 2026 ya no se puede añadir un porcentaje por servicios públicos ni un 10% por un dependiente adicional; sí se permite un 10% por un inquilino adicional que no sea dependiente.",
-   "caveat": "Official page gives no specific percentage (linked PDF) and no original RSO effective date; February 2, 2026 changes are noted in the page. | The rate is adjusted yearly; the page states a period ending June 30, 2026, which had already passed at retrieval (2026-10-01), so the current rate may differ. The page does not cite the ordinance section (L.A.M.C. § 151.00 is inferred) or state building coverage. Also notes RSO ($1.61/mo) and SCEP ($2.83/mo) surcharge pass-throughs with written notice.",
+   "caveat": "Official page gives no specific percentage (linked PDF) and no original RSO effective date; February 2, 2026 changes are noted in the page. | The rate is adjusted yearly; the page states a period ending June 30, 2026, which had already passed at retrieval (2026-10-01), so the current rate may differ. The page does not cite the ordinance section (L.A.M.C. § 151.00 is inferred) or state building coverage. Also notes RSO ($1.61/mo) and SCEP ($2.83/mo) surcharge pass-throughs with written notice. | A corroborating source gives an effective date of 2025-07-01 (D042); the lead source does not state one.",
    "model_confidence": 0.85,
    "evidence_score": 0.891,
    "secondary_only": false,
