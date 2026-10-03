@@ -690,6 +690,22 @@ tr.cmp-diff td{background:color-mix(in srgb,#7B5CF0 7%,transparent)}
 .pm-next b{color:#fff;font-size:13px}.pm-badge{font-size:10px;font-weight:700;letter-spacing:.12em;color:#9FB6FF}
 .pane.on .pm-next{animation:cardin .6s .8s both}
 .pm-leg{display:flex;gap:14px;flex-wrap:wrap;font-size:11px;color:#9AA7C2}.pm-leg i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px}
+
+/* map motion */
+#leaf .mk{transform-box:fill-box;transform-origin:center;transition:transform .2s}
+#leaf .mk:hover{transform:scale(1.6)}
+@media (prefers-reduced-motion:no-preference){
+ #leaf .mk{animation:mkpop .6s cubic-bezier(.2,1.6,.4,1) both}
+ #leaf .mk-ring{transform-box:fill-box;transform-origin:center;animation:mkring 2.2s ease-out infinite}
+}
+@keyframes mkpop{from{transform:scale(0)}to{transform:none}}
+@keyframes mkring{0%{transform:scale(1);opacity:.9}100%{transform:scale(3.2);opacity:0}}
+.mleg{display:grid;gap:8px}
+.ml{display:grid;grid-template-columns:14px 1fr auto;gap:10px;align-items:center;padding:8px 10px;border-radius:10px;background:var(--soft);font-size:12.5px}
+.ml i{width:12px;height:12px;border-radius:50%;background:var(--c);box-shadow:0 0 0 4px color-mix(in srgb,var(--c) 20%,transparent)}
+.ml b{font-variant-numeric:tabular-nums;font-size:14px}
+#leaf{background:radial-gradient(circle at 50% 50%,#13203a,#0b1220)}
+.leaflet-fade-anim .leaflet-tile{transition:opacity .4s}
 </style>
 </head>
 <body>
@@ -1333,19 +1349,25 @@ function renderMap(){const el=$("#map");const es=lang==="es";
    <div id="leaf"></div></div></div>`;el.dataset.ready="1"}
  const chips=$("#mapchips");chips.innerHTML=[null,...cities].map(c=>`<button aria-pressed="${mapCity===c}" data-c="${esc(c??"")}">${esc(c?c.replace(/, [A-Z]{2}$/,""):(es?"Las 3 regiones":"All regions"))}</button>`).join("");
  chips.querySelectorAll("button").forEach(b=>b.onclick=()=>{mapCity=b.dataset.c||null;renderMap()});
- $(".map-leg").innerHTML=`<div class="keys" style="flex-wrap:wrap"><span><i style="--c:var(--applies)"></i>${es?"todo resuelto":"all answers resolved"}</span><span><i style="--c:var(--card);border:2px solid var(--unknown)"></i>${es?"algún desconocido":"some unknown"}</span><span><i style="--c:var(--nye)"></i>${es?"cambio próximo":"upcoming change"}</span></div>`;
+ 
  const pts=props.filter(p=>p.lat&&(!mapCity||p.jurisdiction===mapCity));$("#mapsub").textContent=`${pts.length} ${es?"edificios":"buildings"} · ${T("asof")} ${asof}`;
  if(!window.L){$("#leaf").innerHTML=`<div style="padding:30px;color:var(--ink-2)">${es?"El mapa necesita conexión a internet.":"The map needs an internet connection (Leaflet + map tiles)."}</div>`;return}
- if(!MAP){MAP=L.map("leaf",{zoomControl:true,attributionControl:true,scrollWheelZoom:true});
+ if(!MAP){MAP=L.map("leaf",{zoomControl:true,attributionControl:true,scrollWheelZoom:true}).setView([39.5,-98.5],4);
   L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}",{attribution:"Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap contributors",maxZoom:16}).addTo(MAP);
   L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}",{maxZoom:16}).addTo(MAP)}
  if(MAPL)MAPL.remove();MAPL=L.layerGroup().addTo(MAP);const later=DATA.dates.filter(d=>d>asof).pop();
- pts.forEach(p=>{const es_=entriesOf(p.address_id);const a=es_.filter(e=>e.result==="applies").length,u=es_.filter(e=>e.result==="unknown").length;
+ const cnt={ok:0,u:0,c:0};
+ pts.forEach((p,i)=>{const es_=entriesOf(p.address_id);const a=es_.filter(e=>e.result==="applies").length,u=es_.filter(e=>e.result==="unknown").length;
   const chg=later&&entriesOf(p.address_id,later).some(e=>!es_.find(x=>x.team_rule_id===e.team_rule_id&&x.result===e.result));
-  const m=L.circleMarker([p.lat,p.lon],{radius:4+a/4,color:u?"#E8A64C":(chg?"#6EA9EE":"#2FA77A"),weight:u?3:1.5,fillColor:chg?"#4F8FDB":"#2FA77A",fillOpacity:.75}).addTo(MAPL);
+  cnt[chg?"c":u?"u":"ok"]++;
+  if(chg){const ring=L.circleMarker([p.lat,p.lon],{radius:4+a/4,color:"#6EA9EE",weight:2,fill:false,interactive:false,className:"mk-ring"}).addTo(MAPL);const re=ring.getElement();if(re)re.style.animationDelay=`${(i%12)*.18}s`}
+  const m=L.circleMarker([p.lat,p.lon],{radius:4+a/4,color:u?"#E8A64C":(chg?"#6EA9EE":"#2FA77A"),weight:u?3:1.5,fillColor:chg?"#4F8FDB":"#2FA77A",fillOpacity:.8,className:"mk"}).addTo(MAPL);
+  const me=m.getElement();if(me)me.style.animationDelay=`${Math.min(1.2,i*0.012)}s`;
   m.bindTooltip(`<b>${esc(p.street_address)}</b><br>${esc(p.jurisdiction)} · ${p.year_built??"—"} · ${a} apply${u?` · ${u} unknown`:""}${chg?` · changes by ${later}`:""}`);
   m.on("click",()=>go("lookup",p.address_id))});
- setTimeout(()=>{MAP.invalidateSize();if(mapCity&&CITY_VIEW[mapCity]){const v=CITY_VIEW[mapCity];MAP.setView([v[0],v[1]],v[2])}else{MAP.fitBounds(L.latLngBounds(pts.map(p=>[p.lat,p.lon])),{padding:[30,30]})}},60)}
+ $(".map-leg").innerHTML=`<div class="mleg">${[["ok","var(--applies)",es?"todo resuelto":"all answers resolved"],["u","var(--unknown)",es?"falta un dato":"a fact is missing"],["c","var(--nye)",es?"cambia antes de "+later:"changes by "+later]].map(([k,c,l])=>`<div class="ml"><i style="--c:${c}"></i><span>${l}</span><b data-to="${cnt[k]}">0</b></div>`).join("")}</div>`;
+ $(".map-leg").querySelectorAll("b").forEach(countUp);
+ setTimeout(()=>{MAP.invalidateSize();const opts={duration:reduce?0:1.4,easeLinearity:.2};if(mapCity&&CITY_VIEW[mapCity]){const v=CITY_VIEW[mapCity];MAP.flyTo([v[0],v[1]],v[2],opts)}else if(pts.length){MAP.flyToBounds(L.latLngBounds(pts.map(p=>[p.lat,p.lon])),{padding:[30,30],...opts})}},60)}
 
 /* ---------- compare ---------- */
 let cmpIds=["A0016","A0050","A0107"];
@@ -1438,7 +1460,7 @@ let tWheel=0;tour.addEventListener("wheel",e=>{if(Date.now()-tWheel<700)return;t
 let tx0=null;tour.addEventListener("touchstart",e=>{tx0=e.touches[0].clientX},{passive:true});tour.addEventListener("touchend",e=>{if(tx0===null)return;const dx=e.changedTouches[0].clientX-tx0;if(Math.abs(dx)>40)tShow(tIdx+(dx<0?1:-1));tx0=null},{passive:true});
 document.addEventListener("keydown",e=>{if(tour.classList.contains("hidden"))return;if(e.key==="ArrowRight")$("#tnext").click();if(e.key==="ArrowLeft")tShow(tIdx-1);if(e.key==="Escape")tClose()});
 // the welcome tour opens on every fresh visit; "Skip intro" (or Esc) closes it. ?notour skips it for embeds.
-if(!/notour/.test(location.hash))tOpen();
+if(!/notour/.test(location.hash)){page="overview";render(true);tOpen()}
 
 /* ---------- Ask Strata: grounded retrieval assistant ---------- */
 const CITY_ALIASES=[["san francisco","San Francisco, CA"],["\\bsf\\b","San Francisco, CA"],["los angeles","Los Angeles, CA"],["\\bl\\.?a\\.?\\b","Los Angeles, CA"],["san diego","San Diego, CA"],["berkeley","Berkeley, CA"],["santa ana","Santa Ana, CA"],["jersey city","Jersey City, NJ"],["hoboken","Hoboken, NJ"],["newark","Newark, NJ"],["boston","Boston, MA"],["cambridge","Cambridge, MA"]];
