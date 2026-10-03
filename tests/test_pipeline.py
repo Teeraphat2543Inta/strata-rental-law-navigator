@@ -7,6 +7,7 @@ from nav import config, extract, llm, build, selfcheck  # noqa: E402
 
 FIX = ROOT / "tests/fixtures/llm"
 config.OUT = ROOT / "tests/_out"
+config.DOCS = ROOT / "tests/_out/docs"     # never overwrite the published app with fixture data
 config.EXTRA_DOCS = ROOT / "tests/fixtures/extra"
 config.EXTRA_MANIFEST = config.EXTRA_DOCS / "extra_manifest.csv"
 config.GEO_CACHE = ROOT / "tests/_out/none.json"
