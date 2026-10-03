@@ -675,6 +675,21 @@ tr.cmp-diff td{background:color-mix(in srgb,#7B5CF0 7%,transparent)}
 .rq{border:1px solid color-mix(in srgb,var(--warn) 35%,var(--line));border-radius:12px;padding:12px;cursor:pointer;background:color-mix(in srgb,var(--warn) 5%,var(--card));transition:transform .15s}
 .rq:hover{transform:translateY(-2px)}.rq-top{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.rq-t{font-weight:600;font-size:13px;margin-top:6px}
 .rq-n{font-size:11.5px;color:var(--ink-2);margin-top:4px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+
+.pmap{position:absolute;inset:2% 0;border-radius:20px;background:linear-gradient(160deg,rgba(32,44,78,.92),rgba(13,20,36,.95));border:1px solid rgba(255,255,255,.12);padding:16px;display:flex;flex-direction:column;gap:12px;box-shadow:0 30px 70px rgba(0,0,0,.45)}
+.pm-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;flex:1;min-height:0}
+.pm-p{border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column;overflow:hidden}
+.pm-h{display:flex;flex-direction:column;gap:1px;padding:9px 11px 4px;font-size:11px;color:#9AA7C2}.pm-h b{color:#fff;font-size:12px}
+.pm-dots{position:relative;flex:1;margin:0 8px 8px;border-radius:10px;background:radial-gradient(circle at 50% 50%,rgba(79,123,255,.12),transparent 70%)}
+.pm-dots i{position:absolute;width:6px;height:6px;margin:-3px 0 0 -3px;border-radius:50%;opacity:.95}
+.pane.on .pm-dots i{animation:pop .45s cubic-bezier(.2,1.6,.4,1) both}
+.pm-k{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.pm-k div{background:rgba(10,17,34,.7);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:8px 10px}
+.pm-k b{display:block;font-size:20px;color:#fff;line-height:1.1}.pm-k span{font-size:11px;color:#9AA7C2}
+.pm-next{display:flex;flex-direction:column;gap:2px;border-radius:12px;padding:10px 12px;background:linear-gradient(120deg,rgba(79,123,255,.22),rgba(139,108,255,.18));border:1px solid rgba(159,182,255,.35);font-size:12px;color:#C3CDE2}
+.pm-next b{color:#fff;font-size:13px}.pm-badge{font-size:10px;font-weight:700;letter-spacing:.12em;color:#9FB6FF}
+.pane.on .pm-next{animation:cardin .6s .8s both}
+.pm-leg{display:flex;gap:14px;flex-wrap:wrap;font-size:11px;color:#9AA7C2}.pm-leg i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px}
 </style>
 </head>
 <body>
@@ -788,7 +803,7 @@ tr.cmp-diff td{background:color-mix(in srgb,#7B5CF0 7%,transparent)}
    <div class="tslide"><div class="kick"><svg class="i"><use href="#i-clock"/></svg> Time is a first-class input</div><h2>Ask about today,<br><em>or July 2027.</em></h2><p>Effective dates, pending bills and struck ballot questions are kept apart. Switch the as-of date and watch the answer change, with conflicts flagged for a human.</p></div>
    <div class="tslide"><div class="kick"><svg class="i"><use href="#i-flag"/></svg> Honest by design</div><h2>When the record can't decide,<br><em>Strata says unknown.</em></h2><p>Built in the cutoff year? Owner type not public? You get “unknown” and the exact missing fact, never a guess. 806 answers are honest unknowns.</p></div>
    <div class="tslide"><div class="kick"><svg class="i"><use href="#i-spark"/></svg> An assistant that does the work</div><h2>Ask in plain words.<br><em>Strata answers and acts.</em></h2><p>Every answer is computed from the extracted law with its citations. Ask it to compare buildings, time-travel, filter the rules or export a CSV, and watch it do it. Press ⌘K anytime.</p></div>
-   <div class="tslide"><div class="kick"><svg class="i"><use href="#i-map"/></svg> From one door to a portfolio</div><h2>500 buildings. 95 rules.<br><em>Every answer cited.</em></h2><p>Renters see their rights. Housing providers see every building, every upcoming effective date and every gap in the record, on a map. Not legal advice: a map of the law, with receipts.</p></div>
+   <div class="tslide"><div class="kick"><svg class="i"><use href="#i-map"/></svg> From one front door to a whole portfolio</div><h2>All 500 buildings.<br><em>Every answer cited.</em></h2><p id="tlastp">Renters see their own rights. Housing providers see all their buildings at once: what applies today, what changes next, and which records are missing a fact. Not legal advice: a map of the law, with receipts.</p></div>
    <div class="tnav"><div class="dots" id="tdots"></div><button class="tb" id="tprev">Back</button><button class="tb go" id="tnext">Next</button><button class="skip" id="tskip">Skip intro</button></div>
   </div>
   <div class="tvis">
@@ -809,8 +824,7 @@ tr.cmp-diff td{background:color-mix(in srgb,#7B5CF0 7%,transparent)}
    <div class="pane"><div class="qa"><div class="b u">Compare A0016 and A0107 as of 2027</div>
     <div class="b a plan-demo"><div class="pd-h">✦ PLAN · 2 STEPS</div><div class="pd-s"><i></i>Compare A0016, A0107</div><div class="pd-s"><i></i>Set as-of date to 2027-07-02</div></div>
     <div class="b a"><b>They differ in 5 of 6 categories.</b> SF's rent ordinance applies to the 1926 building; for LA's 1978 building rent limits are <b>unknown</b> (cutoff year). Cited: SF-RENT-01, CA-RENT-01.</div></div></div>
-   <div class="pane"><div class="mini-map"><i style="left:4%;top:8%;animation-delay:0.00s;background:#E8A64C"></i><i style="left:41%;top:61%;animation-delay:0.12s;"></i><i style="left:78%;top:36%;animation-delay:0.24s;"></i><i style="left:23%;top:11%;animation-delay:0.36s;"></i><i style="left:60%;top:64%;animation-delay:0.48s;"></i><i style="left:5%;top:39%;animation-delay:0.60s;background:#E8A64C"></i><i style="left:42%;top:14%;animation-delay:0.72s;"></i><i style="left:79%;top:67%;animation-delay:0.84s;background:#6EA9EE"></i><i style="left:24%;top:42%;animation-delay:0.96s;"></i><i style="left:61%;top:17%;animation-delay:0.00s;"></i><i style="left:6%;top:70%;animation-delay:0.12s;background:#E8A64C"></i><i style="left:43%;top:45%;animation-delay:0.24s;"></i><i style="left:80%;top:20%;animation-delay:0.36s;"></i><i style="left:25%;top:73%;animation-delay:0.48s;"></i><i style="left:62%;top:48%;animation-delay:0.60s;background:#6EA9EE"></i><i style="left:7%;top:23%;animation-delay:0.72s;background:#E8A64C"></i><i style="left:44%;top:76%;animation-delay:0.84s;"></i><i style="left:81%;top:51%;animation-delay:0.96s;"></i><i style="left:26%;top:26%;animation-delay:0.00s;"></i><i style="left:63%;top:79%;animation-delay:0.12s;"></i><i style="left:8%;top:54%;animation-delay:0.24s;background:#E8A64C"></i><i style="left:45%;top:29%;animation-delay:0.36s;background:#6EA9EE"></i><i style="left:82%;top:82%;animation-delay:0.48s;"></i><i style="left:27%;top:57%;animation-delay:0.60s;"></i><i style="left:64%;top:32%;animation-delay:0.72s;"></i><i style="left:9%;top:85%;animation-delay:0.84s;background:#E8A64C"></i><i style="left:46%;top:60%;animation-delay:0.96s;"></i><i style="left:83%;top:35%;animation-delay:0.00s;"></i><i style="left:28%;top:10%;animation-delay:0.12s;background:#6EA9EE"></i><i style="left:65%;top:63%;animation-delay:0.24s;"></i><i style="left:10%;top:38%;animation-delay:0.36s;background:#E8A64C"></i><i style="left:47%;top:13%;animation-delay:0.48s;"></i><i style="left:84%;top:66%;animation-delay:0.60s;"></i><i style="left:29%;top:41%;animation-delay:0.72s;"></i><i style="left:66%;top:16%;animation-delay:0.84s;"></i><i style="left:11%;top:69%;animation-delay:0.96s;background:#E8A64C"></i><i style="left:48%;top:44%;animation-delay:0.00s;"></i><i style="left:85%;top:19%;animation-delay:0.12s;"></i><i style="left:30%;top:72%;animation-delay:0.24s;"></i><i style="left:67%;top:47%;animation-delay:0.36s;"></i><i style="left:12%;top:22%;animation-delay:0.48s;background:#E8A64C"></i><i style="left:49%;top:75%;animation-delay:0.60s;"></i><i style="left:86%;top:50%;animation-delay:0.72s;background:#6EA9EE"></i><i style="left:31%;top:25%;animation-delay:0.84s;"></i><i style="left:68%;top:78%;animation-delay:0.96s;"></i><i style="left:13%;top:53%;animation-delay:0.00s;background:#E8A64C"></i>
-    <div class="mm-k"><div><b>500</b><span>buildings</span></div><div><b>95</b><span>rules</span></div><div><b>100%</b><span>cited</span></div></div></div></div>
+   <div class="pane"><div class="pmap" id="tpmap"></div></div>
   </div>
  </div>
 </div>
@@ -1405,7 +1419,19 @@ let tRAF=0;function tParticles(){const c=$("#tcanvas");if(!c)return;const x=c.ge
   for(let i=0;i<P.length;i++){for(let j=i+1;j<P.length;j++){const a=P[i],b=P[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<L){x.strokeStyle=`rgba(159,182,255,${.18*(1-d/L)})`;x.lineWidth=devicePixelRatio;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke()}}
    const a=P[i];x.fillStyle="rgba(198,168,255,.75)";x.beginPath();x.arc(a.x,a.y,a.r,0,7);x.fill()}
   if(!tour.classList.contains("hidden"))tRAF=requestAnimationFrame(step)};if(!reduce)step()}
-function tOpen(){tour.classList.remove("hidden");tShow(0);tParticles()}
+function tOpen(){tour.classList.remove("hidden");tShow(0);tParticles();tPortfolio()}
+function tPortfolio(){const el=$("#tpmap");if(!el||el.dataset.done)return;el.dataset.done=1;
+ const REG=[["SF Bay Area","CA",p=>p.lon<-121],["New Jersey","NJ",p=>p.state==="NJ"],["Boston · Cambridge","MA",p=>p.state==="MA"]];
+ const later=DATA.dates[DATA.dates.length-1];const reach={};props.forEach(p=>(DATA.lookups[later][p.address_id]||[]).forEach(e=>(reach[e.team_rule_id]=reach[e.team_rule_id]||new Set()).add(p.address_id)));
+ const norm=e=>e.length===4?e+"-01-01":e.length===7?e+"-01":e;const next=DATA.rules.filter(r=>r.effective_date&&norm(r.effective_date)>DATA.default_as_of&&r.status!=="pending").sort((a,b)=>norm(a.effective_date).localeCompare(norm(b.effective_date)))[0];
+ const panels=REG.map(([name,st,f])=>{const pts=props.filter(p=>p.lat&&f(p));const la=pts.map(p=>p.lat),lo=pts.map(p=>p.lon);const [a,b,c,d]=[Math.min(...la),Math.max(...la),Math.min(...lo),Math.max(...lo)];
+  const dots=pts.map((p,i)=>{const es=DATA.lookups[DATA.default_as_of][p.address_id]||[];const u=es.some(e=>e.result==="unknown");const ch=next&&reach[next.team_rule_id]?.has(p.address_id);
+   return `<i style="left:${6+88*(p.lon-c)/((d-c)||1)}%;top:${6+88*(1-(p.lat-a)/((b-a)||1))}%;background:${ch?"#6EA9EE":u?"#FFB547":"#22C38E"};animation-delay:${(i%40)*.03}s"></i>`}).join("");
+  return `<div class="pm-p"><div class="pm-h"><b>${name}</b><span>${pts.length} buildings</span></div><div class="pm-dots">${dots}</div></div>`}).join("");
+ const ans=props.reduce((x,p)=>x+(DATA.lookups[DATA.default_as_of][p.address_id]||[]).length,0);
+ el.innerHTML=`<div class="pm-row">${panels}</div><div class="pm-k"><div><b>${props.length}</b><span>buildings · 9 cities</span></div><div><b>${DATA.rules.length}</b><span>rules, all quoted</span></div><div><b>${ans.toLocaleString()}</b><span>cited answers</span></div></div>
+  ${next?`<div class="pm-next"><span class="pm-badge">NEXT CHANGE</span><b>${esc(next.title.replace(/ \(.*\)$/,""))}</b><span>${esc(next.jurisdiction)} · takes effect ${esc(next.effective_date)} · ${(reach[next.team_rule_id]||new Set()).size} buildings</span></div>`:""}
+  <div class="pm-leg"><span><i style="background:#22C38E"></i>resolved</span><span><i style="background:#FFB547"></i>a fact is missing</span><span><i style="background:#6EA9EE"></i>reached by the next change</span></div>`}
 $("#tnext").onclick=()=>tIdx===slides.length-1?tClose():tShow(tIdx+1);$("#tprev").onclick=()=>tShow(tIdx-1);$("#tskip").onclick=tClose;$("#tskip2").onclick=tClose;
 
 let tWheel=0;tour.addEventListener("wheel",e=>{if(Date.now()-tWheel<700)return;tWheel=Date.now();tShow(tIdx+(e.deltaY>0?1:-1))},{passive:true});
