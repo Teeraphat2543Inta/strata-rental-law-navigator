@@ -274,9 +274,6 @@ def consolidate(jur, cat, recs):
     for r in recs:
         by_cite[r["_cite_key"] or r.get("title", "").lower()].append(r)
     fallback = list(by_cite.values())
-    import os
-    if not os.environ.get("ANTHROPIC_API_KEY"):
-        return fallback
     listing = "\n".join(f"[{i}] {r.get('title')} | {r.get('citation')} | status={r.get('status')} | "
                         f"eff={r.get('effective_date')} | {r.get('requirement')} (doc {r['_doc']})"
                         for i, r in enumerate(recs))
@@ -295,7 +292,7 @@ def consolidate(jur, cat, recs):
                 clusters.append([recs[i] for i in g])
         clusters += [[recs[i]] for i in range(len(recs)) if i not in seen]
         return clusters
-    except Exception as e:  # noqa: BLE001
+    except (Exception, SystemExit) as e:  # noqa: BLE001 — no key and no cached grouping: group by citation
         print(f"  [merge] fallback to citation grouping for {jur}/{cat}: {e}")
         return fallback
 
