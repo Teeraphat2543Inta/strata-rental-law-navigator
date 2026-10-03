@@ -856,10 +856,9 @@ tr.cmp-diff td{background:color-mix(in srgb,#7B5CF0 7%,transparent)}
    <div class="tnav"><div class="dots" id="tdots"></div><button class="tb" id="tprev">Back</button><button class="tb go" id="tnext">Next</button><button class="skip" id="tskip">Skip intro</button></div>
   </div>
   <div class="tvis">
-   <div class="pane on"><div class="slab" style="top:4%;background:linear-gradient(120deg,#3B5BC2cc,#6B7FE8cc)"><svg class="i"><use href="#i-shield"/></svg><span>State law<small>Cal. Civ. Code §1947.12 · 5% + CPI, max 10%</small></span></div>
-    <div class="slab" style="top:24%;background:linear-gradient(120deg,#0E8A5Ccc,#2FBF8Acc)"><svg class="i"><use href="#i-building"/></svg><span>City law<small>S.F. Admin. Code ch. 37 · wins over the state cap</small></span></div>
-    <div class="slab" style="top:44%;background:linear-gradient(120deg,#B4690Ecc,#E39A3Acc)"><svg class="i"><use href="#i-cal"/></svg><span>Time<small>FAIR Act takes effect 2027-07-01</small></span></div>
-    <div class="door"><svg class="i" style="width:52px;height:52px"><use href="#i-home"/></svg></div></div>
+   <div class="pane on"><div class="slab" style="top:14%;background:linear-gradient(120deg,#3B5BC2cc,#6B7FE8cc)"><svg class="i"><use href="#i-shield"/></svg><span>State law<small>Cal. Civ. Code §1947.12 · 5% + CPI, max 10%</small></span></div>
+    <div class="slab" style="top:38%;background:linear-gradient(120deg,#0E8A5Ccc,#2FBF8Acc)"><svg class="i"><use href="#i-building"/></svg><span>City law<small>S.F. Admin. Code ch. 37 · wins over the state cap</small></span></div>
+    <div class="slab" style="top:62%;background:linear-gradient(120deg,#B4690Ecc,#E39A3Acc)"><svg class="i"><use href="#i-cal"/></svg><span>Time<small>FAIR Act takes effect 2027-07-01</small></span></div></div>
    <div class="pane"><div class="doc"><b>Cal. Civ. Code § 1947.12</b><div class="ln" style="width:92%"></div><div class="ln" style="width:80%"></div>
     <div>… <mark>an owner of residential real property shall not, over the course of any 12-month period, increase the gross rental rate … more than 5 percent plus the percentage change in the cost of living, or 10 percent, whichever is lower</mark> …</div>
     <div class="ln" style="width:88%"></div><div class="ln" style="width:60%"></div><div class="stamp">✓ QUOTE VERIFIED</div></div></div>
@@ -927,6 +926,7 @@ const rules=Object.fromEntries(DATA.rules.map(r=>[r.team_rule_id,r]));
 const props=DATA.properties, pid=Object.fromEntries(props.map(p=>[p.address_id,p]));
 const cities=[...new Set(props.map(p=>p.jurisdiction).filter(Boolean))].sort();
 const cityColor=j=>CITYC[Math.max(0,cities.indexOf(j))%CITYC.length];
+const safeUrl=u=>/^https?:\/\//i.test(String(u||""))?u:"#";
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const ico=(id,cls="i")=>`<svg class="${cls}"><use href="#${id}"/></svg>`;
 const pill=r=>`<span class="pill ${r==="pending"?"pending":""}" style="--c:${COLOR[r]||"var(--ink-3)"}">${T(r)}</span>`;
@@ -956,7 +956,7 @@ window.addEventListener("hashchange",()=>{readHash();render(true)});
 
 /* ---------- client-side rule engine (port of nav/engine.py; parity-tested on 500 × 4 dates) ---------- */
 const ENG=(()=>{const dkey=d=>{if(!d)return null;d=String(d);return d.length===4?d+"-01-01":d.length===7?d+"-01":d.slice(0,10)};
- const statusOn=(r,a)=>{const raw=r.status_raw||r.status;if(raw==="pending"||raw==="failed")return raw;const e=dkey(r.effective_date);return e&&e>a?"not_yet_effective":"in_force"};
+ const statusOn=(r,a)=>{const raw=r.status_raw||r.status;if(raw==="pending"||raw==="failed")return raw;const e=dkey(r.effective_date);if(e&&e>a)return "not_yet_effective";return raw==="not_yet_effective"&&!e?"not_yet_effective":"in_force"};
  const y=d=>d?parseInt(String(d).slice(0,4)):null;
  const U=p=>{const a=p.units_min,b=p.units_max;if(a==null)return "unit count unknown";if(a===b)return `${a} units`;return b==null?`${a}+ units`:`${a}–${b} units`};
  function cov(r,p,asof){const c=r.coverage_conditions||{};const yb=p.year_built,umin=p.units_min,umax=p.units_max;const R=[];let unk=false;
@@ -980,7 +980,7 @@ const ENG=(()=>{const dkey=d=>{if(!d)return null;d=String(d);return d.length===4
    else{unk=true;R.push(`an exemption for buildings of ≤${ex} units may apply; unit count unknown`)}}
   else if(c.owner_type_dependent){unk=true;R.push("coverage depends on the owner's identity; owner names are not in the data")}
   return [unk?"unknown":"covered",R]}
- const atPlace=(r,p)=>!!p.jurisdiction&&(r.level==="state"?r.jurisdiction===p.state:r.jurisdiction===p.jurisdiction);
+ const atPlace=(r,p)=>r.level==="state"?r.jurisdiction===p.state:(!!p.jurisdiction&&r.jurisdiction===p.jurisdiction);
  const cap=s=>s[0].toUpperCase()+s.slice(1);
  function evaluate(p,R,asof){const rows={};const by={};R.forEach(r=>by[r.team_rule_id]=r);
   for(const r of R){if(!atPlace(r,p))continue;const st=statusOn(r,asof);if(st==="failed")continue;
@@ -1096,7 +1096,7 @@ function ruleRow(e){const r=rules[e.team_rule_id];const req=lang==="es"&&r.requi
  const d=document.createElement("div");d.className="rule";d.style.setProperty("--c",COLOR[e.result]);d.id="r-"+r.team_rule_id;const flagged=e.conflict_flag;
  d.innerHTML=`<button aria-expanded="false"><span class="res">${pill(e.result)}<small>${ico(CICON[r.category])}${esc(catName(r.category))}</small></span><span><div class="rt">${esc(r.title)}</div><div class="rq">${esc(req)}${r.key_value?` <b>${esc(r.key_value)}</b>`:""}</div></span><span class="cite"><span>${esc(r.citation)}</span>${flagged?`<span class="flagd">${ico("i-flag")} ${T("review")}</span>`:r.secondary_only?`<span class="flagd" data-tip="official text not captured">${ico("i-flag")} ${lang==="es"?"fuente secundaria":"secondary source"}</span>`:r.confidence<0.6?`<span class="flagd" data-tip="confidence ${Math.round(100*r.confidence)}%">${ico("i-flag")} ${lang==="es"?"confianza baja":"low confidence"}</span>`:""}<svg class="i chev"><use href="#i-down"/></svg></span></button>
  <div class="body"><p class="why"><b>${T("why")}:</b> ${esc(e.explanation)}</p><blockquote>“${esc(r.quoted_span)}”</blockquote>
- <div class="audit"><div>${T("source")}<b><a href="${esc(r.source_url)}" target="_blank" rel="noopener">${esc(r.source_doc_id)}</a>${(r.supporting_docs||[]).length>1?` +${r.supporting_docs.length-1}`:""}</b></div><div>${T("retrieved")}<b>${esc(r.retrieved_at)}</b></div><div>${T("eff")}<b>${esc(r.effective_date||"—")}</b></div><div>${T("query")}<b>${esc(asof)}</b></div><div>${T("conf")}<b>${Math.round(100*r.confidence)}%<span class="meter"><i style="width:${Math.round(100*r.confidence)}%"></i></span></b></div><div>ID<b>${esc(r.team_rule_id)} ${r.quote_verified?"· quote ✓":"· quote ✗"}</b></div></div>
+ <div class="audit"><div>${T("source")}<b><a href="${esc(safeUrl(r.source_url))}" target="_blank" rel="noopener">${esc(r.source_doc_id)}</a>${(r.supporting_docs||[]).length>1?` +${r.supporting_docs.length-1}`:""}</b></div><div>${T("retrieved")}<b>${esc(r.retrieved_at)}</b></div><div>${T("eff")}<b>${esc(r.effective_date||"—")}</b></div><div>${T("query")}<b>${esc(asof)}</b></div><div>${T("conf")}<b>${Math.round(100*r.confidence)}%<span class="meter"><i style="width:${Math.round(100*r.confidence)}%"></i></span></b></div><div>ID<b>${esc(r.team_rule_id)} ${r.quote_verified?"· quote ✓":"· quote ✗"}</b></div></div>
  ${flagged&&r.conflict_note?`<div class="conflict"><b>${T("conflict")}:</b> ${esc(r.conflict_note)}</div>`:""}${r.secondary_only&&!flagged?`<div class="conflict secondary"><b>${lang==="es"?"Solo fuente secundaria":"Secondary source only"}:</b> ${lang==="es"?"no se capturó el texto oficial; verifique con la ordenanza.":"official text not captured; verify against the ordinance."}</div>`:""}${r.caveat?`<div class="caveat"><b>${T("caveat")}:</b> ${esc(r.caveat)}</div>`:""}
  <div class="boundary"><b>${T("boundary")}:</b> ${T("bnd")}</div></div>`;
  const btn=d.querySelector("button");btn.onclick=()=>{d.classList.toggle("open");btn.setAttribute("aria-expanded",d.classList.contains("open"))};return d}
@@ -1135,7 +1135,7 @@ function renderDetail(){const el=$("#detail");el.innerHTML="";const p=pid[curren
  const ab=(DATA.no_rule_findings||[]).filter(f=>f.jurisdiction===p.jurisdiction||f.jurisdiction===p.state);
  if(ab.length){const s=document.createElement("div");s.className="stratum absent";
   s.innerHTML=`<h3><span class="lvl"><span class="sq" style="background:var(--ink-3)">${ico("i-x")}</span>${T("absent")}</span><span>${ab.length}</span></h3>`+
-  ab.map(f=>`<div class="absentrow"><b style="text-transform:capitalize">${esc(catName(f.category))}:</b> ${esc(f.finding)}<blockquote>“${esc(f.quoted_span)}”</blockquote><div class="meta" style="font-size:12px;color:var(--ink-2)">${T("source")}: <a href="${esc(f.source_url)}" target="_blank" rel="noopener">${esc(f.source_doc_id)}</a></div></div>`).join("");stack.appendChild(s)}
+  ab.map(f=>`<div class="absentrow"><b style="text-transform:capitalize">${esc(catName(f.category))}:</b> ${esc(f.finding)}<blockquote>“${esc(f.quoted_span)}”</blockquote><div class="meta" style="font-size:12px;color:var(--ink-2)">${T("source")}: <a href="${esc(safeUrl(f.source_url))}" target="_blank" rel="noopener">${esc(f.source_doc_id)}</a></div></div>`).join("");stack.appendChild(s)}
  wrap.appendChild(stack);
  const other=cmp&&cmp!==asof?cmp:DATA.dates.find(d=>d>asof)||DATA.dates.find(d=>d!==asof);
  const A=Object.fromEntries(entriesOf(p.address_id).map(e=>[e.team_rule_id,e.result])),B=Object.fromEntries(entriesOf(p.address_id,other).map(e=>[e.team_rule_id,e.result]));
@@ -1254,7 +1254,7 @@ function renderLibrary(){const el=$("#library");const R=DATA.rules;const es=lang
    ${pagerHTML(lib.p,pages,f.length,per)}
   </section></div>
  <div class="sec-title"><h2>${ico("i-x")} ${es?"Sin regla en este nivel":"No rule at this level"}</h2><p>${es?"Hallazgos negativos, cada uno citado":"Negative findings, each one cited"}</p></div>
- <div class="grid g3">${[...new Map((DATA.no_rule_findings||[]).map(x=>[x.jurisdiction+x.quoted_span,x])).values()].map(x=>`<div class="card"><div class="tid">${esc(x.jurisdiction)} · ${esc(catName(x.category))}</div><p style="margin:6px 0 0;font-size:13.5px">${esc(x.finding)}</p><blockquote>“${esc(x.quoted_span)}”</blockquote><div style="font-size:12px;color:var(--ink-2)">${T("source")}: <a href="${esc(x.source_url)}" target="_blank" rel="noopener">${esc(x.source_doc_id)}</a></div></div>`).join("")}</div></div>`;
+ <div class="grid g3">${[...new Map((DATA.no_rule_findings||[]).map(x=>[x.jurisdiction+x.quoted_span,x])).values()].map(x=>`<div class="card"><div class="tid">${esc(x.jurisdiction)} · ${esc(catName(x.category))}</div><p style="margin:6px 0 0;font-size:13.5px">${esc(x.finding)}</p><blockquote>“${esc(x.quoted_span)}”</blockquote><div style="font-size:12px;color:var(--ink-2)">${T("source")}: <a href="${esc(safeUrl(x.source_url))}" target="_blank" rel="noopener">${esc(x.source_doc_id)}</a></div></div>`).join("")}</div></div>`;
  const rer=()=>{lib.p=0;renderLibrary()};
  $("#lq").oninput=e=>{lib.q=e.target.value;clearTimeout(renderLibrary._t);renderLibrary._t=setTimeout(()=>{rer();const i=$("#lq");i.focus();i.setSelectionRange(i.value.length,i.value.length)},180)};
  el.querySelectorAll(".lf-i").forEach(b=>b.onclick=()=>{const k=b.dataset.k;lib[k]=lib[k]===b.dataset.v?"":b.dataset.v;rer()});
@@ -1274,7 +1274,7 @@ function openDrawer(rid){const r=rules[rid];const reach=(()=>{const st=new Set()
    <div class="dtile"><div class="dbig">${reach.size}</div><div><b>${es?"Edificios":"Buildings reached"}</b><small>${T("asof")} ${asof}</small></div></div>
    <div class="dtile"><div class="dbig sm">${esc(r.effective_date||"—")}</div><div><b>${T("eff")}</b><small>${es?"estado":"status"} ${esc(r.status.replaceAll("_"," "))}</small></div></div></section>
   <section class="dsec"><div class="dsec-h">${ico("i-quote")} ${es?"La oración de la ley":"The sentence of law"}<button class="dcopy" id="dcopyq">${es?"Copiar":"Copy"}</button></div><blockquote class="dq">“${esc(r.quoted_span)}”</blockquote>
-   <div class="dsrc"><a href="${esc(r.source_url)}" target="_blank" rel="noopener">${ico("i-link")} ${esc(r.source_doc_id)}</a><span>${T("retrieved")} ${esc(r.retrieved_at)}</span><span class="mono">${esc(r.citation)}</span></div>
+   <div class="dsrc"><a href="${esc(safeUrl(r.source_url))}" target="_blank" rel="noopener">${ico("i-link")} ${esc(r.source_doc_id)}</a><span>${T("retrieved")} ${esc(r.retrieved_at)}</span><span class="mono">${esc(r.citation)}</span></div>
    ${r.effective_date_quote?`<div class="dsub"><b>${es?"Vigencia":"Effective-date line"}:</b> <i>“${esc(r.effective_date_quote)}”</i></div>`:""}</section>
   ${(r.conflict_flag||r.secondary_only)&&r.conflict_note?`<div class="dcall warn">${ico("i-flag")}<div><b>${r.conflict_flag?T("conflict"):(es?"Revisión humana":"Human review")}</b><p>${esc(r.conflict_note)}</p></div></div>`:""}
   ${r.caveat?`<div class="dcall">${ico("i-spark")}<div><b>${T("caveat")}</b><p>${esc(r.caveat)}</p></div></div>`:""}
@@ -1282,7 +1282,7 @@ function openDrawer(rid){const r=rules[rid];const reach=(()=>{const st=new Set()
    ${c.summary?`<p class="dsub">${esc(c.summary)}</p>`:""}${r.exemptions?`<p class="dsub"><b>${es?"Exenciones":"Exemptions"}:</b> ${esc(r.exemptions)}</p>`:""}${r.penalty?`<p class="dsub"><b>${es?"Sanción":"Penalty"}:</b> ${esc(r.penalty)}</p>`:""}
    ${r.interaction?`<p class="dsub"><b>${es?"Interacción":"Interaction"}:</b> ${esc(r.interaction)}${(r.overrides||[]).length?` · ${r.overrides.map(x=>`<span class="rid" data-rid="${esc(x)}">${esc(x)}</span>`).join(", ")}`:""}</p>`:""}</section>
   ${Object.keys(byCity).length?`<section class="dsec"><div class="dsec-h">${ico("i-pin")} ${es?"Dónde aplica":"Where it reaches"}</div>${Object.entries(byCity).sort((a,b)=>b[1]-a[1]).map(([j,n])=>`<div class="minibar"><span>${esc(j)}</span><span class="trk"><i style="width:${100*n/Math.max(...Object.values(byCity))}%;background:${cityColor(j)}"></i></span><b>${n}</b></div>`).join("")}</section>`:""}
-  <section class="dsec"><div class="dsec-h">${ico("i-db")} ${es?"Corroborada por":"Corroborated by"}</div><div class="dchips">${(r.supporting_docs||[]).map(d=>{const sd=(DATA.sources||[]).find(x=>x.doc_id===d);return `<a class="dchip link" href="${esc(sd?.url||"#")}" target="_blank" rel="noopener"><b>${esc(d)}</b> ${esc(sd?(sd.source_type.startsWith("fetched")?"secondary":sd.source_type):"")}</a>`}).join("")}</div></section>
+  <section class="dsec"><div class="dsec-h">${ico("i-db")} ${es?"Corroborada por":"Corroborated by"}</div><div class="dchips">${(r.supporting_docs||[]).map(d=>{const sd=(DATA.sources||[]).find(x=>x.doc_id===d);return `<a class="dchip link" href="${esc(safeUrl(sd?.url||"#"))}" target="_blank" rel="noopener"><b>${esc(d)}</b> ${esc(sd?(sd.source_type.startsWith("fetched")?"secondary":sd.source_type):"")}</a>`}).join("")}</div></section>
   <div class="dacts"><button class="btn primary" id="dask">${ico("i-spark")} ${es?"Preguntar a Strata":"Ask Strata about this rule"}</button><button class="btn" id="dcopyc">${ico("i-link")} ${es?"Copiar cita":"Copy citation"}</button></div>
   <div class="boundary"><b>${T("boundary")}:</b> ${T("bnd")}</div>
  </div>`;
@@ -1329,12 +1329,12 @@ function renderSources(){const el=$("#sources");const S=DATA.sources||[];const e
   <div class="rq-grid">${q.map(r=>`<div class="rq" data-rid="${esc(r.team_rule_id)}"><div class="rq-top"><span class="mono"><b>${esc(r.team_rule_id)}</b></span>${r.conflict_flag?`<span class="pill" style="--c:var(--warn)">⚑ ${es?"conflicto":"conflict"}</span>`:""}${r.secondary_only?`<span class="pill" style="--c:#7B5CF0">${es?"solo secundaria":"secondary only"}</span>`:""}${r.confidence<0.6?`<span class="pill" style="--c:var(--pending)">${Math.round(100*r.confidence)}% ${es?"confianza":"confidence"}</span>`:""}</div><div class="rq-t">${esc(r.title)}</div><div class="rq-n">${esc(r.conflict_note||r.caveat||"")}</div></div>`).join("")}</div></div>`})()}
  ${(()=>{const un=(DATA.link_only_sources||[]).filter(s=>!S.some(x=>x.doc_id===s.doc_id));const by={};un.forEach(s=>{const st=(s.jurisdictions||"").slice(-2)||"?";(by[st]=by[st]||[]).push(s)});
   return `<div class="card un-card"><div class="pf-head"><h3>${ico("i-x")} ${es?"Fuentes que no pudimos leer":"Sources we could not read"} <span class="tag">${un.length}</span></h3><span class="sub" style="margin:0">${es?"Listadas por transparencia; nunca citadas.":"Listed for transparency, never cited: pages that refused (403) or held no law text."}</span></div>
-  <div class="un-grid">${Object.entries(by).map(([st,xs])=>`<div class="un-col"><div class="un-h"><span class="un-st">${esc(st)}</span>${xs.length} ${es?(xs.length>1?"fuentes":"fuente"):(xs.length>1?"sources":"source")}</div>${xs.map(s=>{let h="";try{h=new URL(s.url).hostname.replace(/^www\./,"")}catch(e){}return `<a class="un-i" href="${esc(s.url||"#")}" target="_blank" rel="noopener"><b class="mono">${esc(s.doc_id)}</b><span>${esc(s.jurisdictions)}</span><em>${esc(h)}</em></a>`}).join("")}</div>`).join("")}</div></div>`})()}
+  <div class="un-grid">${Object.entries(by).map(([st,xs])=>`<div class="un-col"><div class="un-h"><span class="un-st">${esc(st)}</span>${xs.length} ${es?(xs.length>1?"fuentes":"fuente"):(xs.length>1?"sources":"source")}</div>${xs.map(s=>{let h="";try{h=new URL(s.url).hostname.replace(/^www\./,"")}catch(e){}return `<a class="un-i" href="${esc(safeUrl(s.url||"#"))}" target="_blank" rel="noopener"><b class="mono">${esc(s.doc_id)}</b><span>${esc(s.jurisdictions)}</span><em>${esc(h)}</em></a>`}).join("")}</div>`).join("")}</div></div>`})()}
  <div class="sec-title"><h2>${ico("i-db")} ${es?"Documentos fuente":"Source documents"}</h2>
   <div class="filters" style="margin:0"><div class="search" style="min-width:240px"><svg class="i"><use href="#i-search"/></svg><input id="sq" type="search" value="${esc(src.q)}" placeholder="${es?"Buscar documento o URL":"Search document or URL"}"></div>
    <div class="chips" style="margin:0"><button data-t="" aria-pressed="${!src.t}">${T("all")} ${S.length}</button>${types.map(t=>`<button data-t="${esc(t)}" aria-pressed="${src.t===t}">${esc(t)} ${S.filter(s=>t==="fetched"?s.source_type.startsWith("fetched"):s.source_type===t).length}</button>`).join("")}</div></div></div>
  <div class="docs">${fs.slice(src.p*per,(src.p+1)*per).map(s=>{const fetched=s.source_type.startsWith("fetched");let host="";try{host=new URL(s.url).hostname.replace(/^www\./,"")}catch(e){}
-  return `<a class="doc-c" href="${esc(s.url)}" target="_blank" rel="noopener"><div class="dc-top"><span class="mono"><b>${esc(s.doc_id)}</b></span><span class="tag" style="${fetched?"background:color-mix(in srgb,#7B5CF0 14%,transparent)":""}">${esc(fetched?"fetched page":s.source_type)}</span></div>
+  return `<a class="doc-c" href="${esc(safeUrl(s.url))}" target="_blank" rel="noopener"><div class="dc-top"><span class="mono"><b>${esc(s.doc_id)}</b></span><span class="tag" style="${fetched?"background:color-mix(in srgb,#7B5CF0 14%,transparent)":""}">${esc(fetched?"fetched page":s.source_type)}</span></div>
    <div class="dc-j">${esc(s.jurisdictions)}</div><div class="dc-h">${esc(host)}</div>
    <div class="dc-m"><span>${ico("i-cal")} ${esc(s.retrieved)}</span><span>${(s.chars||0).toLocaleString()} chars</span></div>
    <div class="rc-reach"><span>${es?"Reglas respaldadas":"Rules backed"}</span><span class="trk"><i style="width:${Math.min(100,12*(used[s.doc_id]||0))}%"></i></span><b>${used[s.doc_id]||0}</b></div></a>`}).join("")}</div>
@@ -1431,7 +1431,7 @@ function renderCompare(){const el=$("#compare");const es=lang==="es";const ids=c
  el.querySelectorAll("a[data-open]").forEach(a=>a.onclick=e=>{e.preventDefault();go("lookup",a.dataset.open)})}
 
 /* ---------- CSV export ---------- */
-function download(name,rows){const csv=rows.map(r=>r.map(v=>`"${String(v??"").replace(/"/g,'""')}"`).join(",")).join("\n");const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv"}));a.download=name;document.body.appendChild(a);a.click();a.remove()}
+function download(name,rows){const cell=v=>{let t=String(v??"");if(/^[=+\-@\t\r]/.test(t))t="'"+t;return `"${t.replace(/"/g,'""')}"`};const csv=rows.map(r=>r.map(cell).join(",")).join("\n");const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv"}));a.download=name;document.body.appendChild(a);a.click();a.remove()}
 function exportAddress(aid){const p=pid[aid];download(`strata_${aid}_${asof}.csv`,[["address_id","address","jurisdiction","as_of","rule_id","category","level","result","explanation","citation","quote","source_url","retrieved"],...entriesOf(aid).map(e=>{const r=rules[e.team_rule_id];return [aid,p.street_address,p.jurisdiction,asof,r.team_rule_id,r.category,r.level,e.result,e.explanation,r.citation,r.quoted_span,r.source_url,r.retrieved_at]})])}
 function exportRules(list){download(`strata_rules_${asof}.csv`,[["rule_id","jurisdiction","category","status","effective_date","title","citation","quote","source_url"],...list.map(r=>[r.team_rule_id,r.jurisdiction,r.category,r.status,r.effective_date,r.title,r.citation,r.quoted_span,r.source_url])])}
 
@@ -1441,7 +1441,7 @@ function planActions(q){const ql=q.toLowerCase();const c=parseQ(q);const acts=[]
  if(!/^(open|go|show|take|switch|set|change|filter|compare|export|download|start|turn|use|เปิด|ไป|เปลี่ยน|กรอง|เทียบ)\b|\b(switch to|set the date|as of 20|in spanish|en español|dark mode|light mode|export|download|csv|tour|filter)\b/.test(ql))return acts;
  const ids=[...new Set((q.match(/\bA\d{4}\b/gi)||[]).map(x=>x.toUpperCase()).filter(x=>pid[x]))];
  if(/compare|เทียบ|\bvs\b|versus/.test(ql)&&(ids.length>=2||(c.addr&&ids.length))){const set=ids.length>=2?ids:[...new Set([c.addr,...ids])];acts.push({k:"compare",ids:set.slice(0,3),label:`Compare ${set.slice(0,3).join(", ")}`})}
- const dm=ql.match(/(?:as of|switch to|set (?:the )?date(?: to)?|time.?travel to|to)\s*(20\d\d(?:-\d\d-\d\d)?)/);if(dm){const t=dm[1].length===4?(dm[1]==="2027"?"2027-07-02":dm[1]==="2025"?"2025-12-31":dm[1]+"-10-01"):dm[1];const d=DATA.dates.reduce((a,b)=>Math.abs(new Date(b)-new Date(t))<Math.abs(new Date(a)-new Date(t))?b:a);acts.push({k:"date",v:d,label:`Set as-of date to ${d}`})}
+ const dm=ql.match(/(?:as of|switch to|set (?:the )?date(?: to)?|time.?travel to|to)\s*(20\d\d(?:-\d\d-\d\d)?)/);if(dm){const d=dm[1].length===4?(dm[1]==="2027"?"2027-07-02":dm[1]==="2025"?"2025-12-31":dm[1]+"-10-01"):dm[1];acts.push({k:"date",v:d,label:`Set as-of date to ${d}`})}
  if(/spanish|español|espanol/.test(ql))acts.push({k:"lang",v:"es",label:"Switch to Español"});else if(/\benglish\b/.test(ql))acts.push({k:"lang",v:"en",label:"Switch to English"});
  if(/dark mode|night mode/.test(ql))acts.push({k:"theme",v:"dark",label:"Dark theme"});else if(/light mode|day mode/.test(ql))acts.push({k:"theme",v:"light",label:"Light theme"});
  if(/tour|intro|onboard/.test(ql))acts.push({k:"tour",label:"Start the welcome tour"});
@@ -1516,8 +1516,8 @@ const ridLink=id=>`<span class="rid" data-rid="${esc(id)}">${esc(id)}</span>`;
 function parseQ(q){const ql=q.toLowerCase();const c={ql};
  c.rid=(q.match(/\b[A-Z]{2,3}-[A-Z]+-P?\d{2}\b/)||[])[0];if(c.rid&&!rules[c.rid])c.rid=null;
  c.test=(ql.match(/\bt([1-9])\b/)||[])[1];if(c.test)c.test="T"+c.test;
- const d=(q.match(/20\d\d-\d\d-\d\d/)||[])[0];if(d){c.date=DATA.dates.reduce((a,b)=>Math.abs(new Date(b)-new Date(d))<Math.abs(new Date(a)-new Date(d))?b:a);c.dateNote=c.date!==d?`nearest precomputed date to ${d}`:""}
- else if(/2027|next year|july/.test(ql))c.date="2027-07-02";else if(/2025|before ab ?325|last year/.test(ql))c.date="2025-12-31";
+ const d=(q.match(/20\d\d-\d\d-\d\d/)||[])[0];if(d)c.date=d;   // any date: the in-browser engine evaluates it exactly
+ else if(/\b2027\b|next year/.test(ql))c.date="2027-07-02";else if(/\b2025\b|before ab ?325|last year/.test(ql))c.date="2025-12-31";
  const aid=(q.match(/\bA\d{4}\b/i)||[])[0];if(aid&&pid[aid.toUpperCase()])c.addr=aid.toUpperCase();
  if(!c.addr){let best=null,bs=0;const toks=new Set(ql.split(/[^a-z0-9.-]+/).filter(Boolean));
   props.forEach(p=>{const st=p.street_address.toLowerCase().split(/[^a-z0-9.-]+/).filter(t=>t.length>=3||/^\d+/.test(t));let sc=0;st.forEach(t=>{if(toks.has(t)||(/^\d+-\d+$/.test(t)&&t.split("-").some(x=>toks.has(x))))sc+=/^\d/.test(t)?2:1});if(sc>bs){bs=sc;best=p}});

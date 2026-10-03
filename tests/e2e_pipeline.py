@@ -1,4 +1,4 @@
-"""End-to-end plumbing test with fake model outputs (no API key needed):  python tests/test_pipeline.py"""
+"""End-to-end plumbing test with fake model outputs (no API key needed):  python tests/e2e_pipeline.py"""
 import json, pathlib, shutil, subprocess, sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))

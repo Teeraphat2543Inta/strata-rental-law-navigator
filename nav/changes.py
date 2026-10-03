@@ -35,9 +35,6 @@ def run_test(test, props, rules):
     for tid in test.get("rule_ids", []):
         matched += [r["team_rule_id"] for r in match_rules(tid, rules)]
     matched = sorted(set(matched))
-    conflict_rules = set()
-    for tid in test.get("conflict_with", []):
-        conflict_rules |= {r["team_rule_id"] for r in match_rules(tid, rules)}
     affected, flagged, detail = [], [], {}
     t = test["type"]
     if t == "as_of":
@@ -80,8 +77,6 @@ def run_test(test, props, rules):
             failed = [r["team_rule_id"] for r in rules if r["team_rule_id"] in matched]
             notes = (f"Measure recorded as {[r['status_raw'] for r in rules if r['team_rule_id'] in failed] or 'not found'}; "
                      f"no rent cap reported for any address. Affected set size: {len(affected)}.")
-    if conflict_rules and t == "as_of":
-        flagged = [aid for aid in flagged]
     return {"affected_address_ids": affected, "conflict_flag_address_ids": sorted(set(flagged)),
             "notes": notes}, {"matched_rule_ids": matched, "per_address": detail}
 

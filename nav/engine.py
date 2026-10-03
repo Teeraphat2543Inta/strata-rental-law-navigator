@@ -109,10 +109,10 @@ def _units(prop):
 
 
 def _applies_to_place(rule, prop):
-    if not prop.get("jurisdiction"):
-        return False
-    j = rule["jurisdiction"]
-    return j == prop["state"] if rule["level"] == "state" else j == prop["jurisdiction"]
+    # statewide rules reach every address in the state, even one whose city is outside the covered set
+    if rule["level"] == "state":
+        return rule["jurisdiction"] == prop["state"]
+    return bool(prop.get("jurisdiction")) and rule["jurisdiction"] == prop["jurisdiction"]
 
 
 def evaluate(prop, rules, as_of):

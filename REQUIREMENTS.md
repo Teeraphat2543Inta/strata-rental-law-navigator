@@ -15,7 +15,7 @@ Numbers come from `python run.py check` / `score` on this commit.
 | B · If coverage depends on a missing fact, say **unknown**, not guess | 806 `unknown` answers, each naming the missing fact | engine explanations; value-of-information ranking |
 | **C** · Run the change cases; list affected addresses | T1–T5 all match their expected sets | `out/changes.json`, self-check |
 | C · Before/after rule set per address | Per test and address | `out/changes_detail.json` |
-| C · Support an as-of-date query | Any date 2024–2030 in the app (in-browser engine, parity-tested); exact change dates per building | date picker, `nav/temporal.py`, `tests/test_engine_parity.py` |
+| C · Support an as-of-date query | Any date in the app's date picker and in Ask Strata questions (in-browser engine, parity-tested); exact change dates per building | date picker, `nav/temporal.py`, `tests/e2e_engine_parity.py` |
 | T3 · Flag possible conflict with local bans | 90 flags, exactly Jersey City + Hoboken | self-check T3 |
 
 ## Stretch goals
