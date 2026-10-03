@@ -51,12 +51,27 @@ def build(rules, findings, new_doc_ids=()):
         "sources": [{"doc_id": d.doc_id, "jurisdictions": d.jurisdictions, "url": d.url, "source_type": d.source_type,
                      "retrieved": d.retrieved_date, "chars": len(d.text)} for d in load_docs()],
         "tests": tests,
+        "audit": _audit_summary(),
         "model": config.ANTHROPIC_MODEL,
         "selfcheck": None,
     }
     (config.OUT / "app_bundle.json").write_text(json.dumps(bundle, ensure_ascii=False))
     render_app(bundle)
     return props, changes
+
+
+def _audit_summary():
+    path = config.AUDIT_LOG
+    if not path.exists():
+        return None
+    rows = [json.loads(line) for line in path.read_text().splitlines() if line.strip()]
+    stages, checks = {}, {}
+    for r in rows:
+        stages[r["stage"]] = stages.get(r["stage"], 0) + 1
+        if r["stage"] == "extract":
+            checks[r["quote_check"].split(":")[0]] = checks.get(r["quote_check"].split(":")[0], 0) + 1
+    return {"stages": stages, "quote_checks": checks,
+            "merged_records": sum(len(r.get("merged", [])) for r in rows if r["stage"] == "merge")}
 
 
 def render_app(bundle):
