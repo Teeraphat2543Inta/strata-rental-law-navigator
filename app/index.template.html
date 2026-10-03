@@ -9,6 +9,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20width%3D%2264%22%20height%3D%2264%22%20viewBox%3D%220%200%2064%2064%22%20aria-hidden%3D%22true%22%3E%3Cg%20fill%3D%22%2324408E%22%3E%3Crect%20x%3D%227%22%20y%3D%2211%22%20width%3D%2250%22%20height%3D%227.5%22%20rx%3D%223.75%22/%3E%3Crect%20x%3D%227%22%20y%3D%2221.5%22%20width%3D%2250%22%20height%3D%227.5%22%20rx%3D%223.75%22/%3E%3Crect%20x%3D%227%22%20y%3D%2232%22%20width%3D%2250%22%20height%3D%227.5%22%20rx%3D%223.75%22/%3E%3Crect%20x%3D%227%22%20y%3D%2242.5%22%20width%3D%2250%22%20height%3D%227.5%22%20rx%3D%223.75%22/%3E%3C/g%3E%0A%3Cpath%20d%3D%22M32%203.5l13%204.6v11.6c0%209-5.4%2014.6-13%2018-7.6-3.4-13-9-13-18V8.1z%22%20fill%3D%22%23ffffff%22%20stroke%3D%22%2324408E%22%20stroke-width%3D%222.6%22%20stroke-linejoin%3D%22round%22/%3E%0A%3Cpath%20d%3D%22M26.5%2022.5l5.5-5%205.5%205v8h-11z%22%20fill%3D%22none%22%20stroke%3D%22%2324408E%22%20stroke-width%3D%222.3%22%20stroke-linejoin%3D%22round%22/%3E%3Crect%20x%3D%2230.6%22%20y%3D%2224.6%22%20width%3D%222.8%22%20height%3D%225.9%22%20rx%3D%22.6%22%20fill%3D%22%2324408E%22/%3E%0A%3Ccircle%20cx%3D%2232%22%20cy%3D%2238.2%22%20r%3D%223.4%22%20fill%3D%22%23ffffff%22/%3E%3Cpath%20d%3D%22M30.2%2039.6h3.6l1%206.2h-5.6z%22%20fill%3D%22%23ffffff%22/%3E%0A%3Cpath%20d%3D%22M6%2061l26-10.5L58%2061%22%20fill%3D%22none%22%20stroke%3D%22%2324408E%22%20stroke-width%3D%223.4%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 <style>
 /* ---------- tokens ---------- */
 :root{
@@ -539,6 +541,60 @@ footer{color:var(--ink-3);font-size:12px;padding:20px 28px 40px;border-top:1px s
 }
 .hero{position:relative;overflow:hidden}.hero>*{position:relative}
 .fab{position:fixed}
+
+/* map / compare / agent */
+.map-shell{display:grid;grid-template-columns:300px minmax(0,1fr);gap:0;padding:0;overflow:hidden;height:calc(100vh / .92 - 170px);min-height:520px}
+@media (max-width:980px){.map-shell{grid-template-columns:1fr;height:auto}#leaf{height:460px}}
+.map-side{padding:18px;border-right:1px solid var(--line);overflow:auto;display:flex;flex-direction:column;gap:10px}
+.map-side h3{margin:0}.map-tip{margin:auto 0 0}
+#leaf{height:100%;min-height:460px;background:#0b1220}
+.leaflet-container{font-family:var(--font)}.leaflet-tile-container img{width:256.6px!important;height:256.6px!important}.leaflet-tooltip{font-size:12px;border-radius:8px}
+.cmp-pick{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:10px}
+@media (max-width:760px){.cmp-pick{grid-template-columns:1fr}}
+table.cmp td{min-width:200px}table.cmp td:first-child{min-width:190px;font-weight:500}
+table.cmp .ci{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:7px;background:var(--brand-soft);color:var(--brand-2);vertical-align:middle}
+table.cmp .ci svg{width:15px;height:15px}
+tr.cmp-diff td{background:color-mix(in srgb,#7B5CF0 7%,transparent)}
+.cmp-t{font-size:11.5px;color:var(--ink-2);margin-top:2px}
+.plan{display:grid;gap:6px}.plan-h{font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7B5CF0;display:flex;gap:6px;align-items:center}
+.step-r{display:flex;gap:10px;align-items:center;font-size:13px;padding:7px 10px;border-radius:10px;background:var(--soft);transition:background .2s}
+.step-r.done{background:color-mix(in srgb,var(--applies) 12%,var(--soft))}
+.st-i{width:20px;height:20px;display:grid;place-items:center;color:var(--applies)}.st-i svg{width:16px;height:16px}
+.spin{width:14px;height:14px;border-radius:50%;border:2px solid color-mix(in srgb,#7B5CF0 30%,transparent);border-top-color:#7B5CF0;animation:spin .7s linear infinite;display:inline-block;flex:none}
+.think{display:grid;gap:6px}.th{display:flex;gap:8px;align-items:center;font-size:12.5px;color:var(--ink-2);animation:slidein .3s both}
+.reveal>*{animation:cardin .4s cubic-bezier(.2,.7,.2,1) both}.reveal>*:nth-child(2){animation-delay:.08s}.reveal>*:nth-child(3){animation-delay:.16s}.reveal>*:nth-child(n+4){animation-delay:.24s}
+.reveal tr{animation:slidein .35s both}.reveal tr:nth-child(2){animation-delay:.05s}.reveal tr:nth-child(3){animation-delay:.1s}.reveal tr:nth-child(n+4){animation-delay:.15s}
+.cando{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.cando div{border:1px solid var(--line);border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:2px;font-size:12px;background:linear-gradient(160deg,color-mix(in srgb,#7B5CF0 8%,var(--card)),var(--card))}
+.cando svg{color:#7B5CF0}.cando span{color:var(--ink-2);font-size:11.5px}
+.nudge{position:fixed;right:24px;bottom:90px;z-index:31;display:flex;gap:8px;align-items:center;max-width:340px;text-align:left;border:1px solid color-mix(in srgb,#7B5CF0 40%,var(--line));
+ background:var(--card);color:var(--ink);padding:10px 14px;border-radius:14px 14px 4px 14px;box-shadow:var(--shadow-lg);font-size:12.5px;cursor:pointer;transform:translateY(12px) scale(.96);opacity:0;pointer-events:none;visibility:hidden;transition:all .3s cubic-bezier(.2,.7,.2,1)}
+.nudge.on{transform:none;opacity:1;pointer-events:auto;visibility:visible}.nudge svg{color:#7B5CF0;flex:none}
+
+/* fancy pager + audit layout */
+.fpager{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:16px;padding:12px 16px;border-radius:16px;border:1px solid var(--line);background:linear-gradient(120deg,color-mix(in srgb,var(--brand-2) 6%,var(--card)),var(--card));box-shadow:var(--shadow)}
+.fp-info{font-size:12.5px;color:var(--ink-2)}.fp-info b{color:var(--ink)}
+.fp-nav{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.fp-n{min-width:36px;height:36px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink-2);cursor:pointer;font-weight:600;font-size:12.5px;font-variant-numeric:tabular-nums;transition:all .15s}
+.fp-n:hover{border-color:var(--brand-2);color:var(--ink);transform:translateY(-1px)}
+.fp-n[aria-current=true]{border:none;color:#fff;background:linear-gradient(135deg,var(--brand-2),#7B5CF0);box-shadow:0 6px 16px rgba(91,79,214,.35)}
+.fp-b{display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;font-size:12.5px;font-weight:500;transition:all .15s}
+.fp-b svg{width:15px;height:15px;transform:rotate(90deg)}.fp-b.next svg{transform:rotate(-90deg)}
+.fp-b:hover:not(:disabled){border-color:var(--brand-2);transform:translateY(-1px)}.fp-b:disabled{opacity:.4;cursor:default}
+.fp-gap{color:var(--ink-3);padding:0 2px}
+.fp-size{font-size:12px;color:var(--ink-2);display:flex;align-items:center;gap:6px}
+.fp-size select{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:9px;padding:5px 8px}
+@media (max-width:640px){.fp-b span{display:none}.fp-b{padding:0 10px}}
+.sc-card{margin-bottom:16px}
+.sc-bar{height:6px;border-radius:3px;background:var(--soft);overflow:hidden;margin:4px 0 14px}.sc-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--applies),#7EE2B8);transform-origin:left;animation:grow 1s .2s both}
+.sc-card .cks{grid-template-columns:repeat(auto-fill,minmax(min(360px,100%),1fr))}
+.un-card{margin-bottom:6px}
+.un-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:12px;margin-top:10px;align-items:start}
+.un-col{border:1px dashed var(--line);border-radius:14px;padding:12px;background:repeating-linear-gradient(135deg,transparent 0 10px,color-mix(in srgb,var(--pending) 5%,transparent) 10px 12px)}
+.un-h{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink-2);margin-bottom:8px}
+.un-st{font-weight:700;color:#fff;background:linear-gradient(135deg,var(--brand-2),#7B5CF0);border-radius:8px;padding:2px 8px;font-size:11.5px}
+.un-i{display:grid;grid-template-columns:52px 1fr;gap:2px 8px;padding:7px 8px;border-radius:9px;text-decoration:none;color:var(--ink);font-size:12px;transition:background .15s}
+.un-i:hover{background:var(--soft)}.un-i em{grid-column:2;font-style:normal;color:var(--ink-3);font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 </style>
 </head>
 <body>
@@ -564,6 +620,9 @@ footer{color:var(--ink-3);font-size:12px;padding:20px 28px 40px;border-top:1px s
  <symbol id="i-quote" viewBox="0 0 24 24"><path d="M7 7h4v4c0 3-1.5 5-4 6"/><path d="M14 7h4v4c0 3-1.5 5-4 6"/></symbol>
  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></symbol>
  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></symbol>
+ <symbol id="i-map" viewBox="0 0 24 24"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/></symbol>
+ <symbol id="i-compare" viewBox="0 0 24 24"><rect x="3" y="4" width="7" height="16" rx="1.5"/><rect x="14" y="4" width="7" height="16" rx="1.5"/><path d="M6.5 9h0M17.5 9h0"/></symbol>
+ <symbol id="i-down2" viewBox="0 0 24 24"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></symbol>
  <symbol id="c-rent" viewBox="0 0 24 24"><path d="M4 17l5-5 4 4 7-8"/><path d="M15 8h5v5"/></symbol>
  <symbol id="c-evict" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 15h4"/></symbol>
  <symbol id="c-dep" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/><circle cx="16" cy="14.5" r="1.5"/></symbol>
@@ -587,6 +646,8 @@ footer{color:var(--ink-3);font-size:12px;padding:20px 28px 40px;border-top:1px s
    <a href="#/overview" data-page="overview"><svg class="i"><use href="#i-home"/></svg><span data-i18n="p0">Overview</span></a>
    <a href="#/lookup" data-page="lookup"><svg class="i"><use href="#i-pin"/></svg><span data-i18n="p1">Address lookup</span><span class="badge" id="b-addr"></span></a>
    <a href="#/changes" data-page="changes"><svg class="i"><use href="#i-clock"/></svg><span data-i18n="p2">What's changing</span><span class="badge">T1–T5</span></a>
+   <a href="#/map" data-page="map"><svg class="i"><use href="#i-map"/></svg><span data-i18n="p7">Map</span><span class="badge">485</span></a>
+   <a href="#/compare" data-page="compare"><svg class="i"><use href="#i-compare"/></svg><span data-i18n="p8">Compare</span></a>
    <a href="#/portfolio" data-page="portfolio"><svg class="i"><use href="#i-brief"/></svg><span data-i18n="p3">Portfolio & timeline</span></a>
    <div class="navg" data-i18n="g2">Evidence</div>
    <a href="#/library" data-page="library"><svg class="i"><use href="#i-book"/></svg><span data-i18n="p4">Rule library</span><span class="badge" id="b-rules"></span></a>
@@ -621,6 +682,8 @@ footer{color:var(--ink-3);font-size:12px;padding:20px 28px 40px;border-top:1px s
    </section>
    <section id="changes" class="hidden"></section>
    <section id="portfolio" class="hidden"></section>
+   <section id="map" class="hidden"></section>
+   <section id="compare" class="hidden"></section>
    <section id="library" class="hidden"></section>
    <section id="sources" class="hidden"></section>
    <section id="method" class="hidden"></section>
@@ -630,11 +693,11 @@ footer{color:var(--ink-3);font-size:12px;padding:20px 28px 40px;border-top:1px s
 </div>
 <div class="scrim" id="scrim"></div>
 <aside class="drawer" id="drawer" aria-hidden="true" role="dialog" aria-label="Rule detail"></aside>
-<div id="tip"></div><div class="toast" id="toast"></div>
+<div id="tip"></div><button class="nudge" id="nudge"></button><div class="toast" id="toast"></div>
 <button class="fab" id="fab" aria-label="Ask Strata"><span class="orb"><svg class="i"><use href="#i-spark"/></svg></span><span data-i18n="ask">Ask Strata</span></button>
 <section class="ai" id="ai" aria-label="Ask Strata assistant" aria-hidden="true">
  <div class="ah"><span class="insight" style="all:unset"><span class="spark" style="width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.16)"><svg class="i"><use href="#i-spark"/></svg></span></span>
-  <div style="flex:1"><h3>Ask Strata</h3><p id="aisub">Answers only from the extracted law · cites every rule</p></div>
+  <div style="flex:1"><h3>Ask Strata</h3><p id="aisub">Answers from the extracted law · cites every rule · can act in the app</p></div>
   <button class="iconbtn" id="aiclose" aria-label="Close assistant"><svg class="i"><use href="#i-x"/></svg></button></div>
  <div class="mode"><span>Mode</span><div class="seg"><button id="m-g" aria-pressed="true">Grounded</button><button id="m-c" aria-pressed="false">Claude (your key)</button></div><span id="modehint">deterministic retrieval over 95 rules, no hallucination possible</span></div>
  <div class="keyrow" id="keyrow"><span>Anthropic API key</span><input id="akey" type="password" placeholder="sk-ant-… (kept in this tab only, sent only to api.anthropic.com)" autocomplete="off"><button class="btn" id="keysave">Use</button></div>
@@ -676,7 +739,7 @@ const DATA = /*__DATA__*/null;
 const I18N = {
  en:{nla:"Not legal advice.",nla2:"This tool shows what public law text says. Check with a lawyer or your local rent board before acting.",
   tag:"Housing law for one front door, layer by layer",foot:"Public data only. Every answer cites its source sentence.",g1:"Navigate",g2:"Evidence",
-  p0:"Overview",p1:"Address lookup",p2:"What's changing",p3:"Portfolio & timeline",p4:"Rule library",p5:"Sources & audit",p6:"How it works",
+  p0:"Overview",p1:"Address lookup",p2:"What's changing",p3:"Portfolio & timeline",p4:"Rule library",p5:"Sources & audit",p6:"How it works",p7:"Map",p8:"Compare",
   title:"Which housing rules apply at this address?",subtitle:"State and city rules for 500 apartment buildings, read from the law itself. Every answer cites the exact source sentence, the date it was retrieved and the date it is true for.",
   asof:"As of",applies:"Applies",superseded:"Superseded",unknown:"Unknown",not_yet_effective:"Not yet in effect",pending:"Pending",
   state:"State law",city:"City law",absent:"Confirmed absences",none:"No rule from this level reaches this building on this date.",
@@ -692,7 +755,7 @@ const I18N = {
   kh1:"automated, no hand-coding",kh2:"found verbatim in source",kh3:"legal city resolved for all",kh4:"official + linked pages",kh5:"T1–T5 pass",ask:"Ask Strata",insight:"Strata insight",askthis:"Ask about this building"},
  es:{nla:"No es asesoría legal.",nla2:"Esta herramienta muestra lo que dice el texto público de la ley. Consulte a un abogado o a la junta de rentas local antes de actuar.",
   tag:"La ley de vivienda de una puerta, capa por capa",foot:"Solo datos públicos. Cada respuesta cita su oración fuente.",g1:"Navegar",g2:"Evidencia",
-  p0:"Resumen",p1:"Buscar dirección",p2:"Qué está cambiando",p3:"Cartera y calendario",p4:"Biblioteca de reglas",p5:"Fuentes y auditoría",p6:"Cómo funciona",
+  p0:"Resumen",p1:"Buscar dirección",p2:"Qué está cambiando",p3:"Cartera y calendario",p4:"Biblioteca de reglas",p5:"Fuentes y auditoría",p6:"Cómo funciona",p7:"Mapa",p8:"Comparar",
   title:"¿Qué reglas de vivienda aplican en esta dirección?",subtitle:"Reglas estatales y municipales para 500 edificios de apartamentos, leídas de la propia ley. Cada respuesta cita la oración exacta, la fecha en que se obtuvo y la fecha para la que es válida.",
   asof:"Vigente al",applies:"Aplica",superseded:"Reemplazada",unknown:"Desconocido",not_yet_effective:"Aún no vigente",pending:"Pendiente",
   state:"Ley estatal",city:"Ley municipal",absent:"Ausencias confirmadas",none:"Ninguna regla de este nivel cubre este edificio en esta fecha.",
@@ -743,7 +806,8 @@ function readHash(){const h=location.hash.replace(/^#\/?/,"");let [pg,qs]=h.spli
  if(q.get("addr")&&pid[q.get("addr")])current=q.get("addr");if(q.get("asof")&&DATA.dates.includes(q.get("asof")))asof=q.get("asof");
  if(q.get("lang"))lang=q.get("lang")==="es"?"es":"en"}
 function writeHash(){const s=`#/${page}?${page==="lookup"&&current?`addr=${current}&`:""}asof=${asof}&lang=${lang}`;if(location.hash!==s)history.replaceState(null,"",s)}
-function go(pg,addr){page=pg;if(addr)current=addr;render(true);window.scrollTo({top:0,behavior:reduce?"auto":"smooth"})}
+function go(pg,addr){page=pg;if(addr)current=addr;render(true);window.scrollTo({top:0,behavior:reduce?"auto":"smooth"});nudge()}
+const nudged=new Set();function nudge(){if(nudged.has(page)||$("#ai")?.classList.contains("on"))return;nudged.add(page);const s=contextSugs()[0];const n=$("#nudge");if(!n||!s)return;n.innerHTML=`${ico("i-spark")}<span>${lang==="es"?"Pruebe":"Try"}: <b>${esc(s)}</b></span>`;n.onclick=()=>{n.classList.remove("on");aiOpen(s)};n.classList.add("on");clearTimeout(nudge._t);nudge._t=setTimeout(()=>n.classList.remove("on"),5200)}
 document.querySelectorAll(".nav a").forEach(a=>a.onclick=e=>{e.preventDefault();go(a.dataset.page)});
 window.addEventListener("hashchange",()=>{readHash();render(true)});
 
@@ -963,7 +1027,7 @@ function renderLibrary(){const el=$("#library");const R=DATA.rules;const es=lang
    ${lib.view==="cards"?`<div class="rcs">${f.slice(lib.p*per,(lib.p+1)*per).map(card).join("")||`<div class="card">—</div>`}</div>`:
    `<div class="wrap"><table><thead><tr><th>ID</th><th>${es?"Regla":"Rule"}</th><th>${es?"Jurisdicción":"Jurisdiction"}</th><th>${es?"Estado":"Status"}</th><th>${T("eff")}</th><th>${T("cite")}</th><th style="text-align:right">${es?"Edificios":"Buildings"}</th></tr></thead><tbody>
    ${f.slice(lib.p*per,(lib.p+1)*per).map(r=>`<tr class="clk" data-rid="${esc(r.team_rule_id)}"><td class="mono"><b>${esc(r.team_rule_id)}</b></td><td><b>${esc(r.title)}</b><div style="font-size:12px;color:var(--ink-2)">${esc(catName(r.category))}</div></td><td>${esc(r.jurisdiction)}</td><td>${statusPill(r)}${r.conflict_flag?" ⚑":""}</td><td class="mono">${esc(r.effective_date||"—")}</td><td style="font-size:12.5px">${esc(r.citation)}</td><td style="text-align:right">${reach[r.team_rule_id]?.size||0}</td></tr>`).join("")}</tbody></table></div>`}
-   <div class="pager card" style="margin-top:14px;padding:10px 14px"><span>${f.length?lib.p*per+1:0}–${Math.min(f.length,(lib.p+1)*per)} ${T("of")} ${f.length}</span><span class="pg"><button ${lib.p===0?"disabled":""} data-p="${lib.p-1}">‹</button>${[...Array(pages).keys()].map(i=>`<button data-p="${i}" aria-current="${i===lib.p}">${i+1}</button>`).join("")}<button ${lib.p>=pages-1?"disabled":""} data-p="${lib.p+1}">›</button></span></div>
+   ${pagerHTML(lib.p,pages,f.length,per)}
   </section></div>
  <div class="sec-title"><h2>${ico("i-x")} ${es?"Sin regla en este nivel":"No rule at this level"}</h2><p>${es?"Hallazgos negativos, cada uno citado":"Negative findings, each one cited"}</p></div>
  <div class="grid g3">${[...new Map((DATA.no_rule_findings||[]).map(x=>[x.jurisdiction+x.quoted_span,x])).values()].map(x=>`<div class="card"><div class="tid">${esc(x.jurisdiction)} · ${esc(catName(x.category))}</div><p style="margin:6px 0 0;font-size:13.5px">${esc(x.finding)}</p><blockquote>“${esc(x.quoted_span)}”</blockquote><div style="font-size:12px;color:var(--ink-2)">${T("source")}: <a href="${esc(x.source_url)}" target="_blank" rel="noopener">${esc(x.source_doc_id)}</a></div></div>`).join("")}</div></div>`;
@@ -972,7 +1036,7 @@ function renderLibrary(){const el=$("#library");const R=DATA.rules;const es=lang
  el.querySelectorAll(".lf-i").forEach(b=>b.onclick=()=>{const k=b.dataset.k;lib[k]=lib[k]===b.dataset.v?"":b.dataset.v;rer()});
  $("#lclear")&&($("#lclear").onclick=()=>{lib.j=lib.c=lib.s=lib.q="";rer()});
  $("#lsort").onchange=e=>{lib.sort=e.target.value;rer()};$("#vcards").onclick=()=>{lib.view="cards";rer()};$("#vtable").onclick=()=>{lib.view="table";rer()};
- el.querySelectorAll(".pager button[data-p]").forEach(b=>b.onclick=()=>{lib.p=+b.dataset.p;renderLibrary();el.scrollIntoView({behavior:reduce?"auto":"smooth"})});
+ el.querySelectorAll(".fpager button[data-p]").forEach(b=>b.onclick=()=>{lib.p=+b.dataset.p;renderLibrary();el.scrollIntoView({behavior:reduce?"auto":"smooth"})});
  el.querySelectorAll("[data-rid]").forEach(x=>{x.onclick=()=>openDrawer(x.dataset.rid);x.onkeydown=e=>{if(e.key==="Enter")openDrawer(x.dataset.rid)}})}
 function openDrawer(rid){const r=rules[rid];const reach=reachMap(asof)[rid]||new Set();const c=r.coverage_conditions||{};const req=lang==="es"&&r.requirement_es?r.requirement_es:r.requirement;
  const dr=$("#drawer");dr.innerHTML=`<div class="dh"><div style="flex:1"><div class="tid">${ico(CICON[r.category])} ${esc(r.team_rule_id)} · ${esc(catName(r.category))}</div><h3>${esc(r.title)}</h3><div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">${pill(STATUS_RES[r.status]||"pending")}<span class="tag">${esc(r.jurisdiction)}</span><span class="tag">${esc(r.level)}</span>${r.conflict_flag?`<span class="pill" style="--c:var(--warn)">⚑ ${T("review")}</span>`:""}</div></div><button class="iconbtn" id="dclose" aria-label="Close">${ico("i-x")}</button></div>
@@ -994,7 +1058,13 @@ function closeDrawer(){$("#drawer").classList.remove("on");$("#drawer").setAttri
 $("#scrim").onclick=closeDrawer;
 
 /* ---------- sources & audit ---------- */
-let src={q:"",t:"",p:0};
+let src={q:"",t:"",p:0,per:12};
+function pagerHTML(p,pages,total,per,sizes){const from=total?p*per+1:0,to=Math.min(total,(p+1)*per);const win=[...Array(pages).keys()].filter(i=>i===0||i===pages-1||Math.abs(i-p)<=1);
+ return `<nav class="fpager" aria-label="Pagination"><span class="fp-info">${lang==="es"?"Mostrando":"Showing"} <b>${from}–${to}</b> ${T("of")} <b>${total}</b></span>
+  <span class="fp-nav"><button class="fp-b" data-p="${p-1}" ${p===0?"disabled":""}>${ico("i-down")}<span>${lang==="es"?"Anterior":"Previous"}</span></button>
+  ${win.map((i,k)=>`${k&&i-win[k-1]>1?'<span class="fp-gap">…</span>':""}<button class="fp-n" data-p="${i}" aria-current="${i===p}">${i+1}</button>`).join("")}
+  <button class="fp-b next" data-p="${p+1}" ${p>=pages-1?"disabled":""}><span>${lang==="es"?"Siguiente":"Next"}</span>${ico("i-down")}</button></span>
+  ${sizes?`<label class="fp-size">${lang==="es"?"Por página":"Per page"} <select data-size>${sizes.map(n=>`<option ${n===per?"selected":""}>${n}</option>`).join("")}</select></label>`:""}</nav>`}
 function renderSources(){const el=$("#sources");const S=DATA.sources||[];const es=lang==="es";const A=DATA.audit||{stages:{},quote_checks:{}};
  const used={};DATA.rules.forEach(r=>(r.supporting_docs||[r.source_doc_id]).forEach(d=>used[d]=(used[d]||0)+1));
  const lines=DATA.selfcheck?.lines||[];const answers=props.reduce((a,p)=>a+entriesOf(p.address_id).length,0);
@@ -1008,17 +1078,19 @@ function renderSources(){const el=$("#sources");const S=DATA.sources||[];const e
  const mx=Math.max(...chain.map(c=>c[1]));
  const types=[...new Set(S.map(s=>s.source_type.startsWith("fetched")?"fetched":s.source_type))];
  const fs=S.filter(s=>(!src.t||(src.t==="fetched"?s.source_type.startsWith("fetched"):s.source_type===src.t))&&(!src.q||`${s.doc_id} ${s.jurisdictions} ${s.url}`.toLowerCase().includes(src.q.toLowerCase())));
- const per=12,pages=Math.max(1,Math.ceil(fs.length/per));src.p=Math.min(src.p,pages-1);const maxc=Math.max(...S.map(s=>s.chars||0));
+ const per=src.per,pages=Math.max(1,Math.ceil(fs.length/per));src.p=Math.min(src.p,pages-1);const maxc=Math.max(...S.map(s=>s.chars||0));
  const checks=lines.map(l=>{const ok=l.startsWith("PASS");const body=l.slice(4).trim().replace(/\(?Counter\(\{([^}]*)\}\)\)?/g,(m,x)=>"("+x.replace(/'/g,"").replace(/_/g," ")+")");let h,rest;
   if(body.includes(":")){[h,...rest]=body.split(":")}else{const w=body.split(" ");h=w.slice(0,2).join(" ");rest=[w.slice(2).join(" ")]}return `<div class="ck ${ok?"ok":"bad"}"><span class="ck-i">${ico(ok?"i-check":"i-x")}</span><div><b>${esc(h)}</b><div>${esc(rest.join(":").trim())}</div></div></div>`}).join("");
  el.innerHTML=`<div class="page">
  <div class="card chain"><div class="pf-head"><h3>${ico("i-shield")} ${es?"Cadena de evidencia":"Evidence chain"}</h3><span class="ai-chip">${es?"auditable de punta a punta":"auditable end to end"}</span></div>
   <p class="sub">${es?"Cómo un documento público se convierte en una respuesta citada. Cada paso queda en out/audit_log.jsonl y cache/llm/.":"How a public document becomes a cited answer. Every step is recorded in out/audit_log.jsonl and cache/llm/."}</p>
   <div class="chain-row">${chain.map(([ic,v,l,sub],i)=>`<div class="cn"><div class="cn-ic">${ic}</div><div class="cn-v" data-to="${v}">0</div><div class="cn-l">${l}</div><div class="cn-s">${esc(sub)}</div><div class="cn-bar"><i style="width:${Math.max(6,100*Math.log10(v+1)/Math.log10(mx+1))}%"></i></div></div>${i<chain.length-1?`<div class="cn-ar">→</div>`:""}`).join("")}</div></div>
- <div class="pf-grid">
-  <div class="card"><div class="pf-head"><h3>${ico("i-check")} ${es?"Autoverificación de esta versión":"Self-check of this build"}</h3><span class="ok">${ico("i-check")} ${lines.filter(l=>l.startsWith("PASS")).length}/${lines.length} pass</span></div><p class="sub mono">python run.py check</p><div class="cks">${checks||"run `python run.py check`"}</div></div>
-  <div class="card"><h3>${ico("i-x")} ${es?"Fuentes que no pudimos leer":"Sources we could not read"}</h3><p class="sub">${es?"Listadas por transparencia; nunca citadas.":"Listed for transparency, never cited. Code publishers that refused, or pages with no law text."}</p>
-   <div style="display:flex;flex-wrap:wrap;gap:6px">${(DATA.link_only_sources||[]).filter(s=>!S.some(x=>x.doc_id===s.doc_id)).map(s=>`<a class="tag" href="${esc(s.url||"#")}" target="_blank" rel="noopener" data-tip="${esc(s.url||"")}">${esc(s.doc_id)} · ${esc(s.jurisdictions)}</a>`).join("")}</div></div></div>
+ <div class="card sc-card"><div class="pf-head"><h3>${ico("i-check")} ${es?"Autoverificación de esta versión":"Self-check of this build"}</h3><div style="display:flex;gap:8px;align-items:center"><span class="mono tag">python run.py check</span><span class="ok">${ico("i-check")} ${lines.filter(l=>l.startsWith("PASS")).length}/${lines.length} pass</span></div></div>
+  <div class="sc-bar"><i style="width:${100*lines.filter(l=>l.startsWith("PASS")).length/Math.max(1,lines.length)}%"></i></div>
+  <div class="cks">${checks||"run `python run.py check`"}</div></div>
+ ${(()=>{const un=(DATA.link_only_sources||[]).filter(s=>!S.some(x=>x.doc_id===s.doc_id));const by={};un.forEach(s=>{const st=(s.jurisdictions||"").slice(-2)||"?";(by[st]=by[st]||[]).push(s)});
+  return `<div class="card un-card"><div class="pf-head"><h3>${ico("i-x")} ${es?"Fuentes que no pudimos leer":"Sources we could not read"} <span class="tag">${un.length}</span></h3><span class="sub" style="margin:0">${es?"Listadas por transparencia; nunca citadas.":"Listed for transparency, never cited: pages that refused (403) or held no law text."}</span></div>
+  <div class="un-grid">${Object.entries(by).map(([st,xs])=>`<div class="un-col"><div class="un-h"><span class="un-st">${esc(st)}</span>${xs.length} ${es?(xs.length>1?"fuentes":"fuente"):(xs.length>1?"sources":"source")}</div>${xs.map(s=>{let h="";try{h=new URL(s.url).hostname.replace(/^www\./,"")}catch(e){}return `<a class="un-i" href="${esc(s.url||"#")}" target="_blank" rel="noopener"><b class="mono">${esc(s.doc_id)}</b><span>${esc(s.jurisdictions)}</span><em>${esc(h)}</em></a>`}).join("")}</div>`).join("")}</div></div>`})()}
  <div class="sec-title"><h2>${ico("i-db")} ${es?"Documentos fuente":"Source documents"}</h2>
   <div class="filters" style="margin:0"><div class="search" style="min-width:240px"><svg class="i"><use href="#i-search"/></svg><input id="sq" type="search" value="${esc(src.q)}" placeholder="${es?"Buscar documento o URL":"Search document or URL"}"></div>
    <div class="chips" style="margin:0"><button data-t="" aria-pressed="${!src.t}">${T("all")} ${S.length}</button>${types.map(t=>`<button data-t="${esc(t)}" aria-pressed="${src.t===t}">${esc(t)} ${S.filter(s=>t==="fetched"?s.source_type.startsWith("fetched"):s.source_type===t).length}</button>`).join("")}</div></div></div>
@@ -1027,11 +1099,12 @@ function renderSources(){const el=$("#sources");const S=DATA.sources||[];const e
    <div class="dc-j">${esc(s.jurisdictions)}</div><div class="dc-h">${esc(host)}</div>
    <div class="dc-m"><span>${ico("i-cal")} ${esc(s.retrieved)}</span><span>${(s.chars||0).toLocaleString()} chars</span></div>
    <div class="rc-reach"><span>${es?"Reglas respaldadas":"Rules backed"}</span><span class="trk"><i style="width:${Math.min(100,12*(used[s.doc_id]||0))}%"></i></span><b>${used[s.doc_id]||0}</b></div></a>`}).join("")}</div>
- <div class="pager card" style="margin-top:14px;padding:10px 14px"><span>${fs.length?src.p*per+1:0}–${Math.min(fs.length,(src.p+1)*per)} ${T("of")} ${fs.length}</span><span class="pg"><button ${src.p===0?"disabled":""} data-p="${src.p-1}">‹</button>${[...Array(pages).keys()].map(i=>`<button data-p="${i}" aria-current="${i===src.p}">${i+1}</button>`).join("")}<button ${src.p>=pages-1?"disabled":""} data-p="${src.p+1}">›</button></span></div></div>`;
+ ${pagerHTML(src.p,pages,fs.length,per,[8,12,24,48])}</div>`;
  el.querySelectorAll(".cn-v").forEach(countUp);
  $("#sq").oninput=e=>{src.q=e.target.value;src.p=0;clearTimeout(renderSources._t);renderSources._t=setTimeout(()=>{renderSources();const i=$("#sq");i.focus();i.setSelectionRange(i.value.length,i.value.length)},180)};
  el.querySelectorAll(".chips button[data-t]").forEach(b=>b.onclick=()=>{src.t=b.dataset.t;src.p=0;renderSources()});
- el.querySelectorAll(".pager button[data-p]").forEach(b=>b.onclick=()=>{src.p=+b.dataset.p;renderSources()})}
+ el.querySelectorAll(".fpager button[data-p]").forEach(b=>b.onclick=()=>{src.p=+b.dataset.p;renderSources();$(".docs")?.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"})});
+ el.querySelector(".fpager [data-size]").onchange=e=>{src.per=+e.target.value;src.p=0;renderSources()}}
 /* ---------- method ---------- */
 function renderMethod(){const el=$("#method");const R=DATA.rules;const st={};R.forEach(r=>st[r.status]=(st[r.status]||0)+1);const J=[...new Set(R.map(r=>r.jurisdiction))];
  const steps=[["A","i-book","Extract","Claude reads each document through one schema-typed tool call and returns rules with machine-readable coverage. Raw outputs are cached: the audit trail."],
@@ -1050,28 +1123,107 @@ function renderMethod(){const el=$("#method");const R=DATA.rules;const st={};R.f
  <h3 style="margin-top:18px">${ico("i-cpu")} Scaling to a new city</h3><pre class="term"><span class="p">$</span> python run.py add-doc ordinance.txt --jurisdiction "City, ST" --url URL\n<span class="p">→</span> extracted unaided · rebuilt · reported as the next change test</pre></div></div></div>`}
 
 /* ---------- render ---------- */
-const CRUMB={overview:"p0",lookup:"p1",changes:"p2",portfolio:"p3",library:"p4",sources:"p5",method:"p6"};
+const CRUMB={overview:"p0",lookup:"p1",changes:"p2",portfolio:"p3",map:"p7",compare:"p8",library:"p4",sources:"p5",method:"p6"};
 function render(nav){if(!current&&props.length)current=props[0].address_id;
  document.querySelectorAll(".nav a").forEach(a=>a.setAttribute("aria-current",a.dataset.page===page?"page":"false"));
  Object.keys(CRUMB).forEach(id=>document.getElementById(id).classList.toggle("hidden",id!==page));$("#crumb").textContent=T(CRUMB[page]);
  renderDates();
  if(page==="overview")renderOverview();
  if(page==="lookup"){renderList();renderDetail()}
- if(page==="changes")renderChanges();if(page==="portfolio")renderPortfolio();if(page==="library")renderLibrary();if(page==="sources")renderSources();if(page==="method")renderMethod();
+ if(page==="map")renderMap();if(page==="compare")renderCompare();if(page==="changes")renderChanges();if(page==="portfolio")renderPortfolio();if(page==="library")renderLibrary();if(page==="sources")renderSources();if(page==="method")renderMethod();
  if(nav){const s=document.getElementById(page);s.classList.remove("page");void s.offsetWidth;s.classList.add("page")}
  writeHash()}
+/* ---------- map ---------- */
+let MAP=null,MAPL=null;const CITY_VIEW={"Los Angeles, CA":[34.05,-118.3,10],"San Francisco, CA":[37.76,-122.44,12],"San Diego, CA":[32.75,-117.15,11],"Berkeley, CA":[37.87,-122.27,13],"Jersey City, NJ":[40.72,-74.06,13],"Hoboken, NJ":[40.745,-74.03,14],"Newark, NJ":[40.735,-74.18,12],"Boston, MA":[42.33,-71.08,12],"Cambridge, MA":[42.375,-71.11,13]};
+let mapCity="San Francisco, CA";
+function renderMap(){const el=$("#map");const es=lang==="es";
+ if(!el.dataset.ready){el.innerHTML=`<div class="page"><div class="map-shell card"><div class="map-side"><h3>${ico("i-pin")} ${es?"Mapa de la cartera":"Portfolio map"}</h3><p class="sub" id="mapsub"></p>
+   <div class="chips" id="mapchips"></div><div class="map-leg"></div><div class="map-tip insight"><span class="spark">${ico("i-spark")}</span><div style="font-size:12.5px">${es?"Cada punto es un edificio real geocodificado por el Censo de EE. UU. Toque uno para abrir sus reglas.":"Each dot is a real building, geocoded by the U.S. Census. Size = rules that apply; amber ring = an answer depends on a missing fact. Click one to open it."}</div></div></div>
+   <div id="leaf"></div></div></div>`;el.dataset.ready="1"}
+ const chips=$("#mapchips");chips.innerHTML=[null,...cities].map(c=>`<button aria-pressed="${mapCity===c}" data-c="${esc(c??"")}">${esc(c?c.replace(/, [A-Z]{2}$/,""):(es?"Las 3 regiones":"All regions"))}</button>`).join("");
+ chips.querySelectorAll("button").forEach(b=>b.onclick=()=>{mapCity=b.dataset.c||null;renderMap()});
+ $(".map-leg").innerHTML=`<div class="keys" style="flex-wrap:wrap"><span><i style="--c:var(--applies)"></i>${es?"todo resuelto":"all answers resolved"}</span><span><i style="--c:var(--card);border:2px solid var(--unknown)"></i>${es?"algún desconocido":"some unknown"}</span><span><i style="--c:var(--nye)"></i>${es?"cambio próximo":"upcoming change"}</span></div>`;
+ const pts=props.filter(p=>p.lat&&(!mapCity||p.jurisdiction===mapCity));$("#mapsub").textContent=`${pts.length} ${es?"edificios":"buildings"} · ${T("asof")} ${asof}`;
+ if(!window.L){$("#leaf").innerHTML=`<div style="padding:30px;color:var(--ink-2)">${es?"El mapa necesita conexión a internet.":"The map needs an internet connection (Leaflet + map tiles)."}</div>`;return}
+ if(!MAP){MAP=L.map("leaf",{zoomControl:true,attributionControl:true,scrollWheelZoom:true});
+  L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}",{attribution:"Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap contributors",maxZoom:16}).addTo(MAP);
+  L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}",{maxZoom:16}).addTo(MAP)}
+ if(MAPL)MAPL.remove();MAPL=L.layerGroup().addTo(MAP);const later=DATA.dates.filter(d=>d>asof).pop();
+ pts.forEach(p=>{const es_=entriesOf(p.address_id);const a=es_.filter(e=>e.result==="applies").length,u=es_.filter(e=>e.result==="unknown").length;
+  const chg=later&&entriesOf(p.address_id,later).some(e=>!es_.find(x=>x.team_rule_id===e.team_rule_id&&x.result===e.result));
+  const m=L.circleMarker([p.lat,p.lon],{radius:4+a/4,color:u?"#E8A64C":(chg?"#6EA9EE":"#2FA77A"),weight:u?3:1.5,fillColor:chg?"#4F8FDB":"#2FA77A",fillOpacity:.75}).addTo(MAPL);
+  m.bindTooltip(`<b>${esc(p.street_address)}</b><br>${esc(p.jurisdiction)} · ${p.year_built??"—"} · ${a} apply${u?` · ${u} unknown`:""}${chg?` · changes by ${later}`:""}`);
+  m.on("click",()=>go("lookup",p.address_id))});
+ setTimeout(()=>{MAP.invalidateSize();if(mapCity&&CITY_VIEW[mapCity]){const v=CITY_VIEW[mapCity];MAP.setView([v[0],v[1]],v[2])}else{MAP.fitBounds(L.latLngBounds(pts.map(p=>[p.lat,p.lon])),{padding:[30,30]})}},60)}
+
+/* ---------- compare ---------- */
+let cmpIds=["A0016","A0050","A0107"];
+function renderCompare(){const el=$("#compare");const es=lang==="es";const ids=cmpIds.filter(a=>pid[a]);
+ const best=(aid,c)=>bestPerCat(entriesOf(aid),c);
+ const rowsHTML=CATS.map(c=>{const cells=ids.map(a=>best(a,c));const sig=cells.map(e=>e?e.result+e.team_rule_id:"none");const diff=new Set(sig).size>1;
+  return `<tr class="${diff?"cmp-diff":""}"><td><span class="ci">${ico(CICON[c])}</span> ${esc(catName(c))}${diff?`<span class="tag" style="margin-left:6px">${es?"difiere":"differs"}</span>`:""}</td>${cells.map(e=>`<td>${e?`${pill(e.result)}<div class="rid" data-rid="${esc(e.team_rule_id)}">${esc(e.team_rule_id)}</div><div class="cmp-t">${esc(rules[e.team_rule_id].title)}</div>`:`<span style="color:var(--ink-3)">${es?"ninguna regla":"no rule"}</span>`}</td>`).join("")}</tr>`}).join("");
+ el.innerHTML=`<div class="page"><div class="card"><div class="pf-head"><h3>${ico("i-layers")} ${es?"Comparar edificios":"Compare buildings"}</h3><span class="sub" style="margin:0">${es?"Hasta 3 direcciones · ":"Up to 3 addresses · "}${T("asof")} ${asof}</span></div>
+  <div class="cmp-pick">${[0,1,2].map(i=>`<div class="search"><svg class="i"><use href="#i-pin"/></svg><input list="addrlist" data-i="${i}" value="${esc(cmpIds[i]||"")}" placeholder="A0016 or street"></div>`).join("")}<datalist id="addrlist">${props.map(p=>`<option value="${p.address_id}">${esc(p.street_address)}, ${esc(p.jurisdiction||"")}</option>`).join("")}</datalist></div>
+  <div class="wrap" style="margin-top:14px"><table class="cmp"><thead><tr><th></th>${ids.map(a=>{const p=pid[a];return `<th><a href="#" data-open="${a}" style="color:var(--ink);text-decoration:none"><b style="font-size:13px;text-transform:none;letter-spacing:0">${esc(p.street_address)}</b></a><div style="text-transform:none;letter-spacing:0;font-weight:500">${esc(p.jurisdiction)} · ${p.year_built??"—"} · ${units(p)} units</div></th>`}).join("")}</tr></thead>
+  <tbody><tr><td>${es?"Resumen":"Summary"}</td>${ids.map(a=>{const c={};entriesOf(a).forEach(e=>c[e.result]=(c[e.result]||0)+1);return `<td>${RESULTS.filter(k=>c[k]).map(k=>`<span class="pill ${k==="pending"?"pending":""}" style="--c:${COLOR[k]}">${c[k]} ${T(k)}</span>`).join(" ")}</td>`}).join("")}</tr>${rowsHTML}</tbody></table></div>
+  <div class="insight" style="margin-bottom:0"><span class="spark">${ico("i-spark")}</span><div><span class="ai-chip">${T("insight")}</span><div style="margin-top:6px;font-size:13px">${(()=>{const d=CATS.filter(c=>new Set(ids.map(a=>{const e=best(a,c);return e?e.result+e.team_rule_id:"none"})).size>1);return d.length?(es?`Difieren en ${d.length} de 6 categorías: `:`They differ in ${d.length} of 6 categories: `)+d.map(c=>`<b>${esc(catName(c))}</b>`).join(", ")+(es?". Las filas marcadas muestran por qué.":". The highlighted rows show which rule decides each one."):(es?"Mismas reglas en las 6 categorías.":"Same deciding rules in all six categories.")})()}</div></div></div></div></div>`;
+ el.querySelectorAll(".cmp-pick input").forEach(inp=>inp.onchange=()=>{let v=inp.value.trim().toUpperCase();if(!pid[v]){const m=props.find(p=>p.street_address.toUpperCase().includes(v));v=m?m.address_id:""}cmpIds[+inp.dataset.i]=v;renderCompare()});
+ el.querySelectorAll("[data-rid]").forEach(x=>x.onclick=()=>openDrawer(x.dataset.rid));
+ el.querySelectorAll("a[data-open]").forEach(a=>a.onclick=e=>{e.preventDefault();go("lookup",a.dataset.open)})}
+
+/* ---------- CSV export ---------- */
+function download(name,rows){const csv=rows.map(r=>r.map(v=>`"${String(v??"").replace(/"/g,'""')}"`).join(",")).join("\n");const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv"}));a.download=name;document.body.appendChild(a);a.click();a.remove()}
+function exportAddress(aid){const p=pid[aid];download(`strata_${aid}_${asof}.csv`,[["address_id","address","jurisdiction","as_of","rule_id","category","level","result","explanation","citation","quote","source_url","retrieved"],...entriesOf(aid).map(e=>{const r=rules[e.team_rule_id];return [aid,p.street_address,p.jurisdiction,asof,r.team_rule_id,r.category,r.level,e.result,e.explanation,r.citation,r.quoted_span,r.source_url,r.retrieved_at]})])}
+function exportRules(list){download(`strata_rules_${asof}.csv`,[["rule_id","jurisdiction","category","status","effective_date","title","citation","quote","source_url"],...list.map(r=>[r.team_rule_id,r.jurisdiction,r.category,r.status,r.effective_date,r.title,r.citation,r.quoted_span,r.source_url])])}
+
+/* ---------- agent: plan → act ---------- */
+const PAGE_WORDS={overview:/overview|home|dashboard|หน้าแรก/,lookup:/lookup|address page/,changes:/what'?s changing|change tests?|changes page/,portfolio:/portfolio|roadmap|timeline/,library:/library|all rules|rule list/,sources:/sources?|audit|evidence/,method:/how it works|method|pipeline/,map:/\bmap\b|แผนที่/,compare:/compare page/};
+function planActions(q){const ql=q.toLowerCase();const c=parseQ(q);const acts=[];
+ if(!/^(open|go|show|take|switch|set|change|filter|compare|export|download|start|turn|use|เปิด|ไป|เปลี่ยน|กรอง|เทียบ)\b|\b(switch to|set the date|as of 20|in spanish|en español|dark mode|light mode|export|download|csv|tour|filter)\b/.test(ql))return acts;
+ const ids=[...new Set((q.match(/\bA\d{4}\b/gi)||[]).map(x=>x.toUpperCase()).filter(x=>pid[x]))];
+ if(/compare|เทียบ|\bvs\b|versus/.test(ql)&&(ids.length>=2||(c.addr&&ids.length))){const set=ids.length>=2?ids:[...new Set([c.addr,...ids])];acts.push({k:"compare",ids:set.slice(0,3),label:`Compare ${set.slice(0,3).join(", ")}`})}
+ const dm=ql.match(/(?:as of|switch to|set (?:the )?date(?: to)?|time.?travel to|to)\s*(20\d\d(?:-\d\d-\d\d)?)/);if(dm){const t=dm[1].length===4?(dm[1]==="2027"?"2027-07-02":dm[1]==="2025"?"2025-12-31":dm[1]+"-10-01"):dm[1];const d=DATA.dates.reduce((a,b)=>Math.abs(new Date(b)-new Date(t))<Math.abs(new Date(a)-new Date(t))?b:a);acts.push({k:"date",v:d,label:`Set as-of date to ${d}`})}
+ if(/spanish|español|espanol/.test(ql))acts.push({k:"lang",v:"es",label:"Switch to Español"});else if(/\benglish\b/.test(ql))acts.push({k:"lang",v:"en",label:"Switch to English"});
+ if(/dark mode|night mode/.test(ql))acts.push({k:"theme",v:"dark",label:"Dark theme"});else if(/light mode|day mode/.test(ql))acts.push({k:"theme",v:"light",label:"Light theme"});
+ if(/tour|intro|onboard/.test(ql))acts.push({k:"tour",label:"Start the welcome tour"});
+ if(/export|download|csv/.test(ql)){if(c.addr||(page==="lookup"&&current))acts.push({k:"exportA",v:c.addr||current,label:`Export ${c.addr||current} answers as CSV`});else acts.push({k:"exportR",label:"Export the filtered rule list as CSV"})}
+ if(/filter|show (me )?(the )?rules|rules (for|in|about)/.test(ql)&&!acts.some(a=>a.k==="compare")){const f={j:c.cities[0]||(c.states[0]||""),c:c.cat||"",s:/pending/.test(ql)?"pending":/in force/.test(ql)?"in_force":""};acts.push({k:"filter",f,label:`Filter the rule library${f.j?` · ${f.j}`:""}${f.c?` · ${catName(f.c)}`:""}${f.s?` · ${f.s}`:""}`})}
+ if(/\bmap\b|แผนที่/.test(ql))acts.push({k:"map",v:c.cities[0]||null,label:`Open the map${c.cities[0]?` · ${c.cities[0]}`:""}`});
+ if(c.addr&&!acts.some(a=>["compare","exportA"].includes(a.k)))acts.push({k:"open",v:c.addr,label:`Open ${c.addr} · ${pid[c.addr].street_address}`});
+ if(!acts.length){const pg=Object.keys(PAGE_WORDS).find(k=>PAGE_WORDS[k].test(ql));if(pg)acts.push({k:"page",v:pg,label:`Go to ${T(CRUMB[pg])}`})}
+ return acts}
+function runAction(a){if(a.k==="compare"){cmpIds=a.ids;go("compare")}else if(a.k==="date"){asof=a.v;render()}else if(a.k==="lang")setLang(a.v);else if(a.k==="theme")setTheme(a.v);
+ else if(a.k==="tour"){aiClose();tOpen()}else if(a.k==="exportA")exportAddress(a.v);else if(a.k==="exportR"){exportRules(DATA.rules.filter(r=>(!lib.j||r.jurisdiction===lib.j)&&(!lib.c||r.category===lib.c)&&(!lib.s||r.status===lib.s)))}
+ else if(a.k==="filter"){Object.assign(lib,a.f,{p:0,q:""});go("library")}else if(a.k==="map"){mapCity=a.v;go("map")}else if(a.k==="open")go("lookup",a.v);else if(a.k==="page")go(a.v)}
+async function aiAgent(q,acts){const m=aiMsg("a",`<div class="plan"><div class="plan-h">${ico("i-spark")} ${lang==="es"?"Plan":"Plan"} · ${acts.length} ${acts.length>1?"steps":"step"}</div>${acts.map((a,i)=>`<div class="step-r" data-i="${i}"><span class="st-i"><span class="spin"></span></span><span>${esc(a.label)}</span></div>`).join("")}</div>`);
+ for(let i=0;i<acts.length;i++){await new Promise(r=>setTimeout(r,reduce?0:420));runAction(acts[i]);const row=m.querySelector(`.step-r[data-i="${i}"]`);row.classList.add("done");row.querySelector(".st-i").innerHTML=ico("i-check")}
+ const tail=document.createElement("div");tail.className="meta";tail.innerHTML=`<span class="ai-chip" style="font-size:10px">Agent</span> ${lang==="es"?"hecho · puede deshacer con el menú":"done · everything it did is visible in the app"}`;m.appendChild(tail);
+ const g=grounded(q);if(g.used.length&&!acts.some(a=>["open","compare"].includes(a.k)))aiMsg("a",g.html,g.used)}
+
+/* ---------- contextual guidance ---------- */
+function contextSugs(){const p=pid[current];const S=[];
+ if(page==="lookup"&&p){S.push(`Why is anything unknown at ${p.address_id}?`,`Compare ${p.address_id} with A0050`,`Export ${p.address_id} as CSV`,`What changes at ${p.address_id} in 2027?`)}
+ else if(page==="library")S.push("Filter rules for Hoboken algorithmic pricing","Show pending rules in MA","Export the rule list");
+ else if(page==="portfolio")S.push("What changes in 2027?","Open the map of Boston","Which buildings have unknown answers?");
+ else if(page==="changes")S.push("Explain T3","Explain T5","Time travel to 2027");
+ else if(page==="map")S.push("Open the map of San Francisco","Open A0016");
+ S.push("Is there a rent cap in Boston?","Compare algorithmic pricing in Hoboken vs Jersey City vs Newark","Switch to Spanish","Start the tour");
+ return [...new Set(S)].slice(0,7)}
+function sugHTML(){return `<div class="sugs" style="margin-top:10px">${contextSugs().map(s=>`<button>${esc(s)}</button>`).join("")}</div>`}
+function bindSugs(m){m.querySelectorAll(".sugs button").forEach(b=>b.onclick=()=>aiAsk(b.textContent))}
+
 /* ---------- welcome tour ---------- */
 const tour=$("#tour");let tIdx=0;const slides=[...tour.querySelectorAll(".tslide")],panes=[...tour.querySelectorAll(".pane")];
 function tShow(i){tIdx=Math.max(0,Math.min(slides.length-1,i));slides.forEach((s,k)=>s.classList.toggle("on",k===tIdx));panes.forEach((s,k)=>s.classList.toggle("on",k===tIdx));
  $("#tdots").innerHTML=slides.map((_,k)=>`<button aria-label="Step ${k+1}" aria-current="${k===tIdx}" data-k="${k}"></button>`).join("");
  $("#tdots").querySelectorAll("button").forEach(b=>b.onclick=()=>tShow(+b.dataset.k));
  $("#tprev").style.display=tIdx?"":"none";$("#tnext").textContent=tIdx===slides.length-1?"Enter Strata →":"Next"}
-function tClose(){tour.classList.add("hidden");try{localStorage.setItem("strata-tour","1")}catch(e){}}
+function tClose(){tour.classList.add("hidden")}
 function tOpen(){tour.classList.remove("hidden");tShow(0)}
 $("#tnext").onclick=()=>tIdx===slides.length-1?tClose():tShow(tIdx+1);$("#tprev").onclick=()=>tShow(tIdx-1);$("#tskip").onclick=tClose;
 document.addEventListener("keydown",e=>{if(tour.classList.contains("hidden"))return;if(e.key==="ArrowRight")$("#tnext").click();if(e.key==="ArrowLeft")tShow(tIdx-1);if(e.key==="Escape")tClose()});
-(()=>{let seen=false;try{seen=!!localStorage.getItem("strata-tour")}catch(e){}const force=/[?&]tour=1/.test(location.hash),deep=/addr=|tab=|#\/(?!overview)/.test(location.hash);
- if(force||(!seen&&!deep))tOpen()})();
+// the welcome tour opens on every fresh visit; "Skip intro" (or Esc) closes it. ?notour skips it for embeds.
+if(!/notour/.test(location.hash))tOpen();
 
 /* ---------- Ask Strata: grounded retrieval assistant ---------- */
 const CITY_ALIASES=[["san francisco","San Francisco, CA"],["\\bsf\\b","San Francisco, CA"],["los angeles","Los Angeles, CA"],["\\bl\\.?a\\.?\\b","Los Angeles, CA"],["san diego","San Diego, CA"],["berkeley","Berkeley, CA"],["santa ana","Santa Ana, CA"],["jersey city","Jersey City, NJ"],["hoboken","Hoboken, NJ"],["newark","Newark, NJ"],["boston","Boston, MA"],["cambridge","Cambridge, MA"]];
@@ -1136,9 +1288,13 @@ const SUGS=[["What applies at 3515 Fillmore St?"],["Is there a rent cap in Bosto
 let aiMode="g",aiKey="";try{aiKey=sessionStorage.getItem("strata-key")||""}catch(e){}
 function aiMsg(cls,html,used){const m=document.createElement("div");m.className="msg "+cls;m.innerHTML=html+(used?`<div class="meta"><span class="ai-chip" style="font-size:10px">${aiMode==="g"?"Grounded":"Claude"}</span>${used.length?`grounded in ${used.length} rule${used.length>1?"s":""}`:""} · as of ${asof} · not legal advice</div>`:"");
  $("#msgs").appendChild(m);m.querySelectorAll(".rid").forEach(x=>x.onclick=()=>openDrawer(x.dataset.rid));const box=$("#msgs");box.scrollTop=cls==="a"&&m.offsetHeight>box.clientHeight*.7?m.offsetTop-box.offsetTop-12:box.scrollHeight;return m}
-function aiWelcome(){$("#msgs").innerHTML="";aiMsg("a",`<b>Hi, I'm Strata.</b> Ask me about any of the ${props.length} buildings, a city, a law or a date. In <b>Grounded</b> mode every answer is computed from the ${DATA.rules.length} extracted rules and links to their quotes, so I can't invent a law.<div class="sugs" style="margin-top:10px">${SUGS.map(([s])=>`<button>${esc(s)}</button>`).join("")}</div>`).querySelectorAll(".sugs button").forEach(b=>b.onclick=()=>aiAsk(b.textContent))}
-async function aiAsk(q){if(!q.trim())return;aiMsg("u",esc(q));const g=grounded(q);
- if(aiMode==="g"){const t=aiMsg("a",`<span class="typing"><i></i><i></i><i></i></span>`);await new Promise(r=>setTimeout(r,reduce?0:420));t.remove();aiMsg("a",g.html,g.used);return}
+function aiWelcome(){$("#msgs").innerHTML="";const m=aiMsg("a",`<b>Hi, I'm Strata.</b> Ask me about any of the ${props.length} buildings, a city, a law or a date, and I answer from the ${DATA.rules.length} extracted rules with their quotes, so I can't invent a law.<div class="cando"><div>${ico("i-search")}<b>Answer</b><span>rules, unknowns, changes, tests</span></div><div>${ico("i-spark")}<b>Act</b><span>open, compare, filter, time-travel, translate</span></div><div>${ico("i-down2")}<b>Export</b><span>any building or rule list to CSV</span></div></div>${sugHTML()}`);bindSugs(m)}
+async function aiAsk(q){if(!q.trim())return;aiMsg("u",esc(q));
+ const acts=planActions(q);if(acts.length){await aiAgent(q,acts);return}
+ const g=grounded(q);
+ if(aiMode==="g"){const c=g.ctx;const steps=[lang==="es"?"Entender la pregunta":"Understanding the question",c.addr?`${lang==="es"?"Dirección":"Address"} ${c.addr} · ${pid[c.addr].jurisdiction}`:c.cities.length?`${lang==="es"?"Jurisdicción":"Jurisdiction"} ${c.cities.join(", ")}`:(lang==="es"?"Buscar en las reglas extraídas":"Searching the extracted rules"),`${lang==="es"?"Citando":"Citing"} ${g.used.length||"—"} ${lang==="es"?"reglas":"rules"}`];
+  const t=aiMsg("a",`<div class="think">${steps.map((x,i)=>`<div class="th" style="animation-delay:${i*.18}s"><span class="spin"></span>${esc(x)}</div>`).join("")}</div>`);
+  await new Promise(r=>setTimeout(r,reduce?0:700));t.remove();const m=aiMsg("a",`<div class="reveal">${g.html}</div>`+sugHTML(),g.used);bindSugs(m);return}
  if(!aiKey){aiMsg("a","Add your Anthropic API key above to use Claude mode, or switch back to Grounded.");$("#keyrow").classList.add("on");return}
  const t=aiMsg("a",`<span class="typing"><i></i><i></i><i></i></span> <span style="font-size:12px;color:var(--ink-2)">Claude is reading ${g.used.length||"the closest"} rules…</span>`);
  const ids=g.used.length?g.used:searchRules(q.toLowerCase(),8).map(r=>r.team_rule_id);
