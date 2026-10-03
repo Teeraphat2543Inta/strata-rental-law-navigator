@@ -1,0 +1,58 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D024.p1",
+ "created": "2026-10-03T18:07:52Z",
+ "usage": {
+  "input_tokens": 9898,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 1767,
+  "output_tokens_details": {
+   "thinking_tokens": 667
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "CA",
+    "level": "state",
+    "category": "rent_increase_limits",
+    "status": "in_force",
+    "title": "California statewide rent cap (Tenant Protection Act rent limits, SB 567 version)",
+    "requirement": "Landlords of covered units may not raise rent more than 5% plus the local percentage change in the cost of living, or 10%, whichever is lower, over any 12-month period, and no more than two increments in that period. The initial rent for a new tenancy is not capped, and rent-increase notices must follow Civ. Code § 827.",
+    "requirement_es": "Los propietarios de unidades cubiertas no pueden aumentar la renta más del 5% más el cambio porcentual del costo de vida local, o el 10%, lo que sea menor, en cualquier período de 12 meses, y no en más de dos incrementos en ese período. La renta inicial de un nuevo arrendamiento no tiene límite, y los avisos de aumento deben cumplir con el Código Civil § 827.",
+    "citation": "Cal. Civ. Code § 1947.12",
+    "quoted_span": "an owner of residential real property shall not, over the course of any 12-month period, increase the gross rental rate for a dwelling or a unit more than 5 percent plus the percentage change in the cost of living, or 10 percent, whichever is lower",
+    "effective_date": "2024-04-01",
+    "effective_date_quote": "This section shall become operative on April 1, 2024.",
+    "key_value": "5% + CPI change, max 10%, per 12 months; max two increases per 12 months",
+    "exemptions": "Deed-restricted/subsidized affordable housing; dormitories; housing under stricter local rent control; housing with a certificate of occupancy within the previous 15 years (except mobilehomes); separately alienable property (e.g., single-family homes, condos) if owner is not a REIT, corporation, LLC with a corporate member, or mobilehome park management and proper written notice is given; owner-occupied duplexes (not ADUs/JADUs); mobilehome homeowners.",
+    "coverage_conditions": "Applies to residential real property statewide (including mobilehome park tenancies), except exempt categories; sunset January 1, 2030.",
+    "penalty": "Civil action for injunctive relief, damages equal to the excess rent, attorney's fees and costs, and up to three times the excess if willful, oppressive, fraudulent or malicious; enforceable by Attorney General, city attorney or county counsel.",
+    "coverage": {
+     "covered_if_built_on_or_before": null,
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": 15,
+     "exemption_max_units": 2,
+     "max_units": null,
+     "min_units": null,
+     "owner_type_dependent": true,
+     "yields_to_local": true,
+     "may_preempt_local": false
+    },
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Section was effective January 1, 2024 but operative April 1, 2024 by its own terms; it is repealed as of January 1, 2030. The percentage change in cost of living is recomputed yearly from regional CPI.",
+    "confidence": 0.93
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

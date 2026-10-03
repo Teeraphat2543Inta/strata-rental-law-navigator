@@ -1,0 +1,58 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D078.p1",
+ "created": "2026-10-03T18:08:34Z",
+ "usage": {
+  "input_tokens": 6833,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 880,
+  "output_tokens_details": {
+   "thinking_tokens": 269
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "San Francisco, CA",
+    "level": "city",
+    "category": "screening_restrictions",
+    "status": "in_force",
+    "title": "San Francisco Fair Chance Ordinance (affordable housing)",
+    "requirement": "San Francisco's Fair Chance Ordinance protects residents with an arrest or conviction history in affordable housing decisions. The page gives no details on what is restricted.",
+    "requirement_es": "La Ordenanza de Oportunidad Justa de San Francisco protege a los residentes con antecedentes de arresto o condena en las decisiones de vivienda asequible. La página no detalla qué se restringe.",
+    "citation": "S.F. Police Code art. 49",
+    "quoted_span": "San Francisco's Fair Chance Ordinance protects residents with arrest or conviction history in affordable housing decisions.",
+    "coverage": {
+     "covered_if_built_after": null,
+     "covered_if_built_on_or_before": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "may_preempt_local": false,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "coverage_conditions": "Affordable housing decisions only, as described in the source.",
+    "effective_date": null,
+    "effective_date_quote": null,
+    "exemptions": null,
+    "key_value": null,
+    "penalty": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Passing mention only, in a link blurb on an agency homepage. The citation is inferred and not stated in the document. Details, scope and effective date are not provided.",
+    "confidence": 0.4
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

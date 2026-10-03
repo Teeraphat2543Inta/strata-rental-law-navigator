@@ -1,0 +1,156 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D052.p1",
+ "created": "2026-10-03T18:08:39Z",
+ "usage": {
+  "input_tokens": 12313,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 4541,
+  "output_tokens_details": {
+   "thinking_tokens": 1433
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "MA",
+    "level": "state",
+    "category": "security_deposits",
+    "status": "in_force",
+    "title": "Massachusetts security deposit cap and allowed upfront payments",
+    "requirement": "At or before move-in, a landlord can charge no more than first month's rent, last month's rent, a security deposit equal to one month's rent, and the cost of a key and lock. The landlord must put the deposit in a separate bank account and give you a statement of condition.",
+    "requirement_es": "Al inicio del arrendamiento, el arrendador solo puede cobrar el primer mes de renta, el último mes de renta, un depósito de seguridad igual a un mes de renta y el costo de una llave y cerradura. El arrendador debe depositar el dinero en una cuenta bancaria separada y entregar una declaración del estado de la vivienda.",
+    "citation": "M.G.L. c. 186, § 15B",
+    "quoted_span": "(iii) a security deposit equal to the first month's rent provided that such security deposit is deposited as required by subsection (3) and that the tenant is given the statement of condition as required by subsection (2)",
+    "coverage": {
+     "may_preempt_local": false,
+     "yields_to_local": false,
+     "owner_type_dependent": false
+    },
+    "key_value": "1 month's rent",
+    "exemptions": "Does not apply to leases or rentals of 100 days or less for vacation or recreational purposes.",
+    "effective_date": null,
+    "effective_date_quote": null,
+    "coverage_conditions": "Residential real property leases and tenancies in Massachusetts, other than short vacation rentals.",
+    "penalty": "Landlord who demands more than allowed or fails to comply with deposit handling forfeits the right to retain the deposit; treble damages for certain violations.",
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": null,
+    "confidence": 0.95
+   },
+   {
+    "jurisdiction": "MA",
+    "level": "state",
+    "category": "security_deposits",
+    "status": "in_force",
+    "title": "Return of security deposit within 30 days; permitted deductions; treble damages",
+    "requirement": "The landlord must return the deposit within 30 days after the tenancy ends, and may deduct only unpaid rent or water charges, certain unpaid tax increases, and reasonable repair of damage beyond normal wear and tear. Any damage deduction needs a sworn, itemized list with estimates or receipts within the same 30 days.",
+    "requirement_es": "El arrendador debe devolver el depósito dentro de los 30 días posteriores al fin del arrendamiento y solo puede deducir renta o cargos de agua impagos, ciertos aumentos de impuestos impagos y reparaciones razonables por daños (sin contar el desgaste normal). Para deducir daños debe entregar, dentro de los mismos 30 días, una lista detallada y jurada con presupuestos o recibos.",
+    "citation": "M.G.L. c. 186, § 15B(4)",
+    "quoted_span": "The lessor shall, within thirty days after the termination of occupancy under a tenancy-at-will or the end of the tenancy as specified in a valid written lease agreement, return to the tenant the security deposit or any balance thereof",
+    "coverage": {
+     "may_preempt_local": false,
+     "yields_to_local": false,
+     "owner_type_dependent": false
+    },
+    "key_value": "30 days",
+    "exemptions": "Does not apply to leases or rentals of 100 days or less for vacation or recreational purposes.",
+    "effective_date": null,
+    "effective_date_quote": null,
+    "coverage_conditions": "Residential real property leases and tenancies in Massachusetts.",
+    "penalty": "Landlord forfeits right to retain any of the deposit; tenant awarded three times the deposit plus 5% interest, court costs and attorney's fees (subsections 6 and 7).",
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": null,
+    "confidence": 0.93
+   },
+   {
+    "jurisdiction": "MA",
+    "level": "state",
+    "category": "security_deposits",
+    "status": "in_force",
+    "title": "Security deposit held in separate interest-bearing account; annual 5% interest",
+    "requirement": "A landlord must hold the deposit in a separate interest-bearing Massachusetts bank account and give the tenant a receipt with the bank details within 30 days. If held a year or longer, the landlord must pay 5% interest per year (or the lesser amount the bank paid) to the tenant each year.",
+    "requirement_es": "El arrendador debe mantener el depósito en una cuenta bancaria separada que genere intereses en Massachusetts y dar al inquilino un recibo con los datos del banco dentro de 30 días. Si lo conserva un año o más, debe pagar 5% de interés anual (o el menor monto pagado por el banco) al inquilino cada año.",
+    "citation": "M.G.L. c. 186, § 15B(3)",
+    "quoted_span": "A lessor of residential real property who holds a security deposit pursuant to this section for a period of one year or longer from the commencement of the term of the tenancy shall, beginning with the first day of the tenancy, pay interest at the rate of five per cent per year",
+    "coverage": {
+     "may_preempt_local": false,
+     "yields_to_local": false,
+     "owner_type_dependent": false
+    },
+    "key_value": "5% per year interest",
+    "exemptions": "Does not apply to leases or rentals of 100 days or less for vacation or recreational purposes.",
+    "effective_date": null,
+    "effective_date_quote": null,
+    "coverage_conditions": "Residential real property leases and tenancies in Massachusetts.",
+    "penalty": "Failure to deposit in a proper account entitles the tenant to immediate return of the deposit.",
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": null,
+    "confidence": 0.92
+   },
+   {
+    "jurisdiction": "MA",
+    "level": "state",
+    "category": "security_deposits",
+    "status": "in_force",
+    "title": "Optional fee in lieu of security deposit (regulations authorized)",
+    "requirement": "The state housing office may issue regulations letting a landlord and tenant agree to an optional fee instead of a security deposit. The fee and any deposit together cannot exceed one month's rent, and the tenant can always choose to pay a full deposit instead.",
+    "requirement_es": "La oficina estatal de vivienda puede emitir reglamentos que permitan al arrendador y al inquilino acordar una tarifa opcional en lugar del depósito de seguridad. La tarifa y el depósito juntos no pueden superar un mes de renta, y el inquilino siempre puede elegir pagar el depósito completo.",
+    "citation": "M.G.L. c. 186, § 15B(1)(b)(iii)",
+    "quoted_span": "the executive office of housing and livable communities may promulgate regulations to authorize a lessor and a tenant or prospective tenant to agree to the payment of a fee in lieu of payment of a security deposit",
+    "coverage": {
+     "may_preempt_local": false,
+     "yields_to_local": false,
+     "owner_type_dependent": false
+    },
+    "key_value": "fee plus deposit capped at 1 month's rent",
+    "exemptions": null,
+    "effective_date": null,
+    "effective_date_quote": null,
+    "coverage_conditions": "Residential tenancies; optional for both tenant and lessor.",
+    "penalty": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "The statute only authorizes regulations; the document does not show whether such regulations have been issued.",
+    "confidence": 0.8
+   },
+   {
+    "jurisdiction": "MA",
+    "level": "state",
+    "category": "application_screening_fees",
+    "status": "in_force",
+    "title": "Limit on upfront charges by landlord or agent at start of tenancy",
+    "requirement": "Before or at the start of a tenancy, neither a landlord nor the landlord's agent can require a tenant or prospective tenant to pay anything beyond first month's rent, last month's rent, a one-month security deposit, and the cost of a key and lock.",
+    "requirement_es": "Antes o al inicio del arrendamiento, ni el arrendador ni su agente pueden exigir al inquilino o futuro inquilino que pague nada más allá del primer mes, el último mes, un depósito de un mes y el costo de una llave y cerradura.",
+    "citation": "M.G.L. c. 186, § 15B(1)(b)",
+    "quoted_span": "At or prior to the commencement of any tenancy, no lessor or agent of the lessor may require a tenant or prospective tenant to pay, to the lessor or to an agent of the lessor, any amount in excess of the following:",
+    "coverage": {
+     "may_preempt_local": false,
+     "yields_to_local": false,
+     "owner_type_dependent": false
+    },
+    "key_value": null,
+    "exemptions": "Does not apply to leases or rentals of 100 days or less for vacation or recreational purposes.",
+    "effective_date": "2025-08-01",
+    "effective_date_quote": "as amended by 2025, 9, Secs. 54 and 55 effective August 1, 2025.",
+    "coverage_conditions": "Residential tenancies in Massachusetts.",
+    "penalty": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "The document does not expressly mention broker or application fees; the agent language applies the cap of allowed upfront payments to agents as of August 1, 2025.",
+    "confidence": 0.65
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

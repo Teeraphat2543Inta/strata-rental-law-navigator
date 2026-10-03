@@ -1,0 +1,35 @@
+{
+ "rules": [
+  {
+   "jurisdiction": "CA",
+   "level": "state",
+   "category": "algorithmic_rent_setting",
+   "status": "in_force",
+   "title": "Cartwright Act: common pricing algorithms",
+   "requirement": "Using a common pricing algorithm to restrain trade is unlawful.",
+   "requirement_es": "(es) Using a common pricing algorithm to restrain trade is unlawful.",
+   "key_value": null,
+   "coverage_conditions": null,
+   "coverage": {
+    "covered_if_built_on_or_before": null,
+    "covered_if_built_after": null,
+    "exempt_if_newer_than_years": null,
+    "min_units": null,
+    "max_units": null,
+    "exemption_max_units": null,
+    "owner_type_dependent": false,
+    "yields_to_local": false,
+    "may_preempt_local": false
+   },
+   "exemptions": null,
+   "penalty": null,
+   "effective_date": "2026-01-01",
+   "effective_date_quote": null,
+   "citation": "Cal. Bus. & Prof. Code \u00a7 16729",
+   "quoted_span": "It shall be unlawful for a person to use or distribute a common pricing algorithm as part of a contract,  combination in the form of a trust",
+   "confidence": 0.9,
+   "conflict_note": null
+  }
+ ],
+ "no_rule_findings": []
+}

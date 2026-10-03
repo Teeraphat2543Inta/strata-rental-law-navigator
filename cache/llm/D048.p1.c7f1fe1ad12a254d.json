@@ -1,0 +1,38 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D048.p1",
+ "created": "2026-10-03T18:08:08Z",
+ "usage": {
+  "input_tokens": 5280,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 616,
+  "output_tokens_details": {
+   "thinking_tokens": 332
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [],
+  "no_rule_findings": [
+   {
+    "category": "rent_increase_limits",
+    "jurisdiction": "Boston, MA",
+    "finding": "No rent cap: state law (M.G.L. c. 40P, § 4) bars local rent control of any kind.",
+    "quoted_span": "No city or town may enact, maintain or enforce rent control of any kind"
+   },
+   {
+    "category": "rent_increase_limits",
+    "jurisdiction": "Cambridge, MA",
+    "finding": "No rent cap: state law (M.G.L. c. 40P, § 4) bars local rent control of any kind.",
+    "quoted_span": "No city or town may enact, maintain or enforce rent control of any kind"
+   }
+  ]
+ }
+}

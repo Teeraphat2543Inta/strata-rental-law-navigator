@@ -1,0 +1,58 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D013.p1",
+ "created": "2026-10-03T18:07:41Z",
+ "usage": {
+  "input_tokens": 7069,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 1306,
+  "output_tokens_details": {
+   "thinking_tokens": 520
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "Boston, MA",
+    "level": "city",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "Housing Stability Notification Act (notice of tenants' rights when ending a tenancy)",
+    "requirement": "A landlord planning to end a tenancy must give the tenant a Notice of Tenants' Rights and Resources at the same time as the notice to quit or notice of non-renewal. The landlord must also submit the tenant's contact information and a copy of the notice to the City through its online portal.",
+    "requirement_es": "El propietario que planee terminar un contrato de alquiler debe entregar al inquilino un Aviso de Derechos y Recursos de los Inquilinos al mismo tiempo que el aviso de desalojo o de no renovación. También debe enviar a la Ciudad, por el portal en línea, los datos de contacto del inquilino y una copia del aviso.",
+    "citation": "B.M.C. § 10-11.7",
+    "quoted_span": "The Housing Stability Notification Act requires any landlord to provide renters with a Notice of Tenant’s Rights and Resources when planning to end a tenancy agreement.",
+    "coverage": {
+     "covered_if_built_on_or_before": null,
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "min_units": null,
+     "may_preempt_local": false,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "coverage_conditions": "Applies to all landlords (and foreclosing owners) ending a tenancy.",
+    "exemptions": null,
+    "key_value": "Notice delivered together with notice to quit / non-renewal",
+    "penalty": "1st offense: warning; 2nd and subsequent offenses: $300 per day (enforced by Inspectional Services). Violation does not halt the eviction process.",
+    "effective_date": null,
+    "effective_date_quote": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "This is a notice/procedural requirement, not a just-cause limit on eviction grounds; effective date not stated on the page.",
+    "confidence": 0.7
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

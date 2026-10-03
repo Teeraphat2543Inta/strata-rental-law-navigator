@@ -1,0 +1,58 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D014.p1",
+ "created": "2026-10-03T18:07:41Z",
+ "usage": {
+  "input_tokens": 6437,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 1274,
+  "output_tokens_details": {
+   "thinking_tokens": 358
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "Boston, MA",
+    "level": "city",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "Housing Stability Notification Act – notice of tenants' rights at eviction/non-renewal",
+    "requirement": "A landlord who serves a Notice to Quit or decides not to renew a lease must give the tenant a Notice of Tenants' Rights and Resources at the same time, and send a copy of the notice with a Certificate of Compliance/Service to the Office of Housing Stability. A violation does not halt the eviction process.",
+    "requirement_es": "El arrendador que entregue un aviso de desalojo (Notice to Quit) o decida no renovar el contrato debe entregar al inquilino al mismo tiempo un Aviso de Derechos y Recursos del Inquilino, y enviar una copia con un Certificado de Cumplimiento/Entrega a la Oficina de Estabilidad de Vivienda. Una infracción no detiene el proceso de desalojo.",
+    "citation": "Boston Code of Ordinances § 10-11.7",
+    "quoted_span": "The Notice of Tenants’ Rights and Resources must be delivered at the same time as the Notice to Quit.",
+    "effective_date": "2020-11-06",
+    "effective_date_quote": "The HSNA becomes effective on November 6, 2020.",
+    "coverage_conditions": "Applies to all landlords/foreclosing owners intending to end a tenancy or post-foreclosure occupancy of a unit in Boston.",
+    "exemptions": "Residences in hospitals, skilled nursing or health facilities, and in non-profit facilities whose primary purpose is short-term substance-abuse treatment, assistance or therapy.",
+    "penalty": "Warning for first offense; $300 per day for second and subsequent offenses (enforced by Inspectional Services Department).",
+    "key_value": "Notice delivered with Notice to Quit; copy to Office of Housing Stability",
+    "coverage": {
+     "covered_if_built_after": null,
+     "covered_if_built_on_or_before": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "may_preempt_local": false,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Notice/procedural requirement only; does not restrict the grounds for eviction. Source is a tenant FAQ, section number given as Sec. 10-11.7.",
+    "confidence": 0.8
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

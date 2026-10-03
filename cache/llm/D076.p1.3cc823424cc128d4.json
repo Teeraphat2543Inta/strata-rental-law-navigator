@@ -1,0 +1,58 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D076.p1",
+ "created": "2026-10-03T18:08:37Z",
+ "usage": {
+  "input_tokens": 13040,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 1493,
+  "output_tokens_details": {
+   "thinking_tokens": 512
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "San Diego, CA",
+    "level": "city",
+    "category": "algorithmic_rent_setting",
+    "status": "pending",
+    "title": "Prohibition of Anti-Competitive Automated Rent Price-Fixing (proposed Div. 11)",
+    "requirement": "If adopted, landlords could not use algorithmic software built on nonpublic competitor data to set rents or occupancy levels, and no one could sell or license such software to a landlord. Tenants could sue for an injunction, damages, or civil penalties of up to $1,000 per violation, plus attorney's fees.",
+    "requirement_es": "Si se aprueba, los arrendadores no podrían usar software algorítmico basado en datos no públicos de competidores para fijar alquileres u ocupación, y nadie podría vender ni licenciar dicho software a un arrendador. Los inquilinos podrían demandar para obtener una orden judicial, daños o sanciones civiles de hasta $1,000 por infracción, más honorarios de abogado.",
+    "citation": "S.D.M.C. § 98.1103",
+    "quoted_span": "It is unlawful for a landlord to use an algorithmic device to set rental rates or occupancy levels for residential rental property.",
+    "coverage": {
+     "covered_if_built_after": null,
+     "covered_if_built_on_or_before": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "may_preempt_local": false,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "coverage_conditions": "Applies to landlords of residential rental property in the City of San Diego; excludes software that publishes reports from aggregated historical nonpublic data over 90 days old or public information, and software used to set rents under affordable housing program guidelines.",
+    "exemptions": "Reports from aggregated historical nonpublic competitor data more than 90 days old or public information that do not recommend future rents; software for affordable housing program rent/income limits.",
+    "effective_date": null,
+    "effective_date_quote": "This Ordinance will take effect and be in force on the thirtieth day from and after its final passage.",
+    "key_value": "Civil penalties up to $1,000 per violation; each month and each property is a separate violation",
+    "penalty": "Tenant civil action: injunctive relief, damages, or civil penalties of up to $1,000 per violation; prevailing tenant recovers costs and reasonable attorney's fees.",
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Document is a staff report with a proposed ordinance; date of final passage, adoption certification, and mayoral approval are blank, so adoption is not shown. Effective date is 30 days after final passage (unknown).",
+    "confidence": 0.88
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

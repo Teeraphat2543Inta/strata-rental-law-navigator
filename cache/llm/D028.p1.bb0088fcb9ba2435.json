@@ -1,0 +1,58 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D028.p1",
+ "created": "2026-10-03T18:08:55Z",
+ "usage": {
+  "input_tokens": 8149,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 1258,
+  "output_tokens_details": {
+   "thinking_tokens": 350
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "CA",
+    "level": "state",
+    "category": "algorithmic_rent_setting",
+    "status": "in_force",
+    "title": "Cartwright Act ban on common pricing algorithms (AB 325)",
+    "requirement": "Businesses, including apartment rental companies, may not use or distribute a common pricing algorithm (two or more users, using competitor data) as part of an agreement to restrain trade, or coerce users to adopt its price recommendations. Single-firm algorithms using only the business's own data are not covered.",
+    "requirement_es": "Las empresas, incluidas las de alquiler de apartamentos, no pueden usar ni distribuir un algoritmo de precios común (con dos o más usuarios que use datos de la competencia) como parte de un acuerdo para restringir la competencia, ni presionar a los usuarios para que adopten sus recomendaciones de precios. Los algoritmos de una sola empresa que usan solo sus propios datos no están cubiertos.",
+    "citation": "Cal. Bus. & Prof. Code § 16729",
+    "quoted_span": "Businesses are expressly prohibited from using or distributing common pricing algorithms as part of an agreement to restrain trade.",
+    "effective_date": "2026-01-01",
+    "effective_date_quote": "These laws, described below, took effect on January 1, 2026.",
+    "key_value": "Civil fines up to $1 million; criminal fines up to $6 million (businesses) and $1 million (individuals), per violation",
+    "penalty": "Civil fines up to $1 million per violation in actions by the Attorney General or a district attorney; criminal fines of the greater of $6 million or twice the gain/loss for corporations and $1 million for individuals.",
+    "coverage_conditions": "General antitrust law applying to all industries; not specific to rental housing. Applies to common pricing algorithms (two or more users that use competitor data).",
+    "exemptions": "Proprietary single-firm algorithms using only the business's own data are not covered.",
+    "caveat": "Secondary source (law firm article); general cross-industry antitrust law that mentions apartment rental companies only as an example, not rental-specific.",
+    "conflict_type": "none",
+    "conflict_note": null,
+    "coverage": {
+     "covered_if_built_after": null,
+     "covered_if_built_on_or_before": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "may_preempt_local": false,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "confidence": 0.8
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

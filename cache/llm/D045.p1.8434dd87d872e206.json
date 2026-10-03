@@ -1,0 +1,58 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D045.p1",
+ "created": "2026-10-03T18:08:03Z",
+ "usage": {
+  "input_tokens": 5330,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 889,
+  "output_tokens_details": {
+   "thinking_tokens": 225
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "MA",
+    "level": "state",
+    "category": "algorithmic_rent_setting",
+    "status": "pending",
+    "title": "H.5222 – An Act relative to preventing algorithmic rent fixing in the rental housing market",
+    "requirement": "A Massachusetts bill to prevent algorithmic rent fixing in rental housing has been reported favorably by the Housing Committee and sent to House Ways and Means. It is not law, and the page does not show its provisions.",
+    "requirement_es": "Un proyecto de ley de Massachusetts para impedir la fijación algorítmica de alquileres en la vivienda de alquiler fue informado favorablemente por el Comité de Vivienda y enviado al Comité de Medios y Arbitrios de la Cámara. No es ley todavía, y la página no muestra sus disposiciones.",
+    "citation": "Mass. H.5222",
+    "quoted_span": "An Act relative to preventing algorithmic rent fixing in the rental housing market",
+    "coverage": {
+     "covered_if_built_after": null,
+     "covered_if_built_on_or_before": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "may_preempt_local": false,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "confidence": 0.6,
+    "caveat": "Only the bill title and history are shown; the bill text, definitions, prohibited conduct and penalties are not in the document. Status is pending (referred to House Ways and Means, 3/12/2026; new draft of H1564).",
+    "effective_date": null,
+    "effective_date_quote": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "key_value": null,
+    "penalty": null,
+    "exemptions": null,
+    "coverage_conditions": null
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

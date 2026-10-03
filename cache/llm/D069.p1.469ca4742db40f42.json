@@ -1,0 +1,58 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D069.p1",
+ "created": "2026-10-03T18:08:30Z",
+ "usage": {
+  "input_tokens": 7801,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 1547,
+  "output_tokens_details": {
+   "thinking_tokens": 628
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "NJ",
+    "level": "state",
+    "category": "algorithmic_rent_setting",
+    "status": "not_yet_effective",
+    "title": "Forbidding the Algorithmic Inflation of Rent (FAIR) Act",
+    "requirement": "Landlords may not pay for or use a coordinator's algorithmic rent-pricing software or device that performs a coordinating function, and no one may perform a coordinating function or engage in or facilitate parallel pricing coordination of rents. Violations are violations of the NJ Antitrust Act.",
+    "requirement_es": "Los propietarios no pueden pagar ni usar el software o dispositivo algorítmico de fijación de precios de un coordinador que realice una función de coordinación, y nadie puede realizar una función de coordinación ni participar en o facilitar la coordinación paralela de precios de alquiler. Las infracciones violan la Ley Antimonopolio de Nueva Jersey.",
+    "citation": "P.L.2026, c.43",
+    "quoted_span": "a rental property owner, or any agent, representative, or subcontractor thereof, to receive, subscribe to, contract for, or otherwise exchange any form of consideration in return for the use of, the services of a coordinator;",
+    "coverage": {
+     "covered_if_built_after": null,
+     "covered_if_built_on_or_before": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "may_preempt_local": true,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "coverage_conditions": "Applies to any rental property owner (owning one or more residential rental units) and any coordinator; excludes inpatient medical care, licensed long-term care, and detention facilities, and government affordability controls.",
+    "effective_date": "2027-07-01",
+    "effective_date_quote": "This act shall take effect on the first day of the twelfth month next following the date of enactment.",
+    "exemptions": "Research/statistical use not used to set rents, free public rent estimates, equal-terms brokerage databases, and government affordability controls are not a coordinating function.",
+    "penalty": "Violation of the New Jersey Antitrust Act; remedies under sections 6 through 17 of P.L.1970, c.73 (C.56:9-6 through 9-17) remain applicable.",
+    "key_value": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Effective date computed from approval on July 20, 2026. Municipalities are barred from enacting conflicting ordinances.",
+    "confidence": 0.93
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

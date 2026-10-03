@@ -1,0 +1,58 @@
+[
+ {
+  "jurisdiction": "Los Angeles, CA",
+  "category": "rent_increase_limits",
+  "finding": "The JCO itself does not regulate rent increases; only state AB 1482 (and the RSO for RSO units) limits them.",
+  "quoted_span": "The JCO does not regulate rent increases, however, state law",
+  "source_doc_id": "D040",
+  "source_url": "https://housing.lacity.gov/residents/just-cause-for-eviction-ordinance-jco"
+ },
+ {
+  "jurisdiction": "Boston, MA",
+  "category": "rent_increase_limits",
+  "finding": "No rent cap: state law (M.G.L. c. 40P, § 4) bars local rent control of any kind.",
+  "quoted_span": "No city or town may enact, maintain or enforce rent control of any kind",
+  "source_doc_id": "D048",
+  "source_url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleVII/Chapter40P/Section4"
+ },
+ {
+  "jurisdiction": "Cambridge, MA",
+  "category": "rent_increase_limits",
+  "finding": "No rent cap: state law (M.G.L. c. 40P, § 4) bars local rent control of any kind.",
+  "quoted_span": "No city or town may enact, maintain or enforce rent control of any kind",
+  "source_doc_id": "D048",
+  "source_url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleVII/Chapter40P/Section4"
+ },
+ {
+  "jurisdiction": "NJ",
+  "category": "rent_increase_limits",
+  "finding": "New Jersey has no statewide rent cap; rent control is left to municipal ordinances.",
+  "quoted_span": "The State of New Jersey has no laws that establish, govern or control rents.",
+  "source_doc_id": "D067",
+  "source_url": "https://www.nj.gov/dca/codes/publications/pdf_lti/t_i_r.pdf"
+ },
+ {
+  "jurisdiction": "MA",
+  "category": "rent_increase_limits",
+  "finding": "No rent cap: existing Massachusetts statutory ban on rent control (G.L. c. 40P) remains in place after the SJC kept the repeal initiative off the ballot.",
+  "quoted_span": "The petition would have repealed the Commonwealth’s existing statutory ban on rent control, G.L. c. 40P, and replaced it with a statewide cap on annual rent increases",
+  "source_doc_id": "D055",
+  "source_url": "https://massrealestatelawblog.com/tag/cella-v-attorney-general/"
+ },
+ {
+  "jurisdiction": "Boston, MA",
+  "category": "rent_increase_limits",
+  "finding": "No rent cap: state law bars local rent control.",
+  "quoted_span": "The petition would have repealed the Commonwealth’s existing statutory ban on rent control, G.L. c. 40P, and replaced it with a statewide cap on annual rent increases",
+  "source_doc_id": "D055",
+  "source_url": "https://massrealestatelawblog.com/tag/cella-v-attorney-general/"
+ },
+ {
+  "jurisdiction": "Cambridge, MA",
+  "category": "rent_increase_limits",
+  "finding": "No rent cap: state law bars local rent control.",
+  "quoted_span": "The petition would have repealed the Commonwealth’s existing statutory ban on rent control, G.L. c. 40P, and replaced it with a statewide cap on annual rent increases",
+  "source_doc_id": "D055",
+  "source_url": "https://massrealestatelawblog.com/tag/cella-v-attorney-general/"
+ }
+]

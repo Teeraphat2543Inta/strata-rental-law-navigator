@@ -1,0 +1,58 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D058.p1",
+ "created": "2026-10-03T18:08:22Z",
+ "usage": {
+  "input_tokens": 5428,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 1149,
+  "output_tokens_details": {
+   "thinking_tokens": 331
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "MA",
+    "level": "state",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "Notice to quit for nonpayment of rent must include state-developed form",
+    "requirement": "A landlord's written notice to quit for nonpayment of rent must come with a form listing any repayment agreements, rental assistance programs, court rules and legal eviction restrictions, plus a statement that the notice is not an eviction and only a court order can force you to leave. Courts will not accept an eviction filing for nonpayment without proof the form was delivered.",
+    "requirement_es": "El aviso escrito de desalojo (notice to quit) por falta de pago del alquiler debe ir acompañado de un formulario con los acuerdos de pago, programas de asistencia para el alquiler, reglas judiciales y restricciones legales sobre desalojos, y una declaración de que el aviso no es un desalojo y que solo una orden judicial puede obligarle a salir. Los tribunales no aceptarán una demanda de desalojo por falta de pago sin prueba de la entrega del formulario.",
+    "citation": "M.G.L. c. 186, § 31",
+    "quoted_span": "A notice to quit for nonpayment of rent given in writing by a landlord to a residential tenant pursuant to this chapter shall be accompanied by a form that shall include, but not be limited to:",
+    "coverage": {
+     "covered_if_built_on_or_before": null,
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "min_units": null,
+     "may_preempt_local": false,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "coverage_conditions": "Applies to written notices to quit for nonpayment of rent given by a landlord to a residential tenant under c. 186.",
+    "effective_date": null,
+    "effective_date_quote": null,
+    "exemptions": null,
+    "key_value": null,
+    "penalty": "Courts may not accept for filing a writ, summons or complaint in a nonpayment eviction without proof of delivery of the form.",
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Procedural notice requirement; the document does not state an effective date.",
+    "confidence": 0.8
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

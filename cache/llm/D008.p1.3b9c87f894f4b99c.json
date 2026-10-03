@@ -1,0 +1,59 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D008.p1",
+ "created": "2026-10-03T18:07:26Z",
+ "usage": {
+  "input_tokens": 5153,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 889,
+  "output_tokens_details": {
+   "thinking_tokens": 0
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "Berkeley, CA",
+    "level": "city",
+    "category": "rent_increase_limits",
+    "status": "in_force",
+    "title": "Berkeley 2026 Annual General Adjustment (1.0%)",
+    "requirement": "Eligible Berkeley landlords may raise 2025 permanent rent ceilings by no more than 1.0% for 2026, and not before January 1, 2026. The AGA is 65% of the Bay Area CPI increase, and landlords must follow the conditions and notice requirements in Regulation 1148.",
+    "requirement_es": "Los propietarios elegibles en Berkeley pueden aumentar los límites de renta permanentes de 2025 como máximo un 1.0% para 2026, y no antes del 1 de enero de 2026. El AGA es el 65% del aumento del IPC del Área de la Bahía, y los propietarios deben cumplir las condiciones y requisitos de aviso del Reglamento 1148.",
+    "citation": "B.M.C. § 13.76.110",
+    "quoted_span": "adopted the Annual General Adjustment (AGA) Order for Year 2026 which will allow eligible landlords to increase the 2025 permanent rent ceilings by 1.0% no earlier than January 1, 2026.",
+    "key_value": "1.0% (65% of 1.5% CPI)",
+    "effective_date": "2026-01-01",
+    "effective_date_quote": "no earlier than January 1, 2026",
+    "exemptions": "The 2026 AGA may not adjust rents of tenancies that began on or after January 1, 2025 and whose rents were set under the Costa-Hawkins Rental Housing Act.",
+    "coverage": {
+     "covered_if_built_on_or_before": null,
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false,
+     "may_preempt_local": false
+    },
+    "coverage_conditions": "Rent-stabilized units in Berkeley whose landlords qualify under Regulation 1148; excludes tenancies begun on/after 2025-01-01 with Costa-Hawkins-set rents.",
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Annual adjustment; regulation text (Reg. 1148) not in document. Section cite from the notice.",
+    "quoted_span_note": null,
+    "confidence": 0.9,
+    "penalty": null
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

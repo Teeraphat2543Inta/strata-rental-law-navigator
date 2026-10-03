@@ -1,0 +1,122 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D087.p1",
+ "created": "2026-10-03T18:09:15Z",
+ "usage": {
+  "input_tokens": 6278,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 2308,
+  "output_tokens_details": {
+   "thinking_tokens": 569
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "Santa Ana, CA",
+    "level": "city",
+    "category": "algorithmic_rent_setting",
+    "status": "pending",
+    "title": "Santa Ana ban on algorithmic rent-setting software",
+    "requirement": "The proposed ordinance would prohibit selling, licensing, providing and using certain algorithmic rent-setting software for residential rentals in Santa Ana. Affected tenants could sue for injunctive relief, damages, or civil penalties of up to $1,000 per violation plus attorney's fees.",
+    "requirement_es": "La ordenanza propuesta prohibiría vender, otorgar licencias, proporcionar y usar ciertos programas algorítmicos para fijar rentas en viviendas de alquiler en Santa Ana. Los inquilinos afectados podrían demandar para obtener medidas cautelares, daños o sanciones civiles de hasta $1,000 por infracción más honorarios de abogado.",
+    "citation": "Santa Ana ordinance banning algorithmic rent-setting software (first reading Feb. 17, 2026)",
+    "quoted_span": "prohibits the sale, licensing, provision and use of certain algorithmic rent-setting software for residential rental properties.",
+    "coverage": {
+     "covered_if_built_on_or_before": null,
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false,
+     "may_preempt_local": false
+    },
+    "coverage_conditions": "Residential rental property within Santa Ana city limits.",
+    "exemptions": "Does not apply to pricing software that relies solely on publicly available data, aggregate historical data, or tools used to comply with affordable housing program requirements.",
+    "penalty": "Injunctive relief, damages, or civil penalties of up to $1,000 per violation, plus attorney's fees.",
+    "key_value": "$1,000 per violation",
+    "effective_date": null,
+    "effective_date_quote": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Secondary news source; approved only for first reading on Feb. 17, 2026 with final vote set for March 3, 2026. Final adoption is not shown in the document. Ordinance number and code section not given.",
+    "confidence": 0.8
+   },
+   {
+    "jurisdiction": "Santa Ana, CA",
+    "level": "city",
+    "category": "rent_increase_limits",
+    "status": "in_force",
+    "title": "Santa Ana rent stabilization ordinance (passing mention)",
+    "requirement": "Santa Ana has a rent stabilization ordinance that limits rent increases for certain types of residential properties.",
+    "requirement_es": "Santa Ana tiene una ordenanza de estabilización de rentas que limita los aumentos de renta en ciertos tipos de propiedades residenciales.",
+    "citation": "Santa Ana rent stabilization ordinance (code section not stated)",
+    "quoted_span": "limiting rent increases for certain types of residential properties and creating new protections against eviction",
+    "coverage": {
+     "covered_if_built_on_or_before": null,
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false,
+     "may_preempt_local": false
+    },
+    "coverage_conditions": "Certain types of residential properties; details not given.",
+    "exemptions": null,
+    "penalty": null,
+    "key_value": null,
+    "effective_date": null,
+    "effective_date_quote": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Only a passing mention in a secondary source; no cap, coverage or date details given.",
+    "confidence": 0.4
+   },
+   {
+    "jurisdiction": "Santa Ana, CA",
+    "level": "city",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "Santa Ana eviction protections (passing mention)",
+    "requirement": "Santa Ana's rent stabilization ordinance also created new protections against eviction.",
+    "requirement_es": "La ordenanza de estabilización de rentas de Santa Ana también creó nuevas protecciones contra el desalojo.",
+    "citation": "Santa Ana rent stabilization ordinance (code section not stated)",
+    "quoted_span": "limiting rent increases for certain types of residential properties and creating new protections against eviction",
+    "coverage": {
+     "covered_if_built_on_or_before": null,
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false,
+     "may_preempt_local": false
+    },
+    "coverage_conditions": null,
+    "exemptions": null,
+    "penalty": null,
+    "key_value": null,
+    "effective_date": null,
+    "effective_date_quote": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Only a passing mention in a secondary source; no details on causes, notice or coverage.",
+    "confidence": 0.35
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

@@ -1,0 +1,90 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D077.p1",
+ "created": "2026-10-03T18:09:16Z",
+ "usage": {
+  "input_tokens": 13269,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 2895,
+  "output_tokens_details": {
+   "thinking_tokens": 1013
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "San Diego, CA",
+    "level": "city",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "San Diego Residential Tenant Protection Ordinance (just cause eviction and relocation assistance)",
+    "requirement": "A landlord may end a covered tenancy only for an at-fault reason (e.g., nonpayment, breach, nuisance) or a no-fault reason (owner move-in, withdrawal from market, government/court order, substantial remodel or demolition), and must state the cause in the termination notice. For no-fault terminations the landlord must give relocation assistance of two months' rent (three months if the tenant is a senior 62+ or disabled), by direct payment or rent waiver.",
+    "requirement_es": "Un arrendador solo puede terminar un arrendamiento cubierto por una causa culpable (p. ej., falta de pago, incumplimiento, molestia) o sin culpa (mudanza del propietario, retiro del mercado, orden gubernamental o judicial, remodelación sustancial o demolición), y debe indicar la causa en el aviso. En terminaciones sin culpa debe dar asistencia de reubicación de dos meses de renta (tres meses si el inquilino tiene 62 años o más o tiene una discapacidad), mediante pago directo o exención de renta.",
+    "citation": "S.D.M.C. ch. 9, art. 8, div. 7",
+    "quoted_span": "The purpose of the Ordinance is to require Just Cause for termination of residential tenancies consistent with California Civil Code section 1946.2",
+    "coverage": {
+     "covered_if_built_on_or_before": null,
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": 15,
+     "min_units": null,
+     "max_units": null,
+     "exemption_max_units": null,
+     "owner_type_dependent": true,
+     "yields_to_local": false,
+     "may_preempt_local": false
+    },
+    "coverage_conditions": "Applies to tenancies longer than 30 days (not fixed terms of 3 months or less). Exempt: transient hotels, short stays, deed-restricted affordable housing (not Section 8 voucher holders), mobilehomes subject to MRL, certain institutional housing, owner-occupied shared housing or owner-occupied duplexes, single-family units/condos owned by non-corporate, non-REIT landlords who gave written exemption notice, and housing with a certificate of occupancy issued within the previous 15 years (except mobilehomes).",
+    "exemptions": "Housing issued a certificate of occupancy within the previous 15 years (unless a mobilehome); owner-occupied duplexes; owner-occupied single-family rentals of no more than two units/bedrooms; alienable single units owned by individuals (not REIT, corporation, or LLC with a corporate member) with written exemption notice; deed-restricted affordable housing.",
+    "key_value": "Relocation assistance: 2 months' rent; 3 months if tenant is senior (62+) or disabled",
+    "effective_date": "2023-06-24",
+    "effective_date_quote": "The Ordinance goes into effect June 24, 2023.",
+    "penalty": "Tenant may sue for injunctive relief and damages including punitive damages; wrongful eviction liability of at least 3x actual economic damages; failure to pay relocation assistance liable for at least 3x the required assistance plus actual damages; attorney's fees.",
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Secondary source (Legal Aid fact sheet updated Sept 2023); citation is to the division of the Municipal Code as described. SDHC notice-submission requirement was not yet in effect pending portal launch.",
+    "confidence": 0.85
+   },
+   {
+    "jurisdiction": "San Diego, CA",
+    "level": "city",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "San Diego buyout agreement disclosures and requirements",
+    "requirement": "Before making a buyout (cash-for-keys) offer, a landlord must give the tenant written disclosures, including the right to refuse and to consult an attorney and the relocation amount owed. A buyout for less than the relocation assistance owed is void.",
+    "requirement_es": "Antes de hacer una oferta de compra de salida, el arrendador debe entregar divulgaciones escritas, incluido el derecho a rechazar, a consultar a un abogado y el monto de reubicación debido. Un acuerdo por menos de la asistencia de reubicación es nulo.",
+    "citation": "S.D.M.C. ch. 9, art. 8, div. 7",
+    "quoted_span": "Buyout agreements for amounts less than the amount of relocation assistance available to Tenant is void.",
+    "coverage": {
+     "covered_if_built_on_or_before": null,
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": 15,
+     "min_units": null,
+     "max_units": null,
+     "exemption_max_units": null,
+     "owner_type_dependent": true,
+     "yields_to_local": false,
+     "may_preempt_local": false
+    },
+    "coverage_conditions": "Same coverage as the Residential Tenant Protection Ordinance.",
+    "exemptions": null,
+    "key_value": null,
+    "effective_date": "2023-06-24",
+    "effective_date_quote": "The Ordinance goes into effect June 24, 2023.",
+    "penalty": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Secondary source; buyout rules summarized, not the ordinance text.",
+    "confidence": 0.6
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

@@ -1,0 +1,89 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D015.p1",
+ "created": "2026-10-03T18:08:50Z",
+ "usage": {
+  "input_tokens": 6505,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 1941,
+  "output_tokens_details": {
+   "thinking_tokens": 566
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "CA",
+    "level": "state",
+    "category": "screening_restrictions",
+    "status": "in_force",
+    "title": "California Civil Rights Council criminal history screening regulations",
+    "requirement": "Landlords may check criminal history but may not use blanket bans on applicants with a criminal record or policies that consider arrests without convictions. The regulations also limit what criminal history can be sought and how it is used.",
+    "requirement_es": "Los arrendadores pueden revisar antecedentes penales, pero no pueden aplicar prohibiciones generales a solicitantes con antecedentes ni políticas que consideren arrestos sin condena. Las regulaciones también limitan qué antecedentes se pueden pedir y cómo se usan.",
+    "citation": "Cal. Code Regs. tit. 2, § 12265",
+    "quoted_span": "Blanket bans on applicants with a criminal record are prohibited, as are policies that consider arrests without convictions.",
+    "effective_date": "2020-01-01",
+    "effective_date_quote": "In 2019, California’s Civil Rights Council (formerly the Fair Employment and Housing Council) enacted regulations that took effect Jan. 1, 2020",
+    "coverage": {
+     "may_preempt_local": false,
+     "yields_to_local": false,
+     "owner_type_dependent": false
+    },
+    "caveat": "Secondary source (trade association); regulation section number not stated in the document and is inferred.",
+    "conflict_type": "none",
+    "confidence": 0.75
+   },
+   {
+    "jurisdiction": "CA",
+    "level": "state",
+    "category": "screening_restrictions",
+    "status": "in_force",
+    "title": "Source of income includes Section 8 / government housing subsidies (SB 329)",
+    "requirement": "Landlords may not refuse to rent to or participate in government housing subsidy programs such as Section 8; 'No Section 8' policies are illegal.",
+    "requirement_es": "Los arrendadores no pueden negarse a participar en programas de subsidio de vivienda del gobierno como la Sección 8; las políticas de 'No Sección 8' son ilegales.",
+    "citation": "Cal. Gov. Code § 12955",
+    "quoted_span": "This change meant that, as of Jan. 1, 2020, state law prohibits landlords from refusing to participate in such programs.",
+    "effective_date": "2020-01-01",
+    "effective_date_quote": "This change meant that, as of Jan. 1, 2020, state law prohibits landlords from refusing to participate in such programs.",
+    "coverage": {
+     "may_preempt_local": false,
+     "yields_to_local": false,
+     "owner_type_dependent": false
+    },
+    "caveat": "Secondary source; statutory section inferred (SB 329 amended the FEHA 'source of income' definition).",
+    "conflict_type": "none",
+    "confidence": 0.8
+   },
+   {
+    "jurisdiction": "CA",
+    "level": "state",
+    "category": "screening_restrictions",
+    "status": "in_force",
+    "title": "Credit history screening of subsidy holders (SB 267)",
+    "requirement": "If an applicant has a government rental subsidy such as Section 8, a landlord may not use their credit history without offering the option to provide alternative evidence of a verifiable legal means to pay their portion of the rent.",
+    "requirement_es": "Si un solicitante tiene un subsidio de renta del gobierno como la Sección 8, el arrendador no puede usar su historial de crédito sin ofrecer la opción de presentar pruebas alternativas de medios legales verificables para pagar su parte de la renta.",
+    "citation": "Cal. Gov. Code § 12955",
+    "quoted_span": "last year’s SB 267 amended FEHA to prohibit rental property owners from using a person’s credit history as part of the application process",
+    "effective_date": null,
+    "effective_date_quote": null,
+    "coverage": {
+     "may_preempt_local": false,
+     "yields_to_local": false,
+     "owner_type_dependent": false
+    },
+    "caveat": "Secondary source; effective date and exact statutory subdivision not stated in the document.",
+    "conflict_type": "none",
+    "confidence": 0.65
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

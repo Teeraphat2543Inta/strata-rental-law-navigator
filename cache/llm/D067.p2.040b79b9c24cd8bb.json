@@ -1,0 +1,153 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D067.p2",
+ "created": "2026-10-03T18:09:19Z",
+ "usage": {
+  "input_tokens": 25241,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 4727,
+  "output_tokens_details": {
+   "thinking_tokens": 2257
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "NJ",
+    "level": "state",
+    "category": "rent_increase_limits",
+    "status": "in_force",
+    "title": "Newly constructed multiple dwellings exempt from local rent control for 30 years",
+    "requirement": "Newly built multiple dwellings are exempt from any municipal rent control ordinance for 30 years after construction is completed. Government-subsidized rents (HUD, NJHMFA) may also be exempt from local rent control.",
+    "requirement_es": "Los edificios multifamiliares de nueva construcción están exentos de cualquier ordenanza municipal de control de alquileres durante 30 años después de terminada la construcción. Los alquileres subsidiados por el gobierno (HUD, NJHMFA) también pueden estar exentos.",
+    "citation": "N.J.S.A. 2A:42-84.5",
+    "quoted_span": "constructed multiple dwellings shall be exempt from any local rent control ordinances for a period of 30 years following completion of construction of the building.",
+    "coverage": {
+     "covered_if_built_on_or_before": null,
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": 30,
+     "exemption_max_units": null,
+     "max_units": null,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false,
+     "may_preempt_local": false
+    },
+    "coverage_conditions": "Applies to local rent control ordinances; newly constructed multiple dwellings are exempt for 30 years after completion.",
+    "exemptions": "Units whose rents are subsidized by governmental funding, HUD-owned/subsidized developments, and NJHMFA-controlled projects are also not subject to municipal rent control.",
+    "effective_date": null,
+    "effective_date_quote": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Secondary summary by DCA; statute enactment date not given.",
+    "confidence": 0.85
+   },
+   {
+    "jurisdiction": "NJ",
+    "level": "state",
+    "category": "rent_increase_limits",
+    "status": "in_force",
+    "title": "Rent increases must not be unconscionable and must follow municipal ordinances",
+    "requirement": "A landlord may raise rent only after properly ending the old lease and serving notice. The increase must not be unconscionable and must comply with any local rent control ordinance.",
+    "requirement_es": "El propietario solo puede aumentar el alquiler después de terminar correctamente el contrato anterior y dar aviso. El aumento no debe ser abusivo y debe cumplir con cualquier ordenanza local de control de alquileres.",
+    "citation": "N.J.S.A. 2A:18-61.1",
+    "quoted_span": "The increase in rent must not be unconscionable; it must not be so unreasonable as to shock the conscience of a fair and honest person",
+    "coverage": {
+     "covered_if_built_on_or_before": null,
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false,
+     "may_preempt_local": false
+    },
+    "coverage_conditions": "Applies to residential tenancies covered by the Anti-Eviction Act; no numeric statewide cap.",
+    "exemptions": null,
+    "effective_date": null,
+    "effective_date_quote": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Unconscionability is fact-specific and judge-determined; no fixed cap. Secondary DCA summary.",
+    "confidence": 0.8
+   },
+   {
+    "jurisdiction": "NJ",
+    "level": "state",
+    "category": "rent_increase_limits",
+    "status": "in_force",
+    "title": "No rent increases to cover condominium/cooperative conversion costs",
+    "requirement": "If a building is converted to condominium, cooperative or fee simple ownership, the landlord may not raise rents to cover costs resulting solely from the conversion. Rents can still rise for new services or amenities.",
+    "requirement_es": "Si un edificio se convierte en condominio, cooperativa o propiedad en dominio absoluto, el propietario no puede aumentar el alquiler para cubrir costos derivados únicamente de la conversión. Sí puede aumentarlo por nuevos servicios o comodidades.",
+    "citation": "N.J.S.A. 2A:18-61.31",
+    "quoted_span": "rents may not be increased to cover cos ts resulting solely from the conversion",
+    "coverage": {
+     "covered_if_built_on_or_before": null,
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false,
+     "may_preempt_local": false
+    },
+    "coverage_conditions": "Applies to all tenants in a building converted to condominium, cooperative, or fee simple ownership, regardless of protected tenancy status.",
+    "exemptions": null,
+    "effective_date": null,
+    "effective_date_quote": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": null,
+    "confidence": 0.8
+   },
+   {
+    "jurisdiction": "NJ",
+    "level": "state",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "Anti-Eviction Act: good cause required to evict",
+    "requirement": "A landlord must have a statutory good cause to evict or refuse to renew a lease. Except for nonpayment of rent, the cause must be described in a written Notice to Quit, and the tenant need not move until a court enters a Judgment for Possession.",
+    "requirement_es": "El propietario debe tener una causa justificada legal para desalojar o no renovar un contrato. Salvo por falta de pago, la causa debe describirse en un Aviso de Desalojo escrito, y el inquilino no tiene que irse hasta que el tribunal dicte un fallo de posesión.",
+    "citation": "N.J.S.A. 2A:18-61.1",
+    "quoted_span": "A landlord must have good cause to evict a tenant (N.J.S.A. 2A:18-53).",
+    "coverage": {
+     "covered_if_built_on_or_before": null,
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": 3,
+     "max_units": null,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false,
+     "may_preempt_local": false
+    },
+    "coverage_conditions": "Applies to most residential rentals including single-family homes, mobile homes, apartment buildings and rooming/boarding houses.",
+    "exemptions": "May not apply to owner-occupied premises with two or fewer rental units; hotel/motel/guest house transient or seasonal guests (unless continual residence with no alternate residence); units held in trust for a developmentally disabled immediate family member.",
+    "effective_date": null,
+    "effective_date_quote": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Document is a secondary summary; the list of causes is in the next part of the document.",
+    "confidence": 0.85
+   }
+  ],
+  "no_rule_findings": [
+   {
+    "category": "rent_increase_limits",
+    "jurisdiction": "NJ",
+    "finding": "New Jersey has no statewide rent cap; rent control is left to municipal ordinances.",
+    "quoted_span": "The State of New Jersey has no laws that establish, govern or control rents."
+   }
+  ]
+ }
+}

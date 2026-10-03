@@ -1,0 +1,90 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D010.p1",
+ "created": "2026-10-03T18:07:55Z",
+ "usage": {
+  "input_tokens": 6538,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 4684,
+  "output_tokens_details": {
+   "thinking_tokens": 3099
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "Boston, MA",
+    "level": "city",
+    "category": "screening_restrictions",
+    "status": "in_force",
+    "title": "Boston Fair Chance Tenant Selection Policy – criminal history",
+    "requirement": "Housing providers with DND funding/land or BPDA inclusionary income-restricted units may not use a blanket ban on applicants with arrests or convictions and must decide case by case. They may not consider arrests without conviction, convictions with judicial relief, juvenile records, or convictions more than 5 years old (except where the conviction directly relates to the housing or poses unreasonable risk of substantial harm to others, or involves current criminal behavior).",
+    "requirement_es": "Los proveedores de vivienda que reciben fondos o terrenos del DND, o que tienen unidades de ingresos restringidos del programa de inclusión del BPDA, no pueden aplicar una prohibición general a solicitantes con arrestos o condenas y deben decidir caso por caso. No pueden considerar arrestos sin condena, condenas con alivio judicial, registros juveniles ni condenas de más de 5 años (salvo relación directa con la vivienda, riesgo irrazonable de daño grave a otros o conducta delictiva actual).",
+    "citation": "Boston DND Fair Chance Tenant Selection Policy (Feb. 2017)",
+    "quoted_span": "Arrests that did not result in conviction. This includes dismissed charges, diversion",
+    "coverage": {
+     "covered_if_built_on_or_before": null,
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "min_units": null,
+     "may_preempt_local": false,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "coverage_conditions": "Applies to housing providers receiving DND funding and/or land, or with income-restricted units created under the BPDA Inclusionary Development Policy; also applied to the Office of Fair Housing and Equity Affirmative Marketing Program. Not a citywide rule for all landlords.",
+    "exemptions": "Does not apply where there is a direct relationship between a conviction and the housing sought, unreasonable risk of substantial harm to others, or current criminal behavior; federal or state law requiring criminal history checks preempts the policy.",
+    "key_value": "5 years",
+    "effective_date": null,
+    "effective_date_quote": null,
+    "penalty": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Administrative policy dated February 2017 (version date, not clearly an effective date); applies only to DND-funded/BPDA inclusionary housing providers. Some items are 'strongly encouraged' or 'should' rather than mandatory.",
+    "confidence": 0.8
+   },
+   {
+    "jurisdiction": "Boston, MA",
+    "level": "city",
+    "category": "screening_restrictions",
+    "status": "in_force",
+    "title": "Boston Fair Chance Tenant Selection Policy – credit score",
+    "requirement": "Covered housing providers may not use an applicant's credit score to approve or deny an application. Credit history may be considered only in lieu of rental history when rental history is unavailable, and lack of credit history alone is not enough to reject.",
+    "requirement_es": "Los proveedores cubiertos no pueden usar el puntaje de crédito del solicitante para aprobar o negar una solicitud. El historial de crédito solo puede considerarse en lugar del historial de alquiler cuando este no está disponible, y la falta de historial crediticio por sí sola no justifica el rechazo.",
+    "citation": "Boston DND Fair Chance Tenant Selection Policy (Feb. 2017)",
+    "quoted_span": "The agent agrees not to use the applicant credit score to approve or deny housing",
+    "coverage": {
+     "covered_if_built_on_or_before": null,
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "min_units": null,
+     "may_preempt_local": false,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "coverage_conditions": "Applies to housing providers receiving DND funding and/or land, or with BPDA inclusionary income-restricted units.",
+    "exemptions": null,
+    "key_value": null,
+    "effective_date": null,
+    "effective_date_quote": null,
+    "penalty": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Administrative policy dated February 2017; applies only to DND-funded/BPDA inclusionary housing providers.",
+    "confidence": 0.75
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

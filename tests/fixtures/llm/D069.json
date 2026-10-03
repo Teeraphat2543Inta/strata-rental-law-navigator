@@ -1,0 +1,35 @@
+{
+ "rules": [
+  {
+   "jurisdiction": "NJ",
+   "level": "state",
+   "category": "algorithmic_rent_setting",
+   "status": "not_yet_effective",
+   "title": "FAIR Act",
+   "requirement": "Bans algorithmic rent-setting using competitors' data.",
+   "requirement_es": "(es) Bans algorithmic rent-setting using competitors' data.",
+   "key_value": null,
+   "coverage_conditions": null,
+   "coverage": {
+    "covered_if_built_on_or_before": null,
+    "covered_if_built_after": null,
+    "exempt_if_newer_than_years": null,
+    "min_units": null,
+    "max_units": null,
+    "exemption_max_units": null,
+    "owner_type_dependent": false,
+    "yields_to_local": false,
+    "may_preempt_local": true
+   },
+   "exemptions": null,
+   "penalty": null,
+   "effective_date": "2027-07-01",
+   "effective_date_quote": null,
+   "citation": "P.L.2026, c.43",
+   "quoted_span": "A municipality shall be prohibited from enacting an ordinance that conflicts with this act.",
+   "confidence": 0.9,
+   "conflict_note": null
+  }
+ ],
+ "no_rule_findings": []
+}

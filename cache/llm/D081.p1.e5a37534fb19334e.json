@@ -1,0 +1,58 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D081.p1",
+ "created": "2026-10-03T18:08:36Z",
+ "usage": {
+  "input_tokens": 4726,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 756,
+  "output_tokens_details": {
+   "thinking_tokens": 0
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "San Francisco, CA",
+    "level": "city",
+    "category": "algorithmic_rent_setting",
+    "status": "in_force",
+    "title": "Ban on algorithmic devices to set rents (Rent Ordinance § 37.10C)",
+    "requirement": "Landlords may not sell or use algorithmic devices (software that analyzes nonpublic competitor rental data to recommend rents) to set rents or manage occupancy levels for residential units in San Francisco. A tenant or the City Attorney can sue if they believe someone violates the law.",
+    "requirement_es": "Los arrendadores no pueden vender ni usar dispositivos algorítmicos (software que analiza datos no públicos de alquileres de competidores para recomendar rentas) para fijar rentas o manejar niveles de ocupación de unidades residenciales en San Francisco. Un inquilino o el Fiscal de la Ciudad puede presentar una demanda si cree que hay una violación.",
+    "citation": "S.F. Admin. Code § 37.10C",
+    "quoted_span": "The law prohibits the sale or use of such algorithmic devices and allows a tenant or the City Attorney to bring a civil action if they believe an entity is in violation of the law.",
+    "effective_date": "2024-10-14",
+    "effective_date_quote": "adding Section 37.10C to the Rent Ordinance went into effect on October 14, 2024.",
+    "key_value": null,
+    "penalty": "Civil action by a tenant or the City Attorney",
+    "exemptions": null,
+    "coverage_conditions": "Residential units in San Francisco",
+    "coverage": {
+     "covered_if_built_after": null,
+     "covered_if_built_on_or_before": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "may_preempt_local": false,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Summary news page; definition given is a paraphrase of the ordinance.",
+    "confidence": 0.93
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

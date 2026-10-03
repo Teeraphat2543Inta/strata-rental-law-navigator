@@ -1,0 +1,129 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D040.p1",
+ "created": "2026-10-03T18:08:18Z",
+ "usage": {
+  "input_tokens": 7853,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 3939,
+  "output_tokens_details": {
+   "thinking_tokens": 1586
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "Los Angeles, CA",
+    "level": "city",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "Los Angeles Just Cause for Eviction Ordinance (JCO)",
+    "requirement": "Landlords of covered Los Angeles rental units may not end a tenancy without just cause, and must pay relocation assistance for no-fault evictions. At-fault reasons (e.g., nonpayment, nuisance) carry no relocation assistance.",
+    "requirement_es": "Los propietarios de unidades de alquiler cubiertas en Los Angeles no pueden terminar un arrendamiento sin causa justificada y deben pagar asistencia de reubicación en los desalojos sin culpa del inquilino. Las causas por culpa del inquilino (p. ej., falta de pago, molestias) no dan derecho a asistencia de reubicación.",
+    "citation": "L.A.M.C. § 165.00",
+    "quoted_span": "It prohibits terminations of tenancies without just cause and requires relocation assistance for no-fault evictions.",
+    "coverage": {
+     "covered_if_built_after": null,
+     "covered_if_built_on_or_before": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "may_preempt_local": false,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "coverage_conditions": "Most residential properties in the City of Los Angeles not regulated by the RSO; applies once the tenant has lived in the unit at least six months or the original lease expired, whichever comes first. Can apply to buildings newer than Oct 1, 1978 and to a single-family dwelling.",
+    "exemptions": "Transient hotels, licensed care facilities, fraternity/sorority houses, owner's roommate, certain cooperatives, some non-profit homeless facilities or short-term substance abuse treatment centers, some HACLA or government-owned properties.",
+    "key_value": null,
+    "effective_date": null,
+    "effective_date_quote": null,
+    "penalty": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Citation is the general JCO code section; the page does not cite the code section.",
+    "confidence": 0.85
+   },
+   {
+    "jurisdiction": "Los Angeles, CA",
+    "level": "city",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "LA eviction for nonpayment only if rent owed exceeds Fair Market Rent",
+    "requirement": "Landlords of RSO and JCO units may not evict a tenant for unpaid rent unless the amount owed is higher than the Fair Market Rent for the unit's bedroom size.",
+    "requirement_es": "Los propietarios de unidades RSO y JCO no pueden desalojar a un inquilino por falta de pago a menos que la cantidad adeudada sea mayor que la Renta de Mercado Justa (FMR) según el número de recámaras de la unidad.",
+    "citation": "L.A.M.C. § 165.00",
+    "quoted_span": "Effective March 27, 2023, landlords may not evict a tenant who falls behind in rent unless the tenant owes an amount higher than the Fair Market Rent (FMR).",
+    "coverage": {
+     "covered_if_built_after": null,
+     "covered_if_built_on_or_before": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "may_preempt_local": false,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "coverage_conditions": "Applies to all RSO and JCO rental units in the City of Los Angeles.",
+    "exemptions": null,
+    "key_value": "Rent owed must exceed Fair Market Rent",
+    "effective_date": "2023-03-27",
+    "effective_date_quote": "Effective March 27, 2023, landlords may not evict a tenant who falls behind in rent",
+    "penalty": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Code section not given on the page; citation approximate.",
+    "confidence": 0.75
+   },
+   {
+    "jurisdiction": "CA",
+    "level": "state",
+    "category": "rent_increase_limits",
+    "status": "in_force",
+    "title": "California Tenant Protection Act of 2019 (AB 1482) rent cap",
+    "requirement": "For covered buildings, annual rent increases are capped at 5% plus the regional change in cost of living, or 10%, whichever is lower. Buildings under 15 years old, deed-restricted units, and units under the City's RSO are not covered.",
+    "requirement_es": "En edificios cubiertos, los aumentos anuales de renta no pueden superar el 5% más el cambio porcentual del costo de vida regional, o el 10%, lo que sea menor. No están cubiertos los edificios de menos de 15 años, las unidades con restricciones de asequibilidad ni las unidades sujetas a la RSO de la ciudad.",
+    "citation": "Cal. Civ. Code § 1947.12",
+    "quoted_span": "nnual rent increases are limited to no more than 5% plus the percentage change in the cost of living for the region in which the property is located, or 10% whichever is lower",
+    "coverage": {
+     "covered_if_built_after": null,
+     "covered_if_built_on_or_before": null,
+     "exempt_if_newer_than_years": 15,
+     "exemption_max_units": 2,
+     "max_units": null,
+     "may_preempt_local": false,
+     "min_units": null,
+     "owner_type_dependent": true,
+     "yields_to_local": true
+    },
+    "coverage_conditions": "Buildings older than 15 years (rolling basis) not otherwise exempt.",
+    "exemptions": "Units constructed within the last 15 years (rolling); deed-restricted affordable units; certain dormitories; two-unit property where the owner occupied the second unit for the entire tenancy; single-family homes and condominiums not owned by a real estate trust, corporation, or LLC with a corporate member, if the tenant was given written notice; units subject to the City's RSO.",
+    "key_value": "5% + CPI, max 10%; 8.9% for Aug 1, 2024–Jul 31, 2025",
+    "effective_date": null,
+    "effective_date_quote": null,
+    "penalty": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Secondary description on a city page; the maximum percentage is adjusted yearly and the page lists only 8.9% for Aug 2024–Jul 2025 and 8.8% for Aug 2023–Jul 2024, which are out of date as of the retrieval date. The page does not state the statute's effective date.",
+    "confidence": 0.8
+   }
+  ],
+  "no_rule_findings": [
+   {
+    "jurisdiction": "Los Angeles, CA",
+    "category": "rent_increase_limits",
+    "finding": "The JCO itself does not regulate rent increases; only state AB 1482 (and the RSO for RSO units) limits them.",
+    "quoted_span": "The JCO does not regulate rent increases, however, state law"
+   }
+  ]
+ }
+}

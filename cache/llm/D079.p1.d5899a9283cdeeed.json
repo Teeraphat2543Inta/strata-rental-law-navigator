@@ -1,0 +1,90 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D079.p1",
+ "created": "2026-10-03T18:08:38Z",
+ "usage": {
+  "input_tokens": 6072,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 1611,
+  "output_tokens_details": {
+   "thinking_tokens": 0
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "San Francisco, CA",
+    "level": "city",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "San Francisco Rent Ordinance just cause eviction requirement",
+    "requirement": "A landlord of a unit covered by the SF Rent Ordinance can evict only for one of 17 listed just causes (e.g., nonpayment, breach, nuisance, owner move-in, Ellis Act withdrawal, demolition, capital improvements), and the just cause must be the dominant motive. Expiration of a lease or change in ownership is not just cause.",
+    "requirement_es": "El arrendador de una unidad cubierta por la Ordenanza de Alquileres de SF solo puede desalojar por una de las 17 causas justas enumeradas (p. ej., falta de pago, incumplimiento, molestias, ocupación por el propietario, Ley Ellis, demolición, mejoras de capital), y la causa justa debe ser el motivo dominante. El vencimiento del contrato o un cambio de propietario no es causa justa.",
+    "citation": "S.F. Admin. Code § 37.9",
+    "quoted_span": "In order to evict a tenant from a rental unit covered by the Rent Ordinance, a landlord must have a \"just cause\" reason that is the dominant motive for pursuing the eviction.",
+    "coverage": {
+     "covered_if_built_after": null,
+     "covered_if_built_on_or_before": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "min_units": null,
+     "may_preempt_local": false,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "coverage_conditions": "Rental units covered by the SF Rent Ordinance; also applies to units exempt from the rent increase limits (post-June 13, 1979 units, Costa-Hawkins-eligible tenancies, some other government-regulated tenancies).",
+    "exemptions": null,
+    "key_value": "17 just cause reasons",
+    "effective_date": null,
+    "effective_date_quote": null,
+    "penalty": "Landlord who evicts or tries to evict unlawfully may face substantial civil and/or criminal liability.",
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Summary info page; list of reasons is abbreviated.",
+    "confidence": 0.93
+   },
+   {
+    "jurisdiction": "San Francisco, CA",
+    "level": "city",
+    "category": "rent_increase_limits",
+    "status": "in_force",
+    "title": "SF Rent Ordinance rent increase limits: exemption of post-June 13, 1979 units",
+    "requirement": "Units that first obtained a Certificate of Occupancy after June 13, 1979 are exempt from the Rent Ordinance's rent increase limits, though they remain subject to just cause eviction rules. Tenancies eligible for increases under Costa-Hawkins and some government-regulated tenancies are also exempt from the limits.",
+    "requirement_es": "Las unidades que obtuvieron por primera vez su Certificado de Ocupación después del 13 de junio de 1979 están exentas de los límites de aumento de renta de la Ordenanza, pero siguen sujetas a las reglas de desalojo por causa justa. También están exentos los inquilinatos elegibles para aumentos bajo Costa-Hawkins y algunos regulados por otra agencia.",
+    "citation": "S.F. Admin. Code § 37.3",
+    "quoted_span": "This includes tenancies in newly constructed rental units that first obtained a Certificate of Occupancy after June 13, 1979, tenancies that are eligible for a rent increase under the",
+    "coverage": {
+     "covered_if_built_after": null,
+     "covered_if_built_on_or_before": "1979-06-13",
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "min_units": null,
+     "may_preempt_local": false,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "coverage_conditions": "Rent limits cover units first certified for occupancy on or before June 13, 1979; Costa-Hawkins-eligible tenancies and some other government-regulated tenancies are exempt.",
+    "exemptions": "Post-June 13, 1979 units; Costa-Hawkins-eligible tenancies; some tenancies regulated by another government agency.",
+    "key_value": null,
+    "effective_date": null,
+    "effective_date_quote": null,
+    "penalty": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Mentioned only in a just cause page; citation to § 37.3 is approximate and no rent cap figure is given.",
+    "confidence": 0.8
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

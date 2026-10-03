@@ -1,0 +1,58 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D068.p1",
+ "created": "2026-10-03T18:08:27Z",
+ "usage": {
+  "input_tokens": 6670,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 1361,
+  "output_tokens_details": {
+   "thinking_tokens": 653
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "NJ",
+    "level": "state",
+    "category": "screening_restrictions",
+    "status": "in_force",
+    "title": "NJ Law Against Discrimination: source-of-lawful-income protection in housing",
+    "requirement": "A landlord cannot refuse to rent to you because of the source of your lawful income or rent payment, such as a Section 8 HUD voucher.",
+    "requirement_es": "Un arrendador no puede negarse a alquilarle por la fuente de sus ingresos legales o de su pago de renta, como un voucher de la Sección 8 de HUD.",
+    "citation": "N.J.S.A. 10:5-12",
+    "quoted_span": "a landlord cannot deny the lawful recipient of a Section 8 HUD voucher the right to rent an apartment based solely on that source of lawful income",
+    "coverage": {
+     "covered_if_built_after": null,
+     "covered_if_built_on_or_before": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": 2,
+     "max_units": null,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false,
+     "may_preempt_local": false
+    },
+    "coverage_conditions": "Applies to the sale or rental of all property, residential or business, except listed exemptions.",
+    "exemptions": "Rental of a single apartment in a two-family dwelling where the owner occupies the other unit; rental of rooms by the owner or occupant of an owner-occupied one-family dwelling; religious organization preference for same religion.",
+    "effective_date": null,
+    "effective_date_quote": null,
+    "key_value": null,
+    "penalty": "Complaint to the Division on Civil Rights within 180 days, or to NJ Superior Court within two years.",
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Secondary brochure (rev. 2015) that does not cite the specific LAD section; citation is approximate. Effective date not stated.",
+    "confidence": 0.8
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

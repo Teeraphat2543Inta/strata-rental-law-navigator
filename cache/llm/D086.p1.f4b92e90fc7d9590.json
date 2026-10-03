@@ -1,0 +1,58 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D086.p1",
+ "created": "2026-10-03T18:09:10Z",
+ "usage": {
+  "input_tokens": 8069,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 1330,
+  "output_tokens_details": {
+   "thinking_tokens": 479
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "Santa Ana, CA",
+    "level": "city",
+    "category": "algorithmic_rent_setting",
+    "status": "in_force",
+    "title": "Santa Ana ban on algorithmic rent-pricing devices",
+    "requirement": "Landlords and apartment owners in Santa Ana may not use automated or AI software (\"Algorithmic Devices\") to set rental prices. The ordinance also bars the sale and licensing of such devices, and violators can be fined $1,000.",
+    "requirement_es": "Los propietarios y arrendadores de apartamentos en Santa Ana no pueden usar software automatizado o de inteligencia artificial (\"dispositivos algorítmicos\") para fijar los precios de alquiler. La ordenanza también prohíbe la venta y la concesión de licencias de estos dispositivos, y los infractores pueden recibir una multa de $1,000.",
+    "citation": "Santa Ana ordinance prohibiting Algorithmic Devices (ordinance number not stated)",
+    "quoted_span": "To protect renters, city leaders have approved a new ordinance that stops apartment owners and landlords from using automated AI software to set rental prices.",
+    "coverage": {
+     "covered_if_built_on_or_before": null,
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false,
+     "may_preempt_local": false
+    },
+    "coverage_conditions": "Apartment owners and landlords in Santa Ana; no unit-count or building-age limits stated in the article.",
+    "effective_date": null,
+    "effective_date_quote": "The measure passed its first vote on Feb. 17, and Tuesday’s vote was the final step to officially put the ordinance into effect.",
+    "exemptions": null,
+    "key_value": "$1,000 fine",
+    "penalty": "Landlords caught using the banned software could be fined $1,000.",
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Secondary news source (article dated March 9, 2026); ordinance number, municipal code citation and exact effective date are not stated. Enforcement mostly through existing code enforcement. An industry group criticized the ordinance as possibly legally vulnerable, but no litigation is reported.",
+    "confidence": 0.8
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

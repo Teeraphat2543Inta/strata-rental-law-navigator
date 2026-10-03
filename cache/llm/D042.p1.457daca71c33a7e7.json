@@ -1,0 +1,58 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D042.p1",
+ "created": "2026-10-03T18:08:10Z",
+ "usage": {
+  "input_tokens": 6292,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 1962,
+  "output_tokens_details": {
+   "thinking_tokens": 1021
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "Los Angeles, CA",
+    "level": "city",
+    "category": "rent_increase_limits",
+    "status": "in_force",
+    "title": "Los Angeles RSO annual allowable rent increase (3%)",
+    "requirement": "For units covered by the Los Angeles Rent Stabilization Ordinance, the annual allowable rent increase for July 1, 2025 through June 30, 2026 is 3%. Since February 2, 2026, landlords can no longer add any extra percentage for utilities. State law requires 30 days' written notice for increases under 10%.",
+    "requirement_es": "Para las unidades cubiertas por la Ordenanza de Estabilización de Rentas de Los Ángeles (RSO), el aumento anual permitido de la renta del 1 de julio de 2025 al 30 de junio de 2026 es del 3%. Desde el 2 de febrero de 2026, los propietarios ya no pueden añadir ningún porcentaje adicional por servicios públicos. La ley estatal exige un aviso por escrito con 30 días de anticipación para aumentos menores al 10%.",
+    "citation": "L.A.M.C. § 151.00",
+    "quoted_span": "Annual rent increases for rental units subject to the City of Los Angeles Rent Stabilization Ordinance (RSO), effective\nJuly 1, 2025, through June 30, 2026\nis\n3%",
+    "coverage": {
+     "covered_if_built_after": null,
+     "covered_if_built_on_or_before": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "may_preempt_local": false,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "coverage_conditions": "Rental units subject to the Los Angeles RSO; check address on ZIMAS.",
+    "effective_date": "2025-07-01",
+    "effective_date_quote": "July 1, 2025, through June 30, 2026",
+    "key_value": "3% annual allowable increase (7/1/2025–6/30/2026)",
+    "exemptions": null,
+    "penalty": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "The rate is adjusted yearly; the page states a period ending June 30, 2026, which had already passed at retrieval (2026-10-01), so the current rate may differ. The page does not cite the ordinance section (L.A.M.C. § 151.00 is inferred) or state building coverage. Also notes RSO ($1.61/mo) and SCEP ($2.83/mo) surcharge pass-throughs with written notice.",
+    "confidence": 0.72
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

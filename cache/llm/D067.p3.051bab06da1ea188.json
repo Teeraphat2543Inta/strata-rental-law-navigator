@@ -1,0 +1,80 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D067.p3",
+ "created": "2026-10-03T18:09:36Z",
+ "usage": {
+  "input_tokens": 22505,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 2437,
+  "output_tokens_details": {
+   "thinking_tokens": 822
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "NJ",
+    "level": "state",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "NJ Anti-Eviction Statute: statutory grounds and notice periods",
+    "requirement": "A New Jersey landlord may evict only for a listed statutory cause (e.g., nonpayment, disorderly conduct, property damage, lease violations, habitual late payment, removal from the market, conversion, owner occupancy), and must serve the required Notice to Quit (three days to three years depending on the cause) before filing. Tenants evicted for illegal-occupancy correction are owed relocation assistance of six times monthly rent, and landlords who misuse the no-fault grounds face treble damages.",
+    "requirement_es": "Un propietario en Nueva Jersey solo puede desalojar por una causa legal enumerada (p. ej., falta de pago, conducta desordenada, daños, violaciones del contrato, pagos tardíos habituales, retiro del mercado, conversión u ocupación por el dueño) y debe entregar el aviso de desalojo requerido (de tres días a tres años según la causa) antes de demandar. Los inquilinos desalojados por corrección de ocupación ilegal tienen derecho a asistencia de reubicación equivalente a seis meses de renta, y los propietarios que abusen de las causas sin culpa enfrentan daños triplicados.",
+    "citation": "N.J.S.A. 2A:18-61.1",
+    "quoted_span": "Listed below are the statutory grounds for eviction as set forth in the Anti-Eviction Statute.",
+    "coverage": {
+     "exemption_max_units": 3,
+     "owner_type_dependent": true,
+     "yields_to_local": false,
+     "may_preempt_local": false
+    },
+    "coverage_conditions": "Residential rental premises generally, including mobile home parks; owner-occupied two- and three-family dwellings are governed by the separate, narrower list in N.J.S.A. 2A:18-61.2.",
+    "exemptions": "Owner-occupied two- and three-family dwellings are treated under N.J.S.A. 2A:18-61.2.",
+    "key_value": "Notice to Quit: 3 days to 3 years depending on cause; relocation assistance 6x monthly rent (illegal occupancy)",
+    "penalty": "Treble damages plus attorney fees and costs; civil penalty up to $10,000 per violation for improper removal from residential use (N.J.S.A. 2A:18-61.6).",
+    "effective_date": null,
+    "effective_date_quote": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Secondary summary in a DCA Landlord-Tenant handbook; unit-count exemption described only indirectly.",
+    "confidence": 0.85
+   },
+   {
+    "jurisdiction": "NJ",
+    "level": "state",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "Evictions in owner-occupied two- and three-family dwellings",
+    "requirement": "Tenants of owner-occupied two- and three-family dwellings can be removed only by court order, and only for specified causes such as holdover, nonpayment, disorderly conduct, willful damage, or rule/lease violations. A three-day Notice to Quit applies to disorderly, destructive or rule-violating conduct, and a one- to three-month notice applies to lease non-renewal.",
+    "requirement_es": "Los inquilinos de viviendas de dos y tres familias ocupadas por el dueño solo pueden ser desalojados por orden judicial y solo por causas específicas como permanencia tras el vencimiento, falta de pago, conducta desordenada, daño intencional o violaciones de reglas o del contrato. Se requiere aviso de tres días para conducta desordenada, destructiva o violaciones, y de uno a tres meses para la no renovación del contrato.",
+    "citation": "N.J.S.A. 2A:18-61.2",
+    "quoted_span": "Tenants of landlord-occupied two- and three-family dwellings can be removed only when a court issues an order for eviction.",
+    "coverage": {
+     "max_units": 3,
+     "owner_type_dependent": true,
+     "yields_to_local": false,
+     "may_preempt_local": false
+    },
+    "coverage_conditions": "Landlord-occupied two- and three-family dwellings.",
+    "exemptions": null,
+    "key_value": "3-day notice (cause-based); 1-month (month-to-month) or 3-month (at will/year-to-year) for non-renewal",
+    "penalty": null,
+    "effective_date": null,
+    "effective_date_quote": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Secondary summary in a DCA handbook.",
+    "confidence": 0.85
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

@@ -1,0 +1,90 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D085.p1",
+ "created": "2026-10-03T18:08:50Z",
+ "usage": {
+  "input_tokens": 6079,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 2102,
+  "output_tokens_details": {
+   "thinking_tokens": 559
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "Santa Ana, CA",
+    "level": "city",
+    "category": "rent_increase_limits",
+    "status": "in_force",
+    "title": "Santa Ana Rent Stabilization Ordinance",
+    "requirement": "Annual rent increases are capped at the lower of 3% or 80% of the 12-month CPI change; if CPI is negative, no increase is allowed. Landlords must give written notice of the ordinance at lease start or with any rent increase notice.",
+    "requirement_es": "Los aumentos anuales de renta están limitados al menor entre 3% o el 80% del cambio del IPC de 12 meses; si el IPC es negativo, no se permite aumento. Los propietarios deben dar aviso por escrito de la ordenanza al inicio del contrato o junto con cualquier aviso de aumento de renta.",
+    "citation": "Santa Ana Rent Stabilization Ordinance (2021)",
+    "quoted_span": "Increase in residential rents are limited to the lower of 3% per year, or 80% of the percent change in the Consumer Price Index over the most recent 12-month period.",
+    "coverage": {
+     "covered_if_built_on_or_before": "1995-02-01",
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "may_preempt_local": false,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "coverage_conditions": "Residential buildings constructed on or before February 1, 1995; mobile home spaces offered for rent on or before January 1, 1990.",
+    "effective_date": "2021-11-19",
+    "effective_date_quote": "The new ordinances are not effective until November 19, 2021.",
+    "exemptions": "The rent cap does not apply to residential buildings constructed after February 1, 1995, or to mobile home spaces offered for rent after January 1, 1990. Owners may petition for relief showing a higher increase is needed for a fair and reasonable return.",
+    "key_value": "Lower of 3% or 80% of CPI per year",
+    "penalty": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Municipal code section not given in the source; citation is descriptive. Allowable increase is published annually by the City (by June 30, effective Sept 1).",
+    "confidence": 0.85
+   },
+   {
+    "jurisdiction": "Santa Ana, CA",
+    "level": "city",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "Santa Ana Just Cause Eviction Ordinance",
+    "requirement": "After 30 days of tenancy, a landlord may not end a tenancy without a just cause stated in a written notice, and must first give notice and a chance to cure violations. For no-fault terminations, the landlord must give 3 months of relocation assistance or waive the final 3 months of rent.",
+    "requirement_es": "Después de 30 días de arrendamiento, el propietario no puede terminar el arrendamiento sin causa justificada indicada en un aviso por escrito, y primero debe dar aviso y oportunidad de corregir la infracción. En terminaciones sin culpa, el propietario debe pagar 3 meses de asistencia de reubicación o perdonar la renta de los últimos 3 meses.",
+    "citation": "Santa Ana Just Cause Eviction Ordinance (2021)",
+    "quoted_span": "After 30 days, an owner shall not terminate a tenancy without just cause, which shall be stated in a written notice.",
+    "coverage": {
+     "covered_if_built_on_or_before": null,
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": 15,
+     "exemption_max_units": null,
+     "max_units": null,
+     "may_preempt_local": false,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "coverage_conditions": "Residential rental property, except exempt types.",
+    "effective_date": "2021-11-19",
+    "effective_date_quote": "The new ordinances are not effective until November 19, 2021.",
+    "exemptions": "Housing produced in the last 15 years; deed-restricted affordable housing; hotel and transient occupancy; hospital and care facilities; dormitories; and other shared living quarters.",
+    "key_value": "3 months relocation assistance for no-fault termination",
+    "penalty": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Municipal code section not given in the source; citation is descriptive.",
+    "confidence": 0.85
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

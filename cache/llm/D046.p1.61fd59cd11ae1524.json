@@ -1,0 +1,54 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D046.p1",
+ "created": "2026-10-03T18:08:11Z",
+ "usage": {
+  "input_tokens": 5532,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 1024,
+  "output_tokens_details": {
+   "thinking_tokens": 394
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "MA",
+    "level": "state",
+    "category": "algorithmic_rent_setting",
+    "status": "pending",
+    "title": "An Act prohibiting algorithmic rent setting (S.2983)",
+    "requirement": "Bill S.2983 would prohibit algorithmic rent setting in Massachusetts rental housing. It is not law: the Housing Committee reported it favorably and sent it to Senate Ways and Means, and the page does not show the bill's text.",
+    "requirement_es": "El proyecto S.2983 prohibiría la fijación algorítmica de alquileres en la vivienda de alquiler de Massachusetts. Aún no es ley: el Comité de Vivienda lo reportó favorablemente y lo envió al Comité de Medios y Arbitrios del Senado; la página no muestra el texto del proyecto.",
+    "citation": "Mass. S.2983",
+    "quoted_span": "of Cindy F. Friedman and Julian Cyr for legislation to prohibit algorithmic rent setting",
+    "coverage": {
+     "covered_if_built_after": null,
+     "covered_if_built_on_or_before": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "may_preempt_local": false,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "effective_date": null,
+    "effective_date_quote": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Only the bill's title and history are shown, not its operative text. Definitions, prohibited conduct, and penalties are unknown. Current status: referred to Senate Ways and Means.",
+    "confidence": 0.7
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

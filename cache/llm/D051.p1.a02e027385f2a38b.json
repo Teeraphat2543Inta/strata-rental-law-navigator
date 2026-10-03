@@ -1,0 +1,58 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D051.p1",
+ "created": "2026-10-03T18:08:19Z",
+ "usage": {
+  "input_tokens": 5662,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 1454,
+  "output_tokens_details": {
+   "thinking_tokens": 530
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "MA",
+    "level": "state",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "Notice to terminate a tenancy at will (M.G.L. c. 186, § 12)",
+    "requirement": "A landlord or tenant must give written notice of three months (or, if rent is paid more often than every three months, the rental interval or 30 days, whichever is longer) to end a tenancy at will. For nonpayment of rent, the landlord may give 14 days' written notice to quit, and the tenant can stop the termination by paying all rent due within 10 days if they have not received a similar notice in the prior 12 months.",
+    "requirement_es": "El propietario o el inquilino debe dar un aviso por escrito de tres meses (o, si el alquiler se paga con más frecuencia que cada tres meses, el intervalo de pago o 30 días, lo que sea mayor) para terminar un arrendamiento a voluntad. Por falta de pago, el propietario puede dar un aviso por escrito de 14 días, y el inquilino puede evitar la terminación pagando todo el alquiler adeudado dentro de los 10 días si no recibió un aviso similar en los 12 meses anteriores.",
+    "citation": "M.G.L. c. 186, § 12",
+    "quoted_span": "Estates at will may be determined by either party by three months' notice in writing for that purpose given to the other party; and, if the rent reserved is payable at periods of less than three months, the time of such notice shall be sufficient if it is equal to the interval between the days of payment or thirty days, whichever is longer.",
+    "coverage": {
+     "covered_if_built_after": null,
+     "covered_if_built_on_or_before": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "may_preempt_local": false,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "coverage_conditions": "Tenancies at will in Massachusetts.",
+    "key_value": "3 months' notice; 14 days' notice to quit for nonpayment; 10-day right to cure",
+    "effective_date": null,
+    "effective_date_quote": null,
+    "exemptions": null,
+    "penalty": "If the required nonpayment notification is omitted, the tenant's time to pay or tender rent is extended to the day the answer is due in an action for possession.",
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "This is a notice-to-terminate statute for tenancies at will; it does not itself require a stated 'just cause' for termination.",
+    "confidence": 0.6
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

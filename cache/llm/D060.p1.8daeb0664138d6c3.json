@@ -1,0 +1,58 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D060.p1",
+ "created": "2026-10-03T18:09:01Z",
+ "usage": {
+  "input_tokens": 5706,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 870,
+  "output_tokens_details": {
+   "thinking_tokens": 0
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "NJ",
+    "level": "state",
+    "category": "algorithmic_rent_setting",
+    "status": "not_yet_effective",
+    "title": "FAIR Act – ban on algorithmic rent-setting using competitors' nonpublic data",
+    "requirement": "Residential landlords may not use algorithmic revenue management software that uses competitors' nonpublic leasing information to set or recommend rents, and software providers/coordinators may not use such software to coordinate pricing among competing landlords. Complaints go to an attorney general portal.",
+    "requirement_es": "Los propietarios de viviendas en alquiler no pueden usar programas algorítmicos de gestión de ingresos que usen información privada de arrendamiento de competidores para fijar o recomendar alquileres, y los proveedores o \"coordinadores\" no pueden usar ese software para coordinar precios entre propietarios competidores. Las quejas se presentan en un portal de la Fiscalía General.",
+    "citation": "P.L.2026, c.43",
+    "quoted_span": "The FAIR Act prohibits residential rental property owners from using algorithmic revenue management software that collects or processes competitors' nonpublic leasing information to set or recommend rental prices.",
+    "effective_date": "2027-07-01",
+    "effective_date_quote": "The FAIR Act takes effect on July 1, 2027, providing affected property owners, managers, and software providers time to review and, if necessary, modify their pricing practices before the law becomes effective.",
+    "exemptions": "Does not prohibit spreadsheets requiring human analysis, publicly available rent estimation tools, traditional real estate listing databases, and government-administered affordable housing programs.",
+    "penalty": "Preserves existing remedies under the New Jersey Antitrust Act; attorney general complaint portal.",
+    "coverage_conditions": "Residential rental property owners, property managers, software providers and coordinators.",
+    "key_value": null,
+    "coverage": {
+     "covered_if_built_after": null,
+     "covered_if_built_on_or_before": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "may_preempt_local": false,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Secondary source (law firm alert); summary of the law, not statutory text.",
+    "confidence": 0.9
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

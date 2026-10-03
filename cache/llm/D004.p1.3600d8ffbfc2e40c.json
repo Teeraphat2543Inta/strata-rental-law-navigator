@@ -1,0 +1,90 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D004.p1",
+ "created": "2026-10-03T18:07:32Z",
+ "usage": {
+  "input_tokens": 5251,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 2020,
+  "output_tokens_details": {
+   "thinking_tokens": 608
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "Berkeley, CA",
+    "level": "city",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "Owner move-in eviction relocation assistance (2026 amounts)",
+    "requirement": "Berkeley owners who evict a tenant for an owner move-in must pay relocation assistance. For 2026 the standard payment is $19,413, plus an additional $6,471 for qualifying households.",
+    "requirement_es": "Los propietarios de Berkeley que desalojen a un inquilino para mudarse ellos mismos deben pagar asistencia de reubicación. En 2026 el pago estándar es de $19,413, más $6,471 adicionales para los hogares que califiquen.",
+    "citation": "B.M.C. ch. 13.76",
+    "quoted_span": "The Rent Stabilization and Good Cause for Eviction Ordinance requires owners to pay tenants relocation assistance in the event of an owner move-in eviction.",
+    "coverage": {
+     "covered_if_built_on_or_before": null,
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "may_preempt_local": false,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "coverage_conditions": "Tenants evicted for owner move-in; additional payment for qualifying households (criteria not stated in this document).",
+    "effective_date": "2026-01-01",
+    "effective_date_quote": "Annual increases for owner move-in and Ellis Act eviction relocation assistance payments go into effect January 1, 2026.",
+    "key_value": "$19,413 standard; $6,471 additional for qualifying households",
+    "exemptions": null,
+    "penalty": null,
+    "caveat": "Amounts are indexed to inflation and adjusted every January 1 (1.5% CPI increase for 2026). Ordinance chapter citation is not stated in the document and is inferred.",
+    "conflict_type": "none",
+    "conflict_note": null,
+    "confidence": 0.8
+   },
+   {
+    "jurisdiction": "Berkeley, CA",
+    "level": "city",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "Ellis Act eviction relocation assistance (2026 amounts)",
+    "requirement": "Berkeley owners who evict tenants to remove a property from the rental market must pay the same relocation assistance as for owner move-in. For 2026 that is $19,413 standard, plus $6,471 additional for qualifying households.",
+    "requirement_es": "Los propietarios de Berkeley que desalojen a inquilinos para retirar una propiedad del mercado de alquiler deben pagar la misma asistencia de reubicación que en una mudanza del propietario. En 2026 son $19,413, más $6,471 adicionales para los hogares que califiquen.",
+    "citation": "B.M.C. ch. 13.77",
+    "quoted_span": "The Ellis Implementation Ordinance requires the same relocation assistance payments for tenants evicted so the owner can remove a property from the rental housing market.",
+    "coverage": {
+     "covered_if_built_on_or_before": null,
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "may_preempt_local": false,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "coverage_conditions": "Tenants evicted under the Ellis Act to withdraw the property from the rental market.",
+    "effective_date": "2026-01-01",
+    "effective_date_quote": "Annual increases for owner move-in and Ellis Act eviction relocation assistance payments go into effect January 1, 2026.",
+    "key_value": "$19,413 standard; $6,471 additional for qualifying households",
+    "exemptions": null,
+    "penalty": null,
+    "caveat": "Amounts are indexed to inflation and adjusted every January 1. Ordinance chapter citation is not stated in the document and is inferred.",
+    "conflict_type": "none",
+    "conflict_note": null,
+    "confidence": 0.78
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

@@ -1,0 +1,90 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D039.p1",
+ "created": "2026-10-03T18:08:05Z",
+ "usage": {
+  "input_tokens": 5356,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 1843,
+  "output_tokens_details": {
+   "thinking_tokens": 759
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "Los Angeles, CA",
+    "level": "city",
+    "category": "algorithmic_rent_setting",
+    "status": "pending",
+    "title": "LA Council motion: report on feasibility of banning algorithmic rent-setting software",
+    "requirement": "A City Council motion asks the Los Angeles Housing Department to report on how many landlords use algorithm-based rent-setting software and whether the City could ban it. No ban exists yet.",
+    "requirement_es": "Una moción del Concejo Municipal pide al Departamento de Vivienda de Los Ángeles que informe cuántos propietarios usan programas de fijación de rentas basados en algoritmos y si la Ciudad podría prohibirlos. Todavía no existe ninguna prohibición.",
+    "citation": "Council File 24-1031",
+    "quoted_span": "report on the number of ownership and management entities that are using algorithm-based",
+    "effective_date": null,
+    "effective_date_quote": null,
+    "coverage": {
+     "covered_if_built_on_or_before": null,
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false,
+     "may_preempt_local": false
+    },
+    "coverage_conditions": null,
+    "exemptions": null,
+    "key_value": null,
+    "penalty": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Motion only (presented Sept 3, 2024) requesting a report on feasibility; not an adopted ordinance.",
+    "confidence": 0.8
+   },
+   {
+    "jurisdiction": "San Francisco, CA",
+    "level": "city",
+    "category": "algorithmic_rent_setting",
+    "status": "in_force",
+    "title": "San Francisco ban on algorithmic rent-setting tools (passing mention)",
+    "requirement": "San Francisco bans property owners and managers from using algorithm-based tools that recommend or set rental prices.",
+    "requirement_es": "San Francisco prohíbe a los propietarios y administradores usar herramientas basadas en algoritmos que recomiendan o fijan precios de alquiler.",
+    "citation": "S.F. Admin. Code",
+    "quoted_span": "legislation to ban property owners and managers from using algorithm-based tools that recommend",
+    "effective_date": null,
+    "effective_date_quote": null,
+    "coverage": {
+     "covered_if_built_on_or_before": null,
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false,
+     "may_preempt_local": false
+    },
+    "coverage_conditions": null,
+    "exemptions": null,
+    "key_value": null,
+    "penalty": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Only a passing mention in an LA motion; document says the Board of Supervisors approved the legislation in July 2024 but gives no ordinance number, effective date, or final enactment details. Citation is approximate.",
+    "confidence": 0.4
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

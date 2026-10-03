@@ -1,0 +1,58 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D066.p1",
+ "created": "2026-10-03T18:08:27Z",
+ "usage": {
+  "input_tokens": 5805,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 1597,
+  "output_tokens_details": {
+   "thinking_tokens": 702
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "NJ",
+    "level": "state",
+    "category": "application_screening_fees",
+    "status": "not_yet_effective",
+    "title": "Residential rental application fee capped at $50",
+    "requirement": "A landlord or agent may not charge more than $50 as an application or similar fee to apply to lease or sublease a residential rental. Violators face penalties of up to $500 (first), $750 (second) and $1,000 (each later offense), and the overcharge is refunded to the applicant.",
+    "requirement_es": "Un arrendador o su agente no puede cobrar más de $50 por una solicitud o tarifa similar para alquilar o subarrendar una vivienda residencial. Las infracciones conllevan multas de hasta $500 (primera), $750 (segunda) y $1,000 (cada una posterior), y el cobro excesivo se devuelve al solicitante.",
+    "citation": "N.J.S.A. 46:8-18.1",
+    "quoted_span": "A landlord, or agent thereof, shall not require an application or other similar fee to apply to lease or sublease a residential rental property for dwelling purposes, which exceeds $50.",
+    "coverage": {
+     "covered_if_built_after": null,
+     "covered_if_built_on_or_before": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": 2,
+     "max_units": null,
+     "may_preempt_local": false,
+     "min_units": null,
+     "owner_type_dependent": true,
+     "yields_to_local": false
+    },
+    "coverage_conditions": "Residential rental properties statewide, except one- and two-family dwellings offered for rent and New Jersey Real Estate Commission licensees (unless the licensee is the landlord).",
+    "exemptions": "Dwelling units in a one-family or two-family dwelling; licensees of the New Jersey Real Estate Commission unless the licensee is the landlord.",
+    "key_value": "$50 (adjusted annually by CPI)",
+    "penalty": "Up to $500 first offense, up to $750 second offense, up to $1,000 each subsequent offense; amount wrongfully charged remitted to applicant.",
+    "effective_date": "2026-05-01",
+    "effective_date_quote": "This act shall take effect on the first day of the fourth month next following the date of enactment",
+    "caveat": "The $50 limit is adjusted each January 1 by CPI change (only if positive), so the current cap may exceed $50. Effective date computed from approval on January 20, 2026.",
+    "conflict_type": "none",
+    "conflict_note": null,
+    "confidence": 0.9
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

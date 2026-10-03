@@ -1,0 +1,90 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D016.p1",
+ "created": "2026-10-03T18:07:49Z",
+ "usage": {
+  "input_tokens": 12367,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 1938,
+  "output_tokens_details": {
+   "thinking_tokens": 548
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "CA",
+    "level": "state",
+    "category": "screening_restrictions",
+    "status": "in_force",
+    "title": "Source-of-income discrimination barred (incl. Section 8 vouchers)",
+    "requirement": "Landlords cannot refuse to rent to you or give you worse terms because of how you pay rent, including Section 8 vouchers, rental assistance, SSI or job wages. They must complete paperwork required by rental assistance programs and cannot advertise \"No Section 8.\"",
+    "requirement_es": "Los arrendadores no pueden negarse a alquilarle ni imponerle peores condiciones por la forma en que paga la renta, incluidos los vales de la Sección 8, la asistencia para la renta, el SSI o el salario. Deben completar los formularios que exigen los programas de asistencia y no pueden anunciar \"No Sección 8\".",
+    "citation": "Cal. Gov. Code § 12955",
+    "quoted_span": "California law protects tenants from discrimination based on how a tenant will be paying rent (“source of income”).",
+    "coverage": {
+     "covered_if_built_after": null,
+     "covered_if_built_on_or_before": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false,
+     "may_preempt_local": false
+    },
+    "coverage_conditions": "Applies to most housing providers, including landlords, property managers and tenant screening companies.",
+    "exemptions": "Owner-occupied home renting to one additional person may exclude applicants on protected characteristics (but not advertise discriminatorily).",
+    "key_value": null,
+    "penalty": "Remedies include out-of-pocket losses, injunction, emotional distress damages, civil penalties or punitive damages, attorney's fees.",
+    "effective_date": null,
+    "effective_date_quote": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Secondary agency summary (FEHA); statute citation is approximate and not given in the document.",
+    "confidence": 0.8
+   },
+   {
+    "jurisdiction": "CA",
+    "level": "state",
+    "category": "screening_restrictions",
+    "status": "in_force",
+    "title": "Limits on criminal-history screening of rental applicants",
+    "requirement": "Landlords cannot consider arrests that did not lead to conviction, sealed or expunged records, or juvenile records, and cannot have blanket bans on applicants with a criminal history. A denial based on a conviction must be directly related to being a good tenant and not a threat to safety or property.",
+    "requirement_es": "Los arrendadores no pueden considerar arrestos sin condena, registros sellados o eliminados, ni registros de menores, y no pueden tener prohibiciones generales contra solicitantes con antecedentes penales. Negar una solicitud por una condena debe estar directamente relacionado con ser buen inquilino y no representar una amenaza para la seguridad o la propiedad.",
+    "citation": "Cal. Gov. Code § 12955",
+    "quoted_span": "Housing providers cannot consider some types of criminal history including arrests that did not lead to a conviction, records that are sealed or expunged, or records or matters processed in the juvenile justice system.",
+    "coverage": {
+     "covered_if_built_after": null,
+     "covered_if_built_on_or_before": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false,
+     "may_preempt_local": false
+    },
+    "coverage_conditions": "Applies to most housing providers under FEHA, including third-party tenant screening companies.",
+    "exemptions": null,
+    "key_value": null,
+    "penalty": null,
+    "effective_date": null,
+    "effective_date_quote": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Secondary agency summary (FEHA); specific statute/regulation citation is not given in the document and is approximate.",
+    "confidence": 0.78
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

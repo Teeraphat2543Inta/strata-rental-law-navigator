@@ -1,0 +1,83 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D005.p1",
+ "created": "2026-10-03T18:07:32Z",
+ "usage": {
+  "input_tokens": 5619,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 1908,
+  "output_tokens_details": {
+   "thinking_tokens": 574
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "CA",
+    "level": "state",
+    "category": "application_screening_fees",
+    "status": "in_force",
+    "title": "California tenant screening fee cap and requirements",
+    "requirement": "A landlord may charge a screening fee only up to the state maximum ($68.96 for 2026), must give a receipt, an itemized list of costs, a copy of the credit report and a refund of any unused portion, and cannot charge a fee if no unit is available.",
+    "requirement_es": "El arrendador solo puede cobrar una tarifa de evaluación hasta el máximo estatal ($68.96 en 2026), y debe dar un recibo, una lista detallada de gastos, una copia del informe de crédito y reembolsar cualquier parte no utilizada; no puede cobrar la tarifa si no hay una unidad disponible.",
+    "citation": "Cal. Civ. Code § 1950.6",
+    "quoted_span": "Prospective tenants should expect to receive a copy of their credit report within 7 days of receipt by the landlord, a receipt for the fee paid and an itemized list of any out-of-pocket expenses and time spent by the landlord on the screening, and a refund of any unused portion of the fee.",
+    "key_value": "$68.96 maximum screening fee for 2026",
+    "coverage": {
+     "may_preempt_local": false,
+     "yields_to_local": false,
+     "owner_type_dependent": false
+    },
+    "caveat": "Secondary explanation on a city page; the cap is adjusted annually for inflation.",
+    "conflict_type": "none",
+    "effective_date": null,
+    "confidence": 0.85
+   },
+   {
+    "jurisdiction": "Berkeley, CA",
+    "level": "city",
+    "category": "application_screening_fees",
+    "status": "in_force",
+    "title": "Berkeley screening fee rights notice requirement",
+    "requirement": "Before taking a screening fee, a Berkeley landlord must give applicants a clear and conspicuous tenant screening fee rights statement and a statement of the state maximum fee cap, either in the application or in a separate disclosure.",
+    "requirement_es": "Antes de cobrar una tarifa de evaluación, el arrendador en Berkeley debe entregar al solicitante una declaración clara y visible de sus derechos sobre la tarifa y del límite máximo estatal, en la solicitud o en un aviso separado.",
+    "citation": "B.M.C. § 13.78.010",
+    "quoted_span": "the owner must provide, either in the rental application or in a separate disclosure before receiving the fee, a clear and conspicuous tenant screening fee rights statement and a statement of the maximum fee cap permitted under",
+    "coverage": {
+     "may_preempt_local": false,
+     "yields_to_local": false,
+     "owner_type_dependent": false
+    },
+    "conflict_type": "none",
+    "confidence": 0.88
+   },
+   {
+    "jurisdiction": "Berkeley, CA",
+    "level": "city",
+    "category": "application_screening_fees",
+    "status": "in_force",
+    "title": "Berkeley ban on non-refundable fees for existing tenancies",
+    "requirement": "A Berkeley landlord cannot charge an existing tenant a non-refundable fee to renew a tenancy, including fees for a roommate leaving or being added or replaced.",
+    "requirement_es": "El arrendador en Berkeley no puede cobrar a un inquilino actual una tarifa no reembolsable para renovar el contrato, incluidas las tarifas por la salida, adición o reemplazo de un compañero de cuarto.",
+    "citation": "B.M.C. § 13.78.016",
+    "quoted_span": "An owner of residential rental property (or the owner’s agent) cannot charge a non-refundable fee to any existing tenant for the purpose of renewing a tenancy, in whole or in part",
+    "coverage": {
+     "may_preempt_local": false,
+     "yields_to_local": false,
+     "owner_type_dependent": false
+    },
+    "conflict_type": "none",
+    "confidence": 0.88
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

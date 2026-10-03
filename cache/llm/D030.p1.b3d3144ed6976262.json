@@ -1,0 +1,58 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D030.p1",
+ "created": "2026-10-03T18:08:55Z",
+ "usage": {
+  "input_tokens": 7089,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 1078,
+  "output_tokens_details": {
+   "thinking_tokens": 349
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "Cambridge, MA",
+    "level": "city",
+    "category": "algorithmic_rent_setting",
+    "status": "pending",
+    "title": "Cambridge policy order to ban algorithmic rent-pricing services (not yet law)",
+    "requirement": "The City Council passed a policy order starting the process to ban residential property managers from using companies' algorithmic or AI-driven models to recommend rents. It is not yet law; the city manager is to draft policy options or ordinance language for the Council later this term.",
+    "requirement_es": "El Concejo Municipal aprobó una orden de política para iniciar el proceso de prohibir que los administradores de propiedades residenciales usen modelos algorítmicos o de inteligencia artificial para recomendar los alquileres. Todavía no es ley; el administrador municipal debe redactar opciones de política o texto de ordenanza para el Concejo más adelante en este período.",
+    "citation": "Cambridge City Council Policy Order (algorithmic rent pricing)",
+    "quoted_span": "City council also unanimously passed a policy order initiating steps to ban residential property management companies from contracting companies that use algorithmic and AI-driven models to recommend what they should charge for rent.",
+    "coverage": {
+     "covered_if_built_on_or_before": null,
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "min_units": null,
+     "may_preempt_local": false,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "coverage_conditions": "Targets residential property management companies; details not yet drafted.",
+    "effective_date": null,
+    "effective_date_quote": null,
+    "exemptions": null,
+    "key_value": null,
+    "penalty": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Secondary news source; the policy order only directs staff to draft policy options or ordinance language, so no ban is in force and no policy order number is given.",
+    "confidence": 0.85
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

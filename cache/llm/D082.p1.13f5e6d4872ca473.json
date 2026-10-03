@@ -1,0 +1,90 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D082.p1",
+ "created": "2026-10-03T18:08:46Z",
+ "usage": {
+  "input_tokens": 6400,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 2102,
+  "output_tokens_details": {
+   "thinking_tokens": 579
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "San Francisco, CA",
+    "level": "city",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "Relocation payments for owner/relative move-in, demolition, capital improvement, substantial rehabilitation evictions",
+    "requirement": "For eviction notices served 3/01/26–2/28/27 on these no-fault grounds, the landlord owes $8,245 per tenant, up to $24,733 per unit, plus $5,497 for each elderly (60+) or disabled tenant or household with a minor child. Rates reset each March 1.",
+    "requirement_es": "Para avisos de desalojo entregados entre el 1/03/26 y el 28/02/27 por estas causas sin culpa del inquilino, el propietario debe pagar $8,245 por inquilino, hasta $24,733 por unidad, más $5,497 por cada inquilino mayor (60+) o discapacitado o hogar con menores. Las tarifas se actualizan cada 1 de marzo.",
+    "citation": "S.F. Admin. Code § 37.9C",
+    "quoted_span": "Relocation Payments for Evictions based on Owner/Relative Move-in OR Demolition/Permanent Removal of Unit from Housing Use OR Temporary Capital Improvement Work* OR Substantial Rehabilitation",
+    "coverage": {
+     "covered_if_built_on_or_before": null,
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false,
+     "may_preempt_local": false
+    },
+    "key_value": "$8,245 per tenant; $24,733 max per unit; +$5,497 per elderly/disabled tenant or household with minor (notices served 3/01/26–2/28/27)",
+    "effective_date": "2026-03-01",
+    "effective_date_quote": "3/01/26 – 2/28/27",
+    "exemptions": "Temporary capital improvement evictions of less than 20 days are governed by Cal. Civ. Code § 1947.9, not § 37.9C.",
+    "penalty": null,
+    "caveat": "Archive page; amounts are adjusted annually. Citation § 37.9C inferred from the page's footnote.",
+    "conflict_type": "none",
+    "conflict_note": null,
+    "coverage_conditions": null,
+    "confidence": 0.8
+   },
+   {
+    "jurisdiction": "San Francisco, CA",
+    "level": "city",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "Relocation payments for Ellis Act evictions",
+    "requirement": "For Ellis Act eviction notices served 3/01/26–2/28/27, the landlord owes $11,110.05 per tenant, up to $33,330.13 per unit, plus $7,443.90 for each elderly (62+) or disabled tenant. Rates reset each March 1.",
+    "requirement_es": "Para avisos de desalojo bajo la Ley Ellis entregados entre el 1/03/26 y el 28/02/27, el propietario debe pagar $11,110.05 por inquilino, hasta $33,330.13 por unidad, más $7,443.90 por cada inquilino mayor (62+) o discapacitado. Las tarifas se actualizan cada 1 de marzo.",
+    "citation": "S.F. Admin. Code § 37.9A",
+    "quoted_span": "Relocation payments for tenants evicted under the Ellis Act",
+    "coverage": {
+     "covered_if_built_on_or_before": null,
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false,
+     "may_preempt_local": false
+    },
+    "key_value": "$11,110.05 per tenant; $33,330.13 max per unit; +$7,443.90 per elderly/disabled tenant (notices served 3/01/26–2/28/27)",
+    "effective_date": "2026-03-01",
+    "effective_date_quote": "3/01/26 – 2/28/27",
+    "exemptions": null,
+    "penalty": null,
+    "caveat": "Archive page; amounts adjusted annually. The page does not state the code section; § 37.9A is inferred.",
+    "conflict_type": "none",
+    "conflict_note": null,
+    "coverage_conditions": null,
+    "confidence": 0.7
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

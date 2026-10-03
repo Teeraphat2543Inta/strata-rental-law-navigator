@@ -1,0 +1,170 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D006.p1",
+ "created": "2026-10-03T18:07:48Z",
+ "usage": {
+  "input_tokens": 9361,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 4704,
+  "output_tokens_details": {
+   "thinking_tokens": 2057
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "Berkeley, CA",
+    "level": "city",
+    "category": "rent_increase_limits",
+    "status": "in_force",
+    "title": "Berkeley Annual General Adjustment capped at 5% (Measure BB)",
+    "requirement": "The yearly rent increase (Annual General Adjustment) for a fully covered Berkeley unit cannot be more than 5%, even if the CPI formula produces a higher number. Landlords with banked AGAs may still raise rent above 5% to reach the rent ceiling.",
+    "requirement_es": "El aumento anual de renta (Ajuste General Anual) para una unidad totalmente cubierta en Berkeley no puede ser mayor al 5%, aunque la fórmula del IPC dé un número más alto. Los propietarios con AGA acumulados aún pueden aumentar más del 5% para llegar al tope de renta.",
+    "citation": "B.M.C. ch. 13.76",
+    "quoted_span": "The maximum AGA is 5%. This means that, if the formula in the Rent Ordinance results in an AGA that is greater than 5%, the AGA approved by the Board for that year can be no more than 5%.",
+    "key_value": "5% maximum AGA",
+    "effective_date": null,
+    "effective_date_quote": null,
+    "coverage": {
+     "may_preempt_local": false,
+     "yields_to_local": false,
+     "owner_type_dependent": false
+    },
+    "coverage_conditions": "Fully covered units under the Berkeley Rent Ordinance.",
+    "exemptions": null,
+    "penalty": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Measure BB passed November 2024; exact effective date not stated. Ordinance chapter cite inferred (Berkeley Rent Ordinance).",
+    "confidence": 0.85
+   },
+   {
+    "jurisdiction": "Berkeley, CA",
+    "level": "city",
+    "category": "rent_increase_limits",
+    "status": "in_force",
+    "title": "Berkeley rent ceiling coverage of multifamily and subsidized units",
+    "requirement": "Most multifamily units built before 1980 are fully covered by Berkeley's rent ceiling. Government-owned or subsidized units are now registered as fully or partially covered depending on unit type and whether federal or state law bars rent control.",
+    "requirement_es": "La mayoría de las unidades multifamiliares construidas antes de 1980 están totalmente cubiertas por el tope de renta de Berkeley. Las unidades de propiedad gubernamental o subsidiadas ahora se registran como total o parcialmente cubiertas según el tipo de unidad y si la ley federal o estatal prohíbe el control de rentas.",
+    "citation": "B.M.C. ch. 13.76",
+    "quoted_span": "Most units in multifamily properties built before 1980",
+    "key_value": null,
+    "effective_date": null,
+    "effective_date_quote": null,
+    "coverage": {
+     "covered_if_built_on_or_before": "1979-12-31",
+     "may_preempt_local": false,
+     "yields_to_local": false,
+     "owner_type_dependent": false
+    },
+    "coverage_conditions": "Fully covered: most multifamily units built before 1980; some single-family homes with tenancies begun before 1996; rooms rented individually in single-family homes with five or more rooms. Units with certificate of occupancy after 1980, most single-family homes and most condos are partially covered.",
+    "exemptions": "Units whose subsidies are barred from rent control by federal/state law (e.g., Section 202, Section 811, HUD-insured project-based) are only partially covered.",
+    "penalty": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Page says 'built before 1980' and 'certificate of occupancy issued after 1980'; cutoff date approximate.",
+    "confidence": 0.65
+   },
+   {
+    "jurisdiction": "Berkeley, CA",
+    "level": "city",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "Berkeley just cause required for covered units",
+    "requirement": "Tenants in fully or partially covered Berkeley units cannot be evicted without just cause.",
+    "requirement_es": "Los inquilinos en unidades total o parcialmente cubiertas en Berkeley no pueden ser desalojados sin causa justificada.",
+    "citation": "B.M.C. ch. 13.76",
+    "quoted_span": "In Berkeley, tenants in units that are fully or partially covered by the Rent Ordinance cannot be evicted unless there is",
+    "key_value": null,
+    "effective_date": null,
+    "effective_date_quote": null,
+    "coverage": {
+     "may_preempt_local": false,
+     "yields_to_local": false,
+     "owner_type_dependent": false
+    },
+    "coverage_conditions": "Fully or partially covered units under the Rent Ordinance.",
+    "exemptions": null,
+    "penalty": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Measure BB changed some just causes; 'just cause' was previously 'good cause'.",
+    "confidence": 0.85
+   },
+   {
+    "jurisdiction": "Berkeley, CA",
+    "level": "city",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "Nonpayment eviction requires debt of at least one month's Fair Market Rent",
+    "requirement": "A landlord can evict for nonpayment only if the tenant owes at least one month of HUD Fair Market Rent for a unit of equivalent size (Oakland-Fremont metro FMR).",
+    "requirement_es": "Un propietario solo puede desalojar por falta de pago si el inquilino debe al menos un mes del alquiler justo de mercado (FMR) de HUD para una unidad de tamaño equivalente.",
+    "citation": "B.M.C. ch. 13.76",
+    "quoted_span": "For a landlord to evict a tenant for nonpayment of rent, the tenant must owe an amount of rental debt equal to or greater than one month of the Fair Market Rent (FMR) value",
+    "key_value": "1 month FMR",
+    "effective_date": null,
+    "effective_date_quote": null,
+    "coverage": {
+     "may_preempt_local": false,
+     "yields_to_local": false,
+     "owner_type_dependent": false
+    },
+    "coverage_conditions": "Fully or partially covered units.",
+    "exemptions": null,
+    "penalty": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "FMR changes yearly with HUD fiscal year.",
+    "confidence": 0.85
+   },
+   {
+    "jurisdiction": "Berkeley, CA",
+    "level": "city",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "No eviction for refusing to sign a new fixed-term lease",
+    "requirement": "A landlord cannot evict a tenant for refusing to sign a substantially similar lease when a fixed-term lease expires.",
+    "requirement_es": "Un propietario no puede desalojar a un inquilino por negarse a firmar un contrato sustancialmente similar cuando vence un contrato de plazo fijo.",
+    "citation": "B.M.C. ch. 13.76",
+    "quoted_span": "A landlord cannot evict a tenant for failing to sign a substantially similar lease upon expiration of a fixed-term lease.",
+    "key_value": null,
+    "effective_date": null,
+    "effective_date_quote": null,
+    "coverage": {
+     "may_preempt_local": false,
+     "yields_to_local": false,
+     "owner_type_dependent": false
+    },
+    "coverage_conditions": "Fully or partially covered units.",
+    "exemptions": null,
+    "penalty": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": null,
+    "confidence": 0.85
+   },
+   {
+    "jurisdiction": "Berkeley, CA",
+    "level": "just_cause_placeholder",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "placeholder",
+    "requirement": "x",
+    "requirement_es": "x",
+    "citation": "x",
+    "quoted_span": "x",
+    "coverage": {},
+    "confidence": 0
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

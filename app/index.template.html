@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Strata · Rental Housing Law Navigator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#14213A; --ink-2:#55637A; --ink-3:#8793A6; --line:#DDE3EC; --paper:#F4F6FA; --card:#FFFFFF; --soft:#EEF2F8;
+  --brand:#24408E; --brand-2:#3B5BC2; --brand-soft:#E6ECFA;
+  --applies:#13795B; --superseded:#6B5BB0; --unknown:#B4690E; --nye:#2167B8; --pending:#6F7787;
+  --state:#EAF0FB; --city:#E9F5EF; --absent:#FBF3E6;
+  --focus:#3B5BC2;
+  --font:"Poppins",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --shadow:0 1px 2px rgba(20,33,58,.06),0 4px 16px rgba(20,33,58,.06);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ink:#E7ECF5; --ink-2:#A8B4C7; --ink-3:#7B879B; --line:#26324A; --paper:#0C1322; --card:#131D31; --soft:#18233A;
+  --brand:#8FA8F0; --brand-2:#A9BCF5; --brand-soft:#1B2848;
+  --applies:#43C493; --superseded:#A99BE6; --unknown:#E8A64C; --nye:#6EA9EE; --pending:#9AA3B2;
+  --state:#16233D; --city:#122A24; --absent:#2A2416; --shadow:0 1px 2px rgba(0,0,0,.3),0 4px 16px rgba(0,0,0,.25);
+  color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --ink:#E7ECF5; --ink-2:#A8B4C7; --ink-3:#7B879B; --line:#26324A; --paper:#0C1322; --card:#131D31; --soft:#18233A;
+  --brand:#8FA8F0; --brand-2:#A9BCF5; --brand-soft:#1B2848;
+  --applies:#43C493; --superseded:#A99BE6; --unknown:#E8A64C; --nye:#6EA9EE; --pending:#9AA3B2;
+  --state:#16233D; --city:#122A24; --absent:#2A2416; --shadow:0 1px 2px rgba(0,0,0,.3),0 4px 16px rgba(0,0,0,.25);
+  color-scheme:dark;}
+*,*:before,*:after{box-sizing:border-box}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;background:var(--paper);color:var(--ink);font:14.5px/1.6 var(--font);-webkit-font-smoothing:antialiased}
+a{color:var(--brand-2)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:4px}
+.notice{background:var(--ink);color:var(--paper);font-size:12.5px;padding:7px 24px;display:flex;gap:16px;justify-content:space-between;flex-wrap:wrap}
+.notice strong{font-weight:600}
+.wrapx{max-width:1280px;margin:0 auto;padding-inline:24px}
+@media (max-width:640px){.wrapx{padding-inline:16px}}
+header.top{padding-block:22px 6px;display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between}
+.brand{display:flex;gap:14px;align-items:center}
+.brand svg{flex:none}
+.brand .name{font-weight:700;font-size:22px;letter-spacing:-.01em;line-height:1}
+.brand .tag{color:var(--ink-2);font-size:13px;margin-top:3px}
+.controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.seg{display:inline-flex;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:3px;gap:2px}
+.seg button{font:inherit;font-size:13px;font-weight:500;border:none;background:none;color:var(--ink-2);padding:6px 11px;border-radius:7px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--brand);color:#fff}
+:root[data-theme="dark"] .seg button[aria-pressed=true]{color:#0C1322}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .seg button[aria-pressed=true]{color:#0C1322}}
+.seglabel{font-size:12px;color:var(--ink-3);font-weight:500;margin-right:2px}
+.hero{display:grid;grid-template-columns:1.25fr 2fr;gap:24px;align-items:end;padding-block:12px 18px}
+@media (max-width:900px){.hero{grid-template-columns:1fr}}
+.hero h1{font-size:30px;line-height:1.15;margin:0;font-weight:700;letter-spacing:-.02em}
+.hero p{color:var(--ink-2);margin:8px 0 0;max-width:56ch}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+@media (max-width:640px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;box-shadow:var(--shadow)}
+.stat b{display:block;font-size:24px;line-height:1.1;font-weight:700;font-variant-numeric:tabular-nums}
+.stat span{font-size:12px;color:var(--ink-2)}
+nav.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);overflow-x:auto}
+nav.tabs button{font:inherit;border:none;border-bottom:3px solid transparent;background:none;padding:10px 14px;color:var(--ink-2);font-weight:500;cursor:pointer;white-space:nowrap}
+nav.tabs button[aria-selected=true]{color:var(--ink);border-bottom-color:var(--brand);font-weight:600}
+main{padding-block:20px 64px}
+.layout{display:grid;grid-template-columns:330px 1fr;gap:22px}
+@media (max-width:900px){.layout{grid-template-columns:1fr}}
+input[type=search]{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;width:100%;margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.chips button{font:inherit;font-size:12px;border:1px solid var(--line);background:var(--card);color:var(--ink-2);padding:4px 10px;border-radius:999px;cursor:pointer}
+.chips button[aria-pressed=true]{background:var(--brand-soft);color:var(--brand);border-color:var(--brand)}
+.list{background:var(--card);border:1px solid var(--line);border-radius:12px;max-height:74vh;overflow:auto;box-shadow:var(--shadow)}
+.list button{font:inherit;display:block;width:100%;text-align:left;border:none;border-bottom:1px solid var(--line);padding:10px 14px;background:none;color:var(--ink);cursor:pointer}
+.list button[aria-current=true]{background:var(--brand-soft);box-shadow:inset 3px 0 0 var(--brand)}
+.list .a{font-weight:600;font-size:13.5px}
+.list .m{color:var(--ink-2);font-size:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:16px;box-shadow:var(--shadow)}
+.addr h2{margin:0;font-size:22px;line-height:1.25;font-weight:700;letter-spacing:-.01em}
+.addr .id{font-size:12px;color:var(--ink-3);font-weight:500}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px 20px;margin:14px 0 0}
+.fact dt{font-size:12px;color:var(--ink-2)}
+.fact dd{margin:0;font-weight:600}
+.fact small{display:block;font-weight:400;color:var(--ink-3);font-size:11.5px;line-height:1.4}
+.flag{margin-top:10px;font-size:12.5px;color:var(--unknown);display:flex;gap:6px}
+.summary{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.pill{font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;background:color-mix(in srgb,var(--c) 14%,transparent);color:var(--c)}
+.stack{border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow)}
+.stratum{padding:14px 16px 6px}
+.stratum.state{background:var(--state)}
+.stratum.city{background:var(--city);border-top:1px solid var(--line)}
+.stratum.absent{background:var(--absent);border-top:1px solid var(--line)}
+.stratum h3{margin:0 0 10px;font-size:14px;font-weight:600;display:flex;justify-content:space-between;gap:8px;align-items:center}
+.stratum h3 span{color:var(--ink-2);font-weight:500;font-size:12.5px}
+.lvl{display:inline-flex;align-items:center;gap:8px}
+.lvl i{width:10px;height:10px;border-radius:3px;background:var(--ink-2);display:inline-block}
+.rule{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--c);border-radius:10px;margin:0 0 10px}
+.rule>button{all:unset;display:grid;grid-template-columns:128px 1fr auto;gap:14px;width:100%;padding:11px 14px;cursor:pointer;box-sizing:border-box}
+.rule>button:focus-visible{outline:3px solid var(--focus)}
+.res{font-size:12px;font-weight:700;color:var(--c);display:flex;flex-direction:column;gap:2px}
+.res small{font-weight:500;color:var(--ink-3);font-size:11px}
+.rt{font-weight:600;font-size:14px;line-height:1.4}
+.rq{color:var(--ink-2);font-size:13px;margin-top:2px}
+.rq b{color:var(--ink)}
+.cite{font-size:11.5px;color:var(--ink-2);white-space:nowrap;text-align:right}
+.cite .flagd{display:block;color:var(--unknown);font-weight:600}
+.body{display:none;padding:0 16px 16px 156px}
+.rule.open .body{display:block}
+@media (max-width:700px){.rule>button{grid-template-columns:1fr}.body{padding:0 14px 14px}.cite{text-align:left}}
+blockquote{font-size:14px;font-style:italic;line-height:1.65;margin:10px 0;padding:12px 16px;background:var(--soft);border-left:3px solid var(--brand);border-radius:0 8px 8px 0}
+.audit{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px 16px;font-size:12px;margin-top:8px}
+.audit div{color:var(--ink-2)}
+.audit b{display:block;color:var(--ink);font-weight:600;font-size:12.5px}
+.meter{display:inline-block;width:64px;height:6px;border-radius:3px;background:var(--line);vertical-align:middle;margin-left:6px;overflow:hidden}
+.meter i{display:block;height:100%;background:var(--brand-2)}
+.why{margin:4px 0 0;font-size:13.5px}
+.boundary{font-size:12px;color:var(--ink-2);margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.conflict{font-size:12.5px;border:1px dashed var(--unknown);background:color-mix(in srgb,var(--unknown) 8%,transparent);padding:8px 12px;border-radius:8px;margin-top:10px}
+.caveat{font-size:12px;color:var(--ink-2);margin-top:8px}
+.empty{color:var(--ink-2);font-size:13px;padding:2px 0 12px}
+.absentrow{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--ink-3);border-radius:10px;padding:10px 14px;margin:0 0 10px;font-size:13px}
+.absentrow blockquote{font-size:13px;margin:8px 0 2px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--ink-2);margin:14px 0 0}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;background:var(--c);margin-right:6px;vertical-align:-1px}
+table{border-collapse:collapse;width:100%;background:var(--card);font-size:13px}
+th,td{border-bottom:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+th{font-size:12px;color:var(--ink-2);font-weight:600;position:sticky;top:0;background:var(--card)}
+.wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+.tests{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:14px}
+.test h3{margin:0;font-size:15px;font-weight:600}
+.test .tid{font-size:12px;font-weight:700;color:var(--brand);letter-spacing:.04em}
+.count{font-size:34px;font-weight:700;line-height:1.1;font-variant-numeric:tabular-nums}
+.bars{margin-top:10px;display:grid;gap:6px}
+.bar{display:grid;grid-template-columns:120px 1fr 36px;gap:8px;align-items:center;font-size:12px;color:var(--ink-2)}
+.bar .t{height:8px;background:var(--soft);border-radius:4px;overflow:hidden}
+.bar .t i{display:block;height:100%;background:var(--brand-2);border-radius:4px}
+.bar .t i.fl{background:var(--unknown)}
+.ba{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:8px;font-size:12px}
+.arrow{color:var(--ink-3)}
+.meta{font-size:12.5px;color:var(--ink-2)}
+.pipe{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:6px 0 18px}
+@media (max-width:900px){.pipe{grid-template-columns:1fr}}
+.step{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;box-shadow:var(--shadow);position:relative}
+.step .n{font-size:11px;font-weight:700;color:var(--brand);letter-spacing:.06em}
+.step h4{margin:2px 0 6px;font-size:14.5px;font-weight:600}
+.step p{margin:0;font-size:12.5px;color:var(--ink-2)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:900px){.grid2{grid-template-columns:1fr}}
+.cov td,.cov th{text-align:center}
+.cov td:first-child,.cov th:first-child{text-align:left}
+.dot{display:inline-block;min-width:24px;padding:1px 6px;border-radius:6px;font-weight:600;font-size:12px}
+.hidden{display:none}
+.tl{position:relative;margin:4px 0 0;padding-left:22px}
+.tl:before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.ev{position:relative;margin:0 0 12px}
+.ev:before{content:"";position:absolute;left:-20px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--c);box-shadow:0 0 0 3px var(--paper)}
+.ev .d{font-size:12px;font-weight:700;color:var(--c);font-variant-numeric:tabular-nums}
+.ev .tt{font-weight:600;font-size:13.5px}
+.ev .mm{font-size:12px;color:var(--ink-2)}
+.ev.future .d:after{content:" · upcoming";font-weight:500;color:var(--ink-3)}
+.mx td{text-align:center;font-size:12px;padding:7px 6px}
+.mx td:first-child,.mx th:first-child{text-align:left}
+.heat{display:inline-block;min-width:34px;padding:3px 6px;border-radius:6px;font-weight:600;color:var(--ink)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-bottom:16px}
+footer{color:var(--ink-3);font-size:12px;padding-block:20px 40px;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<div class="notice" role="note"><span><strong data-i18n="nla">Not legal advice.</strong> <span data-i18n="nla2">This tool shows what public law text says. Check with a lawyer or your local rent board before acting.</span></span><span id="gen"></span></div>
+<div class="wrapx">
+<header class="top">
+  <div class="brand">
+    <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><rect x="4" y="6" width="32" height="7" rx="3" fill="var(--brand)"/><rect x="4" y="16.5" width="32" height="7" rx="3" fill="var(--brand-2)" opacity=".75"/><rect x="4" y="27" width="32" height="7" rx="3" fill="var(--applies)" opacity=".8"/></svg>
+    <div><div class="name">Strata</div><div class="tag" data-i18n="tag">Housing law for one front door, layer by layer</div></div>
+  </div>
+  <div class="controls">
+    <span class="seglabel" data-i18n="asof">As of</span><div class="seg" id="dates" role="group" aria-label="As of date"></div>
+    <div class="seg" role="group" aria-label="Language"><button id="en" aria-pressed="true">EN</button><button id="es" aria-pressed="false">ES</button></div>
+  </div>
+</header>
+<section class="hero">
+  <div>
+    <h1 data-i18n="title">Which housing rules apply at this address?</h1>
+    <p data-i18n="subtitle">State and city rules for 500 apartment buildings, read from the law itself. Every answer cites the exact source sentence and the date it was retrieved.</p>
+  </div>
+  <div class="stats" id="stats"></div>
+</section>
+<nav class="tabs" role="tablist">
+  <button role="tab" aria-selected="true" data-tab="lookup" data-i18n="t1">Address lookup</button>
+  <button role="tab" aria-selected="false" data-tab="changes" data-i18n="t2">What's changing</button>
+  <button role="tab" aria-selected="false" data-tab="portfolio" data-i18n="t5">Portfolio & timeline</button>
+  <button role="tab" aria-selected="false" data-tab="rules" data-i18n="t3">All extracted rules</button>
+  <button role="tab" aria-selected="false" data-tab="method" data-i18n="t4">How it works</button>
+</nav>
+<main>
+  <section id="lookup" class="layout">
+    <div>
+      <input id="q" type="search" placeholder="Search address, city or ID" aria-label="Search addresses">
+      <div class="chips" id="chips"></div>
+      <div class="list" id="list" aria-label="Addresses"></div>
+    </div>
+    <div id="detail"></div>
+  </section>
+  <section id="changes" class="hidden"></section>
+  <section id="portfolio" class="hidden"></section>
+  <section id="rules" class="hidden"></section>
+  <section id="method" class="hidden"></section>
+</main>
+<footer><span data-i18n="nla">Not legal advice.</span> Strata · Hack-Nation Challenge 02 (RealPage) · team Thai_win · public data only.</footer>
+</div>
+<script>
+const DATA = /*__DATA__*/null;
+const I18N = {
+ en:{nla:"Not legal advice.",nla2:"This tool shows what public law text says. Check with a lawyer or your local rent board before acting.",
+  tag:"Housing law for one front door, layer by layer",
+  title:"Which housing rules apply at this address?",subtitle:"State and city rules for 500 apartment buildings, read from the law itself. Every answer cites the exact source sentence and the date it was retrieved.",
+  asof:"As of",t1:"Address lookup",t2:"What's changing",t3:"All extracted rules",t4:"How it works",t5:"Portfolio & timeline",
+  applies:"Applies",superseded:"Superseded",unknown:"Unknown",not_yet_effective:"Not yet in effect",pending:"Pending bill",
+  state:"State law",city:"City law",absent:"Confirmed absences",none:"No rule from this level reaches this building on this date.",
+  built:"Year built",units:"Units",juris:"Legal jurisdiction",why:"Why",source:"Source",retrieved:"Retrieved",eff:"Effective",
+  conflict:"Needs human review",nodata:"not in the public record",conf:"Confidence",cite:"Citation",query:"Query date",
+  boundary:"Reasoning boundary",caveat:"Caveat",all:"All",apply:"apply",review:"review",
+  bnd:"Checked: legal jurisdiction, year built, unit count, rule status on the query date and state/local precedence. Not checked: certificate-of-occupancy date, owner identity, tenancy facts, lease terms.",
+  s1:"rules extracted",s2:"quotes verified",s3:"addresses",s4:"source documents",s5:"change tests pass"},
+ es:{nla:"No es asesoría legal.",nla2:"Esta herramienta muestra lo que dice el texto público de la ley. Consulte a un abogado o a la junta de rentas local antes de actuar.",
+  tag:"La ley de vivienda de una puerta, capa por capa",
+  title:"¿Qué reglas de vivienda aplican en esta dirección?",subtitle:"Reglas estatales y municipales para 500 edificios de apartamentos, leídas de la propia ley. Cada respuesta cita la oración exacta de la fuente y la fecha en que se obtuvo.",
+  asof:"Vigente al",t1:"Buscar dirección",t2:"Qué está cambiando",t3:"Todas las reglas",t4:"Cómo funciona",t5:"Cartera y calendario",
+  applies:"Aplica",superseded:"Reemplazada",unknown:"Desconocido",not_yet_effective:"Aún no vigente",pending:"Proyecto de ley",
+  state:"Ley estatal",city:"Ley municipal",absent:"Ausencias confirmadas",none:"Ninguna regla de este nivel cubre este edificio en esta fecha.",
+  built:"Año de construcción",units:"Unidades",juris:"Jurisdicción legal",why:"Por qué",source:"Fuente",retrieved:"Obtenido",eff:"Vigencia",
+  conflict:"Requiere revisión humana",nodata:"no está en el registro público",conf:"Confianza",cite:"Cita",query:"Fecha de consulta",
+  boundary:"Límite del razonamiento",caveat:"Advertencia",all:"Todas",apply:"aplican",review:"revisión",
+  bnd:"Revisado: jurisdicción legal, año de construcción, número de unidades, estado de la regla en la fecha de consulta y precedencia estatal/local. No revisado: fecha del certificado de ocupación, identidad del propietario, datos del inquilino, términos del contrato.",
+  s1:"reglas extraídas",s2:"citas verificadas",s3:"direcciones",s4:"documentos fuente",s5:"pruebas de cambio"}};
+const CAT_ES={rent_increase_limits:"límites de aumento de renta",just_cause_eviction:"desalojo con causa justa",security_deposits:"depósitos de garantía",application_screening_fees:"cuotas de solicitud",screening_restrictions:"restricciones de selección",algorithmic_rent_setting:"fijación algorítmica de rentas"};
+let lang="en", asof=DATA.default_as_of, current=null, tab="lookup", cityFilter=null;
+const T=k=>I18N[lang][k]||k;
+const catName=c=>lang==="es"?(CAT_ES[c]||c):c.replaceAll("_"," ");
+const rules=Object.fromEntries(DATA.rules.map(r=>[r.team_rule_id,r]));
+const props=DATA.properties;
+const pid=Object.fromEntries(props.map(p=>[p.address_id,p]));
+const COLOR={applies:"var(--applies)",superseded:"var(--superseded)",unknown:"var(--unknown)",not_yet_effective:"var(--nye)",pending:"var(--pending)"};
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+document.getElementById("gen").textContent=`Build ${DATA.generated} · ${DATA.model||""}`;
+
+// --- deep links: #A0123&asof=2027-07-02&lang=es&tab=changes
+function readHash(){const h=new URLSearchParams(location.hash.slice(1).replace(/^([A-Z]\d+)/,"addr=$1"));
+ if(h.get("addr")&&pid[h.get("addr")])current=h.get("addr");if(h.get("asof")&&DATA.dates.includes(h.get("asof")))asof=h.get("asof");
+ if(h.get("lang"))lang=h.get("lang")==="es"?"es":"en";if(h.get("tab"))tab=h.get("tab")}
+function writeHash(){const s=`#${current||""}&asof=${asof}&lang=${lang}&tab=${tab}`;if(location.hash!==s)history.replaceState(null,"",s)}
+
+function renderStats(){
+ const R=DATA.rules, ver=R.filter(r=>r.quote_verified).length, tp=DATA.selfcheck||{};
+ const docs=new Set(R.flatMap(r=>r.supporting_docs||[r.source_doc_id])).size;
+ const tests=Object.keys(DATA.changes).filter(k=>/^T[1-5]$/.test(k)).length;
+ const items=[[R.length,T("s1")],[`${Math.round(100*ver/Math.max(1,R.length))}%`,T("s2")],[props.length,T("s3")],[docs,T("s4")],[`${tp.tests_pass??tests}/${tp.tests_total??tests}`,T("s5")]];
+ document.getElementById("stats").innerHTML=items.map(([b,s])=>`<div class="stat"><b>${b}</b><span>${s}</span></div>`).join("")}
+function renderDates(){const el=document.getElementById("dates");el.innerHTML="";
+ DATA.dates.forEach(d=>{const b=document.createElement("button");b.textContent=d;b.setAttribute("aria-pressed",d===asof);b.onclick=()=>{asof=d;render()};el.appendChild(b)})}
+function setLang(l){lang=l;document.documentElement.lang=l;document.getElementById("en").setAttribute("aria-pressed",l==="en");document.getElementById("es").setAttribute("aria-pressed",l==="es");
+ document.querySelectorAll("[data-i18n]").forEach(e=>e.textContent=T(e.dataset.i18n));render()}
+document.getElementById("en").onclick=()=>setLang("en");document.getElementById("es").onclick=()=>setLang("es");
+document.querySelectorAll("nav.tabs button").forEach(b=>b.onclick=()=>{tab=b.dataset.tab;render()});
+function units(p){if(p.units_min==null)return T("nodata");if(p.units_min===p.units_max)return p.units_min;return p.units_max==null?`${p.units_min}+`:`${p.units_min}–${p.units_max}`}
+function renderChips(){const cities=[...new Set(props.map(p=>p.jurisdiction||p.postal_city))].sort();const el=document.getElementById("chips");
+ el.innerHTML=[null,...cities].map(c=>`<button aria-pressed="${cityFilter===c}" data-c="${esc(c??"")}">${esc(c?c.replace(/, [A-Z]{2}$/,""):T("all"))}</button>`).join("");
+ el.querySelectorAll("button").forEach(b=>b.onclick=()=>{cityFilter=b.dataset.c||null;renderChips();renderList()})}
+function renderList(){const q=document.getElementById("q").value.toLowerCase();const el=document.getElementById("list");el.innerHTML="";
+ props.filter(p=>(!cityFilter||(p.jurisdiction||p.postal_city)===cityFilter)&&(!q||`${p.address_id} ${p.street_address} ${p.postal_city} ${p.jurisdiction}`.toLowerCase().includes(q))).slice(0,500).forEach(p=>{
+  const b=document.createElement("button");b.setAttribute("aria-current",current===p.address_id);
+  const es=DATA.lookups[asof][p.address_id]||[];const n=es.filter(e=>e.result==="applies").length;const u=es.filter(e=>e.result==="unknown").length;
+  b.innerHTML=`<div class="a">${esc(p.street_address)}</div><div class="m">${esc(p.jurisdiction||p.postal_city)} · ${p.address_id} · ${p.year_built??"—"} · ${n} ${T("apply")}${u?` · ${u} ${T("unknown").toLowerCase()}`:""}</div>`;
+  b.onclick=()=>{current=p.address_id;render()};el.appendChild(b)})}
+document.getElementById("q").oninput=renderList;
+function ruleRow(e,p){const r=rules[e.team_rule_id];const req=lang==="es"&&r.requirement_es?r.requirement_es:r.requirement;
+ const d=document.createElement("div");d.className="rule";d.style.setProperty("--c",COLOR[e.result]);d.id="r-"+r.team_rule_id;
+ const flagged=e.conflict_flag;
+ d.innerHTML=`<button aria-expanded="false"><span class="res">${T(e.result)}<small>${esc(catName(r.category))}</small></span><span><div class="rt">${esc(r.title)}</div><div class="rq">${esc(req)}${r.key_value?` <b>${esc(r.key_value)}</b>`:""}</div></span><span class="cite">${esc(r.citation)}${flagged?`<span class="flagd">⚑ ${T("review")}</span>`:""}</span></button>
+ <div class="body"><p class="why"><b>${T("why")}:</b> ${esc(e.explanation)}</p>
+ <blockquote>“${esc(r.quoted_span)}”</blockquote>
+ <div class="audit">
+  <div>${T("source")}<b><a href="${esc(r.source_url)}" target="_blank" rel="noopener">${esc(r.source_doc_id)}</a>${(r.supporting_docs||[]).length>1?` +${r.supporting_docs.length-1}`:""}</b></div>
+  <div>${T("retrieved")}<b>${esc(r.retrieved_at)}</b></div>
+  <div>${T("eff")}<b>${esc(r.effective_date||"—")}</b></div>
+  <div>${T("query")}<b>${esc(asof)}</b></div>
+  <div>${T("conf")}<b>${Math.round(100*r.confidence)}%<span class="meter"><i style="width:${Math.round(100*r.confidence)}%"></i></span></b></div>
+  <div>ID<b>${esc(r.team_rule_id)}${r.quote_verified?" · quote ✓":" · quote ✗"}</b></div>
+ </div>
+ ${flagged&&r.conflict_note?`<div class="conflict"><b>⚑ ${T("conflict")}:</b> ${esc(r.conflict_note)}</div>`:""}
+ ${r.caveat?`<div class="caveat"><b>${T("caveat")}:</b> ${esc(r.caveat)}</div>`:""}
+ <div class="boundary"><b>${T("boundary")}:</b> ${T("bnd")}</div></div>`;
+ const btn=d.querySelector("button");btn.onclick=()=>{d.classList.toggle("open");btn.setAttribute("aria-expanded",d.classList.contains("open"))};return d}
+function renderDetail(){const el=document.getElementById("detail");el.innerHTML="";const p=pid[current];if(!p)return;
+ const entries=DATA.lookups[asof][p.address_id]||[];const cnt={};entries.forEach(e=>cnt[e.result]=(cnt[e.result]||0)+1);
+ const card=document.createElement("div");card.className="card addr";
+ card.innerHTML=`<div class="id">${esc(p.address_id)} · ${esc(p.source_dataset||"")}</div><h2>${esc(p.street_address)}, ${esc(p.postal_city)} ${esc(p.state)} ${esc(p.zip||"")}</h2>
+ <dl class="facts"><div class="fact"><dt>${T("juris")}</dt><dd>${esc(p.jurisdiction||"—")}<small>${esc(p.jurisdiction_note)}</small></dd></div>
+ <div class="fact"><dt>${T("built")}</dt><dd>${p.year_built??T("nodata")}<small>${esc(p.use_description||"")}</small></dd></div>
+ <div class="fact"><dt>${T("units")}</dt><dd>${units(p)}<small>${esc(p.units_method)}</small></dd></div>
+ <div class="fact"><dt>${T("asof")}</dt><dd>${asof}</dd></div></dl>
+ ${(p.data_flags||[]).map(f=>`<div class="flag">⚠ ${esc(f)}</div>`).join("")}
+ <div class="summary">${Object.keys(COLOR).filter(k=>cnt[k]).map(k=>`<span class="pill" style="--c:${COLOR[k]}">${cnt[k]} ${T(k)}</span>`).join("")}</div>`;
+ el.appendChild(card);
+ const stack=document.createElement("div");stack.className="stack";
+ [["state",p.state],["city",p.jurisdiction]].forEach(([lvl,name])=>{const s=document.createElement("div");s.className="stratum "+lvl;
+  const es=entries.filter(e=>rules[e.team_rule_id].level===lvl);
+  s.innerHTML=`<h3><span class="lvl" style="color:var(--ink)"><i style="background:${lvl==="state"?"var(--brand)":"var(--applies)"}"></i>${T(lvl)}</span> <span>${esc(name||"")} · ${es.length}</span></h3>`;
+  if(!es.length)s.innerHTML+=`<div class="empty">${T("none")}</div>`;es.forEach(e=>s.appendChild(ruleRow(e,p)));stack.appendChild(s)});
+ const ab=(DATA.no_rule_findings||[]).filter(f=>f.jurisdiction===p.jurisdiction||f.jurisdiction===p.state);
+ if(ab.length){const s=document.createElement("div");s.className="stratum absent";
+  s.innerHTML=`<h3><span class="lvl" style="color:var(--ink)"><i style="background:var(--ink-3)"></i>${T("absent")}</span><span>${ab.length}</span></h3>`+
+  ab.map(f=>`<div class="absentrow"><b>${esc(catName(f.category))}:</b> ${esc(f.finding)}<blockquote>“${esc(f.quoted_span)}”</blockquote><div class="meta">${T("source")}: <a href="${esc(f.source_url)}" target="_blank" rel="noopener">${esc(f.source_doc_id)}</a></div></div>`).join("");
+  stack.appendChild(s)}
+ el.appendChild(stack);
+ const lg=document.createElement("div");lg.className="legend";lg.innerHTML=Object.keys(COLOR).map(k=>`<span style="--c:${COLOR[k]}"><i></i>${T(k)}</span>`).join("");el.appendChild(lg)}
+function renderChanges(){const el=document.getElementById("changes");
+ const tests=Object.fromEntries((DATA.tests||[]).map(t=>[t.test_id,t]));
+ el.innerHTML=`<div class="tests">${Object.entries(DATA.changes).map(([k,c])=>{const t=tests[k]||{};const cities={},fl={};
+  c.affected_address_ids.forEach(a=>{const j=pid[a]?.jurisdiction||"?";cities[j]=(cities[j]||0)+1});
+  (c.conflict_flag_address_ids||[]).forEach(a=>{const j=pid[a]?.jurisdiction||"?";fl[j]=(fl[j]||0)+1});
+  const mx=Math.max(1,...Object.values(cities));
+  const dates=t.as_of_before?`<div class="ba"><span class="pill" style="--c:var(--ink-2)">${esc(t.as_of_before)}</span><span class="arrow">→</span><span class="pill" style="--c:var(--brand)">${esc(t.as_of_after)}</span></div>`:t.as_of?`<div class="ba"><span class="pill" style="--c:var(--ink-2)">${T("asof")} ${esc(t.as_of)}</span></div>`:"";
+  return `<div class="card test"><div class="tid">${esc(k)}</div><h3>${esc(t.title||"New document")}</h3>${dates}
+  <div style="margin-top:10px"><span class="count">${c.affected_address_ids.length}</span> ${lang==="es"?"direcciones afectadas":"addresses affected"}${c.conflict_flag_address_ids?.length?` · <b style="color:var(--unknown)">${c.conflict_flag_address_ids.length} ⚑</b> ${lang==="es"?"para revisión":"flagged for review"}`:""}</div>
+  <div class="bars">${Object.entries(cities).sort((a,b)=>b[1]-a[1]).map(([j,n])=>`<div class="bar"><span>${esc(j)}</span><span class="t"><i style="width:${100*n/mx}%"></i></span><span>${n}</span></div>`).join("")}
+  ${Object.entries(fl).map(([j,n])=>`<div class="bar"><span>⚑ ${esc(j)}</span><span class="t"><i class="fl" style="width:${100*n/mx}%"></i></span><span>${n}</span></div>`).join("")}</div>
+  <p class="meta" style="margin-top:10px">${esc(c.notes)}</p>${t.expected_behavior?`<p class="meta"><b>Expected:</b> ${esc(t.expected_behavior)}</p>`:""}</div>`}).join("")}</div>`}
+function renderRules(){const el=document.getElementById("rules");
+ el.innerHTML=`<div class="wrap" style="max-height:70vh"><table><thead><tr><th>ID</th><th>Jurisdiction</th><th>Category</th><th>Status · ${DATA.default_as_of}</th><th>Effective</th><th>Rule</th><th>Citation · source</th></tr></thead><tbody>${
+ DATA.rules.map(r=>`<tr><td><b>${esc(r.team_rule_id)}</b></td><td>${esc(r.jurisdiction)}</td><td>${esc(catName(r.category))}</td><td><span class="pill" style="--c:${COLOR[{in_force:"applies",not_yet_effective:"not_yet_effective",pending:"pending",failed:"pending"}[r.status]||"pending"]}">${esc(r.status)}</span>${r.conflict_flag?` <span style="color:var(--unknown)">⚑</span>`:""}</td><td>${esc(r.effective_date||"—")}</td><td><b>${esc(r.title)}</b><br>${esc(lang==="es"&&r.requirement_es?r.requirement_es:r.requirement)}</td><td>${esc(r.citation)}<br><a href="${esc(r.source_url)}" target="_blank" rel="noopener">${esc(r.source_doc_id)}</a> · ${esc(r.retrieved_at)}</td></tr>`).join("")}</tbody></table></div>
+ <h3 style="margin-top:24px">${lang==="es"?"Sin regla en este nivel (hallazgos negativos citados)":"No rule at this level (cited negative findings)"}</h3><div class="wrap"><table><tbody>${(DATA.no_rule_findings||[]).map(f=>`<tr><td>${esc(f.jurisdiction)}</td><td>${esc(catName(f.category))}</td><td>${esc(f.finding)}<blockquote>“${esc(f.quoted_span)}”</blockquote></td><td>${esc(f.source_doc_id)}</td></tr>`).join("")||"<tr><td>—</td></tr>"}</tbody></table></div>
+ <h3 style="margin-top:24px">${lang==="es"?"Fuentes que no pudimos leer":"Sources we could not read (link only, not used)"}</h3><p class="meta">${(DATA.link_only_sources||[]).map(s=>`${esc(s.doc_id)} (${esc(s.jurisdictions)})`).join(" · ")}</p>`}
+function renderMethod(){const el=document.getElementById("method");const R=DATA.rules;
+ const J=[...new Set(R.map(r=>r.jurisdiction))];const C=["rent_increase_limits","just_cause_eviction","security_deposits","application_screening_fees","screening_restrictions","algorithmic_rent_setting"];
+ const st={};R.forEach(r=>st[r.status]=(st[r.status]||0)+1);
+ const steps=[["A","Extract","Claude reads each of the corpus documents through one cached tool call and returns structured rules with machine-readable coverage."],
+  ["A","Verify","Code finds every quoted span in the source text character for character. Unverified quotes can never back an “applies”."],
+  ["A","Merge","Duplicate provisions from many sources are consolidated; disagreeing effective dates raise a conflict flag."],
+  ["B","Resolve","Census Geocoder decides the legal city (not the postal city); building facts carry their provenance."],
+  ["C","Apply & track","Coverage engine tests cutoffs, unit counts and precedence for any as-of date, then runs the change tests."]];
+ el.innerHTML=`<div class="pipe">${steps.map(([m,h,p],i)=>`<div class="step"><div class="n">MODULE ${m} · ${i+1}</div><h4>${h}</h4><p>${p}</p></div>`).join("")}</div>
+ <div class="grid2"><div class="card"><h3 style="margin:0 0 10px;font-size:15px">Rules per jurisdiction × category</h3><div class="wrap"><table class="cov"><thead><tr><th></th>${C.map(c=>`<th>${c.split("_")[0]}</th>`).join("")}</tr></thead><tbody>${J.map(j=>`<tr><td>${esc(j)}</td>${C.map(c=>{const n=R.filter(r=>r.jurisdiction===j&&r.category===c).length;return `<td>${n?`<span class="dot" style="background:var(--brand-soft);color:var(--brand)">${n}</span>`:"·"}</td>`}).join("")}</tr>`).join("")}</tbody></table></div></div>
+ <div class="card"><h3 style="margin:0 0 10px;font-size:15px">Responsible design</h3><ul style="margin:0;padding-left:18px;font-size:13.5px;color:var(--ink-2)">
+ <li>Every answer: source, exact quote, retrieval date, as-of date.</li><li>Enacted, not-yet-effective, pending and failed kept apart (${Object.entries(st).map(([k,v])=>`${v} ${k}`).join(", ")}).</li>
+ <li>“Unknown” when a needed fact is missing (certificate-of-occupancy year, owner type).</li><li>Conflict flags only for real conflicts: preemption, disputed dates, litigation.</li>
+ <li>Audit log of every model output; public data only; code-publisher sites skipped pending terms review.</li><li>Explains rules; never suggests ways around them. Not legal advice.</li></ul>
+ ${DATA.selfcheck?.lines?`<h3 style="margin:16px 0 8px;font-size:15px">Self-check (this build)</h3><pre style="font-size:11.5px;white-space:pre-wrap;margin:0;color:var(--ink-2)">${esc(DATA.selfcheck.lines.join("\n"))}</pre>`:""}</div></div>`}
+function renderPortfolio(){const el=document.getElementById("portfolio");const R=DATA.rules;
+ const latest=DATA.dates[DATA.dates.length-1];const reach={};
+ props.forEach(p=>(DATA.lookups[latest][p.address_id]||[]).forEach(e=>{(reach[e.team_rule_id]=reach[e.team_rule_id]||new Set()).add(p.address_id)}));
+ const today=asof;
+ const evs=R.filter(r=>r.effective_date).map(r=>({r,d:(r.effective_date+"-01-01").slice(0,10).replace(/-01-01$/,r.effective_date.length===4?"-01-01":"-01-01")}))
+  .map(x=>({...x,d:x.r.effective_date.length===4?x.r.effective_date+"-01-01":x.r.effective_date.length===7?x.r.effective_date+"-01":x.r.effective_date}))
+  .filter(x=>x.d>="2024-01-01").sort((a,b)=>b.d.localeCompare(a.d));
+ const pend=R.filter(r=>r.status==="pending");
+ const cities=[...new Set(props.map(p=>p.jurisdiction).filter(Boolean))].sort();
+ const C=["rent_increase_limits","just_cause_eviction","security_deposits","application_screening_fees","screening_restrictions","algorithmic_rent_setting"];
+ const cell=(j,c)=>{const ps=props.filter(p=>p.jurisdiction===j);let a=0,u=0;ps.forEach(p=>{const es=(DATA.lookups[asof][p.address_id]||[]).filter(e=>rules[e.team_rule_id].category===c);
+   if(es.some(e=>e.result==="applies"))a++;else if(es.some(e=>e.result==="unknown"))u++});return {a,u,n:ps.length}};
+ const upcoming=evs.filter(x=>x.d>today);const affectedUp=new Set(upcoming.flatMap(x=>[...(reach[x.r.team_rule_id]||[])]));
+ const unk=props.filter(p=>(DATA.lookups[asof][p.address_id]||[]).some(e=>e.result==="unknown")).length;
+ el.innerHTML=`<div class="kpis">
+  <div class="stat"><b>${cities.length}</b><span>${lang==="es"?"ciudades en la cartera":"cities in this portfolio"}</span></div>
+  <div class="stat"><b>${affectedUp.size}</b><span>${lang==="es"?"edificios con cambios próximos":"buildings with an upcoming change"}</span></div>
+  <div class="stat"><b>${pend.length}</b><span>${lang==="es"?"proyectos pendientes a vigilar":"pending measures to watch"}</span></div>
+  <div class="stat"><b>${unk}</b><span>${lang==="es"?"edificios con un dato faltante":"buildings where a missing fact matters"}</span></div></div>
+ <div class="grid2"><div class="card"><h3 style="margin:0 0 4px;font-size:15px">${lang==="es"?"Cobertura por ciudad y categoría":"Coverage by city × category"} · ${asof}</h3>
+  <p class="meta" style="margin:0 0 10px">${lang==="es"?"Edificios donde al menos una regla aplica (desconocido entre paréntesis).":"Buildings where at least one rule applies (unknown in brackets). Click a city to open its first building."}</p>
+  <div class="wrap"><table class="mx"><thead><tr><th></th>${C.map(c=>`<th>${esc(catName(c).split(" ")[0])}</th>`).join("")}</tr></thead><tbody>${cities.map(j=>`<tr><td><a href="#" data-city="${esc(j)}">${esc(j.replace(/, [A-Z]{2}$/,""))}</a></td>${C.map(c=>{const x=cell(j,c);const f=x.n?x.a/x.n:0;
+   return `<td><span class="heat" style="background:color-mix(in srgb,var(--applies) ${Math.round(8+f*42)}%,transparent)">${x.a}${x.u?` <small style="color:var(--unknown)">(${x.u})</small>`:""}</span></td>`}).join("")}</tr>`).join("")}</tbody></table></div></div>
+ <div class="card"><h3 style="margin:0 0 10px;font-size:15px">${lang==="es"?"Calendario de vigencia":"Effective-date timeline"}</h3>
+  <div class="tl">${pend.map(r=>`<div class="ev" style="--c:var(--pending)"><div class="d">${lang==="es"?"PENDIENTE":"PENDING"}</div><div class="tt">${esc(r.title)}</div><div class="mm">${esc(r.citation)} · ${(reach[r.team_rule_id]||new Set()).size} ${lang==="es"?"edificios si se aprueba":"buildings if enacted"}</div></div>`).join("")}
+  ${evs.slice(0,18).map(x=>`<div class="ev ${x.d>today?"future":""}" style="--c:${x.d>today?"var(--nye)":"var(--applies)"}"><div class="d">${esc(x.r.effective_date)}</div><div class="tt">${esc(x.r.title)}</div><div class="mm">${esc(x.r.jurisdiction)} · ${esc(x.r.citation)} · ${(reach[x.r.team_rule_id]||new Set()).size} ${lang==="es"?"edificios":"buildings"}${x.r.conflict_flag?` · <b style="color:var(--unknown)">⚑</b>`:""}</div></div>`).join("")}</div></div></div>`;
+ el.querySelectorAll("a[data-city]").forEach(a=>a.onclick=ev=>{ev.preventDefault();cityFilter=a.dataset.city;current=props.find(p=>p.jurisdiction===cityFilter)?.address_id;tab="lookup";renderChips();render()})}
+function render(){if(!current&&props.length)current=props[0].address_id;
+ document.querySelectorAll("nav.tabs button").forEach(x=>x.setAttribute("aria-selected",x.dataset.tab===tab));
+ ["lookup","changes","portfolio","rules","method"].forEach(id=>document.getElementById(id).classList.toggle("hidden",id!==tab));
+ renderStats();renderDates();renderList();renderDetail();renderChanges();renderPortfolio();renderRules();renderMethod();writeHash()}
+readHash();renderChips();setLang(lang);
+window.addEventListener("hashchange",()=>{readHash();render()});
+</script>
+</body>
+</html>

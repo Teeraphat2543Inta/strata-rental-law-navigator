@@ -1,0 +1,3 @@
+doc_id,jurisdictions,url,source_type,retrieved_at,text_file
+FX_HOB,"Hoboken, NJ",https://example.invalid/fixture-hoboken,official,2026-10-02T00:00Z,FX_HOB.txt
+FX_JC,"Jersey City, NJ",https://example.invalid/fixture-jersey-city,official,2026-10-02T00:00Z,FX_JC.txt

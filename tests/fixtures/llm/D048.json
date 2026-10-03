@@ -1,0 +1,11 @@
+{
+ "rules": [],
+ "no_rule_findings": [
+  {
+   "jurisdiction": "Boston, MA",
+   "category": "rent_increase_limits",
+   "finding": "State law bars local rent control.",
+   "quoted_span": "No city or town may enact, maintain or enforce rent control of any kind"
+  }
+ ]
+}

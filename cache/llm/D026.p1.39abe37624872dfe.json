@@ -1,0 +1,90 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D026.p1",
+ "created": "2026-10-03T18:07:50Z",
+ "usage": {
+  "input_tokens": 6849,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 1410,
+  "output_tokens_details": {
+   "thinking_tokens": 0
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "CA",
+    "level": "state",
+    "category": "application_screening_fees",
+    "status": "in_force",
+    "title": "Application screening fee cap and conditions",
+    "requirement": "A landlord may charge an application screening fee only up to actual out-of-pocket costs and time, and never more than $30 per applicant (adjusted annually for CPI). No fee may be charged if no unit is or will soon be available, and the landlord must give an itemized receipt and return unused amounts.",
+    "requirement_es": "El arrendador solo puede cobrar una tarifa de evaluación de solicitud hasta el costo real de bolsillo y el tiempo, y nunca más de $30 por solicitante (ajustada anualmente según el IPC). No puede cobrarla si no hay unidad disponible o pronto lo estará, debe dar un recibo detallado y devolver los montos no utilizados.",
+    "citation": "Cal. Civ. Code § 1950.6",
+    "quoted_span": "In no case shall the amount of the application screening fee charged by the landlord or their agent be greater than thirty dollars ($30) per applicant.",
+    "coverage": {
+     "covered_if_built_on_or_before": null,
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false,
+     "may_preempt_local": false
+    },
+    "coverage_conditions": "Applies to landlords (owners of residential rental property) and their agents charging applicants, including guarantors and cosigners.",
+    "effective_date": "2026-01-01",
+    "effective_date_quote": "(Amended by Stats. 2025, Ch. 67, Sec. 29.   (AB 1170)   Effective January 1, 2026.)",
+    "exemptions": null,
+    "key_value": "$30 per applicant (CPI-adjusted)",
+    "penalty": null,
+    "caveat": "The $30 cap is adjusted annually for CPI since January 1, 1998, so the current figure may be higher.",
+    "conflict_type": "none",
+    "conflict_note": null,
+    "confidence": 0.95
+   },
+   {
+    "jurisdiction": "CA",
+    "level": "state",
+    "category": "application_screening_fees",
+    "status": "in_force",
+    "title": "Screening fee refund and first-come process requirements",
+    "requirement": "A landlord may charge a screening fee only if they either consider complete applications in order received and approve the first qualified applicant, or refund the full fee to every applicant not selected within 7 days of selecting a tenant or 30 days after the application, whichever is first.",
+    "requirement_es": "El arrendador solo puede cobrar la tarifa si considera las solicitudes completas en orden de recepción y aprueba al primer solicitante calificado, o si devuelve la tarifa completa a todo solicitante no seleccionado dentro de 7 días de elegir inquilino o 30 días de la solicitud, lo que ocurra primero.",
+    "citation": "Cal. Civ. Code § 1950.6",
+    "quoted_span": "An application screening process in which the landlord or their agent returns the entire screening fee to any applicant who is not selected for tenancy, regardless of the reason, within 7 days of selecting an applicant for tenancy or 30 days of when the application was submitted, whichever occurs first.",
+    "coverage": {
+     "covered_if_built_on_or_before": null,
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false,
+     "may_preempt_local": false
+    },
+    "coverage_conditions": null,
+    "effective_date": "2026-01-01",
+    "effective_date_quote": "(Amended by Stats. 2025, Ch. 67, Sec. 29.   (AB 1170)   Effective January 1, 2026.)",
+    "exemptions": null,
+    "key_value": "7 days / 30 days refund",
+    "penalty": null,
+    "caveat": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "confidence": 0.85
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

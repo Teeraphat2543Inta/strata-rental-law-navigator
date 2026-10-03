@@ -1,0 +1,58 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D012.p1",
+ "created": "2026-10-03T18:07:39Z",
+ "usage": {
+  "input_tokens": 5691,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 1311,
+  "output_tokens_details": {
+   "thinking_tokens": 665
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "Boston, MA",
+    "level": "city",
+    "category": "screening_restrictions",
+    "status": "in_force",
+    "title": "Rental assistance (source-of-income) protected from housing discrimination",
+    "requirement": "Boston landlords cannot refuse to rent to you because you use rental assistance such as a Section 8, disability, or veterans voucher. You can file a complaint with the Boston Fair Housing Commission.",
+    "requirement_es": "En Boston, los propietarios no pueden negarse a alquilarle porque usted usa asistencia para el alquiler, como un voucher de la Sección 8, de discapacidad o de veteranos. Puede presentar una queja ante la Comisión de Vivienda Justa de Boston.",
+    "citation": "Boston Fair Housing Regulations (boston.gov)",
+    "quoted_span": "The landlord tells you they don't accept rental assistance.",
+    "coverage": {
+     "covered_if_built_after": null,
+     "covered_if_built_on_or_before": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "may_preempt_local": false,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "coverage_conditions": "Rental housing in the City of Boston; no building-type limits stated on the page.",
+    "exemptions": null,
+    "effective_date": null,
+    "effective_date_quote": null,
+    "key_value": "Rental assistance is a protected class",
+    "penalty": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Informational web page; the specific ordinance or regulation section is not cited, so the citation is approximate. The page says it enforces local, state and federal law.",
+    "confidence": 0.6
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

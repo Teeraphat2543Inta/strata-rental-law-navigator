@@ -1,0 +1,74 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D011.p1",
+ "created": "2026-10-03T18:07:36Z",
+ "usage": {
+  "input_tokens": 5740,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 1337,
+  "output_tokens_details": {
+   "thinking_tokens": 403
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "MA",
+    "level": "state",
+    "category": "rent_increase_limits",
+    "status": "failed",
+    "title": "H.3744 – Boston rent stabilization home rule petition (sent to study order)",
+    "requirement": "This bill would have let the city of Boston adopt rent stabilization, but it was not enacted: it was sent to a study order. No rent cap applies from this bill.",
+    "requirement_es": "Este proyecto habría autorizado a la ciudad de Boston a adoptar la estabilización de alquileres, pero no se aprobó: fue enviado a una orden de estudio. Este proyecto no establece ningún límite de alquiler.",
+    "citation": "Mass. H.3744",
+    "quoted_span": "An Act petition for a special law authorizing the city of Boston to implement rent stabilization and tenant eviction protections",
+    "coverage": {
+     "may_preempt_local": false,
+     "yields_to_local": false,
+     "owner_type_dependent": false
+    },
+    "coverage_conditions": null,
+    "effective_date": null,
+    "effective_date_quote": null,
+    "key_value": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Bill text not included in the document; no cap formula or coverage details are stated. Status inferred from the history entry 'Accompanied a study order, see H5035' (9/9/2024).",
+    "confidence": 0.8
+   },
+   {
+    "jurisdiction": "MA",
+    "level": "state",
+    "category": "just_cause_eviction",
+    "status": "failed",
+    "title": "H.3744 – Boston tenant eviction protections home rule petition (sent to study order)",
+    "requirement": "This bill would have let Boston adopt tenant eviction protections, but it was not enacted: it was sent to a study order. No eviction rules arise from this bill.",
+    "requirement_es": "Este proyecto habría autorizado a Boston a adoptar protecciones contra el desalojo de inquilinos, pero no se aprobó: fue enviado a una orden de estudio. No surge ninguna regla de desalojo de este proyecto.",
+    "citation": "Mass. H.3744",
+    "quoted_span": "An Act petition for a special law authorizing the city of Boston to implement rent stabilization and tenant eviction protections",
+    "coverage": {
+     "may_preempt_local": false,
+     "yields_to_local": false,
+     "owner_type_dependent": false
+    },
+    "coverage_conditions": null,
+    "effective_date": null,
+    "effective_date_quote": null,
+    "key_value": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Bill text not included in the document; specific eviction protections are not stated. Status inferred from the study-order action.",
+    "confidence": 0.75
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

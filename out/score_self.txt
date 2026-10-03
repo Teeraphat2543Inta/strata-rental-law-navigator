@@ -1,0 +1,33 @@
+┌──────────────────────────────────────────────────────────────────┐
+│    STRATA · SELF-SCORE (auto-scored components of the brief)     │
+├──────────────────────────────────────────────────────────────────┤
+│ Extraction · 25 pts                                     95 rules │
+│    citation                                               100.0% │
+│    status                                                 100.0% │
+│    effective_date or explicit null                        100.0% │
+│    key_value (when a figure exists)                        83.2% │
+│    quoted span found in corpus                            100.0% │
+│    (field accuracy vs held-out key)                  judges' key │
+├──────────────────────────────────────────────────────────────────┤
+│ Address coverage · 20 pts                                        │
+│    addresses answered                                     100.0% │
+│    legal jurisdiction resolved                            100.0% │
+│    results                                          9234 answers │
+│       applies                                               7535 │
+│       superseded                                             313 │
+│       unknown                                                806 │
+│       not_yet_effective                                      140 │
+│       pending                                                440 │
+├──────────────────────────────────────────────────────────────────┤
+│ Citations · 15 pts                                        100.0% │
+│    'applies' backed by a quote in the corpus           7535/7535 │
+├──────────────────────────────────────────────────────────────────┤
+│ Change tracking · 15 pts                             vs expected │
+│    T1  affected=250                                       100.0% │
+│    T2  affected=90                                        100.0% │
+│    T3  affected=140                                       100.0% │
+│    T4  affected=110                                       100.0% │
+│    T5  affected=0                                         100.0% │
+│    T3 conflict flags (JC + Hoboken)                       100.0% │
+└──────────────────────────────────────────────────────────────────┘
+Official score.py and the held-out key are held by the judges; this is a transparent proxy.

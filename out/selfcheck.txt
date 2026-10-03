@@ -1,0 +1,30 @@
+PASS  schema: 95/95 rule records valid
+PASS  quotes: 95 exact + 0 whitespace-normalized matches of 95 rules found in the cited source text
+PASS  citations: 7535/7535 'applies' answers backed by a verified quote
+PASS  lookups cover 500/500 addresses
+PASS  jurisdiction resolved for 500/500 addresses (Counter({'census_geocoder': 484, 'municipal_assessor_roll': 14, 'postal_city': 2}))
+      results: Counter({'applies': 7535, 'unknown': 806, 'pending': 440, 'superseded': 313, 'not_yet_effective': 140})
+PASS  T1 CA algorithmic law: 250 affected (expect all 250 CA)
+PASS  T2 boundary: 90 affected, Newark leakage=0 — HOB-ALG-01 reaches only ['Hoboken']; JC-ALG-01 reaches only ['Jersey City']
+PASS  T3 FAIR Act: 140 affected (expect 140), 90 conflict-flagged (expect JC+Hoboken = 90)
+PASS  T4 MA pending bills: 110 affected (expect 110)
+PASS  T4 pending bills never reported in force (ok)
+PASS  T5 MA ballot question: affected=0, MA rent caps reported=0 (expect 0, 0)
+
+Coverage grid (rules extracted per jurisdiction × category; '·' = none, 'n' = no-rule finding):
+                      rent_i  just_c  securi  applic  screen  algori
+CA                         1       3       3       2       4       1
+NJ                         3       3       3       2       2       1
+MA                         2       4       4       3       1       2
+Los Angeles, CA            1       5       1       ·       ·       1
+San Francisco, CA          2       3       1       ·       1       1
+San Diego, CA              ·       2       ·       ·       ·       2
+Berkeley, CA               4       5       1       2       1       2
+Santa Ana, CA              2       2       ·       ·       ·       3
+Jersey City, NJ            1       ·       ·       ·       ·       1
+Hoboken, NJ                ·       ·       ·       ·       ·       1
+Newark, NJ                 ·       ·       ·       ·       ·       ·
+Boston, MA                 n       1       ·       ·       3       ·
+Cambridge, MA              n       ·       ·       ·       1       1
+
+Status mix: Counter({'in_force': 84, 'pending': 7, 'failed': 3, 'not_yet_effective': 1})   conflict-flagged rules: ['CA-EVICT-01', 'CA-SCREEN-02', 'NJ-ALG-01', 'SF-ALG-01']

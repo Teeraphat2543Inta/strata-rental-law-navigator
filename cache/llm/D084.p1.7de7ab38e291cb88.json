@@ -1,0 +1,90 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D084.p1",
+ "created": "2026-10-03T18:08:48Z",
+ "usage": {
+  "input_tokens": 5857,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 1891,
+  "output_tokens_details": {
+   "thinking_tokens": 606
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "Santa Ana, CA",
+    "level": "city",
+    "category": "rent_increase_limits",
+    "status": "in_force",
+    "title": "Santa Ana annual rent increase cap (lesser of 3% or 80% of CPI)",
+    "requirement": "Your landlord can raise your rent only once a year by no more than the lesser of 3% or 80% of the CPI change. For September 1, 2026 through August 31, 2027 the maximum is 2.87%.",
+    "requirement_es": "Su arrendador solo puede aumentar la renta una vez al año y no más que el menor entre 3% o el 80% del cambio del IPC. Del 1 de septiembre de 2026 al 31 de agosto de 2027 el máximo es 2.87%.",
+    "citation": "Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
+    "quoted_span": "The increase cannot be more than 3% of your current rent or 80% of the Consumer Price Index (CPI) change, whichever is less.",
+    "key_value": "Lesser of 3% or 80% of CPI; 2.87% for 2026-09-01 to 2027-08-31",
+    "effective_date": null,
+    "effective_date_quote": null,
+    "coverage": {
+     "covered_if_built_on_or_before": null,
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "may_preempt_local": false,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "coverage_conditions": "Document does not state which buildings are covered.",
+    "exemptions": null,
+    "penalty": null,
+    "caveat": "Secondary city web summary; the specific municipal code section is not cited. The percentage is adjusted yearly. Tenants may petition the Rent Stabilization Office over excess increases.",
+    "conflict_type": "none",
+    "conflict_note": null,
+    "confidence": 0.8
+   },
+   {
+    "jurisdiction": "Santa Ana, CA",
+    "level": "city",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "Santa Ana just cause eviction and relocation assistance",
+    "requirement": "Your landlord must have a valid reason to evict you, such as nonpayment of rent, breaking the lease, or the landlord moving in. For some evictions the landlord may have to help pay your moving costs.",
+    "requirement_es": "Su arrendador debe tener una razón válida para desalojarlo, como falta de pago, incumplimiento del contrato o que el propietario quiera mudarse a la unidad. En algunos casos el arrendador puede tener que ayudar a pagar los gastos de mudanza.",
+    "citation": "Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
+    "quoted_span": "Your landlord must have a valid reason to evict you. This could be for not paying rent, breaking the lease, or if the landlord wants to move into the property themselves.",
+    "key_value": null,
+    "effective_date": null,
+    "effective_date_quote": null,
+    "coverage": {
+     "covered_if_built_on_or_before": null,
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "may_preempt_local": false,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "coverage_conditions": "Document does not state coverage details.",
+    "exemptions": null,
+    "penalty": null,
+    "caveat": "Brief web summary; relocation assistance is described only generally ('certain reasons') and the municipal code section is not cited.",
+    "conflict_type": "none",
+    "conflict_note": null,
+    "confidence": 0.75
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

@@ -1,0 +1,58 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D017.p1",
+ "created": "2026-10-03T18:08:47Z",
+ "usage": {
+  "input_tokens": 7047,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 1150,
+  "output_tokens_details": {
+   "thinking_tokens": 353
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "CA",
+    "level": "state",
+    "category": "application_screening_fees",
+    "status": "in_force",
+    "title": "California application screening fee limits (Civ. Code § 1950.6)",
+    "requirement": "A landlord can charge an application screening fee of no more than actual out-of-pocket screening costs plus the reasonable value of their time, capped at $30 per applicant (adjusted for CPI). No fee may be charged if no unit is available or will be soon, and the landlord must give an itemized receipt and refund any unused amount.",
+    "requirement_es": "El arrendador solo puede cobrar una tarifa de evaluación de solicitud que no exceda los costos reales de bolsillo más el valor razonable de su tiempo, con un tope de $30 por solicitante (ajustado según el IPC). No se puede cobrar si no hay una unidad disponible o que lo estará pronto, y el arrendador debe entregar un recibo detallado y devolver cualquier monto no utilizado.",
+    "citation": "Cal. Civ. Code § 1950.6",
+    "quoted_span": "In no case shall the amount of the application screening fee charged by the landlord or their agent be greater than thirty dollars ($30) per applicant.",
+    "coverage": {
+     "covered_if_built_after": null,
+     "covered_if_built_on_or_before": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "may_preempt_local": false,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "coverage_conditions": "Applies to any owner of residential rental property (or agent) charging an applicant or guarantor/cosignor an application screening fee.",
+    "key_value": "$30 per applicant, adjustable annually by CPI since Jan. 1, 1998",
+    "effective_date": null,
+    "effective_date_quote": null,
+    "exemptions": null,
+    "penalty": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Secondary source (mirror of the statute). The $30 cap is adjusted annually for CPI, so the current dollar figure is higher. The document does not state the date the current text took effect.",
+    "confidence": 0.9
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

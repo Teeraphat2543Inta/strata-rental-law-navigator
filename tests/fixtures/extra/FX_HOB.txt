@@ -1,0 +1,4 @@
+SOURCE: https://example.invalid/fixture-hoboken
+RETRIEVED: 2026-10-02 00:00 UTC
+
+TEST FIXTURE ONLY - NOT A REAL LAW TEXT. It shall be unlawful for any landlord in the City of Hoboken to use an algorithmic device to set rent.

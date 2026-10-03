@@ -1,0 +1,58 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D044.p1",
+ "created": "2026-10-03T18:08:55Z",
+ "usage": {
+  "input_tokens": 6712,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 754,
+  "output_tokens_details": {
+   "thinking_tokens": 0
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "Los Angeles, CA",
+    "level": "city",
+    "category": "security_deposits",
+    "status": "in_force",
+    "title": "LARSO security deposit interest",
+    "requirement": "Landlords of rent-stabilized units in the City of Los Angeles must pay tenants accrued interest on security deposits, either monthly or yearly, as a direct payment or a rent credit. The landlord must tell the tenant in writing which method it chose.",
+    "requirement_es": "Los propietarios de unidades sujetas a estabilización de rentas en la Ciudad de Los Ángeles deben pagar a los inquilinos los intereses acumulados del depósito de seguridad, mensual o anualmente, como pago directo o crédito en la renta. El propietario debe notificar por escrito al inquilino el método elegido.",
+    "citation": "L.A.M.C. § 151.06.02",
+    "quoted_span": "A tenant shall be given the unpaid accrued interest in the form of either a direct payment or a credit against the tenant’s rent.",
+    "effective_date": "1990-11-01",
+    "effective_date_quote": "Interest shall begin accruing on November 1, 1990, on a monthly basis.",
+    "coverage_conditions": "Properties subject to the Los Angeles Rent Stabilization Ordinance (LARSO).",
+    "key_value": "Interest rate set annually by the City; 4.320% for calendar year 2025",
+    "caveat": "Secondary source (landlord association article posted May 2025); the interest rate is set annually and the 2026 rate is not shown.",
+    "conflict_type": "none",
+    "conflict_note": null,
+    "exemptions": null,
+    "penalty": "Non-compliance can be used as a defense in eviction proceedings.",
+    "coverage": {
+     "covered_if_built_after": null,
+     "covered_if_built_on_or_before": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "may_preempt_local": false,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "confidence": 0.85
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

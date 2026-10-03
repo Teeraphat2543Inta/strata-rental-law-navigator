@@ -1,0 +1,58 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D022.p1",
+ "created": "2026-10-03T18:07:48Z",
+ "usage": {
+  "input_tokens": 6645,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 1322,
+  "output_tokens_details": {
+   "thinking_tokens": 457
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "CA",
+    "level": "state",
+    "category": "algorithmic_rent_setting",
+    "status": "in_force",
+    "title": "AB 325: Common pricing algorithm ban (Cartwright Act)",
+    "requirement": "It is unlawful to use or distribute a common pricing algorithm (software that uses competitor data to recommend or influence prices) as part of a conspiracy or combination to restrain trade. It is also unlawful to use or distribute one while coercing another person to adopt its recommended price or commercial term.",
+    "requirement_es": "Es ilegal usar o distribuir un algoritmo de precios común (software que usa datos de competidores para recomendar o influir en precios) como parte de una conspiración o combinación para restringir el comercio. También es ilegal usarlo o distribuirlo si se coacciona a otra persona para que adopte el precio o término comercial recomendado.",
+    "citation": "Cal. Bus. & Prof. Code § 16729",
+    "quoted_span": "(a) It shall be unlawful for a person to use or distribute a common pricing algorithm as part of a contract, combination in the form of a trust, or conspiracy to restrain trade or commerce in violation of this chapter.",
+    "effective_date": "2026-01-01",
+    "effective_date_quote": "10/06/25 - Chaptered",
+    "coverage": {
+     "covered_if_built_after": null,
+     "covered_if_built_on_or_before": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "min_units": null,
+     "may_preempt_local": false,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "coverage_conditions": "Applies to any person (not end consumers) using or distributing a common pricing algorithm for any product or service, including rental housing pricing software; not specific to housing.",
+    "key_value": null,
+    "penalty": "Violations of the Cartwright Act are punishable as a crime; the bill also lowers the pleading standard for antitrust complaints (Bus. & Prof. Code § 16756.1).",
+    "exemptions": null,
+    "caveat": "General antitrust provision that is not housing-specific; effective date computed under the constitutional default (chaptered Oct. 6, 2025, no urgency clause). Penalty details come from the digest and are not fully set out in the operative text.",
+    "conflict_type": "none",
+    "conflict_note": null,
+    "confidence": 0.85
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

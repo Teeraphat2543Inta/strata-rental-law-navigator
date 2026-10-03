@@ -1,0 +1,49 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D059.p1",
+ "created": "2026-10-03T18:09:03Z",
+ "usage": {
+  "input_tokens": 5743,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 926,
+  "output_tokens_details": {
+   "thinking_tokens": 325
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "MA",
+    "level": "state",
+    "category": "rent_increase_limits",
+    "status": "failed",
+    "title": "2026 statewide rent control ballot initiative (struck by SJC)",
+    "requirement": "A proposed 2026 ballot question would have limited annual rent increases for residences in Massachusetts, but the Supreme Judicial Court ruled it cannot go on the November 2026 ballot, so no new rent cap takes effect from it.",
+    "requirement_es": "Una propuesta de la boleta electoral de 2026 habría limitado los aumentos anuales de alquiler en Massachusetts, pero la Corte Judicial Suprema dictaminó que no puede incluirse en la boleta de noviembre de 2026, por lo que no entra en vigor ningún nuevo límite de alquiler.",
+    "citation": "2026 Mass. ballot initiative petition (rent control)",
+    "quoted_span": "The state’s Supreme Judicial Court ruled a ballot question seeking to bring rent control back to Massachusetts cannot go forward this November, because it includes a religious exemption.",
+    "coverage": {
+     "may_preempt_local": false,
+     "yields_to_local": false,
+     "owner_type_dependent": false
+    },
+    "exemptions": "Proposal exempted several types of units, including those operated solely for religious purposes.",
+    "effective_date": null,
+    "effective_date_quote": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Secondary news source; exact cap formula and petition citation not given. Proponents hinted at a possible 2028 petition.",
+    "confidence": 0.85
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

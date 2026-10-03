@@ -1,0 +1,58 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D073.p1",
+ "created": "2026-10-03T18:08:36Z",
+ "usage": {
+  "input_tokens": 18311,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 2039,
+  "output_tokens_details": {
+   "thinking_tokens": 777
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "San Diego, CA",
+    "level": "city",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "San Diego Residential Tenant Protections – Just Cause for Termination of Tenancy",
+    "requirement": "A San Diego landlord may end a tenancy only for an at-fault cause (e.g., nonpayment, lease breach, nuisance) or a good-faith no-fault cause (owner move-in, withdrawal from market, government order, demolition/substantial remodel). For no-fault terminations the landlord must give written notice and pay relocation assistance of two months' rent (three months if the tenant is a senior or disabled), or waive that rent.",
+    "requirement_es": "Un arrendador de San Diego solo puede terminar un arrendamiento por una causa atribuible al inquilino (p. ej., falta de pago, incumplimiento del contrato, molestias) o por una causa de buena fe sin culpa del inquilino (mudanza del propietario, retiro del mercado, orden gubernamental, demolición o remodelación sustancial). En las terminaciones sin culpa debe dar aviso por escrito y pagar asistencia de reubicación equivalente a dos meses de renta (tres meses si el inquilino es mayor de edad o tiene discapacidad), o condonar esa renta.",
+    "citation": "S.D.M.C. § 98.0704",
+    "quoted_span": "A landlord shall not terminate a tenancy without just cause.",
+    "coverage": {
+     "covered_if_built_on_or_before": null,
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": 15,
+     "exemption_max_units": 2,
+     "max_units": null,
+     "min_units": null,
+     "owner_type_dependent": true,
+     "yields_to_local": false,
+     "may_preempt_local": false
+    },
+    "coverage_conditions": "Applies to residential rental tenancies over 30 days in the City of San Diego, including Section 8 units. Exempt: housing with a certificate of occupancy within the previous 15 years; deed-restricted/subsidized affordable housing (not Section 8); owner-occupied single-family homes (up to two bedrooms/ADUs rented) and owner-occupied duplexes; shared-facility rentals with the resident landlord; mobilehomes under the Mobilehome Residency Law; dormitories, hospitals, care facilities, transitional housing; and separately alienable units not owned by a REIT, corporation, LLC with a corporate member, or mobilehome park management, with written exemption notice in the lease.",
+    "exemptions": "Certificate of occupancy within previous 15 years; affordable/subsidized housing; owner-occupied single-family and duplex; shared-facility rentals; mobilehomes under MRL; institutional housing; alienable-title units with non-corporate landlord and written notice.",
+    "key_value": "Relocation assistance: 2 months' rent (3 months if senior/disabled); notice 30 or 60 days; right to re-rent offer for 5 years",
+    "effective_date": "2023-06-24",
+    "effective_date_quote": "O-21647 N.S.; effective 6-24-2023.)",
+    "penalty": "Landlord is liable for at least three times actual economic damages for wrongful eviction, at least three times required relocation assistance plus damages, possible attorney's fees, and non-compliant termination notices are void.",
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Section 98.0704 and related sections were amended effective 2024-03-28 (O-21769); original ordinance effective 2023-06-24.",
+    "confidence": 0.93
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

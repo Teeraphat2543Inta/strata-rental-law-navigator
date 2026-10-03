@@ -1,0 +1,4 @@
+SOURCE: https://example.invalid/fixture-jersey-city
+RETRIEVED: 2026-10-02 00:00 UTC
+
+TEST FIXTURE ONLY - NOT A REAL LAW TEXT. No landlord in Jersey City shall use algorithmic rent-setting software to determine rents.

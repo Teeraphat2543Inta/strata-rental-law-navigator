@@ -1,0 +1,122 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D009.p1",
+ "created": "2026-10-03T18:07:39Z",
+ "usage": {
+  "input_tokens": 5465,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 2965,
+  "output_tokens_details": {
+   "thinking_tokens": 785
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "Berkeley, CA",
+    "level": "city",
+    "category": "rent_increase_limits",
+    "status": "in_force",
+    "title": "Berkeley Rent Stabilization Ordinance – rent control coverage",
+    "requirement": "Rent control applies to most multifamily units built before 1980, to single-family homes with tenancies that began before 1996, and to rooming houses. Newer buildings, condos, and later single-family tenancies are not subject to the rent limits.",
+    "requirement_es": "El control de alquileres se aplica a la mayoría de las unidades multifamiliares construidas antes de 1980, a las casas unifamiliares con arrendamientos iniciados antes de 1996 y a las casas de huéspedes. Los edificios más nuevos, los condominios y los arrendamientos posteriores de casas unifamiliares no están sujetos a los límites.",
+    "citation": "B.M.C. ch. 13.76",
+    "quoted_span": "Most units in multifamily properties built before 1980** Fully Covered Yes Yes Yes Yes",
+    "coverage": {
+     "covered_if_built_on_or_before": "1979-12-31",
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false,
+     "may_preempt_local": false
+    },
+    "coverage_conditions": "Most multifamily units built before 1980; single-family homes with tenancies beginning before 1996; rooming houses. Not covered by rent limits: new construction with Certificate of Occupancy after June 1980, single-family tenancies beginning on or after Jan 1, 1996, most condominiums, certain subsidized units (Section 202/811, HUD-insured projects).",
+    "exemptions": "Golden duplex (owner-occupied on Dec 31, 1979); owner shares kitchen/bath; ADU properties with owner occupancy (tenancies after Nov 7, 2018); university units; nonprofit cooperatives.",
+    "key_value": null,
+    "effective_date": null,
+    "effective_date_quote": null,
+    "penalty": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Secondary guide table; citation is the ordinance chapter and not stated in the document. Table says 'before 1980' and 'after June 1980', leaving a gap; the cutoff date is approximated.",
+    "confidence": 0.75
+   },
+   {
+    "jurisdiction": "Berkeley, CA",
+    "level": "city",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "Berkeley Eviction for Just Cause Ordinance – coverage",
+    "requirement": "Just cause eviction protections apply to fully and partially covered Berkeley units, including newer buildings, condos, and post-1996 single-family tenancies. Only exempt units (such as golden duplexes, shared-kitchen/bath owner units, university housing, and nonprofit co-ops) are excluded.",
+    "requirement_es": "La protección de desalojo por causa justificada se aplica a las unidades total o parcialmente cubiertas de Berkeley, incluidos edificios nuevos, condominios y arrendamientos unifamiliares posteriores a 1996. Solo se excluyen las unidades exentas (dúplex 'golden', unidades donde el dueño comparte cocina/baño, vivienda universitaria y cooperativas sin fines de lucro).",
+    "citation": "B.M.C. ch. 13.76",
+    "quoted_span": "Most condominiums** Partially Covered Yes No Yes Yes",
+    "coverage": {
+     "covered_if_built_on_or_before": null,
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false,
+     "may_preempt_local": false
+    },
+    "coverage_conditions": "All units except exempt categories; newer construction and condominiums remain covered by just cause.",
+    "exemptions": "Golden duplex; owner shares kitchen or bath with tenant; ADU property with owner-occupied unit (tenancies after Nov 7, 2018); university rental units; nonprofit cooperatives.",
+    "key_value": null,
+    "effective_date": null,
+    "effective_date_quote": null,
+    "penalty": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Guide table only covers coverage, not the allowed causes or procedures; citation not stated in document.",
+    "confidence": 0.7
+   },
+   {
+    "jurisdiction": "Berkeley, CA",
+    "level": "city",
+    "category": "security_deposits",
+    "status": "in_force",
+    "title": "Berkeley security deposit interest requirement – coverage",
+    "requirement": "Landlords of fully or partially covered Berkeley units must pay interest on security deposits. Exempt units (e.g., golden duplexes, university housing, nonprofit co-ops) are not covered.",
+    "requirement_es": "Los arrendadores de unidades total o parcialmente cubiertas en Berkeley deben pagar intereses sobre los depósitos de seguridad. Las unidades exentas (p. ej., dúplex 'golden', vivienda universitaria, cooperativas sin fines de lucro) no están cubiertas.",
+    "citation": "B.M.C. ch. 13.76",
+    "quoted_span": "Single-family home with a tenancy that began on or after January 1, 1996** Partially Covered Yes No Yes Yes",
+    "coverage": {
+     "covered_if_built_on_or_before": null,
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false,
+     "may_preempt_local": false
+    },
+    "coverage_conditions": "All fully and partially covered units; interest rate and amount not stated.",
+    "exemptions": "Golden duplex; owner shares kitchen or bath; ADU property with owner-occupied unit; university units; nonprofit cooperatives.",
+    "key_value": null,
+    "effective_date": null,
+    "effective_date_quote": null,
+    "penalty": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Guide table only shows whether security deposit interest applies; rate not given; citation not stated in document.",
+    "confidence": 0.65
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

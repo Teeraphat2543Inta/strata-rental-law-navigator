@@ -1,0 +1,58 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D023.p1",
+ "created": "2026-10-03T18:07:54Z",
+ "usage": {
+  "input_tokens": 12638,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 2115,
+  "output_tokens_details": {
+   "thinking_tokens": 796
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "CA",
+    "level": "state",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "California Tenant Protection Act – statewide just-cause eviction",
+    "requirement": "After a tenant has lived in a covered unit continuously and lawfully for 12 months (or 24 months if an adult was added), the owner can end the tenancy only for a stated at-fault or no-fault just cause. For no-fault terminations the owner must pay one month's rent in relocation assistance within 15 days or waive the final month's rent, and failure to comply voids the notice.",
+    "requirement_es": "Después de que un inquilino ha ocupado la unidad de forma continua y legal durante 12 meses (o 24 meses si se agregó un adulto), el propietario solo puede terminar el arrendamiento por una causa justificada, indicada en el aviso. En terminaciones sin culpa, el propietario debe pagar un mes de renta como asistencia de reubicación dentro de 15 días o perdonar la renta del último mes; el incumplimiento anula el aviso.",
+    "citation": "Cal. Civ. Code § 1946.2",
+    "quoted_span": "Notwithstanding any other law, after a tenant has continuously and lawfully occupied a residential real property for 12 months, the owner of the residential real property shall not terminate a tenancy without just cause, which shall be stated in the written notice to terminate tenancy.",
+    "coverage": {
+     "covered_if_built_on_or_before": null,
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": 15,
+     "min_units": null,
+     "max_units": null,
+     "exemption_max_units": 2,
+     "owner_type_dependent": true,
+     "yields_to_local": true,
+     "may_preempt_local": false
+    },
+    "coverage_conditions": "Residential tenancies after 12 months of continuous lawful occupancy (24 months if adult tenants added). Exempt: housing with a certificate of occupancy within the previous 15 years; owner-occupied single-family residences renting no more than two units or bedrooms; owner-occupied duplexes; separately alienable property owned by natural persons (not REITs, corporations, or LLCs with a corporate member) with the required written exemption notice; deed-restricted affordable housing; hotels, dormitories, certain care facilities. Does not apply where a local just-cause ordinance adopted on or before 9/1/2019 or a more protective later ordinance applies.",
+    "exemptions": "Transient/tourist hotels; nonprofit hospital, religious, extended care and care facilities; dormitories; shared bath/kitchen with owner; owner-occupied single-family (up to two units/bedrooms) and mobilehome owners; owner-occupied duplex; housing with certificate of occupancy within previous 15 years; separately alienable property with qualifying natural-person owner and notice; deed-restricted affordable housing.",
+    "effective_date": "2026-01-01",
+    "effective_date_quote": "(Amended by Stats. 2025, Ch. 203, Sec. 1.   (AB 1529)   Effective January 1, 2026.   Repealed as of January 1, 2030, by its own provisions.)",
+    "key_value": "12 months occupancy; 1 month's rent relocation assistance for no-fault termination",
+    "penalty": "Notice void; actual damages, attorney's fees, and up to three times actual damages (plus punitive damages) if willful or malicious; injunctive relief by AG, city attorney or county counsel.",
+    "conflict_type": "effective_date",
+    "conflict_note": "The document states the section becomes operative April 1, 2024, while the current amended text states it is effective January 1, 2026.",
+    "caveat": "Section sunsets and is repealed January 1, 2030 unless extended.",
+    "confidence": 0.85
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

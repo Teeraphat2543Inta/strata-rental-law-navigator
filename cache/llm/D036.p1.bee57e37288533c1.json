@@ -1,0 +1,58 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D036.p1",
+ "created": "2026-10-03T18:07:57Z",
+ "usage": {
+  "input_tokens": 7426,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 1003,
+  "output_tokens_details": {
+   "thinking_tokens": 329
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "Jersey City, NJ",
+    "level": "city",
+    "category": "rent_increase_limits",
+    "status": "in_force",
+    "title": "Jersey City Rent Control Ordinance – coverage (1-4 unit exemption)",
+    "requirement": "Jersey City's Rent Control Ordinance (Chapter 260) applies to rental buildings with five or more units. Properties with 1-4 units are exempt from rent control.",
+    "requirement_es": "La Ordenanza de Control de Alquileres de Jersey City (Capítulo 260) se aplica a edificios de alquiler con cinco o más unidades. Las propiedades de 1 a 4 unidades están exentas del control de alquileres.",
+    "citation": "Jersey City Code ch. 260",
+    "quoted_span": "(Please Note: All 1-4 Unit Properties are exempt from rent control)",
+    "coverage": {
+     "covered_if_built_on_or_before": null,
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": 4,
+     "max_units": null,
+     "min_units": 5,
+     "owner_type_dependent": false,
+     "yields_to_local": false,
+     "may_preempt_local": false
+    },
+    "coverage_conditions": "Properties with 5 or more units; the ordinance provides other exemptions that owners may request through the Office of Landlord/Tenant Relations.",
+    "exemptions": "All 1-4 unit properties; other exemptions available by Rent Control Exemption Request.",
+    "key_value": null,
+    "effective_date": null,
+    "effective_date_quote": null,
+    "penalty": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Administrative web page; does not state the rent increase cap or formula, only the coverage exemption and that the ordinance is Chapter 260.",
+    "confidence": 0.7
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

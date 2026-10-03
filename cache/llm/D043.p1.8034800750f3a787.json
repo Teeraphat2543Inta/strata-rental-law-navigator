@@ -1,0 +1,122 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D043.p1",
+ "created": "2026-10-03T18:08:26Z",
+ "usage": {
+  "input_tokens": 17302,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 4666,
+  "output_tokens_details": {
+   "thinking_tokens": 1666
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "Los Angeles, CA",
+    "level": "city",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "Relocation assistance and Declaration of Intent to Evict for no-fault evictions (RSO/JCO)",
+    "requirement": "Before evicting a tenant for a no-fault reason (owner/relative/manager move-in, demolition or removal from rental use, government order to vacate, etc.) in an RSO or JCO unit, the landlord must file a Declaration of Intent to Evict with LAHD, serve notice only afterward, and pay relocation assistance within 15 days of the notice. For 2026-27 the amounts are $11,000–$14,400 (eligible households) or $23,150–$27,400 (qualified households: 62+, disabled, or with minor children), paid per unit.",
+    "requirement_es": "Antes de desalojar a un inquilino sin culpa suya (mudanza del propietario o familiar, demolición o retiro del mercado, orden de desalojo del gobierno, etc.) en una unidad sujeta a la RSO o JCO, el propietario debe presentar ante LAHD una Declaración de Intención de Desalojar, notificar al inquilino solo después y pagar asistencia de reubicación dentro de 15 días de la notificación. Para 2026-27 los montos son de $11,000 a $14,400 (hogares elegibles) o de $23,150 a $27,400 (hogares calificados: 62 años o más, discapacitados o con hijos menores), pagados por unidad.",
+    "citation": "L.A.M.C. § 151.09; L.A.M.C. § 165.03; L.A.M.C. § 165.06",
+    "quoted_span": "All tenant not- at-fault evictions require payment of relocation assistance and the filing of a",
+    "effective_date": "2026-07-01",
+    "effective_date_quote": "Effective July 1, 2026 through June 30, 2027",
+    "key_value": "Eligible: $11,000 (<3 yrs) / $14,400 (3+ yrs or low income); Qualified: $23,150 / $27,400; Mom & Pop: $10,550 eligible / $21,250 qualified; single-family natural-person owner (JCO): one month's rent",
+    "exemptions": "No relocation owed when evicting a resident manager to replace with another manager, or when hazardous conditions caused by a natural disaster (not landlord negligence) require eviction. Reduced 'Mom and Pop' amounts apply only to owner/relative/manager occupancy evictions where the building has four or fewer units, the landlord hasn't used the provision in 3 years, owns no more than four units plus one single-family home in LA, and the relative owns no LA residential property. Single-family dwellings owned by natural persons under the JCO owe one month's rent. Landlord may offset accumulated unpaid rent (not for government vacate orders).",
+    "penalty": "Failure to file the Landlord Declaration with LAHD makes the eviction a violation of the RSO or JCO; tenant may raise nonpayment as an affirmative defense to eviction.",
+    "coverage_conditions": "Units covered by the Rent Stabilization Ordinance (RSO) or the Just Cause Ordinance (JCO); amounts depend on tenant status (eligible/qualified), length of tenancy and income.",
+    "caveat": "Dollar amounts increase every July 1; chart amounts are for July 1, 2026–June 30, 2027. Secondary bulletin summarizing the LAMC.",
+    "coverage": {
+     "covered_if_built_after": null,
+     "covered_if_built_on_or_before": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": 4,
+     "max_units": null,
+     "may_preempt_local": false,
+     "min_units": null,
+     "owner_type_dependent": true,
+     "yields_to_local": false
+    },
+    "conflict_type": "none",
+    "conflict_note": null,
+    "confidence": 0.85
+   },
+   {
+    "jurisdiction": "Los Angeles, CA",
+    "level": "city",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "Resident Protections Ordinance: relocation for demolition of Protected Units for new construction",
+    "requirement": "Owners who demolish a Protected Unit (including all RSO units) for new construction must pay the higher of State HCA or City relocation amounts; lower-income households get enhanced standardized payments (2026-27: $115,480 extremely low, $96,750 very low, $87,450 low income), while higher-income households get the regular RSO/JCO amounts. Tenants may remain up to 6 months before construction starts, with a 6-month notice to move out.",
+    "requirement_es": "Los propietarios que demuelen una unidad protegida (incluidas todas las unidades RSO) para nueva construcción deben pagar el mayor monto entre el estatal (HCA) y el municipal; los hogares de bajos ingresos reciben pagos estandarizados mejorados (2026-27: $115,480 ingresos extremadamente bajos, $96,750 muy bajos, $87,450 bajos), y los demás reciben los montos regulares RSO/JCO. Los inquilinos pueden permanecer hasta 6 meses antes del inicio de la construcción, con aviso de mudanza de 6 meses.",
+    "citation": "L.A. Ord. 188481 and 188482",
+    "quoted_span": "On February 11, 2025, the Los Angeles City Council adopted the RPO which codified and expanded upon",
+    "effective_date": "2025-02-11",
+    "effective_date_quote": "within 15 days of serving a notice to terminate tenancy, which must be enhanced for lower income tenants if the project is subject to the Resident Protections Ordinance (RPO), effective 2/11/2025",
+    "key_value": "$115,480 / $96,750 / $87,450 (extremely low / very low / low income), 2026-27",
+    "exemptions": null,
+    "penalty": "Financial penalties starting at $250,000 per displaced unit and withholding of LAHD permit clearances.",
+    "coverage_conditions": "Applies only to Protected Units (rent-restricted or rent-controlled within past 5 years, incl. all RSO units; units rented by lower income households within 5 years; units withdrawn under Ellis Act within 10 years) that will be demolished for new construction.",
+    "caveat": "Payment amounts increase every July 1.",
+    "coverage": {
+     "covered_if_built_after": null,
+     "covered_if_built_on_or_before": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "may_preempt_local": false,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "conflict_type": "none",
+    "conflict_note": null,
+    "confidence": 0.8
+   },
+   {
+    "jurisdiction": "CA",
+    "level": "state",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "Housing Crisis Act relocation benefits for lower-income tenants displaced by demolition",
+    "requirement": "Lower-income households (80% AMI or below) displaced by demolition of their units for replacement new construction must receive relocation benefits consistent with those public entities pay under Gov. Code Chapter 16 (§ 7260 et seq.). Where higher, this State amount applies in addition to or in place of the City RSO/JCO amounts.",
+    "requirement_es": "Los hogares de bajos ingresos (80% del AMI o menos) desplazados por la demolición de sus unidades para nueva construcción deben recibir beneficios de reubicación acordes con los que pagan las entidades públicas conforme al Cap. 16 del Código de Gobierno (§ 7260 y ss.). Cuando sea mayor, este monto estatal se aplica además o en lugar de los montos RSO/JCO de la Ciudad.",
+    "citation": "Cal. Gov. Code § 66300.6",
+    "quoted_span": "Pay relocation assistance to tenants in compliance with the State law’s Housing Crisis Act",
+    "effective_date": null,
+    "effective_date_quote": null,
+    "key_value": null,
+    "exemptions": null,
+    "penalty": null,
+    "coverage_conditions": "Lower-income households displaced from Protected Units demolished for new construction.",
+    "caveat": "Described only secondhand in a City of Los Angeles bulletin; the bulletin cites Gov. Code 66300.6(b)(4)(A) and says parties should seek legal advice on the state law.",
+    "coverage": {
+     "covered_if_built_after": null,
+     "covered_if_built_on_or_before": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "may_preempt_local": false,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "conflict_type": "none",
+    "conflict_note": null,
+    "confidence": 0.5
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

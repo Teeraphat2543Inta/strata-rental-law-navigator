@@ -1,0 +1,90 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D054.p1",
+ "created": "2026-10-03T18:09:03Z",
+ "usage": {
+  "input_tokens": 7041,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 1972,
+  "output_tokens_details": {
+   "thinking_tokens": 551
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "MA",
+    "level": "state",
+    "category": "application_screening_fees",
+    "status": "in_force",
+    "title": "Landlords may not charge application or other upfront fees beyond first, last, security deposit and lock change",
+    "requirement": "Before a tenancy begins, a landlord may only require first month's rent, last month's rent, a security deposit and a lock-change fee. Application, screening, pet, cleaning and amenity fees are not allowed.",
+    "requirement_es": "Antes de que comience el arrendamiento, el propietario solo puede exigir el primer mes de renta, el último mes, el depósito de seguridad y el costo del cambio de cerraduras. No se permiten cargos por solicitud, evaluación, mascotas, limpieza ni servicios.",
+    "citation": "M.G.L. c. 186, § 15B",
+    "quoted_span": "prior to the beginning of a tenancy, no lessor may require payment for anything except first, last, security, and locks",
+    "coverage": {
+     "covered_if_built_after": null,
+     "covered_if_built_on_or_before": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "min_units": null,
+     "may_preempt_local": false,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "coverage_conditions": "Applies to lessors (landlords) before the start of a tenancy; licensed brokers are treated separately.",
+    "effective_date": null,
+    "effective_date_quote": null,
+    "exemptions": "Licensed brokers may charge fees under 254 C.M.R. 7.",
+    "key_value": "Only first, last, security deposit, lock change",
+    "penalty": "A federal district court (Perry v. Equity Residential Management, 2014) awarded tenants treble damages and attorney's fees for upfront application fees.",
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Secondary source (landlord trade association blog). Advice that requiring tenants to pay a third-party screening service is risky is the author's opinion, not settled case law. Law described as in effect since the 1970s.",
+    "confidence": 0.85
+   },
+   {
+    "jurisdiction": "MA",
+    "level": "state",
+    "category": "application_screening_fees",
+    "status": "in_force",
+    "title": "Licensed brokers may charge tenants fees with written disclosure",
+    "requirement": "Only a licensed broker may charge a prospective tenant a fee, and the broker must tell the applicant in writing the fee amount, how and when it is paid, and whether it depends on a lease being signed. The applicant signs the notice at the first personal meeting.",
+    "requirement_es": "Solo un corredor con licencia puede cobrar una tarifa a un posible inquilino, y debe informar por escrito el monto, la forma y el momento del pago, y si depende de que se firme un contrato. El solicitante firma el aviso en la primera reunión personal.",
+    "citation": "254 C.M.R. 7",
+    "quoted_span": "In addition to holding a valid license, the broker has to tell the applicant in writing the amount of the broker’s fee, the time and manner of payment, and whether it is contingent on the owner and applicant actually entering into a lease or rental agreement.",
+    "coverage": {
+     "covered_if_built_after": null,
+     "covered_if_built_on_or_before": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "min_units": null,
+     "may_preempt_local": false,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "coverage_conditions": "Applies to licensed brokers or salespersons; a landlord acting as his or her own broker is doubtful unless a separate bona fide business operation.",
+    "effective_date": null,
+    "effective_date_quote": null,
+    "exemptions": null,
+    "key_value": "Written broker fee disclosure signed by applicant",
+    "penalty": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Secondary source; regulation cited generally as 254 C.M.R. 7 without section. Landlord-broker dual role is unresolved by appellate courts.",
+    "confidence": 0.8
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

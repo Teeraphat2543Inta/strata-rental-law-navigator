@@ -1,0 +1,90 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D027.p1",
+ "created": "2026-10-03T18:08:03Z",
+ "usage": {
+  "input_tokens": 7992,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 2240,
+  "output_tokens_details": {
+   "thinking_tokens": 819
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "CA",
+    "level": "state",
+    "category": "screening_restrictions",
+    "status": "in_force",
+    "title": "Source-of-income discrimination barred in rental housing",
+    "requirement": "A landlord cannot discriminate against or harass a renter or applicant because of their source of income, including Section 8 and other government housing subsidies or HUD-VASH vouchers. A landlord may still ask about the level or source of income.",
+    "requirement_es": "Un arrendador no puede discriminar ni acosar a un inquilino o solicitante por su fuente de ingresos, incluidos los vales de la Sección 8, otros subsidios de vivienda del gobierno o los vales HUD-VASH. El arrendador sí puede preguntar sobre el nivel o la fuente de ingresos.",
+    "citation": "Cal. Gov. Code § 12955",
+    "quoted_span": "For the owner of any housing accommodation to discriminate against or harass any person because of the race, color, religion, sex, gender, gender identity, gender expression, sexual orientation, marital status, national origin, ancestry, familial status, source of income, disability",
+    "coverage": {
+     "covered_if_built_on_or_before": null,
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": null,
+     "min_units": null,
+     "max_units": null,
+     "exemption_max_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false,
+     "may_preempt_local": false
+    },
+    "effective_date": "2024-01-01",
+    "effective_date_quote": "(Amended by Stats. 2023, Ch. 776, Sec. 1.   (SB 267)   Effective January 1, 2024.)",
+    "coverage_conditions": "Owners of housing accommodations; no unit-count or building-age limits stated in this section.",
+    "exemptions": null,
+    "key_value": null,
+    "penalty": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Effective date is that of the 2023 amendment (SB 267); source-of-income protection may have been in the statute earlier.",
+    "confidence": 0.85
+   },
+   {
+    "jurisdiction": "CA",
+    "level": "state",
+    "category": "screening_restrictions",
+    "status": "in_force",
+    "title": "Subsidized-tenancy income standards and credit history alternatives",
+    "requirement": "Where a government rent subsidy applies, a landlord must assess income based only on the portion of rent the tenant pays. If the landlord uses credit history, the applicant may choose to provide alternative evidence of ability to pay, and the landlord must give reasonable time and reasonably consider it instead of credit history.",
+    "requirement_es": "Cuando existe un subsidio de renta del gobierno, el arrendador debe evaluar los ingresos solo con base en la parte de la renta que paga el inquilino. Si usa el historial de crédito, el solicitante puede optar por presentar pruebas alternativas de su capacidad de pago, y el arrendador debe darle tiempo razonable y considerarlas en lugar del historial de crédito.",
+    "citation": "Cal. Gov. Code § 12955(o)",
+    "quoted_span": "Use a financial or income standard in assessing eligibility for the rental of housing that is not based on the portion of the rent to be paid by the tenant.",
+    "coverage": {
+     "covered_if_built_on_or_before": null,
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": null,
+     "min_units": null,
+     "max_units": null,
+     "exemption_max_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false,
+     "may_preempt_local": false
+    },
+    "effective_date": "2024-01-01",
+    "effective_date_quote": "(Amended by Stats. 2023, Ch. 776, Sec. 1.   (SB 267)   Effective January 1, 2024.)",
+    "coverage_conditions": "Applies in instances in which there is a government rent subsidy.",
+    "exemptions": "Landlord may still request information to verify employment, landlord references, or identity.",
+    "key_value": null,
+    "penalty": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": null,
+    "confidence": 0.85
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

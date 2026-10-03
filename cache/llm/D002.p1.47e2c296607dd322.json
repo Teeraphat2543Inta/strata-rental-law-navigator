@@ -1,0 +1,170 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D002.p1",
+ "created": "2026-10-03T18:09:00Z",
+ "usage": {
+  "input_tokens": 9256,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 4168,
+  "output_tokens_details": {
+   "thinking_tokens": 1059
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "San Francisco, CA",
+    "level": "city",
+    "category": "algorithmic_rent_setting",
+    "status": "in_force",
+    "title": "San Francisco ban on algorithmic rent-setting devices using nonpublic competitor data",
+    "requirement": "Landlords may not use algorithmic devices that process nonpublic competitor information to advise on rent or occupancy. Tenants can sue for damages, injunctive relief and civil penalties of up to $1,000 per violation, and each unit-month of use may count as a separate violation.",
+    "requirement_es": "Los arrendadores no pueden usar dispositivos algorítmicos que procesen información no pública de competidores para recomendar rentas u ocupación. Los inquilinos pueden demandar por daños, medidas cautelares y sanciones civiles de hasta $1,000 por infracción, y cada mes de uso por unidad puede contar como una infracción separada.",
+    "citation": "S.F. Admin. Code § 37.10C",
+    "quoted_span": "The ordinance prohibits landlords from using qualifying algorithmic devices that calculate nonpublic competitor information to advise on rent or occupancy.",
+    "coverage": {
+     "may_preempt_local": false,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "confidence": 0.8,
+    "effective_date": "2024-10",
+    "effective_date_quote": "S.F. Admin. Code § 37.10C (effective October 2024)",
+    "penalty": "Up to $1,000 per violation; each month for each affected unit may be a separate violation; damages and injunctive relief",
+    "key_value": "$1,000 per violation",
+    "caveat": "Secondary source (law firm summary); effective date given only to the month.",
+    "conflict_type": "none",
+    "conflict_note": null
+   },
+   {
+    "jurisdiction": "San Diego, CA",
+    "level": "city",
+    "category": "algorithmic_rent_setting",
+    "status": "in_force",
+    "title": "San Diego ban on algorithmic rent-pricing coordination",
+    "requirement": "San Diego prohibits landlords from using algorithmic rent-pricing tools that rely on nonpublic competitor data. Tenants may sue for damages, injunctive relief and penalties of up to $1,000 per violation, with each month and affected rental property potentially a separate violation.",
+    "requirement_es": "San Diego prohíbe a los arrendadores usar herramientas algorítmicas de fijación de rentas que se basen en datos no públicos de competidores. Los inquilinos pueden demandar por daños, medidas cautelares y sanciones de hasta $1,000 por infracción, y cada mes y propiedad afectada puede ser una infracción separada.",
+    "citation": "S.D.M.C. § 98.1103",
+    "quoted_span": "San Diego similarly authorizes tenant suits for damages, injunctive relief and penalties of up to $1,000 per violation, with each month and affected rental property potentially constituting a separate violation.",
+    "coverage": {
+     "may_preempt_local": false,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "confidence": 0.8,
+    "effective_date": "2025-06",
+    "effective_date_quote": "San Diego Mun. Code §§ 98.1101–98.1104 (effective June 2025)",
+    "penalty": "Up to $1,000 per violation; damages and injunctive relief",
+    "key_value": "$1,000 per violation",
+    "caveat": "Secondary source (law firm summary); effective date given only to the month; citation range §§ 98.1101–98.1104.",
+    "conflict_type": "none",
+    "conflict_note": null
+   },
+   {
+    "jurisdiction": "Berkeley, CA",
+    "level": "city",
+    "category": "algorithmic_rent_setting",
+    "status": "in_force",
+    "title": "Berkeley ban on coordinated pricing algorithms",
+    "requirement": "Berkeley prohibits landlords from using coordinated rent-pricing algorithms. Violations can recur by unit and by month, and private parties may seek remedies.",
+    "requirement_es": "Berkeley prohíbe a los arrendadores usar algoritmos coordinados de fijación de precios de alquiler. Las infracciones pueden repetirse por unidad y por mes, y los particulares pueden solicitar remedios.",
+    "citation": "B.M.C. ch. 13.63",
+    "quoted_span": "Prohibits coordinated pricing algorithms; recurring unit/month violations and private remedies",
+    "coverage": {
+     "may_preempt_local": false,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "confidence": 0.78,
+    "effective_date": "2026-01",
+    "effective_date_quote": "Berkeley Mun. Code ch. 13.63 (effective January 2026)",
+    "penalty": "Recurring unit/month violations; private remedies",
+    "key_value": null,
+    "caveat": "Secondary source; effective date given only to the month. The RealPage challenge (RealPage, Inc. v. City of Berkeley) was voluntarily dismissed with prejudice Jan. 14, 2026.",
+    "conflict_type": "none",
+    "conflict_note": null
+   },
+   {
+    "jurisdiction": "Santa Ana, CA",
+    "level": "city",
+    "category": "algorithmic_rent_setting",
+    "status": "in_force",
+    "title": "Santa Ana ban on automated rent price-fixing",
+    "requirement": "Santa Ana prohibits specified anticompetitive automated rent price-fixing by landlords. Tenants may bring claims for up to $1,000 per violation and per month.",
+    "requirement_es": "Santa Ana prohíbe la fijación automatizada y anticompetitiva de precios de alquiler por parte de los arrendadores. Los inquilinos pueden presentar reclamos de hasta $1,000 por infracción y por mes.",
+    "citation": "Santa Ana Ordinance No. NS-3090",
+    "quoted_span": "Ordinance NS-3090 prohibits specified anticompetitive automated rent price-fixing; private tenant claims and up to $1,000 per violation and per month.",
+    "coverage": {
+     "may_preempt_local": false,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "confidence": 0.8,
+    "effective_date": "2026-04-02",
+    "effective_date_quote": "Santa Ana Ordinance No. NS-3090 (effective April 2, 2026)",
+    "penalty": "Up to $1,000 per violation and per month; private tenant claims",
+    "key_value": "$1,000 per violation per month",
+    "caveat": "Secondary source (law firm summary).",
+    "conflict_type": "none",
+    "conflict_note": null
+   },
+   {
+    "jurisdiction": "Jersey City, NJ",
+    "level": "city",
+    "category": "algorithmic_rent_setting",
+    "status": "in_force",
+    "title": "Jersey City ban on algorithmic rent coordination services",
+    "requirement": "Landlords in Jersey City may not use algorithmic rent coordination services. The ordinance is enforced both publicly and privately, with fines up to $2,000 per day.",
+    "requirement_es": "Los arrendadores en Jersey City no pueden usar servicios algorítmicos de coordinación de rentas. La ordenanza se aplica tanto pública como privadamente, con multas de hasta $2,000 por día.",
+    "citation": "Jersey City Code § 218-12",
+    "quoted_span": "Prohibits a landlord’s use of algorithmic rent coordination services; includes public and private enforcement; fines up to $2,000 per day.",
+    "coverage": {
+     "may_preempt_local": false,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "confidence": 0.8,
+    "effective_date": "2025-06",
+    "effective_date_quote": "Jersey City Code § 218-12 (effective June 2025)",
+    "penalty": "Fines up to $2,000 per day; public and private enforcement",
+    "key_value": "$2,000 per day",
+    "caveat": "Secondary source; effective date given only to the month.",
+    "conflict_type": "none",
+    "conflict_note": null
+   },
+   {
+    "jurisdiction": "Hoboken, NJ",
+    "level": "city",
+    "category": "algorithmic_rent_setting",
+    "status": "in_force",
+    "title": "Hoboken ban on software/algorithm rent coordination",
+    "requirement": "Hoboken landlords may not use software, algorithms or data-sharing platforms to coordinate or recommend rents, lease terms, or occupancy.",
+    "requirement_es": "Los arrendadores de Hoboken no pueden usar software, algoritmos ni plataformas de intercambio de datos para coordinar o recomendar rentas, términos de arrendamiento u ocupación.",
+    "citation": "Hoboken Code ch. 158",
+    "quoted_span": "Prohibits landlords from using software, algorithms or data-sharing platforms to coordinate or recommend rents, lease terms, or occupancy.",
+    "coverage": {
+     "may_preempt_local": false,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "confidence": 0.75,
+    "effective_date": "2025-07",
+    "effective_date_quote": "Hoboken City Code, ch. 158-2 (effective July 2025)",
+    "penalty": null,
+    "key_value": null,
+    "caveat": "Secondary source; citation given as 'ch. 158-2'; effective date given only to the month; penalties not described.",
+    "conflict_type": "none",
+    "conflict_note": null
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

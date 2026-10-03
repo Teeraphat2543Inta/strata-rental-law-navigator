@@ -1,0 +1,80 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D065.p1",
+ "created": "2026-10-03T18:08:29Z",
+ "usage": {
+  "input_tokens": 11024,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 2219,
+  "output_tokens_details": {
+   "thinking_tokens": 719
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "NJ",
+    "level": "state",
+    "category": "screening_restrictions",
+    "status": "in_force",
+    "title": "Fair Chance in Housing Act – criminal history screening limits",
+    "requirement": "A landlord cannot ask about or consider your criminal record until after making you a conditional offer. After the offer, only certain recent or serious convictions may be considered, and the landlord may withdraw the offer only after an individualized assessment and written notice with reasons.",
+    "requirement_es": "El arrendador no puede preguntar ni considerar sus antecedentes penales hasta después de hacerle una oferta condicional. Después, solo se pueden considerar ciertas condenas graves o recientes, y la oferta solo puede retirarse tras una evaluación individualizada y un aviso escrito con los motivos.",
+    "citation": "N.J.S.A. 46:8-55; N.J.S.A. 46:8-56",
+    "quoted_span": "A housing provider shall not make any oral or written inquiry regarding an applicant’s criminal record prior to making a conditional offer.",
+    "key_value": "Lookback after conditional offer: 6 years (1st-degree), 4 years (2nd/3rd-degree), 1 year (4th-degree); no lookback limit for murder, aggravated sexual assault, etc.",
+    "effective_date": "2022-01-01",
+    "effective_date_quote": "This act shall take effect on the first day of the seventh month next following the date of enactment,",
+    "coverage_conditions": "Rental dwelling units offered for rent, other than units in an owner-occupied premises of not more than four dwelling units.",
+    "exemptions": "Dwelling units in owner-occupied premises of not more than four dwelling units; landlord may still consider methamphetamine manufacture convictions in federally assisted housing and lifetime sex offender registration.",
+    "penalty": "Civil penalty up to $1,000 (first violation), $5,000 (second within 5 years), $10,000 (two or more others within 7 years); possible return of application fee and up to $1,000 to applicant; enforced through the Division on Civil Rights, no court action.",
+    "coverage": {
+     "exemption_max_units": 4,
+     "owner_type_dependent": false,
+     "yields_to_local": false,
+     "may_preempt_local": false
+    },
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Effective date computed from approval on June 18, 2021 plus 'first day of the seventh month next following'.",
+    "confidence": 0.9
+   },
+   {
+    "jurisdiction": "NJ",
+    "level": "state",
+    "category": "application_screening_fees",
+    "status": "in_force",
+    "title": "Fair Chance in Housing Act – disclosure before application fee and fee return",
+    "requirement": "Before taking an application fee, a landlord must tell you in writing whether criminal history is part of its screening and that you may submit evidence of inaccuracies or rehabilitation. If the landlord violates the Act, the Division on Civil Rights may order your application fee returned.",
+    "requirement_es": "Antes de cobrar una tarifa de solicitud, el arrendador debe informarle por escrito si revisa antecedentes penales y que usted puede presentar pruebas de inexactitudes o rehabilitación. Si el arrendador viola la ley, la División de Derechos Civiles puede ordenar la devolución de la tarifa.",
+    "citation": "N.J.S.A. 46:8-55(b); N.J.S.A. 46:8-63(d)",
+    "quoted_span": "Prior to accepting any application fee, a housing provider shall disclose in writing to the applicant:",
+    "key_value": null,
+    "effective_date": "2022-01-01",
+    "effective_date_quote": "This act shall take effect on the first day of the seventh month next following the date of enactment,",
+    "coverage_conditions": "Rental dwelling units other than units in owner-occupied premises of not more than four dwelling units.",
+    "exemptions": "Owner-occupied premises of not more than four dwelling units.",
+    "penalty": "Director may require that the applicant's rental application fee be returned.",
+    "coverage": {
+     "exemption_max_units": 4,
+     "owner_type_dependent": false,
+     "yields_to_local": false,
+     "may_preempt_local": false
+    },
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Act sets no fee cap; it only addresses disclosure and refund as a remedy.",
+    "confidence": 0.75
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

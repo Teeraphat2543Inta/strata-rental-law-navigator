@@ -1,0 +1,90 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D041.p1",
+ "created": "2026-10-03T18:08:09Z",
+ "usage": {
+  "input_tokens": 8136,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 2276,
+  "output_tokens_details": {
+   "thinking_tokens": 664
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "Los Angeles, CA",
+    "level": "city",
+    "category": "rent_increase_limits",
+    "status": "in_force",
+    "title": "Los Angeles Rent Stabilization Ordinance – annual allowable rent increase",
+    "requirement": "For rent-stabilized units, a landlord may raise rent only once every 12 months, by the allowable percentage set by the city. Since February 2, 2026, landlords can no longer add a utilities percentage or a 10% increase for an added dependent; a 10% increase for an added non-dependent tenant is still allowed.",
+    "requirement_es": "En unidades con estabilización de rentas, el propietario solo puede aumentar la renta una vez cada 12 meses, según el porcentaje permitido por la ciudad. Desde el 2 de febrero de 2026 ya no se puede añadir un porcentaje por servicios públicos ni un 10% por un dependiente adicional; sí se permite un 10% por un inquilino adicional que no sea dependiente.",
+    "citation": "L.A.M.C. § 151.00",
+    "quoted_span": "Generally, the RSO applies to rental properties that were first built on or before October 1, 1978, as well as replacement units under",
+    "coverage": {
+     "covered_if_built_on_or_before": "1978-10-01",
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": null,
+     "min_units": null,
+     "max_units": null,
+     "exemption_max_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false,
+     "may_preempt_local": false
+    },
+    "coverage_conditions": "Rental properties first built on or before October 1, 1978 (plus replacement units under LAMC 151.28): apartments, duplexes, two or more single-family units on a parcel, hotel/rooming house rooms occupied over 30 days, ADUs/JADUs, mobile homes. Condominiums and townhomes: rent not regulated for tenancies commenced after December 31, 1995.",
+    "exemptions": "Rent may rise to market when the tenant voluntarily moves out or is evicted for non-payment or lease violation; Luxury Exemption available by application.",
+    "key_value": "Once every 12 months by the allowable percentage",
+    "effective_date": null,
+    "effective_date_quote": null,
+    "penalty": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Official page gives no specific percentage (linked PDF) and no original RSO effective date; February 2, 2026 changes are noted in the page.",
+    "confidence": 0.85
+   },
+   {
+    "jurisdiction": "Los Angeles, CA",
+    "level": "city",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "Los Angeles RSO – legal reasons for eviction and relocation assistance",
+    "requirement": "Landlords of rent-stabilized units may evict only for listed at-fault or no-fault reasons. No-fault evictions require a Declaration of Intent to Evict filed with LAHD, 30-day and 60-day written notices (sometimes 120 days or a one-year extension), and payment of tenant relocation assistance.",
+    "requirement_es": "Los propietarios de unidades con estabilización de rentas solo pueden desalojar por las causas permitidas, con falta del inquilino o sin ella. Los desalojos sin culpa exigen presentar una Declaración de Intención de Desalojar ante LAHD, avisos escritos de 30 y 60 días (a veces 120 días o una prórroga de un año) y el pago de asistencia de reubicación.",
+    "citation": "L.A.M.C. § 151.09",
+    "quoted_span": "Give the tenant a 30-day and 60-day written notice (some evictions require 120-day notice or up to a 1-year extension).",
+    "coverage": {
+     "covered_if_built_on_or_before": "1978-10-01",
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": null,
+     "min_units": null,
+     "max_units": null,
+     "exemption_max_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false,
+     "may_preempt_local": false
+    },
+    "coverage_conditions": "Units covered by the RSO (first built on or before October 1, 1978); non-RSO units are covered by the separate Just Cause Ordinance.",
+    "exemptions": null,
+    "key_value": "30-day and 60-day written notice; relocation assistance for no-fault evictions",
+    "effective_date": null,
+    "effective_date_quote": null,
+    "penalty": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Summary page; eviction notices must also be filed with LAHD within three business days of service (LAMC 151.09.C.9).",
+    "confidence": 0.8
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

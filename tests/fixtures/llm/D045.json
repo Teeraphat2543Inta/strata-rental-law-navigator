@@ -1,0 +1,35 @@
+{
+ "rules": [
+  {
+   "jurisdiction": "MA",
+   "level": "state",
+   "category": "algorithmic_rent_setting",
+   "status": "pending",
+   "title": "H.5222 algorithmic rent fixing (bill)",
+   "requirement": "Would ban algorithmic rent fixing if passed.",
+   "requirement_es": "(es) Would ban algorithmic rent fixing if passed.",
+   "key_value": null,
+   "coverage_conditions": null,
+   "coverage": {
+    "covered_if_built_on_or_before": null,
+    "covered_if_built_after": null,
+    "exempt_if_newer_than_years": null,
+    "min_units": null,
+    "max_units": null,
+    "exemption_max_units": null,
+    "owner_type_dependent": false,
+    "yields_to_local": false,
+    "may_preempt_local": false
+   },
+   "exemptions": null,
+   "penalty": null,
+   "effective_date": null,
+   "effective_date_quote": null,
+   "citation": "Mass. H.5222",
+   "quoted_span": "An Act relative to preventing algorithmic rent fixing in the rental housing market",
+   "confidence": 0.9,
+   "conflict_note": null
+  }
+ ],
+ "no_rule_findings": []
+}

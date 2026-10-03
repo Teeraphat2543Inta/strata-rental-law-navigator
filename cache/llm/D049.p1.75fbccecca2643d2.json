@@ -1,0 +1,58 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D049.p1",
+ "created": "2026-10-03T18:08:13Z",
+ "usage": {
+  "input_tokens": 20658,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 1060,
+  "output_tokens_details": {
+   "thinking_tokens": 355
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "MA",
+    "level": "state",
+    "category": "screening_restrictions",
+    "status": "in_force",
+    "title": "Source-of-income / housing subsidy discrimination barred in rental accommodations",
+    "requirement": "A landlord or anyone offering rental accommodations cannot discriminate against you because you receive public assistance or a housing subsidy (such as rental assistance), or because of any requirement of that assistance program.",
+    "requirement_es": "Un arrendador o cualquier persona que ofrezca viviendas en alquiler no puede discriminarle porque usted reciba asistencia pública o un subsidio de vivienda (como asistencia para el alquiler), ni por los requisitos del programa de asistencia.",
+    "citation": "M.G.L. c. 151B, § 4(10)",
+    "quoted_span": "For any person furnishing credit, services or rental accommodations to discriminate against any individual who is a recipient of federal, state, or local public assistance, including medical assistance, or who is a tenant receiving federal, state, or local housing subsidies, including rental assistance or rental supplements, because the individual is such a recipient",
+    "coverage": {
+     "covered_if_built_after": null,
+     "covered_if_built_on_or_before": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "may_preempt_local": false,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false
+    },
+    "coverage_conditions": "Applies to any person furnishing rental accommodations, without a stated unit-count or building-age limit in this subsection.",
+    "effective_date": null,
+    "effective_date_quote": null,
+    "exemptions": null,
+    "key_value": null,
+    "penalty": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Document is the statute text only; no effective date or enforcement/penalty provisions are shown in this section.",
+    "confidence": 0.9
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

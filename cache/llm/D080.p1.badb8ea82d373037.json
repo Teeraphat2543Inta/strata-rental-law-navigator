@@ -1,0 +1,50 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D080.p1",
+ "created": "2026-10-03T18:08:34Z",
+ "usage": {
+  "input_tokens": 4755,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 575,
+  "output_tokens_details": {
+   "thinking_tokens": 0
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "San Francisco, CA",
+    "level": "city",
+    "category": "rent_increase_limits",
+    "status": "in_force",
+    "title": "San Francisco annual allowable rent increase, 3/1/2026–2/28/2027",
+    "requirement": "For rent-controlled units in San Francisco, the maximum annual rent increase from March 1, 2026 through February 28, 2027 is 1.6% of the tenant's base rent.",
+    "requirement_es": "Para las unidades con control de alquileres en San Francisco, el aumento anual máximo permitido del 1 de marzo de 2026 al 28 de febrero de 2027 es del 1.6% de la renta base del inquilino.",
+    "citation": "S.F. Admin. Code ch. 37",
+    "quoted_span": "For rent-controlled units, the annual allowable increase amount effective March 1, 2026 through February 28, 2027 is 1.6%.",
+    "coverage": {
+     "may_preempt_local": false,
+     "yields_to_local": false,
+     "owner_type_dependent": false
+    },
+    "coverage_conditions": "Rent-controlled units under the San Francisco Rent Ordinance.",
+    "effective_date": "2026-03-01",
+    "effective_date_quote": "effective March 1, 2026 through February 28, 2027",
+    "key_value": "1.6%",
+    "caveat": "Rate is adjusted yearly (prior year 1.4%); the notice does not give the specific code section, so the citation is approximate.",
+    "conflict_type": "none",
+    "conflict_note": null,
+    "confidence": 0.85
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

@@ -1,0 +1,58 @@
+{
+ "model": "claude-sonnet-5-5",
+ "cache_name": "D050.p1",
+ "created": "2026-10-03T18:08:16Z",
+ "usage": {
+  "input_tokens": 5187,
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 0,
+  "cache_creation": {
+   "ephemeral_5m_input_tokens": 0,
+   "ephemeral_1h_input_tokens": 0
+  },
+  "output_tokens": 1176,
+  "output_tokens_details": {
+   "thinking_tokens": 323
+  },
+  "service_tier": "standard",
+  "inference_geo": "global"
+ },
+ "stop_reason": "tool_use",
+ "output": {
+  "rules": [
+   {
+    "jurisdiction": "MA",
+    "level": "state",
+    "category": "just_cause_eviction",
+    "status": "in_force",
+    "title": "14-day notice to quit for nonpayment of rent under a written lease",
+    "requirement": "If you don't pay rent due under a written lease, your landlord can end the lease with a written 14-day notice to quit. You can stop the termination by paying all rent due, with interest and costs, on or before the day your answer is due in the eviction case. If the nonpayment was caused by a government delay in mailing or delivering a rent or subsistence payment, the court must continue the hearing at least 7 days and treat the tenancy as not terminated if you pay in that time.",
+    "requirement_es": "Si no paga el alquiler adeudado bajo un contrato de arrendamiento escrito, el propietario puede terminar el contrato con un aviso escrito de desalojo de 14 días. Usted puede evitar la terminación pagando todo el alquiler adeudado, con intereses y costos, a más tardar el día en que vence su respuesta en el juicio de desalojo. Si el impago se debió a un retraso del gobierno en el envío o la entrega de un pago de alquiler o de subsistencia, el tribunal debe aplazar la audiencia al menos 7 días y tratar el arrendamiento como no terminado si usted paga en ese plazo.",
+    "citation": "M.G.L. c. 186, § 11",
+    "quoted_span": "Upon the neglect or refusal to pay the rent due under a written lease, fourteen days' notice to quit, given in writing by the landlord to the tenant, shall be sufficient to determine the lease",
+    "key_value": "14 days' written notice to quit",
+    "effective_date": null,
+    "effective_date_quote": null,
+    "coverage": {
+     "covered_if_built_on_or_before": null,
+     "covered_if_built_after": null,
+     "exempt_if_newer_than_years": null,
+     "exemption_max_units": null,
+     "max_units": null,
+     "min_units": null,
+     "owner_type_dependent": false,
+     "yields_to_local": false,
+     "may_preempt_local": false
+    },
+    "coverage_conditions": "Tenancies under a written lease where rent is unpaid.",
+    "exemptions": null,
+    "penalty": null,
+    "conflict_type": "none",
+    "conflict_note": null,
+    "caveat": "Applies to written leases only; effective date not stated in the document.",
+    "confidence": 0.85
+   }
+  ],
+  "no_rule_findings": []
+ }
+}

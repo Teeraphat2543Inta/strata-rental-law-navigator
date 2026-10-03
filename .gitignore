@@ -1,0 +1,13 @@
+starter_pack
+tests/_out
+__pycache__/
+*.pyc
+SUBMISSION_KIT.md
+CLAUDE_CODE_RUNBOOK.md
+*.env
+.env*
+video_build/
+CLAUDE.md
+extra_docs/*.txt
+!tests/fixtures/extra/*.txt
+out/_rules_cache.json
