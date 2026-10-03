@@ -183,3 +183,20 @@ def evaluate(prop, rules, as_of):
 
 def lookups(props, rules, as_of):
     return {p["address_id"]: evaluate(p, rules, as_of) for p in props}
+
+
+def excluded(prop, rules, as_of):
+    """Rules of this address's state and city that were checked and do NOT reach it, with the reason.
+    Shown in the app as "checked, does not apply here" so a missing rule is never a silent omission."""
+    out = []
+    for r in rules:
+        if not _applies_to_place(r, prop):
+            continue
+        if status_on(r, as_of) == "failed":
+            out.append([r["team_rule_id"], "Measure failed (struck, vetoed or sent to study); it is not law."])
+            continue
+        cov, reasons = _check_coverage(r, prop, as_of)
+        if cov == "not_covered":
+            why = "; ".join(reasons)
+            out.append([r["team_rule_id"], why[0].upper() + why[1:] + "."])
+    return out

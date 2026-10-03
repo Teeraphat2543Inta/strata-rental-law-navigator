@@ -5,7 +5,7 @@ import time
 from . import config
 from .changes import changes_for_doc, run_test
 from .corpus import load_link_only
-from .engine import lookups
+from .engine import excluded, lookups
 from .geocode import load_cache
 from .properties import build_property, load_addresses
 
@@ -44,6 +44,7 @@ def build(rules, findings, new_doc_ids=()):
         "rules": rules,
         "properties": props,
         "lookups": {d: lookups(props, rules, d) for d in config.UI_DATES},
+        "excluded": {d: {p["address_id"]: excluded(p, rules, d) for p in props} for d in config.UI_DATES},
         "changes": changes,
         "no_rule_findings": findings,
         "link_only_sources": load_link_only(),
