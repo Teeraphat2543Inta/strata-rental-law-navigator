@@ -6,6 +6,8 @@ from . import config
 from .changes import changes_for_doc, run_test
 from .corpus import load_docs, load_link_only
 from .engine import excluded, lookups
+from .temporal import change_dates
+from .voi import rank as voi_rank
 from .geocode import load_cache
 from .properties import build_property, load_addresses
 
@@ -52,6 +54,8 @@ def build(rules, findings, new_doc_ids=()):
                      "retrieved": d.retrieved_date, "chars": len(d.text)} for d in load_docs()],
         "tests": tests,
         "audit": _audit_summary(),
+        "timeline": change_dates(props, rules),
+        "voi": voi_rank(props, lookups(props, rules, config.QUERY_DATE)),
         "model": config.ANTHROPIC_MODEL,
         "selfcheck": None,
     }
@@ -70,7 +74,8 @@ def _audit_summary():
         stages[r["stage"]] = stages.get(r["stage"], 0) + 1
         if r["stage"] == "extract":
             checks[r["quote_check"].split(":")[0]] = checks.get(r["quote_check"].split(":")[0], 0) + 1
-    return {"stages": stages, "quote_checks": checks,
+    dd = next((r for r in rows if r["stage"] == "dedupe_check"), None)
+    return {"stages": stages, "quote_checks": checks, "dedupe_check": dd,
             "merged_records": sum(len(r.get("merged", [])) for r in rows if r["stage"] == "merge")}
 
 

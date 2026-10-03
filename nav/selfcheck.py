@@ -105,6 +105,25 @@ def run():
     say(not t.get("affected_address_ids") and not ma_caps,
         f"T5 MA ballot question: affected={len(t.get('affected_address_ids', []))}, MA rent caps reported={len(ma_caps)} (expect 0, 0)")
 
+    # temporal engine: the sweep-line timeline must reproduce the engine at every precomputed date
+    from .engine import evaluate
+    from .temporal import address_timeline
+    dates = ["2025-12-31", "2026-01-02", "2026-10-01", "2027-07-02"]
+    mism = 0
+    for p in props:
+        tl = address_timeline(p, rules, "2024-01-01", "2030-12-31")
+        for d in dates:
+            seg = [m for t, m in tl if t <= d][-1]
+            direct = {e["team_rule_id"]: e["result"] for e in evaluate(p, rules, d)}
+            mism += seg != direct
+    say(mism == 0, f"temporal: sweep-line timeline matches direct evaluation at {len(dates)} dates × {len(props)} addresses"
+                   f" ({mism} mismatches)")
+    audit = [json.loads(x) for x in (out / "audit_log.jsonl").read_text().splitlines() if x.strip()] \
+        if (out / "audit_log.jsonl").exists() else []
+    dd = next((a for a in audit if a.get("stage") == "dedupe_check"), None)
+    if dd:
+        lines.append(f"      dedupe cross-check (TF-IDF vs LLM clustering): pairwise F1 {dd['pairwise_f1_mean']}, "
+                     f"precision {dd['precision_mean']}, recall {dd['recall_mean']} over {dd['groups']} groups")
     lines.append("\nCoverage grid (rules extracted per jurisdiction × category; '·' = none, 'n' = no-rule finding):")
     findings = json.loads((out / "no_rule_findings.json").read_text())
     nf = {(f["jurisdiction"], f["category"]) for f in findings}

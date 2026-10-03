@@ -20,7 +20,9 @@ fuzzy ≥ 0.85) and replaced by the source's own characters; rules without a loc
 call) and merged; the most official source leads; disagreeing effective dates raise a conflict flag. (3) Conflicts
 are typed (`effective_date`, `preemption`, `litigation`); other limitations become caveats. (4) A building cutoff
 stated on one page of an ordinance is inherited by rules from the same city, category and code chapter.
-(5) Status is computed for any query date from the effective date.
+(5) An official or code-publisher capture is always the primary source; a provision known only from law-firm
+or news pages is capped at 0.6 confidence and queued for human review. (6) Status is computed for any query date
+from the effective date.
 
 **B · Address resolution and coverage.** The Census Geocoder gives the incorporated place; a municipal assessor roll
 outranks a geocoder match on a same-named street in another city; NJ rows never use the (owner's) ZIP. Unit counts
@@ -35,8 +37,8 @@ raised only where both the state rule and a local rule of the same category reac
 Hoboken only). Any document added with `run.py add-doc` is extracted unaided and reported as T6, T7…, comparing
 results with and without it, now and once effective.
 
-**Validation.** `run.py check`: schema 95/95, quotes 95/95 verbatim, 7,535/7,535 `applies` answers backed by a
-verified quote, 500/500 addresses resolved, T1–T5 all pass. 19 unit tests cover the quote verifier, coverage edge
+**Validation.** `run.py check` (incl. a sweep-line timeline that matches direct evaluation at 2,000 address × date points): schema 95/95, quotes 95/95 verbatim, 7,535/7,535 `applies` answers backed by a
+verified quote, 500/500 addresses resolved, T1–T5 all pass. 24 unit tests and a 2,000-case parity test of the in-browser engine cover the quote verifier, coverage edge
 cases (cutoff year, rolling exemption, precedence, city boundaries), time logic and record parsing. Spot checks:
 SF 1926 → SF ordinance applies, CA §1947.12 superseded; LA 1978 → unknown; Boston/Cambridge → no rent cap (cited);
 FAIR Act not yet effective on 2026-10-01, applies 2027-07-02, flagged only in Jersey City and Hoboken; nothing local

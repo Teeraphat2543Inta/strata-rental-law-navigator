@@ -10,6 +10,8 @@ PASS  T3 FAIR Act: 140 affected (expect 140), 90 conflict-flagged (expect JC+Hob
 PASS  T4 MA pending bills: 110 affected (expect 110)
 PASS  T4 pending bills never reported in force (ok)
 PASS  T5 MA ballot question: affected=0, MA rent caps reported=0 (expect 0, 0)
+PASS  temporal: sweep-line timeline matches direct evaluation at 4 dates × 500 addresses (0 mismatches)
+      dedupe cross-check (TF-IDF vs LLM clustering): pairwise F1 0.617, precision 0.761, recall 0.812 over 36 groups
 
 Coverage grid (rules extracted per jurisdiction × category; '·' = none, 'n' = no-rule finding):
                       rent_i  just_c  securi  applic  screen  algori
