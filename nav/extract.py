@@ -14,6 +14,8 @@ from collections import defaultdict
 
 from . import config
 from .corpus import Doc, load_docs
+from .confidence import evidence_confidence, source_weight
+from .dedupe import clusters as tfidf_clusters, pairwise_agreement
 from .llm import call_tool
 from .quotes import locate, clean_span
 
@@ -224,6 +226,17 @@ CAT_ABBR = {"rent_increase_limits": "RENT", "just_cause_eviction": "EVICT", "sec
             "application_screening_fees": "FEE", "screening_restrictions": "SCREEN",
             "algorithmic_rent_setting": "ALG"}
 OFFICIAL_RANK = {"official": 0, "official city-linked policy": 1, "code publisher": 2}
+SECONDARY_ONLY_NOTE = "Secondary source only — official text not captured; verify against the ordinance."
+SECONDARY_ONLY_MAX_CONFIDENCE = 0.6
+
+
+def source_rank(source_type):
+    """official < city-linked policy < code publisher < secondary; pages read by fetch-links keep their kind."""
+    return OFFICIAL_RANK.get(source_type.removeprefix("fetched: "), 3)
+
+
+def is_primary_source(source_type):
+    return source_rank(source_type) < 3
 
 
 CONSOLIDATE_TOOL = {
@@ -235,6 +248,7 @@ CONSOLIDATE_TOOL = {
 }
 
 
+LOW_CONFIDENCE = 0.6
 BUILDING_CUTOFFS = ("covered_if_built_on_or_before", "covered_if_built_after", "exempt_if_newer_than_years")
 
 
@@ -328,8 +342,13 @@ def postprocess(raw_rules, raw_findings, docs_by_id, audit):
     for r in verified:
         by_jc[(r["jurisdiction"], r["category"])].append(r)
     groups = {}
+    agree = []
     for (jur, cat), recs in by_jc.items():
-        for gi, cluster in enumerate(consolidate(jur, cat, recs)):
+        llm = consolidate(jur, cat, recs)
+        if len(recs) > 1:   # deterministic TF-IDF clustering as an independent cross-check
+            idx = {id(r): i for i, r in enumerate(recs)}
+            agree.append(pairwise_agreement([[idx[id(r)] for r in g] for g in llm], tfidf_clusters(recs)))
+        for gi, cluster in enumerate(llm):
             groups[(jur, cat, gi)] = cluster
             if len(cluster) > 1:
                 audit.append({"stage": "merge", "jurisdiction": jur, "category": cat,
@@ -340,15 +359,15 @@ def postprocess(raw_rules, raw_findings, docs_by_id, audit):
         def rank(r):
             d = docs_by_id[r["_doc"]]
             return (r["quote_check"] in ("too_short", "not_found"),
-                    OFFICIAL_RANK.get(d.source_type, 3), -float(r.get("confidence") or 0))
+                    source_rank(d.source_type), -float(r.get("confidence") or 0))
         recs.sort(key=rank)
         best = dict(recs[0])
         # status: a primary-source failed/pending/enacted signal wins over secondary restatements
         statuses = {r.get("status") for r in recs}
         for s in ("failed", "pending"):
             if s in statuses and best.get("status") not in ("failed", "pending"):
-                best["status"] = s if any(r.get("status") == s and OFFICIAL_RANK.get(
-                    docs_by_id[r["_doc"]].source_type, 3) <= 1 for r in recs) else best["status"]
+                best["status"] = s if any(r.get("status") == s and source_rank(
+                    docs_by_id[r["_doc"]].source_type) <= 1 for r in recs) else best["status"]
         dates = sorted({_date_key(r.get("effective_date")) for r in recs if r.get("effective_date")})
         notes = [r["conflict_note"] for r in recs
                  if r.get("conflict_note") and r.get("conflict_type", "none") != "none"]
@@ -366,8 +385,24 @@ def postprocess(raw_rules, raw_findings, docs_by_id, audit):
         best["conflict_flag"] = bool(notes)
         best["conflict_note"] = " | ".join(dict.fromkeys(notes)) or None
         best["caveat"] = " | ".join(dict.fromkeys(caveats)) or None
+        weights = [source_weight(docs_by_id[r["_doc"]].source_type, r["quote_check"]) for r in recs]
+        best["model_confidence"] = float(best.get("confidence") or 0.5)
+        best["confidence"], best["evidence_score"] = evidence_confidence(
+            best["model_confidence"], weights, caveat=bool(best["caveat"]), conflict=bool(notes))
         best["supporting_docs"] = sorted({r["_doc"] for r in recs})
+        # recs are sorted primary-first, so an official / code-publisher capture is always source_doc_id;
+        # a provision known only from law-firm or news pages is capped and sent to human review
+        best["secondary_only"] = not any(is_primary_source(docs_by_id[r["_doc"]].source_type) for r in recs)
+        if best["secondary_only"]:
+            best["confidence"] = min(best["confidence"], SECONDARY_ONLY_MAX_CONFIDENCE)
+            best["conflict_note"] = " | ".join(filter(None, [best.get("conflict_note"), SECONDARY_ONLY_NOTE]))
         merged.append(best)
+
+    if agree:
+        audit.append({"stage": "dedupe_check", "groups": len(agree),
+                      "pairwise_f1_mean": round(sum(a[2] for a in agree) / len(agree), 3),
+                      "precision_mean": round(sum(a[0] for a in agree) / len(agree), 3),
+                      "recall_mean": round(sum(a[1] for a in agree) / len(agree), 3)})
 
     # stable readable ids
     merged.sort(key=lambda r: (JURISDICTIONS.index(r["jurisdiction"]), CATEGORIES.index(r["category"]),
@@ -407,6 +442,9 @@ def postprocess(raw_rules, raw_findings, docs_by_id, audit):
             "status_raw": status_raw,
             "requirement_es": r.get("requirement_es"),
             "caveat": r.get("caveat"),
+            "model_confidence": r.get("model_confidence"),
+            "evidence_score": r.get("evidence_score"),
+            "secondary_only": r["secondary_only"],
             "penalty": r.get("penalty"),
             "effective_date_quote": r.get("effective_date_quote"),
             "quote_verified": r["quote_check"] not in ("not_found", "too_short"),
@@ -420,6 +458,8 @@ def postprocess(raw_rules, raw_findings, docs_by_id, audit):
         out.append(rec)
 
     inherit_ordinance_coverage(out)
+    for r in out:   # human-review queue: real conflicts and low-confidence rules (brief: "flag conflicts and
+        r["needs_review"] = bool(r["conflict_flag"] or r["secondary_only"] or r["confidence"] < LOW_CONFIDENCE)   # low-confidence answers")
 
     # interactions between levels (recorded in overrides/interaction for transparency)
     for r in out:

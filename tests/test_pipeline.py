@@ -20,7 +20,7 @@ extract.call_tool = fake_call_tool
 raw_r, raw_f, docs = extract.run()
 audit = []
 rules, findings = extract.postprocess(raw_r, raw_f, docs, audit)
-print(f"{len(rules)} rules; quote checks:", [a["quote_check"] for a in audit])
+print(f"{len(rules)} rules; quote checks:", [a["quote_check"] for a in audit if "quote_check" in a])
 build.build(rules, findings)
 ok = selfcheck.run()
 print("\nT1-T5 plumbing", "OK" if ok else "has failures (expected only if fixtures are incomplete)")

@@ -14,7 +14,8 @@ Every answer quotes the sentence of law it rests on. <b>Not legal advice.</b></p
 <a href="#related-work">Related work</a><br><br>
 <img alt="python" src="https://img.shields.io/badge/python-3.9%2B-24408E">
 <img alt="deps" src="https://img.shields.io/badge/runtime%20deps-none%20(stdlib)-0E8A5C">
-<img alt="tests" src="https://img.shields.io/badge/unit%20tests-19%20passing-0E8A5C">
+<img alt="tests" src="https://img.shields.io/badge/unit%20tests-24%20passing-0E8A5C">
+<img alt="parity" src="https://img.shields.io/badge/JS%E2%86%94Python%20engine%20parity-2000%2F2000-7B5CF0">
 <img alt="checks" src="https://img.shields.io/badge/self--check-ALL%20PASS-0E8A5C">
 <img alt="quotes" src="https://img.shields.io/badge/quotes%20verified-95%2F95-3B5BC2">
 <img alt="license" src="https://img.shields.io/badge/license-MIT-55637A">
@@ -73,7 +74,11 @@ distributed to participants, so these are transparent self-measurements, not off
 | Change tests T1–T5 (affected sets, T3 conflict flags) | **5 / 5 pass** |
 | Conflict flags raised | **4**, each a real conflict (preemption or disputed effective date) |
 | Rules rejected because their quote was not in the source | 1 (kept in the audit log) |
-| Unit tests (no network, no key) | **19 / 19** |
+| Unit tests (no network, no key) | **24 / 24** |
+| In-browser engine vs Python engine (500 addresses × 4 dates, explanations included) | **2,000 / 2,000 identical** |
+| Sweep-line timeline vs direct evaluation | **0 mismatches** |
+| Rules queued for human review (real conflict, secondary-source-only, or confidence < 60%) | 19 |
+| Rules whose primary source is official text (secondary pages only as corroboration) | 80 of 95; the other 15 are known only from secondary pages and are capped at 0.6 confidence |
 | Cost of extracting the whole corpus | ≈ US$3, cached; reruns are free |
 
 ```mermaid
@@ -100,6 +105,24 @@ xychart-beta
 | T3 · NJ FAIR Act | not yet effective 2026-10-01 → applies 2027-07-02; flags in JC + Hoboken | 140 affected, 90 flagged | ✅ |
 | T4 · MA S.2983 / H.5222 | pending, never in force; all MA addresses | 110 affected, 0 reported in force | ✅ |
 | T5 · MA ballot question | struck → no rent cap in Boston or Cambridge; empty set | 0 affected, 0 rent caps reported | ✅ |
+
+## Algorithms
+
+| # | Algorithm | Where | Why it matters here | Verified by |
+|---|---|---|---|---|
+| 1 | Three-tier quote verification: exact → normalized with an index map back to the source → bounded fuzzy (≥ 0.85) | `nav/quotes.py` | a rule exists only if its sentence exists | 95/95 verbatim; unit tests |
+| 2 | TF-IDF cosine + citation-key union-find clustering | `nav/dedupe.py` | an independent cross-check of the LLM's duplicate grouping | pairwise F1 in self-check; unit test |
+| 3 | Typed conflict detection | `nav/extract.py` | only real conflicts reach a human | 60 → 4 flags |
+| 4 | Evidence-weighted confidence: noisy-OR 1 − Π(1 − wᵢ) over corroborating sources | `nav/confidence.py` | two official sources beat one blog; drives the review queue | unit tests |
+| 5 | Ordinance coverage inheritance by code chapter | `nav/extract.py` | a "3% this year" page never reaches a 2012 building | unit test |
+| 6 | Jurisdiction arbitration (Census place vs municipal roll vs owner ZIP) | `nav/properties.py` | "322 Western Ave" is Cambridge, not Allston | 500/500 resolved |
+| 7 | Structured unit inference (MOD-IV codes, classes, use codes) | `nav/properties.py` | unit thresholds on records without a unit field | unit tests |
+| 8 | Coverage + precedence engine with unknown propagation | `nav/engine.py` | applies / superseded / unknown, never a guess | T1–T5; unit tests |
+| 9 | Sweep-line temporal engine over effective dates and rolling-exemption boundaries | `nav/temporal.py` | exact change dates per building; any as-of date | 0 mismatches × 2,000 |
+| 10 | Value-of-information ranking of missing facts | `nav/voi.py` | which data to collect first (e.g. year built in Berkeley settles 160 answers) | unit test |
+| 11 | Okapi BM25 retrieval (k₁ = 1.4, b = 0.75) | app | grounded answers in Ask Strata | manual + Playwright |
+| 12 | Jaro-Winkler address matching | app | "3515 filmore st" → 3515 Fillmore St | Playwright |
+| 13 | In-browser port of the engine (what-if, any date) | app | simulate a building fact; query any date | `tests/test_engine_parity.py` 2,000/2,000 |
 
 <a id="architecture"></a>
 ## Architecture
@@ -168,6 +191,7 @@ sequenceDiagram
 | **Proposals look like laws** (drafts, first readings, motions, policy orders, study orders). | `pending` or `failed`, never `in_force` (7 pending, 3 failed). |
 | **Statutes without a printed effective date** (AB 325, chaptered 2025-10-06). | California's constitutional default (art. IV § 8(c): 1 January of the next year) is applied only when the chaptered line is in the document, and quoted. |
 | **The model can invent.** | No verbatim quote, no rule. |
+| **Law-firm and news pages restate law.** | An official or code-publisher capture of the same provision is always the primary `source_doc_id`; secondary pages go to `supporting_docs`. A provision known only from secondary pages keeps `confidence ≤ 0.6`, gets the note "Secondary source only — official text not captured; verify against the ordinance." and joins the review queue (15 rules). |
 | **"Conflict" can mean anything.** | Typed as `effective_date`, `preemption` or `litigation`; everything else is a caveat. Flags fell from 60 to 4 when this was introduced. |
 
 ## The app
@@ -178,12 +202,14 @@ Single static file (`docs/index.html`, served by GitHub Pages), no server, no tr
 |---|---|
 | Welcome tour | four animated steps: layers, verified quotes, time, honest `unknown` |
 | Overview | KPIs, answer-mix donut, rules by category, five hard cases one click away |
-| Address lookup | searchable, paginated list; jurisdiction stack (state → city → confirmed absences); plain-language rights card; computed insight; date-to-date diff; rules checked but not reaching the building, with the reason |
+| Map | 485 geocoded buildings on a basemap, by city; click to open |
+| Compare | up to three buildings side by side; rows that differ highlighted |
+| Address lookup | searchable (typo-tolerant), paginated list; exact timeline of changes; what-if simulator; jurisdiction stack (state → city → confirmed absences); plain-language rights card; computed insight; date-to-date diff; rules checked but not reaching the building, with the reason |
 | What's changing | T1–T5 with affected cities and conflict flags |
 | Portfolio & timeline | coverage by city × category for a housing provider's portfolio; every effective date and pending measure with the number of buildings it reaches |
 | Rule library | filters, search, pagination, a drawer with the full record and machine-readable coverage |
 | Sources & audit | the self-check of the build, every source document with retrieval date, and the sources that could not be read |
-| **Ask Strata** (⌘K) | **Grounded mode**: answers computed from the extracted rules, every claim linked to its rule and quote, so it cannot invent law. **Claude mode** (optional): Claude writes the answer from retrieved rules only, using the viewer's own key, kept in the browser tab; cited IDs are checked against the rule set. |
+| **Ask Strata** (⌘K) | Answers *and acts*: open, compare, time-travel, filter, translate, export CSV, with a visible plan. **Grounded mode**: answers computed from the extracted rules, every claim linked to its rule and quote, so it cannot invent law. **Claude mode** (optional): Claude writes the answer from retrieved rules only, using the viewer's own key, kept in the browser tab; cited IDs are checked against the rule set. |
 
 Everything is available in English and Spanish, in light and dark themes, at phone width, and says
 "Not legal advice" on every screen.
@@ -194,7 +220,8 @@ Everything is available in English and Spanish, in light and dark themes, at pho
 make setup                                   # links the starter pack (STARTER_PACK=/path/to/pack)
 export ANTHROPIC_API_KEY=...                 # extraction only; everything else is offline
 make all                                     # geocode → extract → build → check → score
-make test                                    # 19 unit tests, no key, no network
+make test                                    # 24 unit tests, no key, no network
+python tests/test_engine_parity.py           # in-browser engine == Python engine (needs playwright)
 ```
 
 or step by step:
@@ -217,7 +244,7 @@ Python 3.9+, standard library only. `ANTHROPIC_MODEL` defaults to `claude-sonnet
 run.py                  single entry point (geocode · fetch-links · extract · build · check · score · add-doc)
 nav/                    the pipeline (one module per stage, see Architecture)
 app/index.template.html the app; build.py injects the data bundle
-tests/                  test_units.py (19 unit tests) · test_pipeline.py (end-to-end with recorded model outputs)
+tests/                  test_units.py (24) · test_pipeline.py (end-to-end) · test_engine_parity.py (JS == Python)
 cache/llm/              raw model output per document: the audit trail of what the model said
 cache/geocode/          Census Geocoder responses
 out/                    submission files: rules.json · lookups.json · changes.json (+ detail, findings, properties, audit log, self-check)
@@ -241,7 +268,9 @@ METHOD_NOTE.md          one-page method note
 * Source sentence, URL, retrieval date and as-of date on every answer.
 * Enacted, not-yet-effective, pending and failed kept apart; failed measures never produce a rule.
 * `unknown` whenever a needed fact is missing, with the missing fact named.
-* Conflict flags only for real conflicts; caveats shown separately; a confidence value per rule.
+* Conflict flags only for real conflicts; caveats shown separately; an evidence-weighted confidence per rule;
+  official text always outranks secondary restatements; a human-review queue (19 rules) for real conflicts,
+  secondary-source-only rules and confidence below 60%. Full traceability: `REQUIREMENTS.md`.
 * A written reasoning boundary on every answer: what was checked and what was not.
 * An audit log of every extraction, quote check, merge and rejection, plus the raw model output per document.
 * The assistant answers only from extracted law; the app explains rules and never suggests ways around them.

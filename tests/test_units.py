@@ -8,6 +8,10 @@ from nav.engine import _check_coverage, evaluate  # noqa: E402
 from nav.extract import _date_key, _ordinance_key, inherit_ordinance_coverage, status_on  # noqa: E402
 from nav.properties import units_from_record  # noqa: E402
 from nav.quotes import locate  # noqa: E402
+from nav.confidence import evidence_confidence, noisy_or, source_weight  # noqa: E402
+from nav.dedupe import clusters, pairwise_agreement  # noqa: E402
+from nav.temporal import address_timeline, candidate_points  # noqa: E402
+from nav.voi import missing_fact, rank  # noqa: E402
 
 
 def prop(**kw):
@@ -125,6 +129,50 @@ class OrdinanceCoverageInheritance(unittest.TestCase):
         self.assertEqual(same["coverage_conditions"]["covered_if_built_on_or_before"], "1978-10-01")
         self.assertIn("inherited from LA-RENT-01", same["caveat"])
         self.assertIsNone(other["coverage_conditions"].get("covered_if_built_on_or_before"))
+
+
+class Algorithms(unittest.TestCase):
+    def test_sweep_line_finds_effective_dates_and_rolling_boundaries(self):
+        fair = rule("NJ-ALG-01", "NJ", "state", cat="algorithmic_rent_setting")
+        fair["effective_date"] = "2027-07-01"
+        roll = rule("CA-RENT-01", "CA", "state", exempt_if_newer_than_years=15)
+        nj = prop(state="NJ", city="Newark", jurisdiction="Newark, NJ", year_built=2012)
+        self.assertEqual(candidate_points(nj, [fair, roll], "2024-01-01", "2030-12-31"),
+                         ["2027-01-01", "2027-07-01", "2028-01-01"])
+        tl = address_timeline(nj, [fair], "2024-01-01", "2030-12-31")
+        self.assertEqual([d for d, _ in tl], ["2024-01-01", "2027-07-01"])
+        self.assertEqual(tl[1][1], {"NJ-ALG-01": "applies"})
+
+    def test_noisy_or_rewards_independent_corroboration(self):
+        one = noisy_or([source_weight("fetched: secondary")])
+        two = noisy_or([source_weight("fetched: secondary"), source_weight("official")])
+        self.assertGreater(two, one)
+        self.assertAlmostEqual(noisy_or([0.9, 0.5]), 0.95)
+        self.assertLess(evidence_confidence(0.9, [0.9], conflict=True)[0], evidence_confidence(0.9, [0.9])[0])
+
+    def test_fuzzy_quote_is_discounted(self):
+        self.assertLess(source_weight("official", "fuzzy:0.86"), source_weight("official", "exact"))
+
+    def test_tfidf_clusters_and_agreement(self):
+        recs = [{"title": "Security deposit cap", "requirement": "deposit may not exceed one month rent",
+                 "citation": "Cal. Civ. Code 1950.5", "_cite_key": "a"},
+                {"title": "Deposit limit", "requirement": "a deposit may not exceed one month rent",
+                 "citation": "Civ. Code 1950.5", "_cite_key": "b"},
+                {"title": "Algorithmic pricing ban", "requirement": "no coordinated pricing software",
+                 "citation": "S.F. 37.10C", "_cite_key": "c"}]
+        got = sorted(sorted(g) for g in clusters(recs))
+        self.assertEqual(got, [[0, 1], [2]])
+        self.assertEqual(pairwise_agreement([[0, 1], [2]], got), (1.0, 1.0, 1.0))
+
+    def test_value_of_information_ranks_missing_facts(self):
+        self.assertEqual(missing_fact("Built 1979, the cutoff year — depends on the exact certificate"),
+                         "certificate-of-occupancy date")
+        props = [prop(address_id="X1"), prop(address_id="X2")]
+        lk = {"X1": [{"result": "unknown", "explanation": "covers ...; year built is not in the public record"}],
+              "X2": [{"result": "unknown", "explanation": "rule covers 5+ units; unit count not in the record"},
+                     {"result": "unknown", "explanation": "year built is not in the public record"}]}
+        top = rank(props, lk)[0]
+        self.assertEqual((top["fact"], top["answers"], top["buildings"]), ("year built", 2, 2))
 
 
 if __name__ == "__main__":

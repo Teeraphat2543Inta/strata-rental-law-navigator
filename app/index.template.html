@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20width%3D%2264%22%20height%3D%2264%22%20viewBox%3D%220%200%2064%2064%22%20aria-hidden%3D%22true%22%3E%3Cg%20fill%3D%22%2324408E%22%3E%3Crect%20x%3D%227%22%20y%3D%2211%22%20width%3D%2250%22%20height%3D%227.5%22%20rx%3D%223.75%22/%3E%3Crect%20x%3D%227%22%20y%3D%2221.5%22%20width%3D%2250%22%20height%3D%227.5%22%20rx%3D%223.75%22/%3E%3Crect%20x%3D%227%22%20y%3D%2232%22%20width%3D%2250%22%20height%3D%227.5%22%20rx%3D%223.75%22/%3E%3Crect%20x%3D%227%22%20y%3D%2242.5%22%20width%3D%2250%22%20height%3D%227.5%22%20rx%3D%223.75%22/%3E%3C/g%3E%0A%3Cpath%20d%3D%22M32%203.5l13%204.6v11.6c0%209-5.4%2014.6-13%2018-7.6-3.4-13-9-13-18V8.1z%22%20fill%3D%22%23ffffff%22%20stroke%3D%22%2324408E%22%20stroke-width%3D%222.6%22%20stroke-linejoin%3D%22round%22/%3E%0A%3Cpath%20d%3D%22M26.5%2022.5l5.5-5%205.5%205v8h-11z%22%20fill%3D%22none%22%20stroke%3D%22%2324408E%22%20stroke-width%3D%222.3%22%20stroke-linejoin%3D%22round%22/%3E%3Crect%20x%3D%2230.6%22%20y%3D%2224.6%22%20width%3D%222.8%22%20height%3D%225.9%22%20rx%3D%22.6%22%20fill%3D%22%2324408E%22/%3E%0A%3Ccircle%20cx%3D%2232%22%20cy%3D%2238.2%22%20r%3D%223.4%22%20fill%3D%22%23ffffff%22/%3E%3Cpath%20d%3D%22M30.2%2039.6h3.6l1%206.2h-5.6z%22%20fill%3D%22%23ffffff%22/%3E%0A%3Cpath%20d%3D%22M6%2061l26-10.5L58%2061%22%20fill%3D%22none%22%20stroke%3D%22%2324408E%22%20stroke-width%3D%223.4%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2048%2048%22%20aria-hidden%3D%22true%22%3E%3Cpath%20class%3D%22sl-roof%22%20d%3D%22M9%2017.5L24%207l15%2010.5%22%20fill%3D%22none%22%20stroke%3D%22%238B6CFF%22%20stroke-width%3D%224.2%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3Crect%20class%3D%22sl-1%22%20x%3D%229%22%20y%3D%2221%22%20width%3D%2230%22%20height%3D%226%22%20rx%3D%223%22%20fill%3D%22%234F7BFF%22/%3E%3Crect%20class%3D%22sl-2%22%20x%3D%229%22%20y%3D%2230%22%20width%3D%2230%22%20height%3D%226%22%20rx%3D%223%22%20fill%3D%22%2322C38E%22/%3E%3Crect%20class%3D%22sl-3%22%20x%3D%229%22%20y%3D%2239%22%20width%3D%2230%22%20height%3D%226%22%20rx%3D%223%22%20fill%3D%22%23FFB547%22/%3E%3Ccircle%20class%3D%22sl-k%22%20cx%3D%2224%22%20cy%3D%2233%22%20r%3D%221.6%22%20fill%3D%22%23ffffff%22/%3E%3C/svg%3E">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 <style>
@@ -223,6 +223,7 @@ blockquote{font-size:14px;font-style:italic;line-height:1.65;margin:10px 0;paddi
 .meter i{display:block;height:100%;background:var(--brand-2);border-radius:3px}
 .why{margin:4px 0 0;font-size:13.5px}
 .boundary{font-size:12px;color:var(--ink-2);margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.conflict.secondary{border-color:#7B5CF0;background:color-mix(in srgb,#7B5CF0 8%,transparent)}
 .conflict{font-size:12.5px;border:1px dashed var(--warn);background:color-mix(in srgb,var(--warn) 8%,transparent);padding:8px 12px;border-radius:10px;margin-top:10px}
 .caveat{font-size:12px;color:var(--ink-2);margin-top:8px}
 .empty{color:var(--ink-2);font-size:13px;padding:2px 0 12px}
@@ -595,6 +596,85 @@ tr.cmp-diff td{background:color-mix(in srgb,#7B5CF0 7%,transparent)}
 .un-st{font-weight:700;color:#fff;background:linear-gradient(135deg,var(--brand-2),#7B5CF0);border-radius:8px;padding:2px 8px;font-size:11.5px}
 .un-i{display:grid;grid-template-columns:52px 1fr;gap:2px 8px;padding:7px 8px;border-radius:9px;text-decoration:none;color:var(--ink);font-size:12px;transition:background .15s}
 .un-i:hover{background:var(--soft)}.un-i em{grid-column:2;font-style:normal;color:var(--ink-3);font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* story intro */
+.tbar{position:absolute;top:18px;left:50%;transform:translateX(-50%);width:min(1080px,calc(100% - 40px));display:flex;gap:6px;z-index:2}
+.tbar span{flex:1;height:4px;border-radius:2px;background:rgba(255,255,255,.18);overflow:hidden}
+.tbar span i{display:block;height:100%;width:0;background:linear-gradient(90deg,#9FB6FF,#C6A8FF)}
+.tbar span.done i{width:100%}.tbar span.on i{animation:tfill linear forwards}
+.tour.paused .tbar span.on i{animation-play-state:paused}
+@keyframes tfill{to{width:100%}}
+.tskip2{position:absolute;top:36px;right:28px;z-index:2;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff;border-radius:999px;padding:8px 16px;font:600 13px var(--font);cursor:pointer;backdrop-filter:blur(6px)}
+.tskip2:hover{background:rgba(255,255,255,.16)}
+.tour .skip{display:none}
+.ucard{position:absolute;inset:10% 6%;border-radius:20px;background:#F6F8FC;color:#1B2740;padding:26px 28px;box-shadow:0 30px 70px rgba(0,0,0,.45);overflow:hidden}
+.u-id{font-size:12px;color:#7a869c}.u-t{font-size:20px;font-weight:700;margin:4px 0 14px}
+.u-f{display:flex;gap:10px;flex-wrap:wrap}.u-f span{background:#EDF1F8;border-radius:10px;padding:8px 12px;font-size:13px}
+.u-badge{display:inline-block;margin-top:22px;font-weight:800;letter-spacing:.12em;color:#B4690E;border:3px solid #B4690E;border-radius:12px;padding:6px 14px;transform:rotate(-4deg)}
+.pane.on .u-badge{animation:stamp .45s .9s cubic-bezier(.2,1.6,.3,1) both}
+.u-why{margin-top:16px;font-size:14px;line-height:1.6;color:#3a465c}
+.u-scan{position:absolute;left:0;right:0;height:60px;top:-60px;background:linear-gradient(180deg,transparent,rgba(59,91,194,.18),transparent)}
+.pane.on .u-scan{animation:scan 2s .2s ease-in-out}
+@keyframes scan{to{top:100%}}
+.plan-demo{display:grid;gap:6px}.pd-h{font-size:11px;font-weight:700;letter-spacing:.08em;color:#7B5CF0}
+.pd-s{display:flex;align-items:center;gap:8px;font-size:13px;background:#EDF1F8;border-radius:9px;padding:6px 10px}
+.pd-s i{width:14px;height:14px;border-radius:50%;border:2px solid #7B5CF0;border-top-color:transparent;animation:spin .7s linear infinite}
+.pane.on .pd-s i{animation:spin .7s linear 2,okk .2s 1.6s forwards}
+@keyframes okk{to{border-color:#0E8A5C;background:#0E8A5C;transform:none}}
+.mini-map{position:absolute;inset:6% 4%;border-radius:20px;background:radial-gradient(circle at 30% 30%,#1f2b48,#0d1424);border:1px solid rgba(255,255,255,.12);overflow:hidden}
+.mini-map i{position:absolute;width:12px;height:12px;border-radius:50%;background:#2FA77A;box-shadow:0 0 0 0 rgba(47,167,122,.6)}
+.pane.on .mini-map i{animation:pop .5s cubic-bezier(.2,1.6,.4,1) both,pulse 2.4s 1s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(126,226,184,.55)}100%{box-shadow:0 0 0 14px rgba(126,226,184,0)}}
+.mm-k{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);display:flex;gap:10px}
+.mm-k div{background:rgba(10,17,34,.82);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:10px 16px;text-align:center;backdrop-filter:blur(6px)}
+.mm-k b{display:block;font-size:22px;color:#fff}.mm-k span{font-size:11px;color:#9AA7C2}
+
+.anydate{font:inherit;font-size:12.5px;color:var(--ink-2);background:var(--card);border:1px solid var(--line);border-radius:11px;padding:6px 8px;box-shadow:var(--shadow)}
+.anydate.on{border-color:var(--brand-2);color:var(--ink);box-shadow:0 0 0 3px color-mix(in srgb,var(--brand-2) 25%,transparent)}
+.tlc,.whatif{margin-top:16px}
+.tl-strip{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 8px;position:relative}
+.tl-strip button{flex:none;display:flex;flex-direction:column;gap:2px;text-align:left;border:1px solid var(--line);background:var(--card);border-radius:12px;padding:8px 12px;cursor:pointer;min-width:150px;max-width:260px;transition:all .15s}
+.tl-strip button b{font-size:12.5px;font-variant-numeric:tabular-nums}.tl-strip button span{font-size:11px;color:var(--ink-2)}
+.tl-strip button.past{border-color:color-mix(in srgb,var(--applies) 40%,var(--line))}
+.tl-strip button[aria-pressed=true]{background:linear-gradient(135deg,var(--brand-2),#7B5CF0);color:#fff;border-color:transparent}.tl-strip button[aria-pressed=true] span{color:#E6EAFF}
+.wf-in{display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap}
+.wf-in label{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--ink-2)}
+.wf-in input{font:inherit;width:130px;color:var(--ink);background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+.voi{display:grid;grid-template-columns:26px 1fr 40px;gap:10px;align-items:center;padding:7px 0;border-top:1px solid var(--line-2);font-size:12.5px}
+.voi-r{width:24px;height:24px;border-radius:8px;display:grid;place-items:center;font-weight:700;font-size:11.5px;color:#fff;background:linear-gradient(135deg,var(--brand-2),#7B5CF0)}
+.voi-m{font-size:11.5px;color:var(--ink-2)}.voi .trk{display:block;height:5px;background:var(--soft);border-radius:3px;overflow:hidden;margin-top:4px}.voi .trk i{display:block;height:100%;background:var(--unknown);transform-origin:left;animation:grow .9s both}
+.voi-n{font-weight:700;text-align:right;font-variant-numeric:tabular-nums}
+.algos{order:-1}
+.alg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:12px;margin-top:10px}
+.alg{border:1px solid var(--line);border-radius:14px;padding:14px;background:linear-gradient(160deg,color-mix(in srgb,#7B5CF0 6%,var(--card)),var(--card));display:flex;flex-direction:column;gap:6px;transition:transform .15s,border-color .15s}
+.alg:hover{transform:translateY(-2px);border-color:#7B5CF0}
+.alg-h{display:flex;gap:10px;align-items:center}.alg-n{font:700 12px var(--mono);color:#7B5CF0;background:color-mix(in srgb,#7B5CF0 14%,transparent);border-radius:8px;padding:3px 7px}
+.alg-h b{font-size:13.5px}.alg p{margin:0;font-size:12.5px;color:var(--ink-2);line-height:1.55;flex:1}
+.alg-f{display:flex;justify-content:space-between;gap:8px;align-items:center;font-size:11.5px;color:var(--ink-3)}
+
+/* animated flat logo */
+.slogo{overflow:visible}
+.slogo .sl-roof,.slogo rect,.slogo .sl-k{transform-box:fill-box;transform-origin:center}
+@media (prefers-reduced-motion:no-preference){
+ .slogo .sl-roof{animation:roof 3.6s ease-in-out infinite}
+ .slogo .sl-1{animation:layer 3.6s ease-in-out infinite .15s}.slogo .sl-2{animation:layer 3.6s ease-in-out infinite .3s}.slogo .sl-3{animation:layer 3.6s ease-in-out infinite .45s}
+ .slogo .sl-k{animation:blinkk 3.6s ease-in-out infinite}
+}
+@keyframes roof{0%,100%{transform:translateY(0)}45%{transform:translateY(-2.5px)}}
+@keyframes layer{0%,100%{transform:translateX(0) scaleX(1)}45%{transform:translateX(1.5px) scaleX(.94)}}
+@keyframes blinkk{0%,40%,100%{transform:scale(1)}45%{transform:scale(1.6)}}
+#tcanvas{position:absolute;inset:0;pointer-events:none;opacity:.9}
+.tour .tcard{position:relative;z-index:1}
+.tslide.on h2{animation:tin .6s cubic-bezier(.2,.7,.2,1) both,blurin .6s both}
+@keyframes blurin{from{filter:blur(8px)}to{filter:none}}
+.tvis .pane.on{animation:wipe .7s cubic-bezier(.2,.7,.2,1) both}
+@keyframes wipe{from{clip-path:inset(0 0 0 100% round 20px);transform:translateX(30px)}to{clip-path:inset(0 0 0 0 round 20px);transform:none}}
+
+.rq-card{margin-bottom:16px}
+.rq-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:10px;margin-top:10px}
+.rq{border:1px solid color-mix(in srgb,var(--warn) 35%,var(--line));border-radius:12px;padding:12px;cursor:pointer;background:color-mix(in srgb,var(--warn) 5%,var(--card));transition:transform .15s}
+.rq:hover{transform:translateY(-2px)}.rq-top{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.rq-t{font-weight:600;font-size:13px;margin-top:6px}
+.rq-n{font-size:11.5px;color:var(--ink-2);margin-top:4px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 </style>
 </head>
 <body>
@@ -634,11 +714,7 @@ tr.cmp-diff td{background:color-mix(in srgb,#7B5CF0 7%,transparent)}
 <div class="shell">
  <aside class="side">
   <div class="brand">
-   <svg class="logo" width="38" height="38" viewBox="0 0 64 64" aria-hidden="true"><g fill="#E6ECF7"><rect x="7" y="11" width="50" height="7.5" rx="3.75"/><rect x="7" y="21.5" width="50" height="7.5" rx="3.75"/><rect x="7" y="32" width="50" height="7.5" rx="3.75"/><rect x="7" y="42.5" width="50" height="7.5" rx="3.75"/></g>
-<path d="M32 3.5l13 4.6v11.6c0 9-5.4 14.6-13 18-7.6-3.4-13-9-13-18V8.1z" fill="#0F1A30" stroke="#E6ECF7" stroke-width="2.6" stroke-linejoin="round"/>
-<path d="M26.5 22.5l5.5-5 5.5 5v8h-11z" fill="none" stroke="#E6ECF7" stroke-width="2.3" stroke-linejoin="round"/><rect x="30.6" y="24.6" width="2.8" height="5.9" rx=".6" fill="#E6ECF7"/>
-<circle cx="32" cy="38.2" r="3.4" fill="#0F1A30"/><path d="M30.2 39.6h3.6l1 6.2h-5.6z" fill="#0F1A30"/>
-<path d="M6 61l26-10.5L58 61" fill="none" stroke="#E6ECF7" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+   <svg class="logo slogo" width="38" height="38" viewBox="0 0 48 48" aria-hidden="true"><path class="sl-roof" d="M9 17.5L24 7l15 10.5" fill="none" stroke="#8B6CFF" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><rect class="sl-1" x="9" y="21" width="30" height="6" rx="3" fill="#4F7BFF"/><rect class="sl-2" x="9" y="30" width="30" height="6" rx="3" fill="#22C38E"/><rect class="sl-3" x="9" y="39" width="30" height="6" rx="3" fill="#FFB547"/><circle class="sl-k" cx="24" cy="33" r="1.6" fill="#0F1A30"/></svg>
    <div><div class="name">Strata</div><div class="tagline" data-i18n="tag">Housing law for one front door, layer by layer</div></div>
   </div>
   <nav class="nav" aria-label="Main">
@@ -660,7 +736,7 @@ tr.cmp-diff td{background:color-mix(in srgb,#7B5CF0 7%,transparent)}
   <header class="topbar">
    <div class="crumb"><span>Strata</span><span>/</span><b id="crumb"></b></div>
    <div class="tools">
-    <span class="seglabel" data-i18n="asof">As of</span><div class="seg" id="dates" role="group" aria-label="As of date"></div>
+    <span class="seglabel" data-i18n="asof">As of</span><div class="seg" id="dates" role="group" aria-label="As of date"></div><input type="date" id="anydate" class="anydate" min="2024-01-01" max="2030-12-31" aria-label="Any as-of date" title="Any date: computed live by the in-browser engine">
     <div class="seg" role="group" aria-label="Language"><button id="en" aria-pressed="true">EN</button><button id="es" aria-pressed="false">ES</button></div>
     <button class="iconbtn" id="theme" aria-label="Toggle dark mode"><svg class="i"><use href="#i-moon"/></svg></button>
    </div>
@@ -704,17 +780,15 @@ tr.cmp-diff td{background:color-mix(in srgb,#7B5CF0 7%,transparent)}
  <div class="msgs" id="msgs"></div>
  <form id="aiform"><input id="aiq" placeholder="Ask about an address, a city, a law or a date…" autocomplete="off" aria-label="Question"><button type="submit">Ask</button></form>
 </section>
-<div class="tour hidden" id="tour" role="dialog" aria-label="Welcome to Strata">
+<div class="tour hidden" id="tour" role="dialog" aria-label="Welcome to Strata"><canvas id="tcanvas" aria-hidden="true"></canvas><div class="tbar" id="tbar"></div><button class="tskip2" id="tskip2">Skip intro ✕</button>
  <div class="tcard">
   <div>
-   <div style="display:flex;align-items:center;gap:14px;margin-bottom:26px"><svg class="logo" width="54" height="54" viewBox="0 0 64 64" aria-hidden="true"><g fill="#E6ECF7"><rect x="7" y="11" width="50" height="7.5" rx="3.75"/><rect x="7" y="21.5" width="50" height="7.5" rx="3.75"/><rect x="7" y="32" width="50" height="7.5" rx="3.75"/><rect x="7" y="42.5" width="50" height="7.5" rx="3.75"/></g>
-<path d="M32 3.5l13 4.6v11.6c0 9-5.4 14.6-13 18-7.6-3.4-13-9-13-18V8.1z" fill="#0A1122" stroke="#E6ECF7" stroke-width="2.6" stroke-linejoin="round"/>
-<path d="M26.5 22.5l5.5-5 5.5 5v8h-11z" fill="none" stroke="#E6ECF7" stroke-width="2.3" stroke-linejoin="round"/><rect x="30.6" y="24.6" width="2.8" height="5.9" rx=".6" fill="#E6ECF7"/>
-<circle cx="32" cy="38.2" r="3.4" fill="#0A1122"/><path d="M30.2 39.6h3.6l1 6.2h-5.6z" fill="#0A1122"/>
-<path d="M6 61l26-10.5L58 61" fill="none" stroke="#9FB6FF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-weight:700;font-size:26px;letter-spacing:.14em">STRATA</span></div><div class="tslide on"><div class="kick"><svg class="i"><use href="#i-layers"/></svg> Welcome to Strata</div><h2>One front door.<br><em>Many layers of law.</em></h2><p>A renter in San Francisco lives under a state statute, a city ordinance and a calendar of changes. Strata stacks them for any of 500 real buildings and tells you which rule wins.</p></div>
+   <div style="display:flex;align-items:center;gap:14px;margin-bottom:26px"><svg class="logo slogo" width="58" height="58" viewBox="0 0 48 48" aria-hidden="true"><path class="sl-roof" d="M9 17.5L24 7l15 10.5" fill="none" stroke="#8B6CFF" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/><rect class="sl-1" x="9" y="21" width="30" height="6" rx="3" fill="#4F7BFF"/><rect class="sl-2" x="9" y="30" width="30" height="6" rx="3" fill="#22C38E"/><rect class="sl-3" x="9" y="39" width="30" height="6" rx="3" fill="#FFB547"/><circle class="sl-k" cx="24" cy="33" r="1.6" fill="#0F1A30"/></svg><span style="font-weight:700;font-size:26px;letter-spacing:.14em">STRATA</span></div><div class="tslide on"><div class="kick"><svg class="i"><use href="#i-layers"/></svg> Welcome to Strata</div><h2>One front door.<br><em>Many layers of law.</em></h2><p>A renter in San Francisco lives under a state statute, a city ordinance and a calendar of changes. Strata stacks them for any of 500 real buildings and tells you which rule wins.</p></div>
    <div class="tslide"><div class="kick"><svg class="i"><use href="#i-quote"/></svg> It reads the law itself</div><h2>Every answer comes<br><em>with a receipt.</em></h2><p>AI extracts each rule from 69 public documents. Then code checks that the quoted sentence really exists in the source, character for character. No quote, no rule.</p></div>
    <div class="tslide"><div class="kick"><svg class="i"><use href="#i-clock"/></svg> Time is a first-class input</div><h2>Ask about today,<br><em>or July 2027.</em></h2><p>Effective dates, pending bills and struck ballot questions are kept apart. Switch the as-of date and watch the answer change, with conflicts flagged for a human.</p></div>
-   <div class="tslide"><div class="kick"><svg class="i"><use href="#i-spark"/></svg> Honest by design</div><h2>When the record can't decide,<br><em>Strata says unknown.</em></h2><p>Built in the cutoff year? Owner type not public? You get “unknown” and the missing fact, never a guess. Ask Strata anything; it answers only from the law it has read. Not legal advice.</p></div>
+   <div class="tslide"><div class="kick"><svg class="i"><use href="#i-flag"/></svg> Honest by design</div><h2>When the record can't decide,<br><em>Strata says unknown.</em></h2><p>Built in the cutoff year? Owner type not public? You get “unknown” and the exact missing fact, never a guess. 806 answers are honest unknowns.</p></div>
+   <div class="tslide"><div class="kick"><svg class="i"><use href="#i-spark"/></svg> An assistant that does the work</div><h2>Ask in plain words.<br><em>Strata answers and acts.</em></h2><p>Every answer is computed from the extracted law with its citations. Ask it to compare buildings, time-travel, filter the rules or export a CSV, and watch it do it. Press ⌘K anytime.</p></div>
+   <div class="tslide"><div class="kick"><svg class="i"><use href="#i-map"/></svg> From one door to a portfolio</div><h2>500 buildings. 95 rules.<br><em>Every answer cited.</em></h2><p>Renters see their rights. Housing providers see every building, every upcoming effective date and every gap in the record, on a map. Not legal advice: a map of the law, with receipts.</p></div>
    <div class="tnav"><div class="dots" id="tdots"></div><button class="tb" id="tprev">Back</button><button class="tb go" id="tnext">Next</button><button class="skip" id="tskip">Skip intro</button></div>
   </div>
   <div class="tvis">
@@ -728,9 +802,15 @@ tr.cmp-diff td{background:color-mix(in srgb,#7B5CF0 7%,transparent)}
    <div class="pane"><div class="tl3"><div class="fill"></div>
      <div class="tick" style="left:8%">2025-12-31<b></b></div><div class="tick" style="left:36%">2026-01-02<b></b></div><div class="tick" style="left:64%">2026-10-01<b></b></div><div class="tick" style="left:92%">2027-07-02<b></b></div></div>
     <div class="tcards"><div><b>AB 325</b><br>not yet effective → applies</div><div><b>MA S.2983</b><br>pending, never in force</div><div><b>NJ FAIR Act</b><br>applies 2027 · ⚑ review</div></div></div>
-   <div class="pane"><div class="qa"><div class="b u">Is there a rent cap at 69 Westland Ave, Boston?</div>
-    <div class="b a"><b>No rent cap.</b> Massachusetts law bars local rent control (cited, M.G.L. c. 40P). The statewide ballot question was struck, so it is <b>failed</b>.</div>
-    <div class="b a"><b>Unknown</b> for 10635 Sherman Grove Ave, LA: built 1978, the RSO cutoff year; the certificate date is not in the record.</div></div></div>
+   <div class="pane"><div class="ucard"><div class="u-id">A0107 · LA County eGIS parcels</div><div class="u-t">10635 Sherman Grove Ave, Los Angeles</div>
+    <div class="u-f"><span>Built <b>1978</b></span><span>Units <b>20</b></span><span>RSO cutoff <b>1978-10-01</b></span></div>
+    <div class="u-badge">UNKNOWN</div><div class="u-why">Coverage depends on the certificate-of-occupancy date.<br><b>Missing fact:</b> the exact date is not in the public record.</div>
+    <div class="u-scan"></div></div></div>
+   <div class="pane"><div class="qa"><div class="b u">Compare A0016 and A0107 as of 2027</div>
+    <div class="b a plan-demo"><div class="pd-h">✦ PLAN · 2 STEPS</div><div class="pd-s"><i></i>Compare A0016, A0107</div><div class="pd-s"><i></i>Set as-of date to 2027-07-02</div></div>
+    <div class="b a"><b>They differ in 5 of 6 categories.</b> SF's rent ordinance applies to the 1926 building; for LA's 1978 building rent limits are <b>unknown</b> (cutoff year). Cited: SF-RENT-01, CA-RENT-01.</div></div></div>
+   <div class="pane"><div class="mini-map"><i style="left:4%;top:8%;animation-delay:0.00s;background:#E8A64C"></i><i style="left:41%;top:61%;animation-delay:0.12s;"></i><i style="left:78%;top:36%;animation-delay:0.24s;"></i><i style="left:23%;top:11%;animation-delay:0.36s;"></i><i style="left:60%;top:64%;animation-delay:0.48s;"></i><i style="left:5%;top:39%;animation-delay:0.60s;background:#E8A64C"></i><i style="left:42%;top:14%;animation-delay:0.72s;"></i><i style="left:79%;top:67%;animation-delay:0.84s;background:#6EA9EE"></i><i style="left:24%;top:42%;animation-delay:0.96s;"></i><i style="left:61%;top:17%;animation-delay:0.00s;"></i><i style="left:6%;top:70%;animation-delay:0.12s;background:#E8A64C"></i><i style="left:43%;top:45%;animation-delay:0.24s;"></i><i style="left:80%;top:20%;animation-delay:0.36s;"></i><i style="left:25%;top:73%;animation-delay:0.48s;"></i><i style="left:62%;top:48%;animation-delay:0.60s;background:#6EA9EE"></i><i style="left:7%;top:23%;animation-delay:0.72s;background:#E8A64C"></i><i style="left:44%;top:76%;animation-delay:0.84s;"></i><i style="left:81%;top:51%;animation-delay:0.96s;"></i><i style="left:26%;top:26%;animation-delay:0.00s;"></i><i style="left:63%;top:79%;animation-delay:0.12s;"></i><i style="left:8%;top:54%;animation-delay:0.24s;background:#E8A64C"></i><i style="left:45%;top:29%;animation-delay:0.36s;background:#6EA9EE"></i><i style="left:82%;top:82%;animation-delay:0.48s;"></i><i style="left:27%;top:57%;animation-delay:0.60s;"></i><i style="left:64%;top:32%;animation-delay:0.72s;"></i><i style="left:9%;top:85%;animation-delay:0.84s;background:#E8A64C"></i><i style="left:46%;top:60%;animation-delay:0.96s;"></i><i style="left:83%;top:35%;animation-delay:0.00s;"></i><i style="left:28%;top:10%;animation-delay:0.12s;background:#6EA9EE"></i><i style="left:65%;top:63%;animation-delay:0.24s;"></i><i style="left:10%;top:38%;animation-delay:0.36s;background:#E8A64C"></i><i style="left:47%;top:13%;animation-delay:0.48s;"></i><i style="left:84%;top:66%;animation-delay:0.60s;"></i><i style="left:29%;top:41%;animation-delay:0.72s;"></i><i style="left:66%;top:16%;animation-delay:0.84s;"></i><i style="left:11%;top:69%;animation-delay:0.96s;background:#E8A64C"></i><i style="left:48%;top:44%;animation-delay:0.00s;"></i><i style="left:85%;top:19%;animation-delay:0.12s;"></i><i style="left:30%;top:72%;animation-delay:0.24s;"></i><i style="left:67%;top:47%;animation-delay:0.36s;"></i><i style="left:12%;top:22%;animation-delay:0.48s;background:#E8A64C"></i><i style="left:49%;top:75%;animation-delay:0.60s;"></i><i style="left:86%;top:50%;animation-delay:0.72s;background:#6EA9EE"></i><i style="left:31%;top:25%;animation-delay:0.84s;"></i><i style="left:68%;top:78%;animation-delay:0.96s;"></i><i style="left:13%;top:53%;animation-delay:0.00s;background:#E8A64C"></i>
+    <div class="mm-k"><div><b>500</b><span>buildings</span></div><div><b>95</b><span>rules</span></div><div><b>100%</b><span>cited</span></div></div></div></div>
   </div>
  </div>
 </div>
@@ -803,13 +883,78 @@ function readHash(){const h=location.hash.replace(/^#\/?/,"");let [pg,qs]=h.spli
  const legacy=/^A\d+/.test(pg||"");if(legacy){qs=h.replace(/^([A-Z]\d+)/,"addr=$1");pg="lookup"}
  const q=new URLSearchParams(qs||"");if(pg&&document.getElementById(pg))page=pg;
  if(q.get("tab")&&document.getElementById(q.get("tab")))page=q.get("tab");
- if(q.get("addr")&&pid[q.get("addr")])current=q.get("addr");if(q.get("asof")&&DATA.dates.includes(q.get("asof")))asof=q.get("asof");
+ if(q.get("addr")&&pid[q.get("addr")])current=q.get("addr");if(q.get("asof")&&/^20\d\d-\d\d-\d\d$/.test(q.get("asof")))asof=q.get("asof");
  if(q.get("lang"))lang=q.get("lang")==="es"?"es":"en"}
 function writeHash(){const s=`#/${page}?${page==="lookup"&&current?`addr=${current}&`:""}asof=${asof}&lang=${lang}`;if(location.hash!==s)history.replaceState(null,"",s)}
 function go(pg,addr){page=pg;if(addr)current=addr;render(true);window.scrollTo({top:0,behavior:reduce?"auto":"smooth"});nudge()}
 const nudged=new Set();function nudge(){if(nudged.has(page)||$("#ai")?.classList.contains("on"))return;nudged.add(page);const s=contextSugs()[0];const n=$("#nudge");if(!n||!s)return;n.innerHTML=`${ico("i-spark")}<span>${lang==="es"?"Pruebe":"Try"}: <b>${esc(s)}</b></span>`;n.onclick=()=>{n.classList.remove("on");aiOpen(s)};n.classList.add("on");clearTimeout(nudge._t);nudge._t=setTimeout(()=>n.classList.remove("on"),5200)}
 document.querySelectorAll(".nav a").forEach(a=>a.onclick=e=>{e.preventDefault();go(a.dataset.page)});
 window.addEventListener("hashchange",()=>{readHash();render(true)});
+
+/* ---------- client-side rule engine (port of nav/engine.py; parity-tested on 500 × 4 dates) ---------- */
+const ENG=(()=>{const dkey=d=>{if(!d)return null;d=String(d);return d.length===4?d+"-01-01":d.length===7?d+"-01":d.slice(0,10)};
+ const statusOn=(r,a)=>{const raw=r.status_raw||r.status;if(raw==="pending"||raw==="failed")return raw;const e=dkey(r.effective_date);return e&&e>a?"not_yet_effective":"in_force"};
+ const y=d=>d?parseInt(String(d).slice(0,4)):null;
+ const U=p=>{const a=p.units_min,b=p.units_max;if(a==null)return "unit count unknown";if(a===b)return `${a} units`;return b==null?`${a}+ units`:`${a}–${b} units`};
+ function cov(r,p,asof){const c=r.coverage_conditions||{};const yb=p.year_built,umin=p.units_min,umax=p.units_max;const R=[];let unk=false;
+  if(c.covered_if_built_on_or_before){const cy=y(c.covered_if_built_on_or_before),k=c.covered_if_built_on_or_before;
+   if(yb==null){unk=true;R.push(`covers buildings with a certificate of occupancy on or before ${k}; year built is not in the public record`)}
+   else if(yb<cy)R.push(`built ${yb}, before the ${k} cutoff`);else if(yb===cy){unk=true;R.push(`built ${yb}, the cutoff year — depends on the exact certificate-of-occupancy date (cutoff ${k}), which the data does not have`)}
+   else return ["not_covered",[`built ${yb}, after the ${k} cutoff`]]}
+  if(c.covered_if_built_after){const ay=y(c.covered_if_built_after),k=c.covered_if_built_after;
+   if(yb==null){unk=true;R.push(`covers buildings built after ${k}; year built unknown`)}else if(yb>ay)R.push(`built ${yb}, after ${k}`);
+   else if(yb===ay){unk=true;R.push(`built ${yb}, the cutoff year`)}else return ["not_covered",[`built ${yb}, not after ${k}`]]}
+  const n=c.exempt_if_newer_than_years;if(n){const cy=parseInt(asof.slice(0,4))-parseInt(n);
+   if(yb==null){unk=true;R.push(`exempts buildings with a certificate of occupancy in the last ${n} years; year built unknown`)}
+   else if(yb<cy)R.push(`built ${yb}, more than ${n} years ago`);else if(yb===cy){unk=true;R.push(`built ${yb}: exactly at the ${n}-year line, depends on the certificate date`)}
+   else return ["not_covered",[`built ${yb}, within the ${n}-year new-construction exemption`]]}
+  const mn=c.min_units,mx=c.max_units;
+  if(mn){if(umin!=null&&umin>=mn)R.push(`${U(p)} (rule covers ${mn}+ units)`);else if(umax!=null&&umax<mn)return ["not_covered",[`${U(p)}, fewer than ${mn}`]];else{unk=true;R.push(`rule covers ${mn}+ units; unit count not in the record`)}}
+  if(mx){if(umax!=null&&umax<=mx)R.push(`${U(p)} (rule covers up to ${mx})`);else if(umin!=null&&umin>mx)return ["not_covered",[`${U(p)}, more than ${mx}`]];else{unk=true;R.push(`rule covers buildings up to ${mx} units; unit count not in the record`)}}
+  const ex=c.exemption_max_units;
+  if(ex){if(umin!=null&&umin>ex)R.push(`${U(p)}, so the small-building exemption (≤${ex} units) cannot apply`);
+   else if(umax!=null&&umax<=ex){unk=true;R.push(`${U(p)}: an exemption for buildings of ≤${ex} units may apply (depends on owner facts not in the data)`)}
+   else{unk=true;R.push(`an exemption for buildings of ≤${ex} units may apply; unit count unknown`)}}
+  else if(c.owner_type_dependent){unk=true;R.push("coverage depends on the owner's identity; owner names are not in the data")}
+  return [unk?"unknown":"covered",R]}
+ const atPlace=(r,p)=>!!p.jurisdiction&&(r.level==="state"?r.jurisdiction===p.state:r.jurisdiction===p.jurisdiction);
+ const cap=s=>s[0].toUpperCase()+s.slice(1);
+ function evaluate(p,R,asof){const rows={};const by={};R.forEach(r=>by[r.team_rule_id]=r);
+  for(const r of R){if(!atPlace(r,p))continue;const st=statusOn(r,asof);if(st==="failed")continue;
+   const where=r.level==="city"?`${p.city}, ${p.state}`:`statewide ${p.state}`;
+   if(st==="pending"){rows[r.team_rule_id]=["pending",`Pending bill/proposal, not law as of ${asof}; would cover this address (${where}) if enacted.`];continue}
+   const [cv,rs]=cov(r,p,asof);if(cv==="not_covered")continue;
+   if(st==="not_yet_effective"){rows[r.team_rule_id]=["not_yet_effective",`Enacted; takes effect ${dkey(r.effective_date)}. `+(rs.join("; ")||`Covers ${where}`)+"."];continue}
+   const why=rs.length?rs.join("; "):`in force and covers ${where}`;rows[r.team_rule_id]=[cv==="covered"?"applies":"unknown",cap(why)+"."]}
+  for(const rid of Object.keys(rows)){const r=by[rid];if(r.level!=="state"||!(r.coverage_conditions||{}).yields_to_local)continue;if(!["applies","unknown"].includes(rows[rid][0]))continue;
+   const loc=Object.keys(rows).filter(x=>by[x].level==="city"&&by[x].category===r.category&&["applies","unknown"].includes(rows[x][0]));
+   if(loc.some(x=>rows[x][0]==="applies"))rows[rid]=["superseded",`Local rule ${loc.filter(x=>rows[x][0]==="applies").join(", ")} covers this unit; this state rule yields to it.`];
+   else if(loc.length)rows[rid]=["unknown",`Applies only if the local rule (${loc.join(", ")}) does not cover the unit, and that coverage is itself unknown.`]}
+  const out=[];for(const [rid,[res,w]] of Object.entries(rows)){const r=by[rid];const c=r.coverage_conditions||{};let flag=false;let why=w;
+   if(r.level==="state"&&c.may_preempt_local)flag=Object.keys(rows).some(x=>by[x].level==="city"&&by[x].category===r.category);
+   if(r.level==="city")flag=flag||Object.keys(rows).some(x=>by[x].level==="state"&&by[x].category===r.category&&(by[x].coverage_conditions||{}).may_preempt_local);
+   if(r.conflict_flag&&r.conflict_note&&!c.may_preempt_local)flag=true;
+   if((p.jurisdiction_confidence??1)<0.85)why+=` Jurisdiction resolved by ${p.jurisdiction_method} — verify.`;
+   out.push({team_rule_id:rid,result:res,explanation:why,conflict_flag:flag})}
+  const ord={applies:0,superseded:1,unknown:2,not_yet_effective:3,pending:4};out.sort((a,b)=>ord[a.result]-ord[b.result]||(a.team_rule_id<b.team_rule_id?-1:1));return out}
+ return {evaluate,statusOn,dkey}})();
+const LCACHE={};
+function entriesOf(aid,d=asof){if(DATA.lookups[d])return DATA.lookups[d][aid]||[];const k=d+"|"+aid;return LCACHE[k]||(LCACHE[k]=ENG.evaluate(pid[aid],DATA.rules,d))}
+
+/* ---------- retrieval: Okapi BM25 over rules; Jaro-Winkler for addresses ---------- */
+const BM=(()=>{const tok=s=>(s||"").toLowerCase().match(/[a-z0-9§.]+/g)?.filter(t=>t.length>1&&!/^(the|and|for|any|that|this|with|are|may|not|shall|from|of|to|in|on|or|by|is|be|a)$/.test(t))||[];
+ const SN={CA:"california",NJ:"new jersey",MA:"massachusetts"};const docs=DATA.rules.map(r=>tok(`${r.title} ${r.title} ${r.requirement} ${r.citation} ${r.jurisdiction} ${SN[r.jurisdiction.slice(-2)]} ${SN[r.jurisdiction.slice(-2)]} ${r.category.replaceAll("_"," ")} ${r.quoted_span}`));
+ const N=docs.length,avg=docs.reduce((a,d)=>a+d.length,0)/N,df={};docs.forEach(d=>new Set(d).forEach(t=>df[t]=(df[t]||0)+1));
+ const tf=docs.map(d=>{const m={};d.forEach(t=>m[t]=(m[t]||0)+1);return m});
+ function search(q,n=6,k1=1.4,b=.75){const qt=[...new Set(tok(q))];return DATA.rules.map((r,i)=>{let s=0;qt.forEach(t=>{const f=tf[i][t];if(!f)return;const idf=Math.log(1+(N-df[t]+.5)/(df[t]+.5));s+=idf*f*(k1+1)/(f+k1*(1-b+b*docs[i].length/avg))});return [r,s]}).filter(x=>x[1]>0).sort((a,b)=>b[1]-a[1]).slice(0,n).map(x=>x[0])}
+ return {search}})();
+function jaroWinkler(a,b){a=a.toLowerCase();b=b.toLowerCase();if(a===b)return 1;const m=Math.max(0,Math.floor(Math.max(a.length,b.length)/2)-1);const am=Array(a.length).fill(false),bm=Array(b.length).fill(false);let mt=0;
+ for(let i=0;i<a.length;i++)for(let j=Math.max(0,i-m);j<Math.min(b.length,i+m+1);j++)if(!bm[j]&&a[i]===b[j]){am[i]=bm[j]=true;mt++;break}
+ if(!mt)return 0;let t=0,k=0;for(let i=0;i<a.length;i++)if(am[i]){while(!bm[k])k++;if(a[i]!==b[k])t++;k++}
+ const j=(mt/a.length+mt/b.length+(mt-t/2)/mt)/3;let l=0;while(l<4&&a[l]===b[l])l++;return j+l*.1*(1-j)}
+function fuzzyAddr(q,n=5){const qq=q.toLowerCase().replace(/[^a-z0-9 ]/g," ").trim();if(qq.length<3)return [];
+ return props.map(p=>{const s=p.street_address.toLowerCase();const toks=qq.split(/\s+/);const st=s.split(/[\s-]+/);
+  const score=toks.reduce((a,t)=>a+Math.max(...st.map(x=>jaroWinkler(t,x))),0)/toks.length;return [p,score]}).filter(x=>x[1]>.86).sort((a,b)=>b[1]-a[1]).slice(0,n).map(x=>x[0])}
 
 /* ---------- small helpers ---------- */
 function countUp(el){const to=parseFloat(el.dataset.to),suf=el.dataset.suf||"",dec=+(el.dataset.dec||0);if(reduce){el.textContent=to.toLocaleString(undefined,{maximumFractionDigits:dec})+suf;return}
@@ -819,11 +964,10 @@ const tip=$("#tip");
 document.addEventListener("mousemove",e=>{const el=e.target.closest("[data-tip]");if(!el){tip.classList.remove("on");return}tip.textContent=el.dataset.tip;tip.style.left=e.clientX+"px";tip.style.top=e.clientY+"px";tip.classList.add("on")});
 document.addEventListener("keydown",e=>{if(e.key==="/"&&document.activeElement.tagName!=="INPUT"){e.preventDefault();if(page!=="lookup")go("lookup");setTimeout(()=>$("#q").focus(),50)}if(e.key==="Escape")closeDrawer()});
 function units(p){if(p.units_min==null)return T("nodata");if(p.units_min===p.units_max)return p.units_min;return p.units_max==null?`${p.units_min}+`:`${p.units_min}–${p.units_max}`}
-function entriesOf(aid,d=asof){return DATA.lookups[d][aid]||[]}
 function reachMap(d){const m={};props.forEach(p=>entriesOf(p.address_id,d).forEach(e=>{(m[e.team_rule_id]=m[e.team_rule_id]||new Set()).add(p.address_id)}));return m}
 
 /* ---------- header controls ---------- */
-function renderDates(){const el=$("#dates");el.innerHTML="";DATA.dates.forEach(d=>{const b=document.createElement("button");b.textContent=d;b.setAttribute("aria-pressed",d===asof);b.onclick=()=>{asof=d;render()};el.appendChild(b)})}
+function renderDates(){const el=$("#dates");el.innerHTML="";const ad=$("#anydate");if(ad){ad.value=asof;ad.classList.toggle("on",!DATA.dates.includes(asof));ad.onchange=()=>{if(ad.value){asof=ad.value;render()}}}DATA.dates.forEach(d=>{const b=document.createElement("button");b.textContent=d;b.setAttribute("aria-pressed",d===asof);b.onclick=()=>{asof=d;render()};el.appendChild(b)})}
 function setLang(l){lang=l;document.documentElement.lang=l;$("#en").setAttribute("aria-pressed",l==="en");$("#es").setAttribute("aria-pressed",l==="es");
  document.querySelectorAll("[data-i18n]").forEach(e=>e.textContent=T(e.dataset.i18n));render()}
 $("#en").onclick=()=>setLang("en");$("#es").onclick=()=>setLang("es");
@@ -873,7 +1017,9 @@ function renderOverview(){const el=$("#overview");const R=DATA.rules;const sc=DA
 function renderChips(){const el=$("#chips");el.innerHTML=[null,...cities].map(c=>`<button aria-pressed="${cityFilter===c}" data-c="${esc(c??"")}">${esc(c?c.replace(/, [A-Z]{2}$/,""):T("all"))}</button>`).join("");
  el.querySelectorAll("button").forEach(b=>b.onclick=()=>{cityFilter=b.dataset.c||null;listPage=0;renderChips();renderList()})}
 function filteredProps(){const q=$("#q").value.toLowerCase();return props.filter(p=>(!cityFilter||p.jurisdiction===cityFilter)&&(!q||`${p.address_id} ${p.street_address} ${p.postal_city} ${p.jurisdiction}`.toLowerCase().includes(q)))}
-function renderList(){const el=$("#list");const fp=filteredProps();const pages=Math.max(1,Math.ceil(fp.length/PAGE_SIZE));listPage=Math.min(listPage,pages-1);
+function renderList(){const el=$("#list");const fp=filteredProps();
+ if(!fp.length&&$("#q").value.trim().length>2){const sug=fuzzyAddr($("#q").value);el.innerHTML=`<div style="padding:14px;font-size:12.5px;color:var(--ink-2)">${lang==="es"?"Sin coincidencias exactas. ¿Quiso decir…":"No exact match. Did you mean…"} <span class="tag">Jaro-Winkler</span></div>`+sug.map(p=>`<button data-a="${p.address_id}"><span class="av" style="--c:${cityColor(p.jurisdiction)}">~</span><span><div class="a">${esc(p.street_address)}</div><div class="m">${esc(p.jurisdiction)} · ${p.address_id}</div></span></button>`).join("");
+  el.querySelectorAll("button[data-a]").forEach(b=>b.onclick=()=>{current=b.dataset.a;$("#q").value="";render()});$("#pager").innerHTML="";return}const pages=Math.max(1,Math.ceil(fp.length/PAGE_SIZE));listPage=Math.min(listPage,pages-1);
  el.innerHTML="";fp.slice(listPage*PAGE_SIZE,(listPage+1)*PAGE_SIZE).forEach(p=>{
   const b=document.createElement("button");b.setAttribute("aria-current",current===p.address_id);
   const es=entriesOf(p.address_id);const n=es.filter(e=>e.result==="applies").length,u=es.filter(e=>e.result==="unknown").length;
@@ -885,10 +1031,10 @@ function renderList(){const el=$("#list");const fp=filteredProps();const pages=M
 $("#q").oninput=()=>{listPage=0;renderList()};
 function ruleRow(e){const r=rules[e.team_rule_id];const req=lang==="es"&&r.requirement_es?r.requirement_es:r.requirement;
  const d=document.createElement("div");d.className="rule";d.style.setProperty("--c",COLOR[e.result]);d.id="r-"+r.team_rule_id;const flagged=e.conflict_flag;
- d.innerHTML=`<button aria-expanded="false"><span class="res">${pill(e.result)}<small>${ico(CICON[r.category])}${esc(catName(r.category))}</small></span><span><div class="rt">${esc(r.title)}</div><div class="rq">${esc(req)}${r.key_value?` <b>${esc(r.key_value)}</b>`:""}</div></span><span class="cite"><span>${esc(r.citation)}</span>${flagged?`<span class="flagd">${ico("i-flag")} ${T("review")}</span>`:""}<svg class="i chev"><use href="#i-down"/></svg></span></button>
+ d.innerHTML=`<button aria-expanded="false"><span class="res">${pill(e.result)}<small>${ico(CICON[r.category])}${esc(catName(r.category))}</small></span><span><div class="rt">${esc(r.title)}</div><div class="rq">${esc(req)}${r.key_value?` <b>${esc(r.key_value)}</b>`:""}</div></span><span class="cite"><span>${esc(r.citation)}</span>${flagged?`<span class="flagd">${ico("i-flag")} ${T("review")}</span>`:r.secondary_only?`<span class="flagd" data-tip="official text not captured">${ico("i-flag")} ${lang==="es"?"fuente secundaria":"secondary source"}</span>`:r.confidence<0.6?`<span class="flagd" data-tip="confidence ${Math.round(100*r.confidence)}%">${ico("i-flag")} ${lang==="es"?"confianza baja":"low confidence"}</span>`:""}<svg class="i chev"><use href="#i-down"/></svg></span></button>
  <div class="body"><p class="why"><b>${T("why")}:</b> ${esc(e.explanation)}</p><blockquote>“${esc(r.quoted_span)}”</blockquote>
  <div class="audit"><div>${T("source")}<b><a href="${esc(r.source_url)}" target="_blank" rel="noopener">${esc(r.source_doc_id)}</a>${(r.supporting_docs||[]).length>1?` +${r.supporting_docs.length-1}`:""}</b></div><div>${T("retrieved")}<b>${esc(r.retrieved_at)}</b></div><div>${T("eff")}<b>${esc(r.effective_date||"—")}</b></div><div>${T("query")}<b>${esc(asof)}</b></div><div>${T("conf")}<b>${Math.round(100*r.confidence)}%<span class="meter"><i style="width:${Math.round(100*r.confidence)}%"></i></span></b></div><div>ID<b>${esc(r.team_rule_id)} ${r.quote_verified?"· quote ✓":"· quote ✗"}</b></div></div>
- ${flagged&&r.conflict_note?`<div class="conflict"><b>${T("conflict")}:</b> ${esc(r.conflict_note)}</div>`:""}${r.caveat?`<div class="caveat"><b>${T("caveat")}:</b> ${esc(r.caveat)}</div>`:""}
+ ${flagged&&r.conflict_note?`<div class="conflict"><b>${T("conflict")}:</b> ${esc(r.conflict_note)}</div>`:""}${r.secondary_only&&!flagged?`<div class="conflict secondary"><b>${lang==="es"?"Solo fuente secundaria":"Secondary source only"}:</b> ${lang==="es"?"no se capturó el texto oficial; verifique con la ordenanza.":"official text not captured; verify against the ordinance."}</div>`:""}${r.caveat?`<div class="caveat"><b>${T("caveat")}:</b> ${esc(r.caveat)}</div>`:""}
  <div class="boundary"><b>${T("boundary")}:</b> ${T("bnd")}</div></div>`;
  const btn=d.querySelector("button");btn.onclick=()=>{d.classList.toggle("open");btn.setAttribute("aria-expanded",d.classList.contains("open"))};return d}
 function renderDetail(){const el=$("#detail");el.innerHTML="";const p=pid[current];if(!p)return;const wrap=document.createElement("div");wrap.className="page";el.appendChild(wrap);
@@ -935,6 +1081,19 @@ function renderDetail(){const el=$("#detail");el.innerHTML="";const p=pid[curren
  df.innerHTML=`<h3>${ico("i-clock")} ${T("changes")} ${asof} → ${other}</h3><div class="cmp" style="margin:6px 0 10px">${T("cmpwith")}: ${DATA.dates.filter(d=>d!==asof).map(d=>`<button data-d="${d}" aria-pressed="${d===other}">${d}</button>`).join("")}</div>
   ${ids.length?ids.map(k=>`<div class="row"><span class="mono" style="font-weight:600">${esc(k)}</span><span>${esc(rules[k].title)}</span><span>${A[k]?pill(A[k]):`<span class="tag">${T("gone")}</span>`} → ${B[k]?pill(B[k]):`<span class="tag">${T("gone")}</span>`}</span></div>`).join(""):`<div style="color:var(--ink-2);font-size:13px">${T("nochg")}</div>`}`;
  df.querySelectorAll("button[data-d]").forEach(b=>b.onclick=()=>{cmp=b.dataset.d;renderDetail()});wrap.appendChild(df);
+ const tl=(DATA.timeline||{})[p.address_id]||[];const tc=document.createElement("div");tc.className="card tlc";
+ tc.innerHTML=`<h3>${ico("i-cal")} ${lang==="es"?"Línea de tiempo de este edificio":"This building's timeline"} <span class="tag" style="margin-left:auto">sweep-line · 2024–2030</span></h3><p class="sub">${lang==="es"?"Fechas exactas en que cambia alguna respuesta. Toque una para viajar a ella.":"Every date on which one of its answers changes, found by a sweep over effective dates and rolling exemptions. Click to travel there."}</p>
+ <div class="tl-strip">${["2024-01-01",...tl].map(d=>`<button data-d="${d}" class="${d<=asof?"past":""}" aria-pressed="${d===asof}"><b>${d}</b><span>${d==="2024-01-01"?(lang==="es"?"inicio":"start"):(()=>{const prev=entriesOf(p.address_id,ENG.dkey(new Date(new Date(d)-864e5).toISOString().slice(0,10)));const now=entriesOf(p.address_id,d);const ch=now.filter(e=>!prev.find(x=>x.team_rule_id===e.team_rule_id&&x.result===e.result));return ch.slice(0,2).map(e=>`${e.team_rule_id} → ${T(e.result).toLowerCase()}`).join(" · ")||(lang==="es"?"cambio":"change")})()}</span></button>`).join("")}</div>`;
+ tc.querySelectorAll("button[data-d]").forEach(b=>b.onclick=()=>{asof=b.dataset.d;render()});wrap.appendChild(tc);
+ const wf=document.createElement("div");wf.className="card whatif";
+ wf.innerHTML=`<h3>${ico("i-spark")} ${lang==="es"?"¿Y si…? Simulador":"What-if simulator"} <span class="tag" style="margin-left:auto">in-browser engine</span></h3><p class="sub">${lang==="es"?"Cambie un dato del edificio y vea qué reglas cambian. Útil cuando el registro público está incompleto.":"Change a building fact the record lacks or might get wrong, and see which answers change. Nothing is saved; the official answer above is unchanged."}</p>
+ <div class="wf-in"><label>${T("built")}<input id="wf-y" type="number" min="1850" max="2030" value="${p.year_built??""}" placeholder="—"></label><label>${T("units")}<input id="wf-u" type="number" min="1" max="2000" value="${p.units_min??""}" placeholder="—"></label><button class="btn primary" id="wf-run">${ico("i-spark")} ${lang==="es"?"Simular":"Simulate"}</button></div><div id="wf-out"></div>`;
+ wrap.appendChild(wf);
+ wf.querySelector("#wf-run").onclick=()=>{const y=$("#wf-y").value,u=$("#wf-u").value;const q={...p,year_built:y?+y:null,units_min:u?+u:null,units_max:u?+u:null};
+  const A=Object.fromEntries(entriesOf(p.address_id).map(e=>[e.team_rule_id,e.result]));const Bv=ENG.evaluate(q,DATA.rules,asof);const B=Object.fromEntries(Bv.map(e=>[e.team_rule_id,e.result]));
+  const ks=[...new Set([...Object.keys(A),...Object.keys(B)])].filter(k=>A[k]!==B[k]);
+  $("#wf-out").innerHTML=ks.length?`<div class="reveal">${ks.map(k=>`<div class="row" style="display:grid;grid-template-columns:118px 1fr auto;gap:10px;padding:8px 0;border-top:1px solid var(--line-2);font-size:13px;align-items:center"><span class="rid" data-rid="${k}">${k}</span><span>${esc(rules[k].title)}<div style="font-size:11.5px;color:var(--ink-2)">${esc((Bv.find(e=>e.team_rule_id===k)||{}).explanation||"")}</div></span><span>${A[k]?pill(A[k]):`<span class="tag">${T("gone")}</span>`} → ${B[k]?pill(B[k]):`<span class="tag">${T("gone")}</span>`}</span></div>`).join("")}</div>`:`<div style="font-size:13px;color:var(--ink-2);margin-top:8px">${lang==="es"?"Ningún cambio con esos datos.":"No answer changes with those facts."}</div>`;
+  $("#wf-out").querySelectorAll(".rid").forEach(x=>x.onclick=()=>openDrawer(x.dataset.rid))};
  const ex=(DATA.excluded?.[asof]?.[p.address_id])||[];
  if(ex.length){const d=document.createElement("details");d.className="card excl";
   d.innerHTML=`<summary>${ico("i-x")} ${T("checked")} <span class="tag">${ex.length}</span><svg class="i chev" style="margin-left:auto"><use href="#i-down"/></svg></summary>${ex.map(([k,why])=>`<div class="row"><b class="mono">${esc(k)}</b><span>${esc(rules[k].title)} <span style="color:var(--ink-2)">— ${esc(why)}</span></span></div>`).join("")}`;wrap.appendChild(d)}
@@ -990,6 +1149,8 @@ function renderPortfolio(){const el=$("#portfolio");const R=DATA.rules;const lat
     return `<span class="pf-cell" style="--f:${f}" data-tip="${esc(j)} · ${esc(catName(c))}: ${x.a}/${x.n} apply${x.u?`, ${x.u} unknown`:""}">${Math.round(100*f)}<small>%</small>${x.u?`<i class="pf-u"></i>`:""}</span>`}).join("")}`).join("")}</div></div>
   <div class="card pf-side"><h3>${ico("i-flag")} ${es?"Dónde falta un dato":"Where a missing fact matters"}</h3><p class="sub">${es?"Edificios con al menos una respuesta desconocida":"Buildings with at least one unknown answer, by city"}</p>
    ${Object.entries(missing).sort((a,b)=>b[1]-a[1]).map(([j,n])=>{const tot=props.filter(p=>p.jurisdiction===j).length;return `<div class="hbar"><span class="lbl">${esc(j.replace(/, [A-Z]{2}$/,""))}</span><span class="trk"><i style="width:${100*n/tot}%;background:var(--unknown)" data-tip="${n}/${tot}"></i></span><span class="v">${n}</span></div>`}).join("")}
+   <h3 style="margin-top:18px">${ico("i-spark")} ${es?"Qué datos recolectar primero":"What data to collect first"}</h3><p class="sub">${es?"Valor de la información: respuestas que se resolverían":"Value of information: unknown answers each missing fact would settle"}</p>
+   ${(DATA.voi||[]).slice(0,6).map((v,i,a)=>`<div class="voi"><span class="voi-r">${i+1}</span><div><b>${esc(v.fact)}</b><div class="voi-m">${esc((v.city||"").replace(/, [A-Z]{2}$/,""))} · ${v.buildings} ${es?"edificios":"buildings"}</div><span class="trk"><i style="width:${100*v.answers/a[0].answers}%"></i></span></div><span class="voi-n">${v.answers}</span></div>`).join("")}
    <div class="insight" style="margin:14px 0 0"><span class="spark">${ico("i-spark")}</span><div><span class="ai-chip">${T("insight")}</span><div style="margin-top:6px;font-size:13px">${es?"La mayoría de los desconocidos vienen de años de construcción ausentes (San Diego, Berkeley) o del año de corte; el registro público no tiene la fecha del certificado.":"Most unknowns come from missing year built (San Diego, Berkeley) or a cutoff-year building; the public record lacks the certificate date, so Strata does not guess."}</div></div></div></div>
  </div></div>`;
  el.querySelectorAll(".val").forEach(countUp);
@@ -1051,7 +1212,7 @@ function openDrawer(rid){const r=rules[rid];const reach=reachMap(asof)[rid]||new
  <h4 style="margin:18px 0 6px;font-size:13px">${lang==="es"?"Cobertura legible por máquina":"Machine-readable coverage"}</h4>
  <dl class="kv">${Object.entries(c).filter(([k,v])=>k!=="summary"&&v!==null&&v!==false).map(([k,v])=>`<dt class="mono" style="font-size:11.5px">${esc(k)}</dt><dd class="mono">${esc(v)}</dd>`).join("")||`<dt>—</dt><dd>${lang==="es"?"cubre toda la jurisdicción":"covers the whole jurisdiction"}</dd>`}</dl>
  ${c.summary?`<p style="font-size:12.5px;color:var(--ink-2)">${esc(c.summary)}</p>`:""}
- ${r.conflict_flag&&r.conflict_note?`<div class="conflict"><b>${T("conflict")}:</b> ${esc(r.conflict_note)}</div>`:""}${r.caveat?`<div class="caveat"><b>${T("caveat")}:</b> ${esc(r.caveat)}</div>`:""}
+ ${(r.conflict_flag||r.secondary_only)&&r.conflict_note?`<div class="conflict"><b>${r.conflict_flag?T("conflict"):(lang==="es"?"Revisión":"Review")}:</b> ${esc(r.conflict_note)}</div>`:""}${r.caveat?`<div class="caveat"><b>${T("caveat")}:</b> ${esc(r.caveat)}</div>`:""}
  <div class="boundary"><b>${T("boundary")}:</b> ${T("bnd")}</div></div>`;
  dr.classList.add("on");dr.setAttribute("aria-hidden","false");$("#scrim").classList.add("on");$("#dclose").onclick=closeDrawer;$("#dclose").focus()}
 function closeDrawer(){$("#drawer").classList.remove("on");$("#drawer").setAttribute("aria-hidden","true");$("#scrim").classList.remove("on")}
@@ -1088,6 +1249,8 @@ function renderSources(){const el=$("#sources");const S=DATA.sources||[];const e
  <div class="card sc-card"><div class="pf-head"><h3>${ico("i-check")} ${es?"Autoverificación de esta versión":"Self-check of this build"}</h3><div style="display:flex;gap:8px;align-items:center"><span class="mono tag">python run.py check</span><span class="ok">${ico("i-check")} ${lines.filter(l=>l.startsWith("PASS")).length}/${lines.length} pass</span></div></div>
   <div class="sc-bar"><i style="width:${100*lines.filter(l=>l.startsWith("PASS")).length/Math.max(1,lines.length)}%"></i></div>
   <div class="cks">${checks||"run `python run.py check`"}</div></div>
+ ${(()=>{const q=DATA.rules.filter(r=>r.needs_review);return `<div class="card rq-card"><div class="pf-head"><h3>${ico("i-flag")} ${es?"Cola de revisión humana":"Human review queue"} <span class="tag">${q.length}</span></h3><span class="sub" style="margin:0">${es?"Conflictos reales, reglas solo de fuentes secundarias y confianza < 60%":"Real conflicts, secondary-source-only rules and confidence below 60%: shown to users, queued for a person to check"}</span></div>
+  <div class="rq-grid">${q.map(r=>`<div class="rq" data-rid="${esc(r.team_rule_id)}"><div class="rq-top"><span class="mono"><b>${esc(r.team_rule_id)}</b></span>${r.conflict_flag?`<span class="pill" style="--c:var(--warn)">⚑ ${es?"conflicto":"conflict"}</span>`:""}${r.secondary_only?`<span class="pill" style="--c:#7B5CF0">${es?"solo secundaria":"secondary only"}</span>`:""}${r.confidence<0.6?`<span class="pill" style="--c:var(--pending)">${Math.round(100*r.confidence)}% ${es?"confianza":"confidence"}</span>`:""}</div><div class="rq-t">${esc(r.title)}</div><div class="rq-n">${esc(r.conflict_note||r.caveat||"")}</div></div>`).join("")}</div></div>`})()}
  ${(()=>{const un=(DATA.link_only_sources||[]).filter(s=>!S.some(x=>x.doc_id===s.doc_id));const by={};un.forEach(s=>{const st=(s.jurisdictions||"").slice(-2)||"?";(by[st]=by[st]||[]).push(s)});
   return `<div class="card un-card"><div class="pf-head"><h3>${ico("i-x")} ${es?"Fuentes que no pudimos leer":"Sources we could not read"} <span class="tag">${un.length}</span></h3><span class="sub" style="margin:0">${es?"Listadas por transparencia; nunca citadas.":"Listed for transparency, never cited: pages that refused (403) or held no law text."}</span></div>
   <div class="un-grid">${Object.entries(by).map(([st,xs])=>`<div class="un-col"><div class="un-h"><span class="un-st">${esc(st)}</span>${xs.length} ${es?(xs.length>1?"fuentes":"fuente"):(xs.length>1?"sources":"source")}</div>${xs.map(s=>{let h="";try{h=new URL(s.url).hostname.replace(/^www\./,"")}catch(e){}return `<a class="un-i" href="${esc(s.url||"#")}" target="_blank" rel="noopener"><b class="mono">${esc(s.doc_id)}</b><span>${esc(s.jurisdictions)}</span><em>${esc(h)}</em></a>`}).join("")}</div>`).join("")}</div></div>`})()}
@@ -1100,12 +1263,25 @@ function renderSources(){const el=$("#sources");const S=DATA.sources||[];const e
    <div class="dc-m"><span>${ico("i-cal")} ${esc(s.retrieved)}</span><span>${(s.chars||0).toLocaleString()} chars</span></div>
    <div class="rc-reach"><span>${es?"Reglas respaldadas":"Rules backed"}</span><span class="trk"><i style="width:${Math.min(100,12*(used[s.doc_id]||0))}%"></i></span><b>${used[s.doc_id]||0}</b></div></a>`}).join("")}</div>
  ${pagerHTML(src.p,pages,fs.length,per,[8,12,24,48])}</div>`;
- el.querySelectorAll(".cn-v").forEach(countUp);
+ el.querySelectorAll(".cn-v").forEach(countUp);el.querySelectorAll(".rq[data-rid]").forEach(x=>x.onclick=()=>openDrawer(x.dataset.rid));
  $("#sq").oninput=e=>{src.q=e.target.value;src.p=0;clearTimeout(renderSources._t);renderSources._t=setTimeout(()=>{renderSources();const i=$("#sq");i.focus();i.setSelectionRange(i.value.length,i.value.length)},180)};
  el.querySelectorAll(".chips button[data-t]").forEach(b=>b.onclick=()=>{src.t=b.dataset.t;src.p=0;renderSources()});
  el.querySelectorAll(".fpager button[data-p]").forEach(b=>b.onclick=()=>{src.p=+b.dataset.p;renderSources();$(".docs")?.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"})});
  el.querySelector(".fpager [data-size]").onchange=e=>{src.per=+e.target.value;src.p=0;renderSources()}}
 /* ---------- method ---------- */
+const ALGOS=[["Three-tier quote verification","Exact match → whitespace/typography-normalized match with an index map back to the source → bounded fuzzy match (SequenceMatcher ≥ 0.85). Unlocatable quotes are rejected.","nav/quotes.py","95/95 verbatim"],
+ ["TF-IDF + union-find duplicate detection","Cosine similarity over title, requirement and citation, plus normalized citation keys; connected components cross-check the LLM's clustering (pairwise F1).","nav/dedupe.py","F1 vs LLM reported"],
+ ["Typed conflict detection","Disagreeing effective dates across sources, preemption and litigation are the only conflicts; everything else is a caveat.","nav/extract.py","60 → 4 flags"],
+ ["Evidence-weighted confidence (noisy-OR)","1 − Π(1 − wᵢ) over corroborating sources, wᵢ by source type × quote-match quality; caveats and conflicts discount; blended 50/50 with the model's confidence.","nav/confidence.py","per rule"],
+ ["Ordinance coverage inheritance","Rules sharing a city, category and code chapter inherit the ordinance's building cutoff, with a caveat naming the donor.","nav/extract.py","SF, LA, Berkeley"],
+ ["Jurisdiction arbitration","Census incorporated place; a municipal assessor roll outranks a geocoder match on a same-named street elsewhere; NJ never by (owner) ZIP.","nav/properties.py","500/500 resolved"],
+ ["Structured unit inference","Unit counts parsed from NJ MOD-IV building codes, property classes and assessor use classes, each with provenance.","nav/properties.py","5 encodings"],
+ ["Coverage + precedence engine","Certificate cutoffs, rolling exemptions, unit thresholds, owner dependence → covered / not covered / unknown; state rules yield to applying local rules, unknown propagates.","nav/engine.py","T1–T5 pass"],
+ ["Sweep-line temporal engine","Answers only change at effective dates and rolling-exemption year boundaries; sweeping those points gives each building's exact timeline for any date.","nav/temporal.py","0 mismatches × 2,000"],
+ ["Value-of-information ranking","Groups unknown answers by the missing fact and city to rank which data would settle the most answers.","nav/voi.py","data plan"],
+ ["Okapi BM25 retrieval","Ranks extracted rules for Ask Strata (k₁ = 1.4, b = 0.75) with title boosting.","app","grounded answers"],
+ ["Jaro-Winkler address matching","Typo-tolerant address resolution for search and the assistant.","app","did-you-mean"],
+ ["In-browser rule engine (what-if, any date)","A JavaScript port of the engine, parity-tested against Python on 500 addresses × 4 dates, powers what-if simulation and arbitrary as-of dates.","app","100% parity"]];
 function renderMethod(){const el=$("#method");const R=DATA.rules;const st={};R.forEach(r=>st[r.status]=(st[r.status]||0)+1);const J=[...new Set(R.map(r=>r.jurisdiction))];
  const steps=[["A","i-book","Extract","Claude reads each document through one schema-typed tool call and returns rules with machine-readable coverage. Raw outputs are cached: the audit trail."],
   ["A","i-quote","Verify","Code locates every quoted span in the source, character for character. A rule whose quote is not in its source is rejected, never published."],
@@ -1116,6 +1292,7 @@ function renderMethod(){const el=$("#method");const R=DATA.rules;const st={};R.f
  <div class="grid g2" style="margin-top:16px;align-items:start"><div class="card"><h3>${ico("i-layers")} Rules per jurisdiction × category</h3><p class="sub">${R.length} rules · ${Object.entries(st).map(([k,v])=>`${v} ${k.replaceAll("_"," ")}`).join(" · ")}</p>
   <div class="wrap" style="box-shadow:none"><table class="mx"><thead><tr><th></th>${CATS.map(c=>`<th title="${esc(catName(c))}">${ico(CICON[c])}</th>`).join("")}</tr></thead><tbody>${J.map(j=>`<tr><td>${esc(j)}</td>${CATS.map(c=>{const n=R.filter(r=>r.jurisdiction===j&&r.category===c).length;const nf=(DATA.no_rule_findings||[]).some(f=>f.jurisdiction===j&&f.category===c);
    return `<td>${n?`<span class="heat" style="background:var(--brand-soft)">${n}</span>`:nf?`<span class="tag" data-tip="cited no-rule finding">none</span>`:"·"}</td>`}).join("")}</tr>`).join("")}</tbody></table></div></div>
+ <div class="card algos" style="grid-column:1/-1"><div class="pf-head"><h3>${ico("i-cpu")} ${ALGOS.length} algorithms behind every answer</h3><span class="ai-chip">tested</span></div><div class="alg-grid">${ALGOS.map(([n,d,f,m],i)=>`<div class="alg"><div class="alg-h"><span class="alg-n">${String(i+1).padStart(2,"0")}</span><b>${n}</b></div><p>${d}</p><div class="alg-f"><span class="mono">${f}</span><span class="ok">${m}</span></div></div>`).join("")}</div></div>
  <div class="card"><h3>${ico("i-shield")} Responsible design</h3><ul style="margin:6px 0 0;padding-left:18px;font-size:13.5px;color:var(--ink-2);display:grid;gap:6px">
  <li>Every answer: source, exact quote, retrieval date, as-of date.</li><li>Enacted, not-yet-effective, pending and failed kept apart.</li>
  <li>“Unknown” when a needed fact is missing, with the missing fact named.</li><li>Conflict flags only for real conflicts: preemption, disputed dates, litigation. Other limits are caveats.</li>
@@ -1214,13 +1391,25 @@ function bindSugs(m){m.querySelectorAll(".sugs button").forEach(b=>b.onclick=()=
 
 /* ---------- welcome tour ---------- */
 const tour=$("#tour");let tIdx=0;const slides=[...tour.querySelectorAll(".tslide")],panes=[...tour.querySelectorAll(".pane")];
-function tShow(i){tIdx=Math.max(0,Math.min(slides.length-1,i));slides.forEach((s,k)=>s.classList.toggle("on",k===tIdx));panes.forEach((s,k)=>s.classList.toggle("on",k===tIdx));
+let tTimer=null,tPaused=false;const TDUR=5600;
+function tTick(){clearTimeout(tTimer);if(tour.classList.contains("hidden")||tPaused)return;tTimer=setTimeout(()=>{if(tIdx<slides.length-1)tShow(tIdx+1);else tClose()},TDUR)}
+function tShow(i){tIdx=Math.max(0,Math.min(slides.length-1,i));
+ $("#tbar").innerHTML=slides.map((_,k)=>`<span class="${k<tIdx?"done":k===tIdx?"on":""}"><i style="animation-duration:${TDUR}ms"></i></span>`).join("");tTick();slides.forEach((s,k)=>s.classList.toggle("on",k===tIdx));panes.forEach((s,k)=>s.classList.toggle("on",k===tIdx));
  $("#tdots").innerHTML=slides.map((_,k)=>`<button aria-label="Step ${k+1}" aria-current="${k===tIdx}" data-k="${k}"></button>`).join("");
  $("#tdots").querySelectorAll("button").forEach(b=>b.onclick=()=>tShow(+b.dataset.k));
  $("#tprev").style.display=tIdx?"":"none";$("#tnext").textContent=tIdx===slides.length-1?"Enter Strata →":"Next"}
-function tClose(){tour.classList.add("hidden")}
-function tOpen(){tour.classList.remove("hidden");tShow(0)}
-$("#tnext").onclick=()=>tIdx===slides.length-1?tClose():tShow(tIdx+1);$("#tprev").onclick=()=>tShow(tIdx-1);$("#tskip").onclick=tClose;
+function tClose(){tour.classList.add("hidden");clearTimeout(tTimer);cancelAnimationFrame(tRAF)}
+let tRAF=0;function tParticles(){const c=$("#tcanvas");if(!c)return;const x=c.getContext("2d");let W,H,P;const rs=()=>{W=c.width=innerWidth*devicePixelRatio;H=c.height=innerHeight*devicePixelRatio;c.style.width=innerWidth+"px";c.style.height=innerHeight+"px";
+  P=Array.from({length:Math.min(90,Math.round(innerWidth/16))},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35*devicePixelRatio,vy:(Math.random()-.5)*.35*devicePixelRatio,r:(Math.random()*1.6+.6)*devicePixelRatio}))};rs();addEventListener("resize",rs);
+ const L=140*devicePixelRatio;const step=()=>{x.clearRect(0,0,W,H);for(const p of P){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1}
+  for(let i=0;i<P.length;i++){for(let j=i+1;j<P.length;j++){const a=P[i],b=P[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<L){x.strokeStyle=`rgba(159,182,255,${.18*(1-d/L)})`;x.lineWidth=devicePixelRatio;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke()}}
+   const a=P[i];x.fillStyle="rgba(198,168,255,.75)";x.beginPath();x.arc(a.x,a.y,a.r,0,7);x.fill()}
+  if(!tour.classList.contains("hidden"))tRAF=requestAnimationFrame(step)};if(!reduce)step()}
+function tOpen(){tour.classList.remove("hidden");tShow(0);tParticles()}
+$("#tnext").onclick=()=>tIdx===slides.length-1?tClose():tShow(tIdx+1);$("#tprev").onclick=()=>tShow(tIdx-1);$("#tskip").onclick=tClose;$("#tskip2").onclick=tClose;
+
+let tWheel=0;tour.addEventListener("wheel",e=>{if(Date.now()-tWheel<700)return;tWheel=Date.now();tShow(tIdx+(e.deltaY>0?1:-1))},{passive:true});
+let tx0=null;tour.addEventListener("touchstart",e=>{tx0=e.touches[0].clientX},{passive:true});tour.addEventListener("touchend",e=>{if(tx0===null)return;const dx=e.changedTouches[0].clientX-tx0;if(Math.abs(dx)>40)tShow(tIdx+(dx<0?1:-1));tx0=null},{passive:true});
 document.addEventListener("keydown",e=>{if(tour.classList.contains("hidden"))return;if(e.key==="ArrowRight")$("#tnext").click();if(e.key==="ArrowLeft")tShow(tIdx-1);if(e.key==="Escape")tClose()});
 // the welcome tour opens on every fresh visit; "Skip intro" (or Esc) closes it. ?notour skips it for embeds.
 if(!/notour/.test(location.hash))tOpen();
@@ -1238,7 +1427,8 @@ function parseQ(q){const ql=q.toLowerCase();const c={ql};
  const aid=(q.match(/\bA\d{4}\b/i)||[])[0];if(aid&&pid[aid.toUpperCase()])c.addr=aid.toUpperCase();
  if(!c.addr){let best=null,bs=0;const toks=new Set(ql.split(/[^a-z0-9.-]+/).filter(Boolean));
   props.forEach(p=>{const st=p.street_address.toLowerCase().split(/[^a-z0-9.-]+/).filter(t=>t.length>=3||/^\d+/.test(t));let sc=0;st.forEach(t=>{if(toks.has(t)||(/^\d+-\d+$/.test(t)&&t.split("-").some(x=>toks.has(x))))sc+=/^\d/.test(t)?2:1});if(sc>bs){bs=sc;best=p}});
-  if(bs>=3)c.addr=best.address_id}
+  if(bs>=3)c.addr=best.address_id;
+  if(!c.addr){const m=q.match(/\b(\d{2,5}[\w-]*)\s+([a-z][a-z .']{2,30})/i);if(m){const f=fuzzyAddr(m[0],1)[0];if(f&&f.street_address.startsWith(m[1].split("-")[0]))c.addr=f.address_id}}}
  c.cities=CITY_ALIASES.filter(([re])=>new RegExp(re).test(ql)).map(x=>x[1]);c.cities=[...new Set(c.cities)];
  if(c.cities.includes("Los Angeles, CA")&&!/\bla\b|los angeles|l\.a\./.test(ql))c.cities=c.cities.filter(x=>x!=="Los Angeles, CA");
  c.states=[...new Set(STATE_ALIASES.filter(([re])=>new RegExp(re).test(ql)).map(x=>x[1]))];
@@ -1246,8 +1436,7 @@ function parseQ(q){const ql=q.toLowerCase();const c={ql};
 function bestPerCat(entries,c){const es=entries.filter(e=>rules[e.team_rule_id].category===c);
  return es.find(e=>e.result==="applies"&&rules[e.team_rule_id].level==="city")||es.find(e=>e.result==="applies")||es.find(e=>e.result==="unknown")||es.find(e=>e.result==="not_yet_effective")||es.find(e=>e.result==="pending")||es[0]}
 function minibars(obj,color){const mx=Math.max(1,...Object.values(obj));return Object.entries(obj).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<div class="minibar"><span>${esc(k)}</span><span class="trk"><i style="width:${100*v/mx}%;background:${typeof color==="function"?color(k):color}"></i></span><b>${v}</b></div>`).join("")}
-function searchRules(ql,n=5){const words=ql.split(/[^a-z0-9§.]+/).filter(w=>w.length>3&&!/^(what|which|does|there|apply|about|this|that|with|have|rules?|from|where|when)$/.test(w));
- return DATA.rules.map(r=>{const hay=`${r.title} ${r.requirement} ${r.citation} ${r.jurisdiction} ${r.category.replaceAll("_"," ")} ${r.quoted_span}`.toLowerCase();return [r,words.reduce((a,w)=>a+(hay.includes(w)?(r.title.toLowerCase().includes(w)?3:1):0),0)]}).filter(x=>x[1]>0).sort((a,b)=>b[1]-a[1]).slice(0,n).map(x=>x[0])}
+function searchRules(ql,n=5){return BM.search(ql,n)}
 function grounded(q){const c=parseQ(q);const d=c.date||asof;const used=new Set();const out=[];const use=id=>{used.add(id);return ridLink(id)};
  const rows=(list)=>`<table><thead><tr><th>Rule</th><th>Result</th><th>Why</th></tr></thead><tbody>${list.map(e=>`<tr><td>${use(e.team_rule_id)}<div style="font-size:11.5px;color:var(--ink-2)">${esc(rules[e.team_rule_id].title)}</div></td><td>${pill(e.result)}</td><td style="font-size:11.5px">${esc(e.explanation)}</td></tr>`).join("")}</tbody></table>`;
  if(c.rid){const r=rules[c.rid];const reach=reachMap(d)[c.rid]||new Set();
