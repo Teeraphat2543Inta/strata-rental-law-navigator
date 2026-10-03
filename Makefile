@@ -1,5 +1,5 @@
 PY ?= python3
-STARTER_PACK ?= ../pack_raw/participant-final-no-hour16 3
+STARTER_PACK ?= $(HOME)/Downloads/pack_v5/participant-final-no-hour16
 
 .PHONY: setup geocode fetch extract build check score test all serve clean-out
 
