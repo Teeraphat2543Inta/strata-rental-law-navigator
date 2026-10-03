@@ -1413,7 +1413,10 @@ function renderMap(){const el=$("#map");const es=lang==="es";
   m.on("click",()=>go("lookup",p.address_id))});
  $(".map-leg").innerHTML=`<div class="mleg">${[["ok","var(--applies)",es?"todo resuelto":"all answers resolved"],["u","var(--unknown)",es?"falta un dato":"a fact is missing"],["c","var(--nye)",es?"cambia antes de "+later:"changes by "+later]].map(([k,c,l])=>`<div class="ml"><i style="--c:${c}"></i><span>${l}</span><b data-to="${cnt[k]}">0</b></div>`).join("")}</div>`;
  $(".map-leg").querySelectorAll("b").forEach(countUp);
- setTimeout(()=>{MAP.invalidateSize();const opts={duration:reduce?0:1.4,easeLinearity:.2};if(mapCity&&CITY_VIEW[mapCity]){const v=CITY_VIEW[mapCity];MAP.flyTo([v[0],v[1]],v[2],opts)}else if(pts.length){MAP.flyToBounds(L.latLngBounds(pts.map(p=>[p.lat,p.lon])),{padding:[30,30],...opts})}},60)}
+ setTimeout(()=>{MAP.invalidateSize();const first=!MAP._strataShown;MAP._strataShown=true;const opts={duration:reduce?0:1.4,easeLinearity:.2};
+  // first view jumps straight to the city (a long zoom-in would scale every marker mid-flight); later city changes fly
+  if(mapCity&&CITY_VIEW[mapCity]){const v=CITY_VIEW[mapCity];first?MAP.setView([v[0],v[1]],v[2],{animate:false}):MAP.flyTo([v[0],v[1]],v[2],opts)}
+  else if(pts.length){const b=L.latLngBounds(pts.map(p=>[p.lat,p.lon]));first?MAP.fitBounds(b,{padding:[30,30],animate:false}):MAP.flyToBounds(b,{padding:[30,30],...opts})}},60)}
 
 /* ---------- compare ---------- */
 let cmpIds=["A0016","A0050","A0107"];
