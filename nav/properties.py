@@ -140,4 +140,6 @@ def build_property(row, census=None):
         "use_description": row.get("use_description"),
         "source_dataset": row.get("source_dataset"),
         "data_flags": flags,
+        "lat": round(g["lat"], 6) if (g := (census or {}).get(row["address_id"])) and g.get("lat") else None,
+        "lon": round(g["lon"], 6) if g and g.get("lon") else None,
     }
