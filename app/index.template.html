@@ -706,6 +706,39 @@ tr.cmp-diff td{background:color-mix(in srgb,#7B5CF0 7%,transparent)}
 .ml b{font-variant-numeric:tabular-nums;font-size:14px}
 #leaf{background:radial-gradient(circle at 50% 50%,#13203a,#0b1220)}
 .leaflet-fade-anim .leaflet-tile{transition:opacity .4s}
+
+/* drawer v2 */
+.drawer{width:min(560px,100vw);font-size:13px;background:var(--card)}
+.dh2{padding:16px 20px 14px;border-bottom:1px solid var(--line);background:linear-gradient(135deg,color-mix(in srgb,var(--c) 22%,var(--card)),var(--card) 70%);position:relative}
+.dh2-top{display:flex;align-items:center;gap:8px}
+.dh2-ic{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--brand-2),#7B5CF0)}.dh2-ic svg{width:16px;height:16px}
+.dh2-id{font-size:12px;font-weight:600;color:var(--ink-2)}.dh2-cat{font-size:11.5px;color:var(--ink-3);text-transform:capitalize}
+.dh2-top .iconbtn{margin-left:auto;width:32px;height:32px}
+.dh2 h3{margin:10px 0 8px;font-size:16.5px;line-height:1.35;letter-spacing:-.01em}
+.dh2-pills{display:flex;gap:6px;flex-wrap:wrap}
+.db2{padding:14px 20px 32px;overflow:auto;display:flex;flex-direction:column;gap:12px}
+.db2>*{animation:cardin .4s cubic-bezier(.2,.7,.2,1) both}.db2>*:nth-child(2){animation-delay:.04s}.db2>*:nth-child(3){animation-delay:.08s}.db2>*:nth-child(4){animation-delay:.12s}.db2>*:nth-child(n+5){animation-delay:.16s}
+.dsec{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--card)}
+.dsec-h{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px}.dsec-h svg{width:14px;height:14px;color:var(--brand-2)}
+.dplain{margin:0;font-size:13.5px;line-height:1.6}
+.dtiles{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+@media (max-width:520px){.dtiles{grid-template-columns:1fr}}
+.dtile{display:flex;gap:10px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:10px;background:var(--soft)}
+.dtile b{display:block;font-size:11.5px}.dtile small{display:block;font-size:10.5px;color:var(--ink-3);line-height:1.3}
+.ring{--p:50;width:42px;height:42px;border-radius:50%;flex:none;display:grid;place-items:center;background:conic-gradient(var(--brand-2) calc(var(--p)*1%),var(--line) 0)}
+.ring span{width:32px;height:32px;border-radius:50%;background:var(--soft);display:grid;place-items:center;font-size:10.5px;font-weight:700}
+.dbig{font-size:20px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums;min-width:42px}.dbig.sm{font-size:12.5px}
+.dq{font-size:13px;margin:0 0 8px}
+.dcopy{margin-left:auto;font:600 11px var(--font);border:1px solid var(--line);background:var(--card);color:var(--ink-2);border-radius:8px;padding:3px 9px;cursor:pointer;text-transform:none;letter-spacing:0}
+.dsrc{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:12px;color:var(--ink-2);align-items:center}.dsrc a{display:inline-flex;gap:4px;align-items:center;font-weight:600}.dsrc svg{width:13px;height:13px}
+.dsub{font-size:12px;color:var(--ink-2);margin:8px 0 0;line-height:1.5}
+.dchips{display:flex;flex-wrap:wrap;gap:6px}
+.dchip{font-size:11.5px;border-radius:8px;padding:4px 9px;background:var(--soft);border:1px solid var(--line);color:var(--ink-2);text-decoration:none}.dchip b{color:var(--ink);font-weight:600;text-transform:capitalize}
+.dchip.link:hover{border-color:var(--brand-2)}
+.dcall{display:flex;gap:10px;align-items:flex-start;border-radius:12px;padding:10px 12px;background:color-mix(in srgb,#7B5CF0 8%,var(--card));border:1px solid color-mix(in srgb,#7B5CF0 30%,var(--line));font-size:12.5px}
+.dcall.warn{background:color-mix(in srgb,var(--warn) 8%,var(--card));border-color:color-mix(in srgb,var(--warn) 40%,var(--line))}
+.dcall svg{width:16px;height:16px;flex:none;color:#7B5CF0;margin-top:2px}.dcall.warn svg{color:var(--warn)}.dcall p{margin:2px 0 0;color:var(--ink-2)}
+.dacts{display:flex;gap:8px;flex-wrap:wrap}.dacts .btn{font-size:12.5px;padding:8px 12px}
 </style>
 </head>
 <body>
@@ -1229,22 +1262,35 @@ function renderLibrary(){const el=$("#library");const R=DATA.rules;const es=lang
  $("#lsort").onchange=e=>{lib.sort=e.target.value;rer()};$("#vcards").onclick=()=>{lib.view="cards";rer()};$("#vtable").onclick=()=>{lib.view="table";rer()};
  el.querySelectorAll(".fpager button[data-p]").forEach(b=>b.onclick=()=>{lib.p=+b.dataset.p;renderLibrary();el.scrollIntoView({behavior:reduce?"auto":"smooth"})});
  el.querySelectorAll("[data-rid]").forEach(x=>{x.onclick=()=>openDrawer(x.dataset.rid);x.onkeydown=e=>{if(e.key==="Enter")openDrawer(x.dataset.rid)}})}
-function openDrawer(rid){const r=rules[rid];const reach=reachMap(asof)[rid]||new Set();const c=r.coverage_conditions||{};const req=lang==="es"&&r.requirement_es?r.requirement_es:r.requirement;
- const dr=$("#drawer");dr.innerHTML=`<div class="dh"><div style="flex:1"><div class="tid">${ico(CICON[r.category])} ${esc(r.team_rule_id)} · ${esc(catName(r.category))}</div><h3>${esc(r.title)}</h3><div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">${pill(STATUS_RES[r.status]||"pending")}<span class="tag">${esc(r.jurisdiction)}</span><span class="tag">${esc(r.level)}</span>${r.conflict_flag?`<span class="pill" style="--c:var(--warn)">⚑ ${T("review")}</span>`:""}</div></div><button class="iconbtn" id="dclose" aria-label="Close">${ico("i-x")}</button></div>
- <div class="db"><p style="margin:0">${esc(req)}${r.key_value?` <b>${esc(r.key_value)}</b>`:""}</p><blockquote>“${esc(r.quoted_span)}”</blockquote>
- <dl class="kv"><dt>${T("cite")}</dt><dd>${esc(r.citation)}</dd><dt>${T("source")}</dt><dd><a href="${esc(r.source_url)}" target="_blank" rel="noopener">${esc(r.source_doc_id)}</a> · ${T("retrieved")} ${esc(r.retrieved_at)}</dd>
- <dt>${lang==="es"?"Corroborada por":"Corroborated by"}</dt><dd>${(r.supporting_docs||[]).map(esc).join(", ")}</dd><dt>${T("eff")}</dt><dd>${esc(r.effective_date||"—")}</dd>
- ${r.effective_date_quote?`<dt>${lang==="es"?"Cita de vigencia":"Effective-date quote"}</dt><dd><i>“${esc(r.effective_date_quote)}”</i></dd>`:""}
- <dt>${T("conf")}</dt><dd>${Math.round(100*r.confidence)}%<span class="meter"><i style="width:${Math.round(100*r.confidence)}%"></i></span></dd>
- <dt>${lang==="es"?"Edificios":"Buildings reached"} · ${asof}</dt><dd>${reach.size}</dd>
- ${r.penalty?`<dt>${lang==="es"?"Sanción":"Penalty"}</dt><dd>${esc(r.penalty)}</dd>`:""}${r.exemptions?`<dt>${lang==="es"?"Exenciones":"Exemptions"}</dt><dd>${esc(r.exemptions)}</dd>`:""}
- ${r.interaction?`<dt>${lang==="es"?"Interacción":"Interaction"}</dt><dd>${esc(r.interaction)}${(r.overrides||[]).length?` (${r.overrides.map(esc).join(", ")})`:""}</dd>`:""}</dl>
- <h4 style="margin:18px 0 6px;font-size:13px">${lang==="es"?"Cobertura legible por máquina":"Machine-readable coverage"}</h4>
- <dl class="kv">${Object.entries(c).filter(([k,v])=>k!=="summary"&&v!==null&&v!==false).map(([k,v])=>`<dt class="mono" style="font-size:11.5px">${esc(k)}</dt><dd class="mono">${esc(v)}</dd>`).join("")||`<dt>—</dt><dd>${lang==="es"?"cubre toda la jurisdicción":"covers the whole jurisdiction"}</dd>`}</dl>
- ${c.summary?`<p style="font-size:12.5px;color:var(--ink-2)">${esc(c.summary)}</p>`:""}
- ${(r.conflict_flag||r.secondary_only)&&r.conflict_note?`<div class="conflict"><b>${r.conflict_flag?T("conflict"):(lang==="es"?"Revisión":"Review")}:</b> ${esc(r.conflict_note)}</div>`:""}${r.caveat?`<div class="caveat"><b>${T("caveat")}:</b> ${esc(r.caveat)}</div>`:""}
- <div class="boundary"><b>${T("boundary")}:</b> ${T("bnd")}</div></div>`;
- dr.classList.add("on");dr.setAttribute("aria-hidden","false");$("#scrim").classList.add("on");$("#dclose").onclick=closeDrawer;$("#dclose").focus()}
+function openDrawer(rid){const r=rules[rid];const reach=(()=>{const st=new Set();props.forEach(p=>{if(entriesOf(p.address_id).some(e=>e.team_rule_id===rid))st.add(p.address_id)});return st})();
+ const c=r.coverage_conditions||{};const es=lang==="es";const req=es&&r.requirement_es?r.requirement_es:r.requirement;const pct=Math.round(100*r.confidence);
+ const res=STATUS_RES[r.status]||"pending";const byCity={};reach.forEach(a=>{const j=pid[a].jurisdiction;byCity[j]=(byCity[j]||0)+1});
+ const covChips=Object.entries(c).filter(([k,v])=>k!=="summary"&&v!==null&&v!==false).map(([k,v])=>`<span class="dchip"><b>${esc(k.replaceAll("_"," "))}</b>${v===true?"":` ${esc(v)}`}</span>`).join("");
+ const dr=$("#drawer");dr.innerHTML=`<div class="dh2" style="--c:${COLOR[res]}"><div class="dh2-top"><span class="dh2-ic">${ico(CICON[r.category])}</span><span class="mono dh2-id">${esc(r.team_rule_id)}</span><span class="dh2-cat">${esc(catName(r.category))}</span><button class="iconbtn" id="dclose" aria-label="Close">${ico("i-x")}</button></div>
+  <h3>${esc(r.title)}</h3><div class="dh2-pills">${pill(res).replace(/>[^<]*<\/span>$/,`>${esc(r.status.replaceAll("_"," "))}</span>`)}<span class="tag">${esc(r.jurisdiction)}</span><span class="tag">${esc(r.level)}</span>${r.conflict_flag?`<span class="pill" style="--c:var(--warn)">⚑ ${es?"conflicto":"conflict"}</span>`:""}${r.secondary_only?`<span class="pill" style="--c:#7B5CF0">${es?"solo secundaria":"secondary only"}</span>`:""}</div></div>
+ <div class="db2">
+  <section class="dsec"><div class="dsec-h">${ico("i-book")} ${es?"En palabras sencillas":"In plain words"}</div><p class="dplain">${esc(req)}${r.key_value?` <b>${esc(r.key_value)}</b>`:""}</p></section>
+  <section class="dtiles"><div class="dtile"><div class="ring" style="--p:${pct}"><span>${pct}%</span></div><div><b>${es?"Confianza":"Confidence"}</b><small>${es?"evidencia":"evidence"} ${Math.round(100*(r.evidence_score??r.confidence))}% · ${es?"modelo":"model"} ${Math.round(100*(r.model_confidence??r.confidence))}%</small></div></div>
+   <div class="dtile"><div class="dbig">${reach.size}</div><div><b>${es?"Edificios":"Buildings reached"}</b><small>${T("asof")} ${asof}</small></div></div>
+   <div class="dtile"><div class="dbig sm">${esc(r.effective_date||"—")}</div><div><b>${T("eff")}</b><small>${es?"estado":"status"} ${esc(r.status.replaceAll("_"," "))}</small></div></div></section>
+  <section class="dsec"><div class="dsec-h">${ico("i-quote")} ${es?"La oración de la ley":"The sentence of law"}<button class="dcopy" id="dcopyq">${es?"Copiar":"Copy"}</button></div><blockquote class="dq">“${esc(r.quoted_span)}”</blockquote>
+   <div class="dsrc"><a href="${esc(r.source_url)}" target="_blank" rel="noopener">${ico("i-link")} ${esc(r.source_doc_id)}</a><span>${T("retrieved")} ${esc(r.retrieved_at)}</span><span class="mono">${esc(r.citation)}</span></div>
+   ${r.effective_date_quote?`<div class="dsub"><b>${es?"Vigencia":"Effective-date line"}:</b> <i>“${esc(r.effective_date_quote)}”</i></div>`:""}</section>
+  ${(r.conflict_flag||r.secondary_only)&&r.conflict_note?`<div class="dcall warn">${ico("i-flag")}<div><b>${r.conflict_flag?T("conflict"):(es?"Revisión humana":"Human review")}</b><p>${esc(r.conflict_note)}</p></div></div>`:""}
+  ${r.caveat?`<div class="dcall">${ico("i-spark")}<div><b>${T("caveat")}</b><p>${esc(r.caveat)}</p></div></div>`:""}
+  <section class="dsec"><div class="dsec-h">${ico("i-layers")} ${es?"Cobertura legible por máquina":"Machine-readable coverage"}</div><div class="dchips">${covChips||`<span class="dchip">${es?"cubre toda la jurisdicción":"covers the whole jurisdiction"}</span>`}</div>
+   ${c.summary?`<p class="dsub">${esc(c.summary)}</p>`:""}${r.exemptions?`<p class="dsub"><b>${es?"Exenciones":"Exemptions"}:</b> ${esc(r.exemptions)}</p>`:""}${r.penalty?`<p class="dsub"><b>${es?"Sanción":"Penalty"}:</b> ${esc(r.penalty)}</p>`:""}
+   ${r.interaction?`<p class="dsub"><b>${es?"Interacción":"Interaction"}:</b> ${esc(r.interaction)}${(r.overrides||[]).length?` · ${r.overrides.map(x=>`<span class="rid" data-rid="${esc(x)}">${esc(x)}</span>`).join(", ")}`:""}</p>`:""}</section>
+  ${Object.keys(byCity).length?`<section class="dsec"><div class="dsec-h">${ico("i-pin")} ${es?"Dónde aplica":"Where it reaches"}</div>${Object.entries(byCity).sort((a,b)=>b[1]-a[1]).map(([j,n])=>`<div class="minibar"><span>${esc(j)}</span><span class="trk"><i style="width:${100*n/Math.max(...Object.values(byCity))}%;background:${cityColor(j)}"></i></span><b>${n}</b></div>`).join("")}</section>`:""}
+  <section class="dsec"><div class="dsec-h">${ico("i-db")} ${es?"Corroborada por":"Corroborated by"}</div><div class="dchips">${(r.supporting_docs||[]).map(d=>{const sd=(DATA.sources||[]).find(x=>x.doc_id===d);return `<a class="dchip link" href="${esc(sd?.url||"#")}" target="_blank" rel="noopener"><b>${esc(d)}</b> ${esc(sd?(sd.source_type.startsWith("fetched")?"secondary":sd.source_type):"")}</a>`}).join("")}</div></section>
+  <div class="dacts"><button class="btn primary" id="dask">${ico("i-spark")} ${es?"Preguntar a Strata":"Ask Strata about this rule"}</button><button class="btn" id="dcopyc">${ico("i-link")} ${es?"Copiar cita":"Copy citation"}</button></div>
+  <div class="boundary"><b>${T("boundary")}:</b> ${T("bnd")}</div>
+ </div>`;
+ dr.classList.add("on");dr.setAttribute("aria-hidden","false");$("#scrim").classList.add("on");$("#dclose").onclick=closeDrawer;$("#dclose").focus();
+ dr.querySelectorAll(".rid").forEach(x=>x.onclick=()=>openDrawer(x.dataset.rid));
+ const cp=t=>(navigator.clipboard?.writeText(t)||Promise.reject()).then(()=>toast(es?"Copiado":"Copied"),()=>toast(t.slice(0,60)));
+ $("#dcopyq").onclick=()=>cp(`“${r.quoted_span}” (${r.citation}; ${r.source_url}; retrieved ${r.retrieved_at})`);$("#dcopyc").onclick=()=>cp(`${r.title}. ${r.citation}. ${r.source_url} (retrieved ${r.retrieved_at}).`);
+ $("#dask").onclick=()=>{closeDrawer();aiOpen(`${rid}`)}}
 function closeDrawer(){$("#drawer").classList.remove("on");$("#drawer").setAttribute("aria-hidden","true");$("#scrim").classList.remove("on")}
 $("#scrim").onclick=closeDrawer;
 
