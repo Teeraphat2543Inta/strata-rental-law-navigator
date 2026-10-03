@@ -4,7 +4,7 @@ import time
 
 from . import config
 from .changes import changes_for_doc, run_test
-from .corpus import load_link_only
+from .corpus import load_docs, load_link_only
 from .engine import excluded, lookups
 from .geocode import load_cache
 from .properties import build_property, load_addresses
@@ -48,6 +48,8 @@ def build(rules, findings, new_doc_ids=()):
         "changes": changes,
         "no_rule_findings": findings,
         "link_only_sources": load_link_only(),
+        "sources": [{"doc_id": d.doc_id, "jurisdictions": d.jurisdictions, "url": d.url, "source_type": d.source_type,
+                     "retrieved": d.retrieved_date, "chars": len(d.text)} for d in load_docs()],
         "tests": tests,
         "model": config.ANTHROPIC_MODEL,
         "selfcheck": None,
